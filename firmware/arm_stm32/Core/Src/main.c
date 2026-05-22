@@ -25,6 +25,7 @@
 #include <stdio.h>
 
 #include "motor.h"
+#include "encoder.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -114,44 +115,43 @@ int main(void)
 
 
   Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2};
-
-
+  Encoder shoulder_encoder = {.timer=&htim2, .offset=0};
 
 
   while (1)
   {
-	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+//
+//		  Motor_SetPower(&shoulder_motor, 1000);
+//
+//		  HAL_Delay(1000);
+//
+//		  Motor_Stop(&shoulder_motor);
+//
+//		  HAL_Delay(100);
+//
+//		  Motor_SetPower(&shoulder_motor, -1000);
+//
+//		  HAL_Delay(1000);
+//
+//		  Motor_Stop(&shoulder_motor);
+//
+//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+//	  }
 
-		  Motor_SetPower(&shoulder_motor, 1000);
-
-		  HAL_Delay(1000);
-
-		  Motor_Stop(&shoulder_motor);
-
-		  HAL_Delay(100);
-
-		  Motor_SetPower(&shoulder_motor, -1000);
-
-		  HAL_Delay(1000);
-
-		  Motor_Stop(&shoulder_motor);
-
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	  }
-
-	  int32_t pos = __HAL_TIM_GET_COUNTER(&htim2);
+	  int32_t pos = Encoder_GetPosition(&shoulder_encoder);
 
 	  char buf[50];
 	  sprintf(buf, "%ld\r\n", pos);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
 	  HAL_Delay(50);
 
-//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 1000);
-//	  }else{
-//		  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 0);
-//	  }
+	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+		  Motor_SetPower(&shoulder_motor, -500);
+	  }else{
+		  Motor_Stop(&shoulder_motor);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
