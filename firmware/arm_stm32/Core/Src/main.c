@@ -27,6 +27,7 @@
 #include "motor.h"
 #include "encoder.h"
 #include "pid.h"
+#include "joint.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,11 +116,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
 
+  //SHOULDER JOINT DECLARATION
   Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2};
   Encoder shoulder_encoder = {.timer=&htim2, .offset=0};
   PID shoulder_pid = {.Kp=.75f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
+  Joint shoulder_joint = {.motor=&shoulder_motor, .encoder=&shoulder_encoder, .pid=&shoulder_pid, .target_position=0};
 
-  float target = 0;
 
   while (1)
   {
@@ -150,14 +152,13 @@ int main(void)
 //	  }
 
 	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  Encoder_Zero(&shoulder_encoder);
-		  target = 12576;
+		  Joint_Reset(&shoulder_joint);
+		  Joint_SetTarget(&shoulder_joint, 12576);
 		  HAL_Delay(200);
 	  }
-	  int32_t pos = Encoder_GetPosition(&shoulder_encoder);
-	  float out = PID_Compute(&shoulder_pid, target, pos);
-	  Motor_SetPower(&shoulder_motor, out);
+	  Joint_Update(&shoulder_joint);
 
+	  int32_t pos = Encoder_GetPosition(&shoulder_encoder);
 	  char buf[50];
 	  sprintf(buf, "%ld\r\n", pos);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
