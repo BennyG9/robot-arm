@@ -1,0 +1,2 @@
+../Core/Src/motor.c:13:6:Motor_SetPower	16	static
+../Core/Src/motor.c:32:6:Motor_Stop	16	static
