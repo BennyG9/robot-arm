@@ -15,5 +15,6 @@ int32_t Encoder_GetPosition(Encoder* encoder){
 
 
 void Encoder_Zero(Encoder* encoder){
-	encoder->offset = (int16_t)__HAL_TIM_GET_COUNTER(encoder->timer);
+	//encoder->offset = (int16_t)__HAL_TIM_GET_COUNTER(encoder->timer);
+	__HAL_TIM_SET_COUNTER(encoder->timer, 0);
 }

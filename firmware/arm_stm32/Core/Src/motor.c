@@ -16,6 +16,8 @@ void Motor_SetPower(Motor* motor, float power){
 		power = 1000;
 	}else if(power < -1000){
 		power = -1000;
+	}else if(power < 50 && power > -50){
+		power = 0;
 	}
 
 	if(power >= 0){
