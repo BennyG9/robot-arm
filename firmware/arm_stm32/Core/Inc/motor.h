@@ -16,6 +16,9 @@ typedef struct{
 	uint32_t forward_channel;
 
 	uint32_t reverse_channel;
+
+	int min_duty_forward;
+	int min_duty_reverse;
 } Motor;
 
 void Motor_SetPower(Motor* motor, float power);

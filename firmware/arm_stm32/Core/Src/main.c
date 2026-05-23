@@ -123,7 +123,7 @@ int main(void)
 
 
   //SHOULDER JOINT DECLARATION
-  Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2};
+  Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2, .min_duty_forward=50, .min_duty_reverse=-50};
   Encoder shoulder_encoder = {.timer=&htim2, .offset=0};
   PID shoulder_pid = {.Kp=.75f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
   Joint_Init(&shoulder_joint, &shoulder_motor, &shoulder_encoder, &shoulder_pid, 0);
