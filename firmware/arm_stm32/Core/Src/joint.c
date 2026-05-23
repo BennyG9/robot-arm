@@ -8,6 +8,12 @@
 
 #include "joint.h"
 
+void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, int32_t t){
+	j->motor = m;
+	j->encoder = e;
+	j->pid = p;
+	j->target_position = t;
+}
 
 void Joint_SetTarget(Joint* joint, int32_t pos){
 	joint->target_position = pos;

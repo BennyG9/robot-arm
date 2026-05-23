@@ -22,6 +22,8 @@ typedef struct{
 	int32_t target_position;
 } Joint;
 
+void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, int32_t t);
+
 void Joint_SetTarget(Joint* joint, int32_t pos);
 
 void Joint_Update(Joint* joint);
