@@ -50,7 +50,7 @@ The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Na
 <img src="media/Embedded_Prototype_5-29-2026.jpeg" style="float: left; margin-right: 15px;" width="300"/>
 <p>testststststststst</p>
 
-<img src="media/Embedded_Prototype_5-29-2026.jpeg" style="float: left; margin-right: 15px;" alt="Description">
+<img src="media/Embedded_Prototype_5-29-2026.jpeg" style="float: left; margin-right: 15px;" alt="Description" width="300">
 <p>This text will appear to the right of the image and wrap around it if the text is long enough.</p>
 
 
