@@ -34,7 +34,7 @@ Design and build a 4 or 5 DOF robotc arm with precise mechanics and control syst
 
 ### Embedded Control
 
-![Embedded Prototype 5/29/2026](Embedded_Prototype_5-29-2026.jpeg)
+![Embedded Prototype 5/29/2026](media/Embedded_Prototype_5-29-2026.jpeg)
 
 
 ## Code Structure
