@@ -43,6 +43,13 @@
   The robotic arm is powered by an STM32 Nucleo-F446RE, taking care of all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.
 </div>
 
+<br> <br>
+ <br>
+ <br>
+ <br>
+ <br>
+
+
 <div style="display: flex; align-items: center;">
   <img src="media/Embedded_Prototype_5-29-2026.jpeg" width="200" style="margin-right: 10px;">
   <p>This text is vertically centered next to the image.</p>
