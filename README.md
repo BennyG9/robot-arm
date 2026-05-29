@@ -47,6 +47,9 @@ The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Na
   <p>text....teststs fsf dsdf sdfsd </p>
 </div>
 
+<img src="media/Embedded_Prototype_5-29-2026.jpeg" width="300"/>
+<p>testststststststst</p>
+
 ### Control
 
 So far, the shoulder joint is just controlled using a simple 1kHz PID loop. 
