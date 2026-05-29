@@ -41,7 +41,9 @@ Design and build a 4 or 5 DOF robotc arm with precise mechanics and control syst
 
 ### Control
 
+So far, the shoulder joint is just controlled using a simple 1kHz PID loop. 
 
+[PID Position Control Demo](https://youtu.be/YCUa2xMnsVE)
 
 
 ## Code Structure
