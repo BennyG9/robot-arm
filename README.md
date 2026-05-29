@@ -27,16 +27,19 @@ Design and build a 4 or 5 DOF robotc arm with precise mechanics and control syst
 
 ### Mechanical Design
 
+<div align="center">
+  <img src="media/CAD_Prototype_5-28-2026.jpg" width="300"/>
+</div>
 
 ### Embedded Architecture 
-
-
-
-### Embedded Control
 
 <div align="center">
   <img src="media/Embedded_Prototype_5-29-2026.jpeg" width="300"/>
 </div>
+
+### Control
+
+
 
 
 ## Code Structure
