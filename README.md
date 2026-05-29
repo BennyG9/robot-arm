@@ -2,6 +2,8 @@
 
 ## Project Goals 
 
+Design and build a 4 or 5 DOF robotc arm with precise mechanics and control systems 
+
 ## Status 
 
 ### Completed
@@ -19,8 +21,22 @@
 * NVIDIA Jetson Nano + STM32 distributed system for high-level planning and real-time control
 * RTOS implementation 
 * ROS2 package for high-level robot interfacing
-* AI and computer vision integration 
+* AI and computer vision integration
 
-## Code Structure 
+## How it Works 
+
+### Mechanical Design
+
+
+### Embedded Architecture 
+
+
+
+### Embedded Control
+
+
+
+## Code Structure
+* `firmware/arm_stm32/` - STM32 project main folder 
 * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
 * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
