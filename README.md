@@ -60,14 +60,15 @@ So far, the shoulder joint is just controlled using a simple 1kHz PID loop.
 
 ## Media 
 
-[PID Position Control Demo(5-28-2026)](https://youtu.be/YCUa2xMnsVE)
+[PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 
 <div align="left">
   <img src="media/CAD_Prototype_5-28-2026.jpg" width="300"/>
+  <img src="media/Embedded_Prototype_5-29-2026.jpeg" width="300"/>
 </div>
 
 <div align="right">
-  <img src="media/Embedded_Prototype_5-29-2026.jpeg" width="300"/>
+  
 </div>
 
 
