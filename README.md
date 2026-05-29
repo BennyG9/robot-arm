@@ -34,9 +34,12 @@ Design and build a 4 or 5 DOF robotc arm with precise mechanics and control syst
 
 ### Embedded Control
 
+![Embedded Prototype 5/29/2026](Embedded_Prototype_5-29-2026.jpeg)
 
 
 ## Code Structure
 * `firmware/arm_stm32/` - STM32 project main folder 
 * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
 * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
+
+## Media 
