@@ -42,7 +42,7 @@ The robotic arm is powered by an STM32 Nucleo-F446RE, taking care of all of the 
 
 The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2. 
 
-<div align="center">
+<div align="left">
   <img src="media/Embedded_Prototype_5-29-2026.jpeg" width="300"/>
   <p>text....teststs fsf dsdf sdfsd </p>
 </div>
