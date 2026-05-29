@@ -6,7 +6,7 @@
 
 ### Completed
 * Shoulder joint mechanical protorype
-* Shoulder joint PID positional control
+* Shoulder joint PID positional control using STM32
 * Rotational base mechanical prototype (CAD)
 
 ### In Progress
@@ -15,7 +15,11 @@
 * Elbow joint mechanical prototype 
 
 ### Planned
-* ___
+* 2 then 3-DOF mechanics and control, ultimately expand to 4 or 5 DOF
+* NVIDIA Jetson Nano + STM32 distributed system for high-level planning and real-time control
+* RTOS implementation 
+* ROS2 package for high-level robot interfacing
+* AI and computer vision integration 
 
 ## Code Structure 
 * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
