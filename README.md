@@ -2,6 +2,9 @@
 
 STM32-based robotic arm project focused on embedded control systems and robotic system design. The long-term goal is a 4-5 DOF manipulator with ROS2 integration, computer vision, and AI-assisted task execution using an NVIDIA Jetson Nano. This project is a work in progress and is documented regularly...
 
+Here are some videos demonstrating the current progress:
+* [PID Position Control Demo (5-29-2026)](https://youtu.be/YCUa2xMnsVE)
+
 ## Project Goals 
 
 * Design and build a 4 or 5 DOF robotic arm
