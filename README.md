@@ -28,7 +28,7 @@
 
 ## How it Works 
 
-#### Mechanical Design
+### Mechanical Design
 ---
 <div>
   <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="275"> 
