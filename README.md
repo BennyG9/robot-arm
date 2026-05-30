@@ -72,6 +72,7 @@ The shoulder joint currently uses a 1kHz closed-loop PID controller running on a
 * STM32CubeMX & STM32CubeIDE
 
 ## Repository Structure 
+````text
 robotic-arm/
 ├── firmware/ 
 │   └── arm_stm32/
@@ -79,6 +80,7 @@ robotic-arm/
 │   └──  cad/
 ├── media/
 └── README.md
+````
 
 ## Code Structure
 * `firmware/arm_stm32/` - STM32 project main folder 
