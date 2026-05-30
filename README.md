@@ -7,14 +7,15 @@ STM32-based robotic arm project focused on embedded control systems and robotic 
 * Design and build a 4 or 5 DOF robotic arm
 * Implement real-time control system for precise mechanics
 * Enable AI functionality using computer vision on NVIDIA Jetson Nano
-* Design custom PCB integrating power systems, microprocessing, and motor driving
+* Design custom PCB integrating power systems, embedded processing, and motor driving
 
 ## Status 
 
 ### Completed
-* Shoulder joint mechanical protoype
+* Shoulder joint mechanical prototype
 * Shoulder joint PID positional control using STM32
 * Rotational base mechanical prototype (CAD)
+* STM32 embedded software architecture 
 
 ### In Progress
 * Shoulder joint re-design
@@ -34,7 +35,7 @@ STM32-based robotic arm project focused on embedded control systems and robotic 
 ---
 <div>
   <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="275"> 
-  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design aims to distribute weight away from motor shafts onto bearings and maximizing torque lower down in the arm's architecture. This design improves stiffness and reduces footprint from the previous version. <br><br> Current work includes adding limit switch stops to the shoulder joint and designing the shoulder-elbow link & elbow joint.</p>
+  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the shoulder joint. The new design improves stiffness and reduces footprint from the previous version. <br><br> Current work includes adding limit switch stops to the shoulder joint and designing the shoulder-elbow link & elbow joint.</p>
   <br clear="right" />
 </div>
 
@@ -43,7 +44,7 @@ STM32-based robotic arm project focused on embedded control systems and robotic 
 <div>
   <img align="right" src="media/Embedded_Prototype_5-29-2026.jpeg" width="250"> 
   
-  <p>The robotic arm is powered by an STM32 Nucleo-F446RE, taking care of all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.</p>
+  <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.</p>
   <br clear="right" />
 </div>
 
