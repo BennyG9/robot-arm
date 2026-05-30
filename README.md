@@ -1,16 +1,18 @@
 # Robotic Arm Project (Ongoing)
 
+STM32-based robotic arm project focused on embedded control systems and robotic system design. The long-term goal is a 4-5 DOF manipulator with ROS2 integration, computer vision, and AI-assisted task execution using an NVIDIA Jetson Nano. This project is a work in progress and is documented regularly...
+
 ## Project Goals 
 
-* Designa and build a 4 or 5 DOF robotic arm
+* Design and build a 4 or 5 DOF robotic arm
 * Implement real-time control system for precise mechanics
-* Enable AI functionlity using computer vision on NVIDIA Jetson Nano
+* Enable AI functionality using computer vision on NVIDIA Jetson Nano
 * Design custom PCB integrating power systems, microprocessing, and motor driving
 
 ## Status 
 
 ### Completed
-* Shoulder joint mechanical protorype
+* Shoulder joint mechanical protoype
 * Shoulder joint PID positional control using STM32
 * Rotational base mechanical prototype (CAD)
 
@@ -32,7 +34,7 @@
 ---
 <div>
   <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="275"> 
-  <p>Description</p>
+  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design aims to distribute weight away from motor shafts onto bearings and maximizing torque lower down in the arm's architecture. This design improves stiffness and reduces footprint from the previous version. <br><br> Current work includes adding limit switch stops to the shoulder joint and designing the shoulder-elbow link & elbow joint.</p>
   <br clear="right" />
 </div>
 
@@ -48,9 +50,34 @@
 
 ### Control
 ---
-So far, the shoulder joint is just controlled using a simple 1kHz PID loop. 
+The shoulder joint currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motor is driven using an IBT-2 type motor driver module. 
 
 [PID Position Control Demo](https://youtu.be/YCUa2xMnsVE)
+
+## Technical Stack
+
+### Hardware
+* STM32 Nucleo F446RE
+* NVIDIA Jetson Nano (planned)
+* IBT-2 Motor Driver Modules
+* Geared DC Motors with Encoders
+### Software
+* C (STM32)
+* FreeRTOS (planned)
+* ROS2 (planned)
+### Design Tools 
+* OnShape (CAD)
+* Git
+* STM32CubeMX & STM32CubeIDE
+
+## Repository Structure 
+robotic-arm/
+├── firmware/ 
+│   └── arm_stm32/
+├── hardware/
+│   └──  cad/
+├── media/
+└── README.md
 
 ## Code Structure
 * `firmware/arm_stm32/` - STM32 project main folder 
