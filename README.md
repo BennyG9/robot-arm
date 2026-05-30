@@ -40,7 +40,7 @@
 </div>
 
 ### Embedded Architecture 
-
+-
 <div>
   <img align="right" src="media/Embedded_Prototype_5-29-2026.jpeg" width="200"> 
   
