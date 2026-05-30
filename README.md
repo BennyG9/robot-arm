@@ -30,11 +30,10 @@
 
 ### Mechanical Design
 
-[Robotic Arm CAD (OnShape)](https://cad.onshape.com/documents/4a9cd08e29866666f506ada9/w/f0abfb5ca58521d456a9c369/e/990587cd5cd4e16cd3d5d83a)
-
 <div>
-  <img align="left" src="media/CAD_Prototype_5-28-2026.jpg" width="200"> 
+  <img align="left" src="media/CAD_Prototype_5-28-2026.jpg" width="250"> 
   <a href="https://cad.onshape.com/documents/4a9cd08e29866666f506ada9/w/f0abfb5ca58521d456a9c369/e/990587cd5cd4e16cd3d5d8">Robotic Arm CAD (OnShape)</a>
+  <br>
   <p>Description</p>
   <br clear="left" />
 </div>
