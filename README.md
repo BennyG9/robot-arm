@@ -32,8 +32,7 @@
 ---
 <div>
   <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="275"> 
-  <a href="https://cad.onshape.com/documents/4a9cd08e29866666f506ada9/w/f0abfb5ca58521d456a9c369/e/cc5700a3aabfdd82e69a95e2">Robotic Arm CAD (OnShape)</a>
-  <p><br>Description</p>
+  <p>Description</p>
   <br clear="right" />
 </div>
 
@@ -59,8 +58,6 @@ So far, the shoulder joint is just controlled using a simple 1kHz PID loop.
 * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
 
 ## Media 
-
-[Robotic Arm CAD (OnShape)](https://cad.onshape.com/documents/4a9cd08e29866666f506ada9/w/f0abfb5ca58521d456a9c369/e/990587cd5cd4e16cd3d5d83a)
 
 [PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 
