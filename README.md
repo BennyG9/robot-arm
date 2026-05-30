@@ -33,7 +33,7 @@
 ---
 
 <div>
-  <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="250"> 
+  <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="275"> 
   <a href="https://cad.onshape.com/documents/4a9cd08e29866666f506ada9/w/f0abfb5ca58521d456a9c369/e/990587cd5cd4e16cd3d5d8">Robotic Arm CAD (OnShape)</a>
   <p><br>Description</p>
   <br clear="right" />
@@ -42,7 +42,7 @@
 ### Embedded Architecture 
 ---
 <div>
-  <img align="right" src="media/Embedded_Prototype_5-29-2026.jpeg" width="200"> 
+  <img align="right" src="media/Embedded_Prototype_5-29-2026.jpeg" width="250"> 
   
   <p>The robotic arm is powered by an STM32 Nucleo-F446RE, taking care of all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.</p>
   <br clear="right" />
