@@ -80,7 +80,7 @@ robotic-arm/
 ├── firmware/ 
 │   └── arm_stm32/
 ├── hardware/
-│   └──  cad/
+│   └──  CAD/
 ├── media/
 └── README.md
 ````
