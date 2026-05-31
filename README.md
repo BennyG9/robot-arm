@@ -6,6 +6,7 @@ Here are some videos demonstrating the current progress:
 * [PID Position Control Demo (5-29-2026)](https://youtu.be/YCUa2xMnsVE)
 
 Project Started: May 2026
+<br>
 Last Documentation Update: 5/31/2026
 
 ## Project Goals 
