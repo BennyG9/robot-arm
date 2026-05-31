@@ -71,8 +71,8 @@ The shoulder joint currently uses a 1kHz closed-loop PID controller running on a
 * ROS2 (planned)
 ### Design Tools 
 * OnShape (CAD)
-* Git
 * STM32CubeMX & STM32CubeIDE
+* Git
 
 ## Repository Structure 
 ````text
