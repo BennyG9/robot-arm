@@ -5,6 +5,9 @@ STM32-based robotic arm project focused on embedded control systems and robotic 
 Here are some videos demonstrating the current progress:
 * [PID Position Control Demo (5-29-2026)](https://youtu.be/YCUa2xMnsVE)
 
+Project Started: May 2026
+Last Documentation Update: 5/31/2026
+
 ## Project Goals 
 
 * Design and build a 4 or 5 DOF robotic arm
