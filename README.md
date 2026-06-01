@@ -84,7 +84,8 @@ robotic-arm/
 ├── firmware/ 
 │   └── arm_stm32/
 ├── hardware/
-│   └──  CAD/
+│   ├──  CAD/
+│   └──  KiCAD/
 ├── media/
 └── README.md
 ````
