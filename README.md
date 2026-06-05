@@ -87,6 +87,7 @@ robotic-arm/
 │   ├──  CAD/
 │   └──  KiCAD/
 ├── media/
+├── software/
 └── README.md
 ````
 
