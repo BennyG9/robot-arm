@@ -165,12 +165,23 @@ int main(void)
 //		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 //	  }
 
+	  if(HAL_GPIO_ReadPin(GPIOC, S_Limit_Switch_Pin) == GPIO_PIN_SET){
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  HAL_Delay(100);
+	  }
+
+	  if(HAL_GPIO_ReadPin(GPIOC, B_Limit_Switch_Pin) == GPIO_PIN_SET){
+	  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	  		  HAL_Delay(100);
+	  	  }
+
+
 	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  Motor_SetPower(&shoulder_motor, 100);
-		  //Motor_SetPower(&base_motor, 200);
+		  //Motor_SetPower(&shoulder_motor, 100);
+		  Motor_SetPower(&base_motor, 200);
 	  }else{
-	  	  Motor_Stop(&shoulder_motor);
-		  //Motor_Stop(&base_motor);
+	  	  //Motor_Stop(&shoulder_motor);
+		  Motor_Stop(&base_motor);
 	  }
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
@@ -503,11 +514,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : Blue_On_Board_Button_Pin */
-  GPIO_InitStruct.Pin = Blue_On_Board_Button_Pin;
+  /*Configure GPIO pins : Blue_On_Board_Button_Pin S_Limit_Switch_Pin B_Limit_Switch_Pin */
+  GPIO_InitStruct.Pin = Blue_On_Board_Button_Pin|S_Limit_Switch_Pin|B_Limit_Switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(Blue_On_Board_Button_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LD2_Pin */
   GPIO_InitStruct.Pin = LD2_Pin;

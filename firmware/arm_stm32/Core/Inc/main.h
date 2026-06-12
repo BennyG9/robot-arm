@@ -61,6 +61,10 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Blue_On_Board_Button_Pin GPIO_PIN_13
 #define Blue_On_Board_Button_GPIO_Port GPIOC
+#define S_Limit_Switch_Pin GPIO_PIN_0
+#define S_Limit_Switch_GPIO_Port GPIOC
+#define B_Limit_Switch_Pin GPIO_PIN_1
+#define B_Limit_Switch_GPIO_Port GPIOC
 #define S_ENC_A_Pin GPIO_PIN_0
 #define S_ENC_A_GPIO_Port GPIOA
 #define S_ENC_B_Pin GPIO_PIN_1
