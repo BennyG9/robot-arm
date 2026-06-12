@@ -48,12 +48,14 @@
 /* Private variables ---------------------------------------------------------*/
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim6;
 
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 static Joint shoulder_joint;
+static Joint base_joint;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,6 +65,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM6_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -105,17 +108,23 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM2_Init();
   MX_TIM6_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
 
 
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
+  HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
 
   HAL_TIM_Base_Start_IT(&htim6);
 
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 0);
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_2, 0);
+  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_3, 0);
+  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, 0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,6 +136,11 @@ int main(void)
   Encoder shoulder_encoder = {.timer=&htim2, .offset=0};
   PID shoulder_pid = {.Kp=.75f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
   Joint_Init(&shoulder_joint, &shoulder_motor, &shoulder_encoder, &shoulder_pid, 0);
+
+  Motor base_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_3, .reverse_channel=TIM_CHANNEL_4, .min_duty_forward=100, .min_duty_reverse=-100};
+  Encoder base_encoder = {.timer=&htim4, .offset=0};
+  PID base_pid = {.Kp=1, .Ki=0, .Kd=0, .integral=0, .prev_error=0};
+  Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, 0);
 
 
   while (1)
@@ -151,20 +165,23 @@ int main(void)
 //		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 //	  }
 
-//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  Motor_SetPower(&shoulder_motor, -500);
-//	  }else{
-//	  	  Motor_Stop(&shoulder_motor);
-//	  }
-
 	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  Joint_Reset(&shoulder_joint);
-		  Joint_SetTarget(&shoulder_joint, 12576);
-		  HAL_Delay(200);
+		  Motor_SetPower(&shoulder_motor, 100);
+		  //Motor_SetPower(&base_motor, 200);
+	  }else{
+	  	  Motor_Stop(&shoulder_motor);
+		  //Motor_Stop(&base_motor);
 	  }
+
+//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+//		  Joint_Reset(&shoulder_joint);
+//		  Joint_SetTarget(&shoulder_joint, 12576);
+//		  HAL_Delay(200);
+//	  }
 	  //Joint_Update(&shoulder_joint);
 
-	  int32_t pos = Encoder_GetPosition(&shoulder_encoder);
+	  //int32_t pos = Encoder_GetPosition(&shoulder_encoder);
+	  int32_t pos = Encoder_GetPosition(&base_encoder);
 	  char buf[50];
 	  sprintf(buf, "%ld\r\n", pos);
 	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
@@ -330,10 +347,67 @@ static void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
   HAL_TIM_MspPostInit(&htim3);
+
+}
+
+/**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 0;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
 
 }
 
@@ -454,7 +528,7 @@ static void MX_GPIO_Init(void)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 	if(htim->Instance == TIM6){
-		Joint_Update(&shoulder_joint);
+		//Joint_Update(&shoulder_joint);
 	}
 }
 
