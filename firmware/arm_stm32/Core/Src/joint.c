@@ -8,12 +8,14 @@
 
 #include "joint.h"
 
-void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, uint16_t l, int32_t t){
+void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, uint16_t l, int32_t t, float max_a, float min_a){
 	j->motor = m;
 	j->encoder = e;
 	j->pid = p;
 	j->limit_switch_pin = l;
 	j->target_position = t;
+	j->max_angle = max_a;
+	j->min_angle = min_a;
 }
 
 void Joint_SetTarget(Joint* joint, int32_t pos){

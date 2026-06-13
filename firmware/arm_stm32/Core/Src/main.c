@@ -133,14 +133,14 @@ int main(void)
 
   //SHOULDER JOINT DECLARATION
   Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2, .min_duty_forward=50, .min_duty_reverse=-50};
-  Encoder shoulder_encoder = {.timer=&htim2, .offset=0};
+  Encoder shoulder_encoder = {.timer=&htim2, .offset=0, .resolution=12576};
   PID shoulder_pid = {.Kp=.75f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
-  Joint_Init(&shoulder_joint, &shoulder_motor, &shoulder_encoder, &shoulder_pid, S_Limit_Switch_Pin, 0);
+  Joint_Init(&shoulder_joint, &shoulder_motor, &shoulder_encoder, &shoulder_pid, S_Limit_Switch_Pin, 0, -90.0, 90.0);
 
   Motor base_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_3, .reverse_channel=TIM_CHANNEL_4, .min_duty_forward=100, .min_duty_reverse=-100};
-  Encoder base_encoder = {.timer=&htim4, .offset=0};
+  Encoder base_encoder = {.timer=&htim4, .offset=0, .resolution=0};
   PID base_pid = {.Kp=1, .Ki=0, .Kd=0, .integral=0, .prev_error=0};
-  Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, B_Limit_Switch_Pin, 0);
+  Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, B_Limit_Switch_Pin, 0, -90.0, 90.0);
 
 
   while (1)
@@ -171,9 +171,9 @@ int main(void)
 	  }
 
 	  if(HAL_GPIO_ReadPin(GPIOC, B_Limit_Switch_Pin) == GPIO_PIN_SET){
-	  		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-	  		  HAL_Delay(100);
-	  	  }
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  HAL_Delay(100);
+	  }
 
 
 	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){

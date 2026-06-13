@@ -14,11 +14,17 @@ typedef struct{
 	TIM_HandleTypeDef* timer;
 
 	int32_t offset;
+
+	uint16_t resolution;
 } Encoder;
 
 
 int32_t Encoder_GetPosition(Encoder* encoder);
 
 void Encoder_Zero(Encoder* encoder);
+
+float Encoder_GetAngle(Encoder* encoder);
+
+void Encoder_SetAngle(Encoder* encoder, float angle);
 
 #endif /* INC_ENCODER_H_ */

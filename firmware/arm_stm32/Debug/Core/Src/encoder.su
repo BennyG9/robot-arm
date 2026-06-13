@@ -1,2 +1,4 @@
 ../Core/Src/encoder.c:10:9:Encoder_GetPosition	24	static
 ../Core/Src/encoder.c:17:6:Encoder_Zero	16	static
+../Core/Src/encoder.c:23:7:Encoder_GetAngle	24	static
+../Core/Src/encoder.c:30:6:Encoder_SetAngle	24	static
