@@ -19,15 +19,19 @@ typedef struct{
 
 	PID* pid;
 
+	uint16_t limit_switch_pin;
+
 	int32_t target_position;
 } Joint;
 
-void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, int32_t t);
+void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, uint16_t l, int32_t t);
 
 void Joint_SetTarget(Joint* joint, int32_t pos);
 
 void Joint_Update(Joint* joint);
 
 void Joint_Reset(Joint* joint);
+
+void Joint_Calibrate(Joint* joint);
 
 #endif /* INC_JOINT_H_ */
