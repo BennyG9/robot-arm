@@ -104,6 +104,7 @@ robotic-arm/
 <div align="left">
   <img src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="300"/>
   <img src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="220"/>
+  <br clear="leftt" />
 </div>
 
 <div align="right">
