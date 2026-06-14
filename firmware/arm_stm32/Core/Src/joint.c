@@ -45,7 +45,7 @@ void Joint_Calibrate(Joint* joint){
 	//stop when the limit switch is triggered
 	while(HAL_GPIO_ReadPin(GPIOC, joint->limit_switch_pin) == GPIO_PIN_RESET){}
 	Motor_Stop(joint->motor);
-	HAL_Delay(100);
+	HAL_Delay(500);
 
 	//move in the reverse direction as slow as possible
 	pwm = joint->motor->min_duty_reverse;
@@ -55,7 +55,9 @@ void Joint_Calibrate(Joint* joint){
 	while(HAL_GPIO_ReadPin(GPIOC, joint->limit_switch_pin) == GPIO_PIN_SET){}
 	Motor_Stop(joint->motor);
 
-	//SET ENCODER HERE
+	//set encoder angle to max value
+	HAL_Delay(250);
+	Encoder_SetAngle(joint->encoder, joint->max_angle);
 }
 
 

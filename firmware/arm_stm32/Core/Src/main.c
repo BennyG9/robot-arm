@@ -56,6 +56,13 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 static Joint shoulder_joint;
 static Joint base_joint;
+
+enum State {
+	IDLE,
+	CAL,
+	CONTR
+};
+enum State state = IDLE;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -132,16 +139,18 @@ int main(void)
 
 
   //SHOULDER JOINT DECLARATION
-  Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2, .min_duty_forward=50, .min_duty_reverse=-50};
+  Motor shoulder_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2, .min_duty_forward=50, .min_duty_reverse=-75};
   Encoder shoulder_encoder = {.timer=&htim2, .offset=0, .resolution=12576};
-  PID shoulder_pid = {.Kp=.75f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
-  Joint_Init(&shoulder_joint, &shoulder_motor, &shoulder_encoder, &shoulder_pid, S_Limit_Switch_Pin, 0, -90.0, 90.0);
+  PID shoulder_pid = {.Kp=1.0f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
+  Joint_Init(&shoulder_joint, &shoulder_motor, &shoulder_encoder, &shoulder_pid, S_Limit_Switch_Pin, 0, 78.0, -90.0);
 
+  //BASE JOINT DECLARATION
   Motor base_motor = {.timer=&htim3, .forward_channel=TIM_CHANNEL_3, .reverse_channel=TIM_CHANNEL_4, .min_duty_forward=100, .min_duty_reverse=-100};
-  Encoder base_encoder = {.timer=&htim4, .offset=0, .resolution=0};
-  PID base_pid = {.Kp=1, .Ki=0, .Kd=0, .integral=0, .prev_error=0};
-  Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, B_Limit_Switch_Pin, 0, -90.0, 90.0);
+  Encoder base_encoder = {.timer=&htim4, .offset=0, .resolution=7040};
+  PID base_pid = {.Kp=3.5f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
+  Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, B_Limit_Switch_Pin, 0, 80.0, -90.0);
 
+  state = IDLE;
 
   while (1)
   {
@@ -165,23 +174,22 @@ int main(void)
 //		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 //	  }
 
-	  if(HAL_GPIO_ReadPin(GPIOC, S_Limit_Switch_Pin) == GPIO_PIN_SET){
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  HAL_Delay(100);
-	  }
 
-	  if(HAL_GPIO_ReadPin(GPIOC, B_Limit_Switch_Pin) == GPIO_PIN_SET){
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  HAL_Delay(100);
-	  }
+//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+//		  //Motor_SetPower(&shoulder_motor, -200);
+//		  Motor_SetPower(&base_motor, -200);
+//	  }else{
+//	  	  //Motor_Stop(&shoulder_motor);
+//		  Motor_Stop(&base_motor);
+//	  }
 
 
 	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  //Motor_SetPower(&shoulder_motor, 100);
-		  Motor_SetPower(&base_motor, 200);
-	  }else{
-	  	  //Motor_Stop(&shoulder_motor);
-		  Motor_Stop(&base_motor);
+		  state = CAL;
+		  Joint_Calibrate(&base_joint);
+		  Joint_Calibrate(&shoulder_joint);
+		  HAL_Delay(200);
+		  state = CONTR;
 	  }
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
@@ -189,7 +197,6 @@ int main(void)
 //		  Joint_SetTarget(&shoulder_joint, 12576);
 //		  HAL_Delay(200);
 //	  }
-	  //Joint_Update(&shoulder_joint);
 
 	  //int32_t pos = Encoder_GetPosition(&shoulder_encoder);
 	  int32_t pos = Encoder_GetPosition(&base_encoder);
@@ -539,9 +546,27 @@ static void MX_GPIO_Init(void)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 	if(htim->Instance == TIM6){
-		//Joint_Update(&shoulder_joint);
-		//Joint_Update(&base_joint);
+
+		if(HAL_GPIO_ReadPin(GPIOC, S_Limit_Switch_Pin) == GPIO_PIN_SET || HAL_GPIO_ReadPin(GPIOC, B_Limit_Switch_Pin) == GPIO_PIN_SET){
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+		}else{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+		}
+
+		switch(state){
+			case IDLE:
+				break;
+
+			case CAL:
+				break;
+
+			case CONTR:
+				Joint_Update(&shoulder_joint);
+				Joint_Update(&base_joint);
+				break;
+		}
 	}
+
 }
 
 
