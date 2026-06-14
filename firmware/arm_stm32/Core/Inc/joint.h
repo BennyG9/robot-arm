@@ -21,7 +21,7 @@ typedef struct{
 
 	uint16_t limit_switch_pin;
 
-	int32_t target_position;
+	int16_t target_position;
 
 	float max_angle;
 
@@ -30,7 +30,9 @@ typedef struct{
 
 void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, uint16_t l, int32_t t, float max_a, float min_a);
 
-void Joint_SetTarget(Joint* joint, int32_t pos);
+void Joint_SetTargetCount(Joint* joint, int16_t pos);
+
+void Joint_SetTargetAngle(Joint* joint, float angle);
 
 void Joint_Update(Joint* joint);
 

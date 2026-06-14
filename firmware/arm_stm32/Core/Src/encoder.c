@@ -19,16 +19,28 @@ void Encoder_Zero(Encoder* encoder){
 	__HAL_TIM_SET_COUNTER(encoder->timer, 0);
 }
 
+float Encoder_CountToAngle(Encoder* encoder, int16_t count){
+	float inc = 360.0f / ((float)encoder->resolution);
+	return ((float)count) * inc;
+}
+
+int16_t Encoder_AngleToCount(Encoder* encoder, float angle){
+	float inc = ((float)encoder->resolution) / 360.0;
+	return (int16_t)(angle * inc);
+}
+
 
 float Encoder_GetAngle(Encoder* encoder){
-	float inc = 360.0 / ((float)encoder->resolution);
-	float angle = ((float)Encoder_GetPosition(encoder)) * inc;
+	//float inc = 360.0 / ((float)encoder->resolution);
+	//float angle = ((float)Encoder_GetPosition(encoder)) * inc;
+	float angle = Encoder_CountToAngle(encoder, Encoder_GetPosition(encoder));
 	return angle;
 }
 
 
 void Encoder_SetAngle(Encoder* encoder, float angle){
-	float inc = ((float)encoder->resolution) / 360.0;
-	int32_t new_pos = (int32_t)(angle * inc);
+	//float inc = ((float)encoder->resolution) / 360.0;
+	//int16_t new_pos = (int16_t)(angle * inc);
+	int16_t new_pos = Encoder_AngleToCount(encoder, angle);
 	__HAL_TIM_SET_COUNTER(encoder->timer, new_pos);
 }

@@ -18,10 +18,24 @@ void Joint_Init(Joint* j, Motor* m, Encoder* e, PID* p, uint16_t l, int32_t t, f
 	j->min_angle = min_a;
 }
 
-void Joint_SetTarget(Joint* joint, int32_t pos){
+void Joint_SetTargetCount(Joint* joint, int16_t pos){
+	if(Encoder_CountToAngle(joint->encoder, pos) > joint->max_angle){
+		pos = Encoder_AngleToCount(joint->encoder, joint->max_angle);
+	}else if(Encoder_CountToAngle(joint->encoder, pos) < joint->min_angle){
+		pos = Encoder_AngleToCount(joint->encoder, joint->min_angle);
+	}
 	joint->target_position = pos;
 }
 
+void Joint_SetTargetAngle(Joint* joint, float angle){
+	if(angle > joint->max_angle){
+		angle = joint->max_angle;
+	}else if(angle < joint->min_angle){
+		angle = joint->min_angle;
+	}
+	int16_t pos = Encoder_AngleToCount(joint->encoder, angle);
+	joint->target_position = pos;
+}
 
 void Joint_Update(Joint* joint){
 	int32_t pos = Encoder_GetPosition(joint->encoder);

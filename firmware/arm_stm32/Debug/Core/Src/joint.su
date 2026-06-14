@@ -1,5 +1,6 @@
 ../Core/Src/joint.c:11:6:Joint_Init	32	static
-../Core/Src/joint.c:21:6:Joint_SetTarget	16	static
-../Core/Src/joint.c:26:6:Joint_Update	24	static
-../Core/Src/joint.c:35:6:Joint_Reset	16	static
-../Core/Src/joint.c:40:6:Joint_Calibrate	24	static
+../Core/Src/joint.c:21:6:Joint_SetTargetCount	16	static
+../Core/Src/joint.c:30:6:Joint_SetTargetAngle	24	static
+../Core/Src/joint.c:40:6:Joint_Update	24	static
+../Core/Src/joint.c:49:6:Joint_Reset	16	static
+../Core/Src/joint.c:54:6:Joint_Calibrate	24	static
