@@ -20,14 +20,14 @@ Last Documentation Update: 6/14/2026
 ## Status 
 
 ### Completed
-* Shoulder joint mechanical prototype
-* Shoulder joint PID positional control using STM32
-* Rotational base mechanical prototype (CAD)
-* STM32 embedded software architecture 
+* Shoulder & base joints mechanical prototypes
+* Shoulder & base joints PID positional control using STM32
+* STM32 embedded software architecture
+* Shoulder & base joints calibration procedures 
 
 ### In Progress
-* Shoulder joint re-design
-* Shoulder-elbow link
+* 2-joint angular control, forward kimeatics, inverse kinematics 
+* Jetson Nano - STM32 USB serial communication 
 * Elbow joint mechanical prototype 
 
 ### Planned
@@ -42,15 +42,15 @@ Last Documentation Update: 6/14/2026
 ### Mechanical Design
 ---
 <div>
-  <img align="right" src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="275"> 
-  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the shoulder joint. The new design improves stiffness and reduces footprint from the previous version. <br><br> Current work includes adding limit switch stops to the shoulder joint and designing the shoulder-elbow link & elbow joint.</p>
+  <img align="right" src="media/6-14-2026/CAD_Prototype_5-28-2026.jpg" width="275"> 
+  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the shoulder joint. The new design improves stiffness and reduces footprint from the previous version. The design builds in limit switches for joint position calibration. <br><br> Next steps: elbow joint design</p>
   <br clear="right" />
 </div>
 
 ### Embedded Architecture 
 ---
 <div>
-  <img align="right" src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="250"> 
+  <img align="right" src="media/6-14-2026/Embedded_Prototype_6-14-2026.jpeg" width="250"> 
   
   <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.</p>
   <br clear="right" />
@@ -59,9 +59,9 @@ Last Documentation Update: 6/14/2026
 
 ### Control
 ---
-The shoulder joint currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motor is driven using an IBT-2 type motor driver module. 
+The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. Next steps: basic angular control of each joint, 2-joint forward kinematics, 2-joint inverse kinematics. 
 
-[PID Position Control Demo](https://youtu.be/YCUa2xMnsVE)
+[Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
 
 ## Technical Stack
 
