@@ -42,7 +42,7 @@ Last Documentation Update: 6/14/2026
 ### Mechanical Design
 ---
 <div>
-  <img align="right" src="media/6-14-2026/CAD_Prototype_5-28-2026.jpg" width="275"> 
+  <img align="right" src="media/6-14-2026/CAD_Prototype_5-28-2026.jpeg" width="275"> 
   <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the shoulder joint. The new design improves stiffness and reduces footprint from the previous version. The design builds in limit switches for joint position calibration. <br><br> Next steps: elbow joint design</p>
   <br clear="right" />
 </div>
