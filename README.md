@@ -42,7 +42,7 @@ Last Documentation Update: 6/14/2026
 ### Mechanical Design
 ---
 <div>
-  <img align="right" src="media/CAD_Prototype_5-28-2026.jpg" width="275"> 
+  <img align="right" src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="275"> 
   <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the shoulder joint. The new design improves stiffness and reduces footprint from the previous version. <br><br> Current work includes adding limit switch stops to the shoulder joint and designing the shoulder-elbow link & elbow joint.</p>
   <br clear="right" />
 </div>
@@ -50,7 +50,7 @@ Last Documentation Update: 6/14/2026
 ### Embedded Architecture 
 ---
 <div>
-  <img align="right" src="media/Embedded_Prototype_5-29-2026.jpeg" width="250"> 
+  <img align="right" src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="250"> 
   
   <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.</p>
   <br clear="right" />
@@ -102,8 +102,8 @@ robotic-arm/
 [PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 
 <div align="left">
-  <img src="media/CAD_Prototype_5-28-2026.jpg" width="300"/>
-  <img src="media/Embedded_Prototype_5-29-2026.jpeg" width="220"/>
+  <img src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="300"/>
+  <img src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="220"/>
 </div>
 
 <div align="right">
