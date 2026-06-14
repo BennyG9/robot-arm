@@ -105,6 +105,9 @@ robotic-arm/
   <img src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="300"/>
   <img src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="220"/>
   <br clear="leftt" />
+  <img src="media/6-14-2026/CAD_Prototype_6-14-2026" width="300"/>
+  <img src="media/6-14-2026/Embedded_Prototype_6-14-2026" width="300"/>
+  <img src="media/6-14-2026/Mechanical_Prototype_6-14-2026" width="300"/>
 </div>
 
 <div align="right">
