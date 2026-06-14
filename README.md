@@ -99,20 +99,16 @@ robotic-arm/
 
 ## Media 
 
-[PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
+[PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 
 <div align="left">
-  <img src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="300"/>
-  <img src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="220"/>
-  <br clear="leftt" />
   <img src="media/6-14-2026/CAD_Prototype_6-14-2026.jpg" width="300"/>
   <img src="media/6-14-2026/Embedded_Prototype_6-14-2026.jpeg" width="300"/>
   <img src="media/6-14-2026/Mechanical_Prototype_6-14-2026.jpeg" width="300"/>
-</div>
-
-<div align="right">
-  
+  <br clear="left" />
+  <img src="media/5-28-2026/CAD_Prototype_5-28-2026.jpg" width="300"/>
+  <img src="media/5-28-2026/Embedded_Prototype_5-29-2026.jpeg" width="220"/>
 </div>
 
 
