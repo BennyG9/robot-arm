@@ -52,14 +52,14 @@ Last Documentation Update: 6/14/2026
 <div>
   <img align="right" src="media/6-14-2026/Embedded_Prototype_6-14-2026.jpeg" width="250"> 
   
-  <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2.</p>
+  <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2. <br><br> Next steps: Jetson-STM serial communication, basic control inputs using ROS2</p>
   <br clear="right" />
 </div>
 
 
 ### Control
 ---
-The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. Next steps: basic angular control of each joint, 2-joint forward kinematics, 2-joint inverse kinematics. 
+The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> Next steps: basic angular control of each joint, 2-joint forward kinematics, 2-joint inverse kinematics. 
 
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
 
