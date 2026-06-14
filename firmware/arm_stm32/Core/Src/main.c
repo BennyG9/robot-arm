@@ -190,6 +190,9 @@ int main(void)
 		  Joint_Calibrate(&shoulder_joint);
 		  HAL_Delay(200);
 		  state = CONTR;
+		  HAL_Delay(2000);
+		  Joint_SetTargetAngle(&shoulder_joint, 30);
+		  Joint_SetTargetAngle(&base_joint, 30);
 	  }
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
