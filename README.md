@@ -89,6 +89,7 @@ robotic-arm/
 │   └──  KiCAD/
 ├── media/
 ├── software/
+│   └── arm_ros2_ws/
 └── README.md
 ````
 
