@@ -93,9 +93,11 @@ robotic-arm/
 ````
 
 ## Code Structure
-* `firmware/arm_stm32/` - STM32 project main folder 
-* `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
-* `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
+* `firmware/arm_stm32/` - STM32 project main folder
+  * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
+  * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
+* `software/arm_ros2_ws/` - ROS2 workspace
+  * `software/arm_ros2_ws/src/stm32_bridge/` - Jetson Nano & STM32 serial communication package
 
 ## Media 
 
