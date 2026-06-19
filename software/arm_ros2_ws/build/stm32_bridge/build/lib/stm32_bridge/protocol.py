@@ -5,7 +5,7 @@ class Protocol:
 
     def __init__(self):
         self.protocol = json.load(protocol.json)
-        self.serial = SerialCom()
+        self.serial = SerialCom(port="/dev/ttyACM0")
         pass
 
     def read_packet(self):

@@ -22,7 +22,7 @@ class STM32Bridge(Node):
 
         if(packet == None):
             return
-        if(packet = -1):
+        if(packet == -1):
             print("CHECKSUM ERROR")
             return
 
