@@ -60,7 +60,7 @@
             "id": 5,
             "args": [
                 {"name": "joint_id", "type": "uint8_t", "count": 1},
-                {"name": "parameters", "type": float, "count": 3}
+                {"name": "parameters", "type": "float", "count": 3}
             ],
             "direction": "JETSON_TO_STM32",
             "description": "update PID parameters for a specific joint",
