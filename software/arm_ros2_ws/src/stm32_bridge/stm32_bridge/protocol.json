@@ -26,49 +26,53 @@
                 {"name": "joint_positions", "type": "float", "count": 4}
             ],
             "direction": "STM32_TO_JETSON",
-            "description": "broadcast the current state of each joint" 
+            "description": "broadcast the current state of each joint",
+            "name": "JOINT_STATE"
         },
-        
+
         "SET_POSITION": {
             "id": 2,
             "args": [
                 {"name": "joint_positions", "type": "float", "count": 4}
             ],
             "direction": "JETSON_TO_STM32",
-            "description": "set the target positions for each joint"  
+            "description": "set the target positions for each joint",
+            "name": "SET_POSITION"
         },
-        
+
         "CALIBRATE": {
             "id": 3,
             "args": [],
             "direction": "JETSON_TO_STM32",
-            "description": "run calibration routine for each joint"   
+            "description": "run calibration routine for each joint",
+            "name": "CALIBRATE"
         },
 
         "HOME": {
             "id": 4,
             "args": [],
             "direction": "JETSON_TO_STM32",
-            "description": "set each joint to its home position"   
+            "description": "set each joint to its home position",
+            "name": "HOME"
         },
 
         "SET_PID": {
             "id": 5,
             "args": [
                 {"name": "joint_id", "type": "uint8_t", "count": 1},
-                {"name": "Kp", "type": "float", "count": 1},
-                {"name": "Ki", "type": "float", "count": 1},
-                {"name": "Kd", "type": "float", "count": 1}
+                {"name": "parameters", "type": float, "count": 3}
             ],
             "direction": "JETSON_TO_STM32",
-            "description": "update PID parameters for a specific joint"   
+            "description": "update PID parameters for a specific joint",
+            "name": "SET_PID"
         },
 
         "ESTOP": {
             "id": 6,
             "args": [],
             "direction": "JETSON_TO_STM32",
-            "description": "stop all motion of the robot"
+            "description": "stop all motion of the robot",
+            "name": "ESTOP"
         },
 
         "ERROR": {
@@ -77,7 +81,8 @@
                 {"name": "error_code", "type": "uint8_t", "count": 1}
             ],
             "direction": "BIDIRECTIONAL",
-            "description": "report error code to Jetson"
+            "description": "report error codes",
+            "name": "ERROR"
         }
-    }    
+    }
 }

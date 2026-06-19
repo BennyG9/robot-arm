@@ -1,14 +1,14 @@
 import rclpy
 from rclpy.node import Node
 
-from .serial_com import SerialCom
+from .protocol import Protocol
 
 class STM32Bridge(Node):
 
     def __init__(self):
 
         #Serial communication
-        self.serial = SerialCom(port="/dev/ttyACM0")
+        self.protocol = Protocol()
 
         #Communication loop
         self.timer = self.create_timer(0.02, self.read_serial)
@@ -17,12 +17,16 @@ class STM32Bridge(Node):
         pass
 
     def read_serial(self):
-        line = self.serial.read_line()
 
-        if(line == None):
+        packet = self.protocol.read_packet()
+
+        if(packet == None):
+            return
+        if(packet = -1):
+            print("CHECKSUM ERROR")
             return
 
-        
+        command, args = self.protocol.parse_packet(packet)
 
         pass
 
