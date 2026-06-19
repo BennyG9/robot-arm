@@ -10,6 +10,7 @@ setup.py
 ../../build/stm32_bridge/stm32_bridge.egg-info/zip-safe
 resource/stm32_bridge
 stm32_bridge/__init__.py
+stm32_bridge/protocol.json
 stm32_bridge/protocol.py
 stm32_bridge/serial_com.py
 stm32_bridge/stm32_interface_node.py

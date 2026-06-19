@@ -1,0 +1,23 @@
+[2.822s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/stm32_bridge build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log --install-scripts $base/lib/stm32_bridge --single-version-externally-managed install_data
+[3.792s] /usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[3.793s]   warnings.warn(
+[3.914s] running egg_info
+[3.919s] writing ../../build/stm32_bridge/stm32_bridge.egg-info/PKG-INFO
+[3.919s] writing dependency_links to ../../build/stm32_bridge/stm32_bridge.egg-info/dependency_links.txt
+[3.919s] writing entry points to ../../build/stm32_bridge/stm32_bridge.egg-info/entry_points.txt
+[3.920s] writing requirements to ../../build/stm32_bridge/stm32_bridge.egg-info/requires.txt
+[3.921s] writing top-level names to ../../build/stm32_bridge/stm32_bridge.egg-info/top_level.txt
+[3.930s] reading manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'
+[3.934s] writing manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'
+[3.934s] running build
+[3.935s] running build_py
+[3.936s] running install
+[3.939s] running install_lib
+[3.945s] running install_data
+[3.945s] running install_egg_info
+[3.951s] removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info' (and everything under it)
+[3.952s] Copying ../../build/stm32_bridge/stm32_bridge.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info
+[3.956s] running install_scripts
+[4.026s] Installing stm32_interface_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/stm32_bridge
+[4.026s] writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log'
+[4.118s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge' returned '0': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/stm32_bridge build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log --install-scripts $base/lib/stm32_bridge --single-version-externally-managed install_data

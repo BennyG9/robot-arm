@@ -18,6 +18,7 @@ class STM32Bridge(Node):
 
     def read_serial(self):
 
+        # check for packet
         packet = self.protocol.read_packet()
 
         if(packet == None):
@@ -26,7 +27,19 @@ class STM32Bridge(Node):
             print("CHECKSUM ERROR")
             return
 
+        # parse packet
         command, args = self.protocol.parse_packet(packet)
+
+        # executables
+        if(self.protocol.get_direction(command) == "JETSON_TO_STM32"):
+            print("DIRECTIONALITY ERRROR")
+
+        if(command == "JOINT_STATE"):
+            print(args)
+
+        elif(command == "REPORTED ERROR"):
+            print(ERROR)
+
 
         pass
 

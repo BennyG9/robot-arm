@@ -1,10 +1,14 @@
 import json
+import os
+
 from .serial_com import SerialCom
 
 class Protocol:
 
     def __init__(self):
-        self.protocol = json.load(protocol.json)
+        path = os.path.join(os.path.dirname(__file__), "protocol.json")
+        with open(path, "r") as file:
+            self.protocol = json.load(file)
         self.serial = SerialCom(port="/dev/ttyACM0")
         pass
 
@@ -94,6 +98,12 @@ class Protocol:
             if(cmd_id == self.protocol["commands"][cmd]["id"]):
                 return self.protocol["commands"][cmd]
         return None
+
+    # parses float data type from bytes
+    def parse_float(self, bytes_list):
+        raw_bytes = bytes(bytes_list)
+        value = struct.unpack('<f', raw_bytes[0])
+        return value
 
     pass
 

@@ -11,6 +11,9 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
+    package_data={
+        package_name: ['protocol.json'],
+    },
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='bg99',
@@ -20,6 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'stm32_interface_node = stm32_bridge.stm32_interface_node:main',
         ],
     },
 )
