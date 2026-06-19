@@ -184,16 +184,21 @@ int main(void)
 //	  }
 
 
-	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  state = CAL;
-		  Joint_Calibrate(&base_joint);
-		  Joint_Calibrate(&shoulder_joint);
-		  HAL_Delay(200);
-		  state = CONTR;
-		  HAL_Delay(2000);
-		  Joint_SetTargetAngle(&shoulder_joint, 30);
-		  Joint_SetTargetAngle(&base_joint, 30);
-	  }
+//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+//		  state = CAL;
+//		  Joint_Calibrate(&base_joint);
+//		  Joint_Calibrate(&shoulder_joint);
+//		  HAL_Delay(200);
+//		  state = CONTR;
+//		  HAL_Delay(2000);
+//		  Joint_SetTargetAngle(&shoulder_joint, 30);
+//		  Joint_SetTargetAngle(&base_joint, 30);
+//  	  }
+
+  	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+  		  uint8_t buffer[10] = {0xAA, 0x07, 0x07};
+  		  HAL_UART_Transmit(&huart2, buffer, 3, 100);
+  	  }
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
 //		  Joint_Reset(&shoulder_joint);
@@ -202,11 +207,13 @@ int main(void)
 //	  }
 
 	  //int32_t pos = Encoder_GetPosition(&shoulder_encoder);
-	  int32_t pos = Encoder_GetPosition(&base_encoder);
-	  char buf[50];
-	  sprintf(buf, "%ld\r\n", pos);
-	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
-	  HAL_Delay(50);
+	  //int32_t pos = Encoder_GetPosition(&base_encoder);
+	  //char buf[50];
+	  //sprintf(buf, "%ld\r\n", pos);
+	  //HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
+	  //HAL_Delay(50);
+
+
 
 
     /* USER CODE END WHILE */
