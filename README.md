@@ -82,6 +82,7 @@ The shoulder and base joints currently uses a 1kHz closed-loop PID controller ru
 ## Repository Structure 
 ````text
 robotic-arm/
+├── communication/
 ├── firmware/ 
 │   └── arm_stm32/
 ├── hardware/
@@ -94,6 +95,7 @@ robotic-arm/
 ````
 
 ## Code Structure
+* `communication/` - Defines and builds serial communication protocol
 * `firmware/arm_stm32/` - STM32 project main folder
   * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
   * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
