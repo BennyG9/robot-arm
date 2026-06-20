@@ -197,7 +197,7 @@ int main(void)
 
   	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
   		  uint8_t buffer[10] = {0xAA, 0x07, 0x01, 0x08};
-  		  HAL_UART_Transmit(&huart2, buffer, 3, 100);
+  		  HAL_UART_Transmit(&huart2, buffer, 4, 100);
   		  HAL_Delay(200);
   	  }
 
