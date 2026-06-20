@@ -1,0 +1,31 @@
+[3.676s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/stm32_bridge build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log --install-scripts $base/lib/stm32_bridge --single-version-externally-managed install_data
+[4.566s] /usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[4.566s]   warnings.warn(
+[4.688s] running egg_info
+[4.691s] writing ../../build/stm32_bridge/stm32_bridge.egg-info/PKG-INFO
+[4.692s] writing dependency_links to ../../build/stm32_bridge/stm32_bridge.egg-info/dependency_links.txt
+[4.692s] writing entry points to ../../build/stm32_bridge/stm32_bridge.egg-info/entry_points.txt
+[4.693s] writing requirements to ../../build/stm32_bridge/stm32_bridge.egg-info/requires.txt
+[4.693s] writing top-level names to ../../build/stm32_bridge/stm32_bridge.egg-info/top_level.txt
+[4.704s] reading manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'
+[4.708s] writing manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'
+[4.708s] running build
+[4.709s] running build_py
+[4.709s] copying stm32_bridge/protocol.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build/lib/stm32_bridge
+[4.711s] running install
+[4.714s] running install_lib
+[4.718s] copying /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build/lib/stm32_bridge/protocol.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge
+[4.720s] byte-compiling /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge/protocol.py to protocol.cpython-38.pyc
+[4.721s]   File "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge/protocol.py", line 18
+[4.721s]     print(data["id")
+[4.722s]                    ^
+[4.722s] SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+[4.722s] 
+[4.723s] running install_data
+[4.723s] running install_egg_info
+[4.728s] removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info' (and everything under it)
+[4.729s] Copying ../../build/stm32_bridge/stm32_bridge.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info
+[4.732s] running install_scripts
+[4.801s] Installing stm32_interface_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/stm32_bridge
+[4.802s] writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log'
+[4.895s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge' returned '0': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/stm32_bridge build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log --install-scripts $base/lib/stm32_bridge --single-version-externally-managed install_data

@@ -9,6 +9,13 @@ class Protocol:
         path = os.path.join(os.path.dirname(__file__), "protocol.json")
         with open(path, "r") as file:
             self.protocol = json.load(file)
+
+        self.commands_id = {}
+        self.commands_name = {}
+        for name, data in self.protocol["commands"].items():
+            self.commands_name[name] = data
+            self.commands_id[data["id"]] = data
+
         self.serial = SerialCom(port="/dev/ttyACM0")
         pass
 
@@ -20,7 +27,7 @@ class Protocol:
             return None
 
         # initialize packet
-        packet = [0xAA]
+        packet = [current_byte]
 
         # get command
         current_byte = self.serial.read_byte()
@@ -28,13 +35,16 @@ class Protocol:
 
         # determine length of packet
         cmd_length = self.get_command_length(current_byte)
+        print(cmd_length)
 
         # get the rest of the packet
         for _ in range(cmd_length - 2):
             packet.append(self.serial.read_byte())
 
+        print(packet)
+
         # verify checksum
-        checksum = get_checksum(packet)
+        checksum = self.get_checksum(packet)
         if(checksum != packet[len(packet)-1]):
             return -1
 
@@ -86,7 +96,7 @@ class Protocol:
             if(arg["type"] == "float"): type_size = 4
             elif(arg["type"] == "uint8_t"): type_size = 1
             num_bytes += (type_size * arg["count"])
-        return num_bytes
+        return num_bytes + 3
 
     # calculates checksum from raw packet bytes (does not include first and last bytes)
     def get_checksum(self, bytes):
@@ -94,10 +104,7 @@ class Protocol:
 
     # gets JSON data for command with id: cmd_id
     def get_command_data(self, cmd_id):
-        for cmd in self.protocol["commands"].items():
-            if(cmd_id == self.protocol["commands"][cmd]["id"]):
-                return self.protocol["commands"][cmd]
-        return None
+        return self.commands_id[int.from_bytes(cmd_id, byteorder="little")]
 
     # parses float data type from bytes
     def parse_float(self, bytes_list):

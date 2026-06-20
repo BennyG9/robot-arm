@@ -6,6 +6,7 @@ from .protocol import Protocol
 class STM32Bridge(Node):
 
     def __init__(self):
+        super().__init__('stm32_bridge')
 
         #Serial communication
         self.protocol = Protocol()
@@ -24,7 +25,7 @@ class STM32Bridge(Node):
         if(packet == None):
             return
         if(packet == -1):
-            print("CHECKSUM ERROR")
+            #print("CHECKSUM ERROR")
             return
 
         # parse packet
