@@ -25,7 +25,7 @@ class STM32Bridge(Node):
         if(packet == None):
             return
         if(packet == -1):
-            #print("CHECKSUM ERROR")
+            print("CHECKSUM ERROR")
             return
 
         # parse packet
@@ -38,8 +38,8 @@ class STM32Bridge(Node):
         if(command == "JOINT_STATE"):
             print(args)
 
-        elif(command == "REPORTED ERROR"):
-            print(ERROR)
+        elif(command == "ERROR"):
+            print("REPORTED ERROR")
 
 
         pass

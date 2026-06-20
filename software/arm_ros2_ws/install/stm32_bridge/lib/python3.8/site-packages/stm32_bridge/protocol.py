@@ -35,17 +35,14 @@ class Protocol:
 
         # determine length of packet
         cmd_length = self.get_command_length(current_byte)
-        print(cmd_length)
 
         # get the rest of the packet
         for _ in range(cmd_length - 2):
             packet.append(self.serial.read_byte())
 
-        print(packet)
-
         # verify checksum
         checksum = self.get_checksum(packet)
-        if(checksum != packet[len(packet)-1]):
+        if(checksum != packet[len(packet)-1][0]):
             return -1
 
         return packet
@@ -53,7 +50,7 @@ class Protocol:
     def parse_packet(self, packet):
 
         # get command JSON data
-        command = self.get_command_data(packet[len(packet)-1])
+        command = self.get_command_data(packet[1])
 
         # parse arguments
         args = []
@@ -70,6 +67,9 @@ class Protocol:
                     i += 4
 
         return command["name"], args
+
+    def get_direction(self, command_name : str):
+        return self.commands_name[command_name]["direction"]
 
 #******************#
 # HELPER FUNCTIONS #
@@ -99,8 +99,8 @@ class Protocol:
         return num_bytes + 3
 
     # calculates checksum from raw packet bytes (does not include first and last bytes)
-    def get_checksum(self, bytes):
-        return sum(bytes[1:len(bytes)-1]) % 0xFF
+    def get_checksum(self, byte_list):
+        return sum(b[0] for b in byte_list[1:len(byte_list)-1]) % 0xFF
 
     # gets JSON data for command with id: cmd_id
     def get_command_data(self, cmd_id):
