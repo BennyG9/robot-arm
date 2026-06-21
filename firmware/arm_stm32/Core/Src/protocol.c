@@ -54,11 +54,11 @@ void Protocol_WritePacket(Packet* packet){
 
 
 uint8_t Protocol_Checksum(Packet* packet){
-	uint8_t checksum = packet->command;
+	uint16_t checksum = (uint16_t)(packet->command);
 	for(int i = 0; i < packet->arg_length; i++){
-		checksum ^= packet->args[i];
+		checksum += (uint16_t)(packet->args[i]);
 	}
-	return checksum;
+	return (uint8_t)(checksum % 0xFF);
 }
 
 
