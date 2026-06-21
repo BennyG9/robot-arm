@@ -18,7 +18,8 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 	// read command byte
 	if(Serial_ReadByte(&(packet->command)) != HAL_OK) return HAL_ERROR;
 
-	// get command packet length
+	// get command argument length
+	 packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
 
 	// get all arguments
 	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK) return HAL_ERROR;
