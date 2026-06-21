@@ -1,0 +1,5 @@
+../Core/Src/serial.c:14:6:Serial_Init	1
+../Core/Src/serial.c:20:19:Serial_ReadByte	2
+../Core/Src/serial.c:27:19:Serial_ReadBytes	2
+../Core/Src/serial.c:33:6:Serial_WriteByte	2
+../Core/Src/serial.c:39:6:Serial_WriteBytes	2

@@ -28,6 +28,7 @@
 #include "encoder.h"
 #include "pid.h"
 #include "joint.h"
+#include "serial.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -149,6 +150,9 @@ int main(void)
   Encoder base_encoder = {.timer=&htim4, .offset=0, .resolution=7040};
   PID base_pid = {.Kp=3.5f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
   Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, B_Limit_Switch_Pin, 0, 80.0, -90.0);
+
+  //serial initialization
+  Serial_Init(&huart2);
 
   state = IDLE;
 
