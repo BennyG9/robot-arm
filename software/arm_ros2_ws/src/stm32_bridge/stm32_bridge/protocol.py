@@ -40,6 +40,8 @@ class Protocol:
         for _ in range(cmd_length - 2):
             packet.append(self.serial.read_byte())
 
+        print(packet)
+
         # verify checksum
         checksum = self.get_checksum(packet)
         if(checksum != packet[len(packet)-1][0]):
