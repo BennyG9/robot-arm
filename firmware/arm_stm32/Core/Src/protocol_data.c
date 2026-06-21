@@ -1,7 +1,7 @@
 #include "protocol_data.h"
 
 uint16_t Protocol_GetPacketLength(uint8_t cmd_id){
-	switch(cmd_id){
+	switch((CommandID)cmd_id){
 		case JOINT_STATE:
 			return 19;
 

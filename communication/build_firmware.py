@@ -24,10 +24,10 @@ with open(path, "w") as protocol_data_h:
     protocol_data_h.write("\n")
 
     # write enum structure for command ids
-    protocol_data_h.write("enum CommandID{\n")
+    protocol_data_h.write("typedef enum{\n")
     for cmd_name, cmd_data in protocol["commands"].items():
         protocol_data_h.write("\t" + cmd_name + " = " + str(cmd_data["id"]) + ",\n")
-    protocol_data_h.write("};\n")
+    protocol_data_h.write("} CommandID;\n")
     protocol_data_h.write("\n")
 
     # write function for getting size of packets 
@@ -48,7 +48,7 @@ with open(path, "w") as protocol_data_c:
 
     # write function for getting size of packets
     protocol_data_c.write("uint16_t Protocol_GetPacketLength(uint8_t cmd_id){\n")
-    protocol_data_c.write("\tswitch(cmd_id){\n")
+    protocol_data_c.write("\tswitch((CommandID)cmd_id){\n")
     for cmd_name, cmd_data in protocol["commands"].items():
         protocol_data_c.write("\t\tcase " + cmd_name + ":\n")
         num_bytes = 3

@@ -29,6 +29,7 @@
 #include "pid.h"
 #include "joint.h"
 #include "serial.h"
+#include "protocol.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,6 +54,7 @@ TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim6;
 
 UART_HandleTypeDef huart2;
+Packet packet;
 
 /* USER CODE BEGIN PV */
 static Joint shoulder_joint;
@@ -200,8 +202,10 @@ int main(void)
 //  	  }
 
   	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-  		  uint8_t buffer[10] = {0xAA, 0x07, 0x01, 0x08};
-  		  HAL_UART_Transmit(&huart2, buffer, 4, 100);
+  		  packet.arg_length = 1;
+  		  packet.args[0] = 0x01;
+  		  packet.command = 0x07;
+  		  Protocol_WritePacket(&packet);
   		  HAL_Delay(200);
   	  }
 
@@ -562,24 +566,59 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 	if(htim->Instance == TIM6){
 
-		if(HAL_GPIO_ReadPin(GPIOC, S_Limit_Switch_Pin) == GPIO_PIN_SET || HAL_GPIO_ReadPin(GPIOC, B_Limit_Switch_Pin) == GPIO_PIN_SET){
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-		}else{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-		}
+		// update limit switch indicators
+//		if(HAL_GPIO_ReadPin(GPIOC, S_Limit_Switch_Pin) == GPIO_PIN_SET || HAL_GPIO_ReadPin(GPIOC, B_Limit_Switch_Pin) == GPIO_PIN_SET){
+//			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+//		}else{
+//			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+//		}
 
+		// state control
 		switch(state){
-			case IDLE:
-				break;
-
-			case CAL:
-				break;
-
 			case CONTR:
 				Joint_Update(&shoulder_joint);
 				Joint_Update(&base_joint);
 				break;
+
+			case IDLE:
+				break;
+			case CAL:
+				break;
 		}
+
+		// serial monitoring
+		if(Protocol_ReadPacket(&packet) == HAL_OK){
+			switch((CommandID)packet.command){
+				case JOINT_STATE:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+
+				case SET_POSITION:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+
+				case CALIBRATE:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+
+				case HOME:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+
+				case SET_PID:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+
+				case ESTOP:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+
+				case ERROR_MSG:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					break;
+			}
+		}
+
 	}
 
 }
