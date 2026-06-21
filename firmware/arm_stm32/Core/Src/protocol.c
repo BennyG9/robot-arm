@@ -46,6 +46,9 @@ void Protocol_WritePacket(Packet* packet){
 
 	// calculate and pack checksum
 	bytes[i+2] = Protocol_Checksum(packet);
+
+	// write packet
+	Serial_WriteBytes(bytes, packet->arg_length + 3);
 }
 
 

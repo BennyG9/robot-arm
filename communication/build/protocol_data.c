@@ -20,7 +20,7 @@ uint16_t Protocol_GetPacketLength(uint8_t cmd_id){
 		case ESTOP:
 			return 3;
 
-		case ERROR:
+		case ERROR_MSG:
 			return 4;
 
 	}

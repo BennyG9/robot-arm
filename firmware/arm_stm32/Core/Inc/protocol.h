@@ -10,9 +10,7 @@
 
 #include "main.h"
 #include "serial.h"
-
-#define MAX_ARG_SIZE 32
-#define START_BYTE 0xAA
+#include "protocol_data.h"
 
 typedef struct{
 	uint8_t command;

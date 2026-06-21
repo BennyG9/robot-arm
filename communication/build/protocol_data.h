@@ -13,7 +13,7 @@ enum CommandID{
 	HOME = 4,
 	SET_PID = 5,
 	ESTOP = 6,
-	ERROR = 7,
+	ERROR_MSG = 7,
 };
 
 uint16_t Protocol_GetPacketLength(uint8_t cmd_id);

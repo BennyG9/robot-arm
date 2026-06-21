@@ -77,7 +77,7 @@
             "name": "ESTOP"
         },
 
-        "ERROR": {
+        "ERROR_MSG": {
             "id": 7,
             "args": [
                 {"name": "error_code", "type": "uint8_t", "count": 1}
