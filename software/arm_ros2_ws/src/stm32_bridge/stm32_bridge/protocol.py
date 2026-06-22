@@ -93,7 +93,7 @@ class Protocol:
                 elif(arg["type"] == "float"):
                     packet += self.float_to_bytes(value)
 
-        print(packet)
+        #print(packet)
         print(bytes(packet))
 
         # write packet to serial
