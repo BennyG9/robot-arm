@@ -15,6 +15,9 @@ class STM32Bridge(Node):
         self.timer = self.create_timer(0.02, self.read_serial)
 
         self.get_logger().info("STM32 Bridge Initiated")
+
+        self.protocol.write_packet("ERROR_MSG", 1)
+
         pass
 
     def read_serial(self):
@@ -38,7 +41,7 @@ class STM32Bridge(Node):
         if(command == "JOINT_STATE"):
             print(args)
 
-        elif(command == "ERROR"):
+        elif(command == "ERROR_MSG"):
             print("REPORTED ERROR")
 
 
