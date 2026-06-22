@@ -65,13 +65,41 @@ class Protocol:
                     args[len(args)-1].append(packet[i])
                     i += 1
                 elif(arg_type == "float"):
-                    args[len(args)-1].append(self.parse_float(packet[i:i+4]))
+                    args[len(args)-1].append(self.bytes_to_float(packet[i:i+4]))
                     i += 4
 
         return command["name"], args
 
     def get_direction(self, command_name : str):
         return self.commands_name[command_name]["direction"]
+
+    def write_packet(self, command_name, *args):
+        # initialize packet with start byte
+       	packet = [int(self.protocol["framing"]["start_byte"], 16)]
+
+        # get command data
+        cmd_data = self.commands_name[command_name]
+
+        # add command id to packet
+        packet.append(cmd_data["id"])
+
+        # add arguments
+        i = 0
+        for arg in cmd_data["args"]:
+            for _ in range(arg["count"]):
+                value = args[i]
+                if(arg["type"] == "uint8_t"):
+                    packet.append(value)
+                elif(arg["type"] == "float"):
+                    packet += self.float_to_bytes(value)
+
+        print(packet)
+        print(bytes(packet))
+
+        # write packet to serial
+        self.serial.write_bytes(bytes(packet))
+
+        return bytes(packet)
 
 #******************#
 # HELPER FUNCTIONS #
@@ -109,10 +137,15 @@ class Protocol:
         return self.commands_id[int.from_bytes(cmd_id, byteorder="little")]
 
     # parses float data type from bytes
-    def parse_float(self, bytes_list):
+    def bytes_to_float(self, bytes_list):
         raw_bytes = bytes(bytes_list)
         value = struct.unpack('<f', raw_bytes[0])
         return value
+
+    # converts float data type into bytes
+    def float_to_bytes(self, value):
+
+        pass
 
     pass
 

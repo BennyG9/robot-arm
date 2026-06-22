@@ -6,8 +6,8 @@ class SerialCom:
         self.ser = serial.Serial(port, baudrate, timeout=0.01)
         pass
 
-    def write(self, msg):
-        self.ser.write(msg.encode("utf-8"))
+    def write_bytes(self, bytes):
+        self.ser.write(bytes)
         pass
 
     def read_line(self):

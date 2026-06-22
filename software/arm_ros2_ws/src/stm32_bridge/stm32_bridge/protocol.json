@@ -10,6 +10,8 @@
     "framing": {
         "start_byte": "0xAA",
 
+        "max_arg_size": "16",
+
         "endianness": "little",
 
         "float": "IEEE754",
@@ -75,14 +77,14 @@
             "name": "ESTOP"
         },
 
-        "ERROR": {
+        "ERROR_MSG": {
             "id": 7,
             "args": [
                 {"name": "error_code", "type": "uint8_t", "count": 1}
             ],
             "direction": "BIDIRECTIONAL",
             "description": "report error codes",
-            "name": "ERROR"
+            "name": "ERROR_MSG"
         }
     }
 }
