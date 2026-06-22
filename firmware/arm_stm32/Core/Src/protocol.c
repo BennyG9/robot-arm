@@ -17,7 +17,7 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 	// look for start byte
 	if(Serial_ReadByte(&byte) != HAL_OK){
 		err.args[0] = 0x01;
-		Protocol_WritePacket(&err);
+		//Protocol_WritePacket(&err);
 		return HAL_ERROR;
 	}
 	if(byte != START_BYTE){
