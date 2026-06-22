@@ -1,3 +1,3 @@
 ../Core/Src/protocol.c:11:19:Protocol_ReadPacket	7
-../Core/Src/protocol.c:35:6:Protocol_WritePacket	2
-../Core/Src/protocol.c:56:9:Protocol_Checksum	2
+../Core/Src/protocol.c:62:6:Protocol_WritePacket	2
+../Core/Src/protocol.c:83:9:Protocol_Checksum	2

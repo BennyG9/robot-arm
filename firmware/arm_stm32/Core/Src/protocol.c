@@ -9,24 +9,51 @@
 
 
 HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
+	Packet err;
+	err.arg_length = 0x01;
+	err.command = (uint8_t)ERROR_MSG;
 	uint8_t byte;
 
 	// look for start byte
-	if(Serial_ReadByte(&byte) != HAL_OK) return HAL_ERROR;
-	if(byte != START_BYTE) return HAL_ERROR;
+	if(Serial_ReadByte(&byte) != HAL_OK){
+		err.args[0] = 0x01;
+		Protocol_WritePacket(&err);
+		return HAL_ERROR;
+	}
+	if(byte != START_BYTE){
+		err.args[0] = 0x02;
+		//Protocol_WritePacket(&err);
+		return HAL_ERROR;
+	}
 
 	// read command byte
-	if(Serial_ReadByte(&(packet->command)) != HAL_OK) return HAL_ERROR;
+	if(Serial_ReadByte(&(packet->command)) != HAL_OK){
+		err.args[0] = 0x03;
+		Protocol_WritePacket(&err);
+		return HAL_ERROR;
+	}
 
 	// get command argument length
-	 packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
+	packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
 
 	// get all arguments
-	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK) return HAL_ERROR;
+	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK){
+		err.args[0] = 0x04;
+		Protocol_WritePacket(&err);
+		return HAL_ERROR;
+	}
 
 	// get and verify checksum
-	if(Serial_ReadByte(&byte) != HAL_OK) return HAL_ERROR;
-	if(byte != Protocol_Checksum(packet)) return HAL_ERROR;
+	if(Serial_ReadByte(&byte) != HAL_OK){
+		err.args[0] = 0x05;
+		Protocol_WritePacket(&err);
+		return HAL_ERROR;
+	}
+	if(byte != Protocol_Checksum(packet)){
+		err.args[0] = 0x06;
+		Protocol_WritePacket(&err);
+		return HAL_ERROR;
+	}
 
 	return HAL_OK;
 }
