@@ -3,6 +3,8 @@ from rclpy.node import Node
 
 from .protocol import Protocol
 
+import time
+
 class STM32Bridge(Node):
 
     def __init__(self):
@@ -16,6 +18,7 @@ class STM32Bridge(Node):
 
         self.get_logger().info("STM32 Bridge Initiated")
 
+        time.sleep(1)
         self.protocol.write_packet("ERROR_MSG", 1)
 
         pass

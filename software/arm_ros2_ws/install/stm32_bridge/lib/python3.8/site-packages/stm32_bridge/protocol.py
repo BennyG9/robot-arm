@@ -43,8 +43,9 @@ class Protocol:
         print(packet)
 
         # verify checksum
-        checksum = self.get_checksum(packet)
+        checksum = self.get_checksum(packet[1:len(packet)-1])
         if(checksum != packet[len(packet)-1][0]):
+            print("CHECKSUM ERROR")
             return -1
 
         return packet
@@ -93,7 +94,10 @@ class Protocol:
                 elif(arg["type"] == "float"):
                     packet += self.float_to_bytes(value)
 
-        #print(packet)
+        # add checksum
+        checksum = self.get_checksum([bytes([x]) for x in packet[1:]])
+        packet.append(int(checksum))
+
         print(bytes(packet))
 
         # write packet to serial
@@ -107,17 +111,6 @@ class Protocol:
 
     # returns the total command packet length in # of bytes
     def get_command_length(self, cmd_id):
-        #for cmd in self.protocol["commands"].items():
-        #    if(cmd_id == self.protocol["commands"][cmd]["id"]):
-        #        num_bytes = 0
-        #        for arg in self.protocol["commands"][cmd]["args"]:
-        #            type_size = 0
-        #            if(arg["type"] == "float"): type_size = 4
-        #            elif(arg["type"] == "uint8_t"): type_size = 1
-        #            num_bytes += (type_size * arg["count"])
-        #        return num_bytes + 3
-        #return 0
-
         cmd = self.get_command_data(cmd_id)
         if(cmd == None): return 0
         num_bytes = 0
@@ -130,7 +123,7 @@ class Protocol:
 
     # calculates checksum from raw packet bytes (does not include first and last bytes)
     def get_checksum(self, byte_list):
-        return sum(b[0] for b in byte_list[1:len(byte_list)-1]) % 0xFF
+        return sum(b[0] for b in byte_list[:]) % 0xFF
 
     # gets JSON data for command with id: cmd_id
     def get_command_data(self, cmd_id):
