@@ -587,7 +587,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 		}
 
 		// serial monitoring
-		if(Protocol_ReadPacket(&packet) == HAL_OK){
+		uint8_t byte;
+		if(Serial_ReadByte(&byte) == HAL_OK){
+			Protocol_WriteError(byte);
+		}
+
+		if(0 && Protocol_ReadPacket(&packet) == HAL_OK){
 			Protocol_WriteError(0x01);
 			Protocol_WritePacket(&packet);
 			switch((CommandID)packet.command){
