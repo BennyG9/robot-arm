@@ -588,6 +588,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 		// serial monitoring
 		if(Protocol_ReadPacket(&packet) == HAL_OK){
+			Protocol_WriteError(0x01);
+			Protocol_WritePacket(&packet);
 			switch((CommandID)packet.command){
 				case JOINT_STATE:
 					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
@@ -615,6 +617,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 				case ERROR_MSG:
 					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					Protocol_WriteError(0x01);
 					break;
 			}
 		}

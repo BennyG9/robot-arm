@@ -26,4 +26,6 @@ void Protocol_WritePacket(Packet* packet);
 
 uint8_t Protocol_Checksum(Packet* packet);
 
+void Protocol_WriteError(uint8_t error_code);
+
 #endif /* INC_PROTOCOL_H_ */

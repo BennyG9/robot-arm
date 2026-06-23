@@ -9,51 +9,50 @@
 
 
 HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
-	Packet err;
-	err.arg_length = 0x01;
-	err.command = (uint8_t)ERROR_MSG;
 	uint8_t byte;
 
 	// look for start byte
-	if(Serial_ReadByte(&byte) != HAL_OK){
-		err.args[0] = 0x01;
-		//Protocol_WritePacket(&err);
-		return HAL_ERROR;
-	}
-	if(byte != START_BYTE){
-		err.args[0] = 0x02;
-		//Protocol_WritePacket(&err);
-		return HAL_ERROR;
-	}
+	if(Serial_ReadByte(&byte) != HAL_OK) return HAL_ERROR;
+
+	if(byte != START_BYTE) return HAL_ERROR;
+
+	Protocol_WriteError(0x41);
 
 	// read command byte
 	if(Serial_ReadByte(&(packet->command)) != HAL_OK){
-		err.args[0] = 0x03;
-		Protocol_WritePacket(&err);
+		Protocol_WriteError(0x03);
 		return HAL_ERROR;
 	}
+
+	Protocol_WriteError(0x42);
 
 	// get command argument length
 	packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
 
+	Protocol_WriteError(0x43);
+
 	// get all arguments
 	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK){
-		err.args[0] = 0x04;
-		Protocol_WritePacket(&err);
+		Protocol_WriteError(0x04);
 		return HAL_ERROR;
 	}
 
+	Protocol_WriteError((packet->args)[0]);
+
 	// get and verify checksum
 	if(Serial_ReadByte(&byte) != HAL_OK){
-		err.args[0] = 0x05;
-		Protocol_WritePacket(&err);
+		Protocol_WriteError(0x05);
 		return HAL_ERROR;
 	}
+
+	Protocol_WriteError(0x45);
+
 	if(byte != Protocol_Checksum(packet)){
-		err.args[0] = 0x06;
-		Protocol_WritePacket(&err);
+		Protocol_WriteError(0x06);
 		return HAL_ERROR;
 	}
+
+	Protocol_WriteError(0x46);
 
 	return HAL_OK;
 }
@@ -83,9 +82,18 @@ void Protocol_WritePacket(Packet* packet){
 uint8_t Protocol_Checksum(Packet* packet){
 	uint16_t checksum = (uint16_t)(packet->command);
 	for(int i = 0; i < packet->arg_length; i++){
-		checksum += (uint16_t)(packet->args[i]);
+		checksum += (uint16_t)((packet->args)[i]);
 	}
 	return (uint8_t)(checksum % 0xFF);
+}
+
+
+void Protocol_WriteError(uint8_t error_code){
+	Packet err;
+	err.arg_length = 1;
+	err.args[0] = error_code;
+	err.command = 0x07;
+	Protocol_WritePacket(&err);
 }
 
 
