@@ -93,6 +93,7 @@ class Protocol:
                     packet.append(value)
                 elif(arg["type"] == "float"):
                     packet += self.float_to_bytes(value)
+                i += 1
 
         # add checksum
         checksum = self.get_checksum([bytes([x]) for x in packet[1:]])
