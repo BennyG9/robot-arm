@@ -2496,10 +2496,10 @@ HAL_StatusTypeDef Serial_ReadByte(uint8_t* byte){
  80012a2:	d101      	bne.n	80012a8 <Serial_ReadByte+0x14>
  80012a4:	2301      	movs	r3, #1
  80012a6:	e007      	b.n	80012b8 <Serial_ReadByte+0x24>
-	return HAL_UART_Receive(serial_uart, byte, 1, 0);
+	return HAL_UART_Receive(serial_uart, byte, 1, SERIAL_TIMEOUT_MS);
  80012a8:	4b05      	ldr	r3, [pc, #20]	@ (80012c0 <Serial_ReadByte+0x2c>)
  80012aa:	6818      	ldr	r0, [r3, #0]
- 80012ac:	2300      	movs	r3, #0
+ 80012ac:	2364      	movs	r3, #100	@ 0x64
  80012ae:	2201      	movs	r2, #1
  80012b0:	6879      	ldr	r1, [r7, #4]
  80012b2:	f002 fddc 	bl	8003e6e <HAL_UART_Receive>
@@ -2529,11 +2529,11 @@ HAL_StatusTypeDef Serial_ReadBytes(uint8_t* bytes, uint16_t length){
  80012d6:	d101      	bne.n	80012dc <Serial_ReadBytes+0x18>
  80012d8:	2301      	movs	r3, #1
  80012da:	e007      	b.n	80012ec <Serial_ReadBytes+0x28>
-	return HAL_UART_Receive(serial_uart, bytes, length, 0);
+	return HAL_UART_Receive(serial_uart, bytes, length, SERIAL_TIMEOUT_MS);
  80012dc:	4b05      	ldr	r3, [pc, #20]	@ (80012f4 <Serial_ReadBytes+0x30>)
  80012de:	6818      	ldr	r0, [r3, #0]
  80012e0:	887a      	ldrh	r2, [r7, #2]
- 80012e2:	2300      	movs	r3, #0
+ 80012e2:	2364      	movs	r3, #100	@ 0x64
  80012e4:	6879      	ldr	r1, [r7, #4]
  80012e6:	f002 fdc2 	bl	8003e6e <HAL_UART_Receive>
  80012ea:	4603      	mov	r3, r0
