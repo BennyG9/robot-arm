@@ -55,7 +55,6 @@ TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim6;
 
 UART_HandleTypeDef huart2;
-Packet packet;
 
 /* USER CODE BEGIN PV */
 static Joint shoulder_joint;
@@ -67,6 +66,8 @@ enum State {
 	CONTR
 };
 enum State state = IDLE;
+
+uint8_t rx_byte;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -156,6 +157,7 @@ int main(void)
 
   //serial initialization
   Serial_Init(&huart2);
+  HAL_UART_Receive_IT(&huart2, &rx_byte, 1);
 
   state = IDLE;
 
@@ -202,13 +204,13 @@ int main(void)
 //		  Joint_SetTargetAngle(&base_joint, 30);
 //  	  }
 
-  	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-  		  packet.arg_length = 1;
-  		  packet.args[0] = 0x01;
-  		  packet.command = 0x07;
-  		  Protocol_WritePacket(&packet);
-  		  HAL_Delay(200);
-  	  }
+//  	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+//  		  packet.arg_length = 1;
+//  		  packet.args[0] = 0x01;
+//  		  packet.command = 0x07;
+//  		  Protocol_WritePacket(&packet);
+//  		  HAL_Delay(200);
+//  	  }
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
 //		  Joint_Reset(&shoulder_joint);
@@ -633,9 +635,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
 	if(huart->Instance == USART2){
-		uint8_t byte;
-		Serial_ReadByte(&byte);
-		SerialMonitor_Append(byte);
+		SerialMonitor_Append(rx_byte);
+		//Protocol_WriteError(rx_byte);
+		HAL_UART_Receive_IT(huart, &rx_byte, 1);
 	}
 }
 
