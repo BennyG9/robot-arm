@@ -222,7 +222,10 @@ int main(void)
 	  //HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
 	  //HAL_Delay(50);
 
-
+  	  uint8_t byte;
+  	  if(Serial_ReadByte(&byte) == HAL_OK){
+  		  Protocol_WriteError(byte);
+  	  }
 
 
     /* USER CODE END WHILE */
@@ -587,10 +590,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 		}
 
 		// serial monitoring
-		uint8_t byte;
-		if(Serial_ReadByte(&byte) == HAL_OK){
-			Protocol_WriteError(byte);
-		}
 
 //		if(0 && Protocol_ReadPacket(&packet) == HAL_OK){
 //			Protocol_WriteError(0x01);
