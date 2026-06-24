@@ -4,6 +4,8 @@ class SerialCom:
 
     def __init__(self, port="ttyACM0", baudrate=115200):
         self.ser = serial.Serial(port, baudrate, timeout=0.01)
+        self.ser.reset_input_buffer()
+        self.ser.reset_output_buffer()
         pass
 
     def write_bytes(self, bytes):
