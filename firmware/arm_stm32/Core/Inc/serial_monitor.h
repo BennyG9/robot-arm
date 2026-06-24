@@ -25,6 +25,8 @@ typedef struct{
 
 	SerialMonitorEntry* tail;
 
+	uint16_t length;
+
 } SerialMonitor;
 
 void SerialMonitor_Init(void);
@@ -32,6 +34,10 @@ void SerialMonitor_Init(void);
 void SerialMonitor_Append(uint8_t byte);
 
 HAL_StatusTypeDef SerialMonitor_ReadByte(uint8_t* byte);
+
+HAL_StatusTypeDef SerialMonitor_ReadBytes(uint8_t* bytes, uint16_t length);
+
+uint16_t SerialMonitor_Available(void);
 
 
 #endif /* INC_SERIAL_MONITOR_H_ */

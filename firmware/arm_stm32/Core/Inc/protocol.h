@@ -11,6 +11,7 @@
 #include "main.h"
 #include "serial.h"
 #include "protocol_data.h"
+#include "serial_monitor.h"
 
 typedef struct{
 	uint8_t command;
@@ -19,6 +20,13 @@ typedef struct{
 
 	uint16_t arg_length;
 } Packet;
+
+typedef enum{
+	WaitStart,
+	WaitCmd,
+	WaitArgs,
+	WaitChecksum
+} ReadState;
 
 HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet);
 

@@ -68,6 +68,7 @@ enum State {
 enum State state = IDLE;
 
 uint8_t rx_byte;
+Packet packet;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -169,19 +170,10 @@ int main(void)
 //  		  Protocol_WriteError(byte);
 //  	  }
 
-//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  Protocol_WriteError(0x01);
-//		  uint8_t byte;
-//		  while(SerialMonitor_ReadByte(&byte) == HAL_OK){
-//			  Protocol_WriteError(byte);
-//			  HAL_Delay(1000);
-//		  }
-//	  }
+	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
 
-	  uint8_t byte;
-	  if(SerialMonitor_ReadByte(&byte) == HAL_OK){
-		  Protocol_WriteError(byte);
 	  }
+
 
     /* USER CODE END WHILE */
 
@@ -546,40 +538,32 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 		// serial monitoring
 
-//		if(0 && Protocol_ReadPacket(&packet) == HAL_OK){
-//			Protocol_WriteError(0x01);
-//			Protocol_WritePacket(&packet);
-//			switch((CommandID)packet.command){
-//				case JOINT_STATE:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					break;
-//
-//				case SET_POSITION:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					break;
-//
-//				case CALIBRATE:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					break;
-//
-//				case HOME:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					break;
-//
-//				case SET_PID:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					break;
-//
-//				case ESTOP:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					break;
-//
-//				case ERROR_MSG:
-//					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//					Protocol_WriteError(0x01);
-//					break;
-//			}
-//		}
+		if(Protocol_ReadPacket(&packet) == HAL_OK){
+			switch((CommandID)packet.command){
+				case JOINT_STATE:
+					break;
+
+				case SET_POSITION:
+					break;
+
+				case CALIBRATE:
+					break;
+
+				case HOME:
+					break;
+
+				case SET_PID:
+					break;
+
+				case ESTOP:
+					break;
+
+				case ERROR_MSG:
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					Protocol_WriteError(0x01);
+					break;
+			}
+		}
 
 	}
 

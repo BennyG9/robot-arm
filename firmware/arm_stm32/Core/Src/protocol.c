@@ -7,54 +7,96 @@
 
 #include "protocol.h"
 
+static ReadState current_state = WaitStart;
+
 
 HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
-	uint8_t byte;
+	// state machine
+	switch(current_state){
 
-	// look for start byte
-	if(Serial_ReadByte(&byte) != HAL_OK) return HAL_ERROR;
+		// waits for start byte
+		case WaitStart:
 
-	if(byte != START_BYTE) return HAL_ERROR;
+			// look for byte in the serial monitor
+			if(SerialMonitor_Available() > 0){
 
-	Protocol_WriteError(0x41);
+				// get byte from serial monitor
+				uint8_t byte;
+				if(SerialMonitor_ReadByte(&byte) == HAL_ERROR) return HAL_ERROR;
 
-	// read command byte
-	if(Serial_ReadByte(&(packet->command)) != HAL_OK){
-		Protocol_WriteError(0x03);
-		return HAL_ERROR;
+				// check for start byte
+				if(byte == START_BYTE){
+
+					// go to next state
+					current_state = WaitCmd;
+
+				// break and continue waiting
+				}else break;
+			}else break;
+
+
+		// waits for cmd byte
+		case WaitCmd:
+
+			// look for byte in serial monitor
+			if(SerialMonitor_Available() > 0){
+
+				// get command byte from serial monitor
+				if(SerialMonitor_ReadByte(&(packet->command)) == HAL_ERROR) return HAL_ERROR;
+
+				// save command length
+				packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
+
+				// go to next state
+				current_state = WaitArgs;
+
+			// break and continue waiting
+			}else break;
+
+
+		// waits for all argument bytes
+		case WaitArgs:
+
+			// look for enough bytes in serial monitor
+			if(SerialMonitor_Available() >= packet->arg_length){
+
+				// get all argument bytes from serial monitor
+				if(SerialMonitor_ReadBytes(packet->args, packet->arg_length) == HAL_ERROR) return HAL_ERROR;
+
+				// go to next state
+				current_state = WaitChecksum;
+
+			// break and continue waiting
+			}else break;
+
+
+		// waits for checksum
+		case WaitChecksum:
+
+			// look for byte in serial monitor
+			if(SerialMonitor_Available() > 0){
+
+				// get checksum byte from serial monitor
+				uint8_t byte;
+				if(SerialMonitor_ReadByte(&byte) == HAL_ERROR) return HAL_ERROR;
+
+				// get and verify checksum
+				if(byte != Protocol_Checksum(packet)){
+
+					// ditch corrupted packet
+					current_state = WaitStart;
+					return HAL_ERROR;
+				}
+
+				// reset state machine
+				current_state = WaitStart;
+
+				// give the green light
+				return HAL_OK;
+
+			}else break;
 	}
-
-	Protocol_WriteError(0x42);
-
-	// get command argument length
-	packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
-
-	Protocol_WriteError(0x43);
-
-	// get all arguments
-	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK){
-		Protocol_WriteError(0x04);
-		return HAL_ERROR;
-	}
-
-	Protocol_WriteError((packet->args)[0]);
-
-	// get and verify checksum
-	if(Serial_ReadByte(&byte) != HAL_OK){
-		Protocol_WriteError(0x05);
-		return HAL_ERROR;
-	}
-
-	Protocol_WriteError(0x45);
-
-	if(byte != Protocol_Checksum(packet)){
-		Protocol_WriteError(0x06);
-		return HAL_ERROR;
-	}
-
-	Protocol_WriteError(0x46);
-
-	return HAL_OK;
+	return HAL_TIMEOUT;
 }
 
 
@@ -96,4 +138,62 @@ void Protocol_WriteError(uint8_t error_code){
 	Protocol_WritePacket(&err);
 }
 
+
+
+
+
+
+
+
+
+
+
+//HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
+//	uint8_t byte;
+//
+//	// look for start byte
+//	if(Serial_ReadByte(&byte) != HAL_OK) return HAL_ERROR;
+//
+//	if(byte != START_BYTE) return HAL_ERROR;
+//
+//	Protocol_WriteError(0x41);
+//
+//	// read command byte
+//	if(Serial_ReadByte(&(packet->command)) != HAL_OK){
+//		Protocol_WriteError(0x03);
+//		return HAL_ERROR;
+//	}
+//
+//	Protocol_WriteError(0x42);
+//
+//	// get command argument length
+//	packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
+//
+//	Protocol_WriteError(0x43);
+//
+//	// get all arguments
+//	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK){
+//		Protocol_WriteError(0x04);
+//		return HAL_ERROR;
+//	}
+//
+//	Protocol_WriteError((packet->args)[0]);
+//
+//	// get and verify checksum
+//	if(Serial_ReadByte(&byte) != HAL_OK){
+//		Protocol_WriteError(0x05);
+//		return HAL_ERROR;
+//	}
+//
+//	Protocol_WriteError(0x45);
+//
+//	if(byte != Protocol_Checksum(packet)){
+//		Protocol_WriteError(0x06);
+//		return HAL_ERROR;
+//	}
+//
+//	Protocol_WriteError(0x46);
+//
+//	return HAL_OK;
+//}
 

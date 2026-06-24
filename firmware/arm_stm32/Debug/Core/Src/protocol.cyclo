@@ -1,4 +1,4 @@
-../Core/Src/protocol.c:11:19:Protocol_ReadPacket	7
-../Core/Src/protocol.c:61:6:Protocol_WritePacket	2
-../Core/Src/protocol.c:82:9:Protocol_Checksum	2
-../Core/Src/protocol.c:91:6:Protocol_WriteError	1
+../Core/Src/protocol.c:13:19:Protocol_ReadPacket	15
+../Core/Src/protocol.c:103:6:Protocol_WritePacket	2
+../Core/Src/protocol.c:124:9:Protocol_Checksum	2
+../Core/Src/protocol.c:133:6:Protocol_WriteError	1

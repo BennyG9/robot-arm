@@ -12,6 +12,7 @@ static SerialMonitor serial_monitor;
 void SerialMonitor_Init(void){
 	serial_monitor.head = NULL;
 	serial_monitor.tail = NULL;
+	serial_monitor.length = 0;
 }
 
 
@@ -29,6 +30,8 @@ void SerialMonitor_Append(uint8_t byte){
 		serial_monitor.tail->next = new_entry;
 		serial_monitor.tail = new_entry;
 	}
+
+	serial_monitor.length++;
 }
 
 
@@ -38,6 +41,7 @@ SerialMonitorEntry* SerialMonitor_Pop(void){
 	}else{
 		SerialMonitorEntry* entry = serial_monitor.head;
 		serial_monitor.head = entry->next;
+		serial_monitor.length--;
 		return entry;
 	}
 }
@@ -51,9 +55,29 @@ HAL_StatusTypeDef SerialMonitor_ReadByte(uint8_t* byte){
 		free(entry);
 		return HAL_OK;
 	}
-
 }
 
+
+HAL_StatusTypeDef SerialMonitor_ReadBytes(uint8_t* bytes, uint16_t length){
+	if(serial_monitor.length < length) return HAL_ERROR;
+
+	SerialMonitorEntry* entry;
+	for(int i = 0; i < length; i++){
+		entry = SerialMonitor_Pop();
+
+		if(entry == NULL) return HAL_ERROR;
+
+		bytes[i] = entry->byte;
+		free(entry);
+	}
+
+	return HAL_OK;
+}
+
+
+uint16_t SerialMonitor_Available(void){
+	return serial_monitor.length;
+}
 
 
 
