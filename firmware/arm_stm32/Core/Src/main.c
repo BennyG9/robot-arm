@@ -158,78 +158,30 @@ int main(void)
   //serial initialization
   Serial_Init(&huart2);
   HAL_UART_Receive_IT(&huart2, &rx_byte, 1);
+  SerialMonitor_Init();
 
   state = IDLE;
 
   while (1)
   {
-//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//
-//		  Motor_SetPower(&shoulder_motor, 1000);
-//
-//		  HAL_Delay(1000);
-//
-//		  Motor_Stop(&shoulder_motor);
-//
-//		  HAL_Delay(100);
-//
-//		  Motor_SetPower(&shoulder_motor, -1000);
-//
-//		  HAL_Delay(1000);
-//
-//		  Motor_Stop(&shoulder_motor);
-//
-//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//	  }
-
-
-//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  //Motor_SetPower(&shoulder_motor, -200);
-//		  Motor_SetPower(&base_motor, -200);
-//	  }else{
-//	  	  //Motor_Stop(&shoulder_motor);
-//		  Motor_Stop(&base_motor);
-//	  }
-
-
-//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  state = CAL;
-//		  Joint_Calibrate(&base_joint);
-//		  Joint_Calibrate(&shoulder_joint);
-//		  HAL_Delay(200);
-//		  state = CONTR;
-//		  HAL_Delay(2000);
-//		  Joint_SetTargetAngle(&shoulder_joint, 30);
-//		  Joint_SetTargetAngle(&base_joint, 30);
-//  	  }
-
-//  	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//  		  packet.arg_length = 1;
-//  		  packet.args[0] = 0x01;
-//  		  packet.command = 0x07;
-//  		  Protocol_WritePacket(&packet);
-//  		  HAL_Delay(200);
+//  	  uint8_t byte;
+//  	  if(SerialMonitor_ReadByte(&byte) == HAL_OK){
+//  		  Protocol_WriteError(byte);
 //  	  }
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  Joint_Reset(&shoulder_joint);
-//		  Joint_SetTarget(&shoulder_joint, 12576);
-//		  HAL_Delay(200);
+//		  Protocol_WriteError(0x01);
+//		  uint8_t byte;
+//		  while(SerialMonitor_ReadByte(&byte) == HAL_OK){
+//			  Protocol_WriteError(byte);
+//			  HAL_Delay(1000);
+//		  }
 //	  }
 
-	  //int32_t pos = Encoder_GetPosition(&shoulder_encoder);
-	  //int32_t pos = Encoder_GetPosition(&base_encoder);
-	  //char buf[50];
-	  //sprintf(buf, "%ld\r\n", pos);
-	  //HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), 10);
-	  //HAL_Delay(50);
-
-  	  uint8_t byte;
-  	  if(SerialMonitor_ReadByte(&byte) == HAL_OK){
-  		  Protocol_WriteError(byte);
-  	  }
-
+	  uint8_t byte;
+	  if(SerialMonitor_ReadByte(&byte) == HAL_OK){
+		  Protocol_WriteError(byte);
+	  }
 
     /* USER CODE END WHILE */
 

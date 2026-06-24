@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-#define SERIAL_TIMEOUT_MS 0
+#define SERIAL_TIMEOUT_MS 10
 
 
 void Serial_Init(UART_HandleTypeDef* huart);
