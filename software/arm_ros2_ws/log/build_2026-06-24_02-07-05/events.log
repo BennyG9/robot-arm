@@ -1,0 +1,98 @@
+[0.000000] (-) TimerEvent: {}
+[0.000496] (stm32_bridge) JobQueued: {'identifier': 'stm32_bridge', 'dependencies': OrderedDict()}
+[0.000645] (stm32_bridge) JobStarted: {'identifier': 'stm32_bridge'}
+[0.097191] (-) TimerEvent: {}
+[0.198019] (-) TimerEvent: {}
+[0.298740] (-) TimerEvent: {}
+[0.399417] (-) TimerEvent: {}
+[0.500076] (-) TimerEvent: {}
+[0.600738] (-) TimerEvent: {}
+[0.701374] (-) TimerEvent: {}
+[0.801968] (-) TimerEvent: {}
+[0.902596] (-) TimerEvent: {}
+[1.003218] (-) TimerEvent: {}
+[1.103829] (-) TimerEvent: {}
+[1.205175] (-) TimerEvent: {}
+[1.305729] (-) TimerEvent: {}
+[1.406271] (-) TimerEvent: {}
+[1.506810] (-) TimerEvent: {}
+[1.607252] (-) TimerEvent: {}
+[1.707660] (-) TimerEvent: {}
+[1.808038] (-) TimerEvent: {}
+[1.908414] (-) TimerEvent: {}
+[2.008788] (-) TimerEvent: {}
+[2.109219] (-) TimerEvent: {}
+[2.209660] (-) TimerEvent: {}
+[2.310058] (-) TimerEvent: {}
+[2.410485] (-) TimerEvent: {}
+[2.510948] (-) TimerEvent: {}
+[2.611341] (-) TimerEvent: {}
+[2.711729] (-) TimerEvent: {}
+[2.812099] (-) TimerEvent: {}
+[2.912474] (-) TimerEvent: {}
+[3.012841] (-) TimerEvent: {}
+[3.113281] (-) TimerEvent: {}
+[3.213973] (-) TimerEvent: {}
+[3.314748] (-) TimerEvent: {}
+[3.415485] (-) TimerEvent: {}
+[3.516172] (-) TimerEvent: {}
+[3.616849] (-) TimerEvent: {}
+[3.717498] (-) TimerEvent: {}
+[3.818082] (-) TimerEvent: {}
+[3.918731] (-) TimerEvent: {}
+[4.019248] (-) TimerEvent: {}
+[4.119848] (-) TimerEvent: {}
+[4.220473] (-) TimerEvent: {}
+[4.321078] (-) TimerEvent: {}
+[4.421681] (-) TimerEvent: {}
+[4.522322] (-) TimerEvent: {}
+[4.623064] (-) TimerEvent: {}
+[4.723625] (-) TimerEvent: {}
+[4.824286] (-) TimerEvent: {}
+[4.890827] (stm32_bridge) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/stm32_bridge', 'build', '--build-base', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build', 'install', '--record', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log', '--install-scripts', '$base/lib/stm32_bridge', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'bg99', 'SSH_CLIENT': '192.168.7.187 63862 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/bg99', 'OLDPWD': '/home/bg99/Documents/Projects/robot-arm', 'SSH_TTY': '/dev/pts/0', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'LC_MONETARY': 'nl_NL.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLCON_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'bg99', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1423823045815', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm', 'XDG_SESSION_ID': '6', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1001', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'AMENT_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge', 'SSH_CONNECTION': '192.168.7.187 63862 192.168.7.54 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'JETSON_P_NUMBER': 'p3448-0000'}, 'shell': False}
+[4.924557] (-) TimerEvent: {}
+[5.025316] (-) TimerEvent: {}
+[5.125941] (-) TimerEvent: {}
+[5.226567] (-) TimerEvent: {}
+[5.327112] (-) TimerEvent: {}
+[5.427728] (-) TimerEvent: {}
+[5.528322] (-) TimerEvent: {}
+[5.628888] (-) TimerEvent: {}
+[5.729421] (-) TimerEvent: {}
+[5.830036] (-) TimerEvent: {}
+[5.884369] (stm32_bridge) StderrLine: {'line': b"/usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[5.885097] (stm32_bridge) StderrLine: {'line': b'  warnings.warn(\n'}
+[5.930250] (-) TimerEvent: {}
+[6.008034] (stm32_bridge) StdoutLine: {'line': b'running egg_info\n'}
+[6.011101] (stm32_bridge) StdoutLine: {'line': b'writing ../../build/stm32_bridge/stm32_bridge.egg-info/PKG-INFO\n'}
+[6.011751] (stm32_bridge) StdoutLine: {'line': b'writing dependency_links to ../../build/stm32_bridge/stm32_bridge.egg-info/dependency_links.txt\n'}
+[6.012329] (stm32_bridge) StdoutLine: {'line': b'writing entry points to ../../build/stm32_bridge/stm32_bridge.egg-info/entry_points.txt\n'}
+[6.012957] (stm32_bridge) StdoutLine: {'line': b'writing requirements to ../../build/stm32_bridge/stm32_bridge.egg-info/requires.txt\n'}
+[6.013335] (stm32_bridge) StdoutLine: {'line': b'writing top-level names to ../../build/stm32_bridge/stm32_bridge.egg-info/top_level.txt\n'}
+[6.024205] (stm32_bridge) StdoutLine: {'line': b"reading manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'\n"}
+[6.028107] (stm32_bridge) StdoutLine: {'line': b"writing manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'\n"}
+[6.028704] (stm32_bridge) StdoutLine: {'line': b'running build\n'}
+[6.029051] (stm32_bridge) StdoutLine: {'line': b'running build_py\n'}
+[6.029462] (stm32_bridge) StdoutLine: {'line': b'copying stm32_bridge/protocol.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build/lib/stm32_bridge\n'}
+[6.030337] (-) TimerEvent: {}
+[6.031134] (stm32_bridge) StdoutLine: {'line': b'running install\n'}
+[6.034511] (stm32_bridge) StdoutLine: {'line': b'running install_lib\n'}
+[6.038330] (stm32_bridge) StdoutLine: {'line': b'copying /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build/lib/stm32_bridge/protocol.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge\n'}
+[6.040693] (stm32_bridge) StdoutLine: {'line': b'byte-compiling /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge/protocol.py to protocol.cpython-38.pyc\n'}
+[6.042520] (stm32_bridge) StderrLine: {'line': b'  File "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge/protocol.py", line 108\n'}
+[6.042981] (stm32_bridge) StderrLine: {'line': b'    self.serial.write_bytes(bytes([b]))\n'}
+[6.043424] (stm32_bridge) StderrLine: {'line': b'    ^\n'}
+[6.043762] (stm32_bridge) StderrLine: {'line': b'SyntaxError: invalid syntax\n'}
+[6.044091] (stm32_bridge) StderrLine: {'line': b'\n'}
+[6.044418] (stm32_bridge) StdoutLine: {'line': b'running install_data\n'}
+[6.044748] (stm32_bridge) StdoutLine: {'line': b'running install_egg_info\n'}
+[6.049169] (stm32_bridge) StdoutLine: {'line': b"removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[6.050292] (stm32_bridge) StdoutLine: {'line': b'Copying ../../build/stm32_bridge/stm32_bridge.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info\n'}
+[6.053668] (stm32_bridge) StdoutLine: {'line': b'running install_scripts\n'}
+[6.123286] (stm32_bridge) StdoutLine: {'line': b'Installing stm32_interface_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/stm32_bridge\n'}
+[6.124700] (stm32_bridge) StdoutLine: {'line': b"writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log'\n"}
+[6.130604] (-) TimerEvent: {}
+[6.216882] (stm32_bridge) CommandEnded: {'returncode': 0}
+[6.230725] (-) TimerEvent: {}
+[6.260245] (stm32_bridge) JobEnded: {'identifier': 'stm32_bridge', 'rc': 0}
+[6.262736] (-) EventReactorShutdown: {}

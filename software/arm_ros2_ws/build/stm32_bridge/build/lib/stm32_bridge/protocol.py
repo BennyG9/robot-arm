@@ -3,6 +3,8 @@ import os
 
 from .serial_com import SerialCom
 
+import time
+
 class Protocol:
 
     def __init__(self):
@@ -99,10 +101,16 @@ class Protocol:
         checksum = self.get_checksum([bytes([x]) for x in packet[1:]])
         packet.append(int(checksum))
 
-        print(bytes(packet))
+        print(packet)
 
         # write packet to serial
-        self.serial.write_bytes(bytes(packet))
+
+        for b in packet:
+            print(bytes([b]))
+            self.serial.write_bytes(bytes([b]))
+            time.sleep(0.01)
+
+        #self.serial.write_bytes(bytes(packet))
 
         return bytes(packet)
 
