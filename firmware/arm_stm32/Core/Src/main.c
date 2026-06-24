@@ -30,6 +30,7 @@
 #include "joint.h"
 #include "serial.h"
 #include "protocol.h"
+#include "serial_monitor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -223,7 +224,7 @@ int main(void)
 	  //HAL_Delay(50);
 
   	  uint8_t byte;
-  	  if(Serial_ReadByte(&byte) == HAL_OK){
+  	  if(SerialMonitor_ReadByte(&byte) == HAL_OK){
   		  Protocol_WriteError(byte);
   	  }
 
@@ -630,7 +631,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 }
 
-
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
+	if(huart->Instance == USART2){
+		uint8_t byte;
+		Serial_ReadByte(&byte);
+		SerialMonitor_Append(byte);
+	}
+}
 
 
 

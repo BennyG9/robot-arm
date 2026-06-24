@@ -6,6 +6,7 @@
 "./Core/Src/protocol.o"
 "./Core/Src/protocol_data.o"
 "./Core/Src/serial.o"
+"./Core/Src/serial_monitor.o"
 "./Core/Src/stm32f4xx_hal_msp.o"
 "./Core/Src/stm32f4xx_it.o"
 "./Core/Src/syscalls.o"
