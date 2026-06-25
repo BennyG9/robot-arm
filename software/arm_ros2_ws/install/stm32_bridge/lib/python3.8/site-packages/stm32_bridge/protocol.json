@@ -82,7 +82,7 @@
             ],
             "direction": "BIDIRECTIONAL",
             "description": "report error codes",
-            "name": "ERROR"
+            "name": "ERROR_MSG"
         }
     }
 }

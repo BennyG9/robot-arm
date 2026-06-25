@@ -147,8 +147,8 @@ class Protocol:
 
     # converts float data type into bytes
     def float_to_bytes(self, value):
-
-        pass
+        bytes = struct.pack('<f', value)
+        return bytes
 
     pass
 
