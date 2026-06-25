@@ -21,8 +21,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
-#include <stdio.h>
 
 #include "motor.h"
 #include "encoder.h"
@@ -171,7 +169,10 @@ int main(void)
 //  	  }
 
 	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-
+		  Protocol_WriteCommand(ERROR_MSG, 9);
+		  HAL_Delay(1000);
+		  Protocol_WriteCommand(JOINT_STATE, 10.1f, 15.7575f, 100.94444444f, 180.0f);
+		  HAL_Delay(200);
 	  }
 
 

@@ -91,7 +91,7 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 				// reset state machine
 				current_state = WaitStart;
 
-				// give the green light
+				// return success
 				return HAL_OK;
 
 			}else break;
@@ -130,6 +130,51 @@ uint8_t Protocol_Checksum(Packet* packet){
 }
 
 
+HAL_StatusTypeDef Protocol_WriteCommand(uint8_t cmd_id, ...){
+
+	// format arguments
+	va_list args;
+	va_start(args, cmd_id);
+
+	// get number of arguments and argument types
+	uint16_t num_args = Protocol_GetNumArguments(cmd_id);
+	Type arg_types[MAX_ARG_SIZE];
+	if(Protocol_GetArgumentTypes(cmd_id, arg_types) == HAL_ERROR) return HAL_ERROR;
+
+	// initialize packet
+	Packet packet;
+	packet.command = cmd_id;
+	packet.arg_length = Protocol_GetPacketLength(cmd_id) - 3;
+
+	// pack arguments
+	for(int i = 0; i < num_args; i++){
+		switch(arg_types[i]){
+
+			// no arguments
+			case NONE:
+				break;
+
+			// byte argument
+			case UINT8_T:
+				packet.args[i] = (uint8_t)va_arg(args, int);
+				break;
+
+			// float argument
+			case FLOAT:
+				float arg = (float)va_arg(args, double);
+				memcpy(&(packet.args[i]), &arg, sizeof(float));
+				break;
+		}
+	}
+
+	// send packet
+	Protocol_WritePacket(&packet);
+
+	// return success
+	return HAL_OK;
+}
+
+
 void Protocol_WriteError(uint8_t error_code){
 	Packet err;
 	err.arg_length = 1;
@@ -137,63 +182,3 @@ void Protocol_WriteError(uint8_t error_code){
 	err.command = 0x07;
 	Protocol_WritePacket(&err);
 }
-
-
-
-
-
-
-
-
-
-
-
-//HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
-//	uint8_t byte;
-//
-//	// look for start byte
-//	if(Serial_ReadByte(&byte) != HAL_OK) return HAL_ERROR;
-//
-//	if(byte != START_BYTE) return HAL_ERROR;
-//
-//	Protocol_WriteError(0x41);
-//
-//	// read command byte
-//	if(Serial_ReadByte(&(packet->command)) != HAL_OK){
-//		Protocol_WriteError(0x03);
-//		return HAL_ERROR;
-//	}
-//
-//	Protocol_WriteError(0x42);
-//
-//	// get command argument length
-//	packet->arg_length = Protocol_GetPacketLength(packet->command) - 3;
-//
-//	Protocol_WriteError(0x43);
-//
-//	// get all arguments
-//	if(Serial_ReadBytes(packet->args, packet->arg_length) != HAL_OK){
-//		Protocol_WriteError(0x04);
-//		return HAL_ERROR;
-//	}
-//
-//	Protocol_WriteError((packet->args)[0]);
-//
-//	// get and verify checksum
-//	if(Serial_ReadByte(&byte) != HAL_OK){
-//		Protocol_WriteError(0x05);
-//		return HAL_ERROR;
-//	}
-//
-//	Protocol_WriteError(0x45);
-//
-//	if(byte != Protocol_Checksum(packet)){
-//		Protocol_WriteError(0x06);
-//		return HAL_ERROR;
-//	}
-//
-//	Protocol_WriteError(0x46);
-//
-//	return HAL_OK;
-//}
-

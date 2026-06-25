@@ -34,6 +34,8 @@ void Protocol_WritePacket(Packet* packet);
 
 uint8_t Protocol_Checksum(Packet* packet);
 
+HAL_StatusTypeDef Protocol_WriteCommand(uint8_t cmd_id, ...);
+
 void Protocol_WriteError(uint8_t error_code);
 
 #endif /* INC_PROTOCOL_H_ */

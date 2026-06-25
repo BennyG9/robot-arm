@@ -16,6 +16,16 @@ typedef enum{
 	ERROR_MSG = 7,
 } CommandID;
 
+typedef enum{
+	NONE,
+	FLOAT,
+	UINT8_T,
+} Type;
+
 uint16_t Protocol_GetPacketLength(uint8_t cmd_id);
+
+HAL_StatusTypeDef Protocol_GetArgumentTypes(uint8_t cmd_id, Type* type_list);
+
+uint16_t Protocol_GetNumArguments(uint8_t cmd_id);
 
 #endif

@@ -10,8 +10,6 @@
     "framing": {
         "start_byte": "0xAA",
 
-        "max_arg_size": "16",
-
         "endianness": "little",
 
         "float": "IEEE754",
