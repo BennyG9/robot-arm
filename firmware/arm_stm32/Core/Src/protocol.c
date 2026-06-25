@@ -147,6 +147,7 @@ HAL_StatusTypeDef Protocol_WriteCommand(uint8_t cmd_id, ...){
 	packet.arg_length = Protocol_GetPacketLength(cmd_id) - 3;
 
 	// pack arguments
+	uint8_t current_byte = 0;
 	for(int i = 0; i < num_args; i++){
 		switch(arg_types[i]){
 
@@ -156,13 +157,15 @@ HAL_StatusTypeDef Protocol_WriteCommand(uint8_t cmd_id, ...){
 
 			// byte argument
 			case UINT8_T:
-				packet.args[i] = (uint8_t)va_arg(args, int);
+				packet.args[current_byte] = (uint8_t)va_arg(args, int);
+				current_byte++;
 				break;
 
 			// float argument
 			case FLOAT:
 				float arg = (float)va_arg(args, double);
-				memcpy(&(packet.args[i]), &arg, sizeof(float));
+				memcpy(&(packet.args[current_byte]), &arg, sizeof(float));
+				current_byte += 4;
 				break;
 		}
 	}
