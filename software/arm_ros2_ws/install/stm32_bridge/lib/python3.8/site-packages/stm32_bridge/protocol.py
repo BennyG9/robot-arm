@@ -3,6 +3,7 @@ import os
 
 from .serial_com import SerialCom
 
+import struct
 import time
 
 class Protocol:
@@ -105,12 +106,12 @@ class Protocol:
 
         # write packet to serial
 
-        for b in packet:
-            #print(bytes([b]))
-            self.serial.write_bytes(bytes([b]))
-            time.sleep(0.01)
+        #for b in packet:
+        #    #print(bytes([b]))
+        #    self.serial.write_bytes(bytes([b]))
+        #    time.sleep(0.01)
 
-        #self.serial.write_bytes(bytes(packet))
+        self.serial.write_bytes(bytes(packet))
 
         return bytes(packet)
 
@@ -140,8 +141,8 @@ class Protocol:
 
     # parses float data type from bytes
     def bytes_to_float(self, bytes_list):
-        raw_bytes = bytes(bytes_list)
-        value = struct.unpack('<f', raw_bytes[0])
+        raw_bytes = b"".join(bytes_list)
+        value = struct.unpack('<f', raw_bytes)[0]
         return value
 
     # converts float data type into bytes
