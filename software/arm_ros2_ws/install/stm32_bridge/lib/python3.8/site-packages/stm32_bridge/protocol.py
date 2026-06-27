@@ -102,7 +102,7 @@ class Protocol:
         checksum = self.get_checksum([bytes([x]) for x in packet[1:]])
         packet.append(int(checksum))
 
-        print(packet)
+        #print(packet)
 
         # write packet to serial
 
