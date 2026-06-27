@@ -34,6 +34,8 @@ void Joint_SetTargetCount(Joint* joint, int16_t pos);
 
 void Joint_SetTargetAngle(Joint* joint, float angle);
 
+float Joint_GetAngle(Joint* joint);
+
 void Joint_Update(Joint* joint);
 
 void Joint_Reset(Joint* joint);

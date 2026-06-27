@@ -67,6 +67,9 @@ enum State state = IDLE;
 
 uint8_t rx_byte;
 Packet packet;
+
+static uint16_t JOINT_PUBLISH_FREQ = 100;  //Hz
+uint16_t joint_publish_counter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -545,6 +548,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case SET_POSITION:
+					float positions[4];
+					int byte_index = 0;
+					for(int float_index = 0; float_index < 4; float_index++){
+						memcpy(&(positions[float_index]), &(packet.args[byte_index]), sizeof(float));
+						byte_index += 4;
+					}
 					break;
 
 				case CALIBRATE:
@@ -560,10 +569,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case ERROR_MSG:
-					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-					Protocol_WriteError(0x01);
 					break;
 			}
+		}
+
+
+		joint_publish_counter++;
+		if(joint_publish_counter >= (uint16_t)(1000 / JOINT_PUBLISH_FREQ)){
+			Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
 		}
 
 	}
@@ -573,7 +586,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
 	if(huart->Instance == USART2){
 		SerialMonitor_Append(rx_byte);
-		//Protocol_WriteError(rx_byte);
 		HAL_UART_Receive_IT(huart, &rx_byte, 1);
 	}
 }

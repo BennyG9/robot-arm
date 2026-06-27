@@ -37,6 +37,12 @@ void Joint_SetTargetAngle(Joint* joint, float angle){
 	joint->target_position = pos;
 }
 
+
+float Joint_GetAngle(Joint* joint){
+	return Encoder_GetAngle(joint->encoder);
+}
+
+
 void Joint_Update(Joint* joint){
 	int32_t pos = Encoder_GetPosition(joint->encoder);
 
