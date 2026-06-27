@@ -68,7 +68,7 @@ enum State state = IDLE;
 uint8_t rx_byte;
 Packet packet;
 
-static uint16_t JOINT_PUBLISH_FREQ = 100;  //Hz
+static uint16_t JOINT_PUBLISH_FREQ = 1;  //Hz
 uint16_t joint_publish_counter = 0;
 /* USER CODE END PV */
 
@@ -577,6 +577,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 		joint_publish_counter++;
 		if(joint_publish_counter >= (uint16_t)(1000 / JOINT_PUBLISH_FREQ)){
 			Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
+			joint_publish_counter = 0;
 		}
 
 	}
