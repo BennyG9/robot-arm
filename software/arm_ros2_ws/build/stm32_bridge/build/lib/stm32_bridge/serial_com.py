@@ -8,6 +8,9 @@ class SerialCom:
         self.ser.reset_output_buffer()
         pass
 
+    def available(self):
+        return self.ser.in_waiting
+
     def write_bytes(self, bytes):
         self.ser.write(bytes)
         pass

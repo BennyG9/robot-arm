@@ -8,6 +8,11 @@ import time
 
 class Protocol:
 
+    WaitStart = 1
+    WaitCmd = 2
+    WaitArgs = 3
+    WaitChecksum = 4
+
     def __init__(self):
         path = os.path.join(os.path.dirname(__file__), "protocol.json")
         with open(path, "r") as file:
@@ -20,38 +25,81 @@ class Protocol:
             self.commands_id[data["id"]] = data
 
         self.serial = SerialCom(port="/dev/ttyACM0")
+
+        self.packet = []
+        self.read_state = self.WaitStart
         pass
 
     def read_packet(self):
 
-        # check for starte byte
-        current_byte = self.serial.read_byte()
-        if(current_byte != bytes([int(self.protocol["framing"]["start_byte"], 16)])):
-            return None
-
-        # initialize packet
-        packet = [current_byte]
+        # check for start byte
+        if(self.read_state == self.WaitStart):
+            current_byte = self.serial.read_byte()
+            if(current_byte != bytes([int(self.protocol["framing"]["start_byte"], 16)])):
+                return None
+            self.packet = [current_byte]
+            self.read_state = self.WaitCmd
 
         # get command
-        current_byte = self.serial.read_byte()
-        packet.append(current_byte)
+        if(self.read_state == self.WaitCmd):
+            current_byte = self.serial.read_byte()
+            if(current_byte == None):
+                return None
+            self.packet.append(current_byte)
+            self.read_state = self.WaitArgs
+
+        # get all args
+        if(self.read_state == self.WaitArgs):
+            cmd_length = self.get_command_length(self.packet[1])
+            if(self.serial.available() < cmd_length - 1):
+                return None
+            for _ in range(cmd_length - 3):
+                self.packet.append(self.serial.read_byte())
+            self.read_state = self.WaitChecksum
+
+        # get and verify checksum
+        if(self.read_state == self.WaitChecksum):
+            current_byte = self.serial.read_byte()
+            if(current_byte == None):
+                return None
+            self.packet.append(current_byte)
+            checksum = self.get_checksum(self.packet[1:len(self.packet)-1])
+            if(checksum != current_byte[0]):
+                return -1
+            self.read_state = self.WaitStart
+            print(self.packet)
+            return self.packet[:]
+
+        return None
+
+        # check for starte byte
+        #current_byte = self.serial.read_byte()
+        #if(current_byte != bytes([int(self.protocol["framing"]["start_byte"], 16)])):
+        #    return None
+
+        # initialize packet
+        #packet = [current_byte]
+
+        # get command
+        #current_byte = self.serial.read_byte()
+        #packet.append(current_byte)
 
         # determine length of packet
-        cmd_length = self.get_command_length(current_byte)
+        #cmd_length = self.get_command_length(current_byte)
 
         # get the rest of the packet
-        for _ in range(cmd_length - 2):
-            packet.append(self.serial.read_byte())
+        #for _ in range(cmd_length - 2):
+        #    packet.append(self.serial.read_byte())
 
-        print(packet)
+        #print(packet)
 
         # verify checksum
-        checksum = self.get_checksum(packet[1:len(packet)-1])
-        if(checksum != packet[len(packet)-1][0]):
-            print("CHECKSUM ERROR")
-            return -1
+        #checksum = self.get_checksum(packet[1:len(packet)-1])
+        #if(checksum != packet[len(packet)-1][0]):
+        #    print("CHECKSUM ERROR")
+        #    return -1
 
-        return packet
+        #return packet
 
     def parse_packet(self, packet):
 
