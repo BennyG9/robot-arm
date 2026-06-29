@@ -68,7 +68,7 @@ enum State state = IDLE;
 uint8_t rx_byte;
 Packet packet;
 
-static uint16_t JOINT_PUBLISH_FREQ = 1;  //Hz
+static uint16_t JOINT_PUBLISH_FREQ = 100;  //Hz
 uint16_t joint_publish_counter = 0;
 /* USER CODE END PV */
 
