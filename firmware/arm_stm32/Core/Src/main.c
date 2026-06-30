@@ -557,9 +557,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case CALIBRATE:
+					Protocol_WriteError(5);
 					break;
 
 				case HOME:
+					Protocol_WriteError(9);
 					break;
 
 				case SET_PID:
