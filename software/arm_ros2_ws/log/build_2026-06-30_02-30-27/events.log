@@ -1,0 +1,153 @@
+[0.000000] (-) TimerEvent: {}
+[0.000583] (arm_bringup) JobQueued: {'identifier': 'arm_bringup', 'dependencies': OrderedDict()}
+[0.000725] (stm32_bridge) JobQueued: {'identifier': 'stm32_bridge', 'dependencies': OrderedDict()}
+[0.000848] (arm_bringup) JobStarted: {'identifier': 'arm_bringup'}
+[0.025900] (stm32_bridge) JobStarted: {'identifier': 'stm32_bridge'}
+[0.057679] (arm_bringup) JobProgress: {'identifier': 'arm_bringup', 'progress': 'cmake'}
+[0.059711] (arm_bringup) Command: {'cmd': ['/usr/bin/cmake', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup', '-DCMAKE_INSTALL_PREFIX=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bg99'), ('SSH_CLIENT', '192.168.7.225 64982 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bg99'), ('OLDPWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup'), ('SSH_TTY', '/dev/pts/0'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1001/bus'), ('COLCON_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bg99'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1423823045815'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1001'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('AMENT_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup'), ('SSH_CONNECTION', '192.168.7.225 64982 192.168.7.54 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy')]), 'shell': False}
+[0.097135] (-) TimerEvent: {}
+[0.198252] (-) TimerEvent: {}
+[0.298931] (-) TimerEvent: {}
+[0.399513] (-) TimerEvent: {}
+[0.500159] (-) TimerEvent: {}
+[0.600820] (-) TimerEvent: {}
+[0.701478] (-) TimerEvent: {}
+[0.802097] (-) TimerEvent: {}
+[0.902731] (-) TimerEvent: {}
+[1.003381] (-) TimerEvent: {}
+[1.023554] (arm_bringup) StdoutLine: {'line': b'-- The C compiler identification is GNU 8.4.0\n'}
+[1.103527] (-) TimerEvent: {}
+[1.204171] (-) TimerEvent: {}
+[1.307762] (-) TimerEvent: {}
+[1.409167] (-) TimerEvent: {}
+[1.509970] (-) TimerEvent: {}
+[1.610611] (-) TimerEvent: {}
+[1.711302] (-) TimerEvent: {}
+[1.811928] (-) TimerEvent: {}
+[1.912634] (-) TimerEvent: {}
+[2.013295] (-) TimerEvent: {}
+[2.113908] (-) TimerEvent: {}
+[2.150862] (arm_bringup) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 8.4.0\n'}
+[2.183493] (arm_bringup) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[2.214136] (-) TimerEvent: {}
+[2.314724] (-) TimerEvent: {}
+[2.415424] (-) TimerEvent: {}
+[2.516092] (-) TimerEvent: {}
+[2.616745] (-) TimerEvent: {}
+[2.701033] (arm_bringup) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[2.708087] (arm_bringup) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.716912] (-) TimerEvent: {}
+[2.817617] (-) TimerEvent: {}
+[2.918301] (-) TimerEvent: {}
+[3.018497] (stm32_bridge) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/stm32_bridge', 'build', '--build-base', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build', 'install', '--record', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log', '--install-scripts', '$base/lib/stm32_bridge', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'bg99', 'SSH_CLIENT': '192.168.7.225 64982 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/bg99', 'OLDPWD': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup', 'SSH_TTY': '/dev/pts/0', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'LC_MONETARY': 'nl_NL.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLCON_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'bg99', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1423823045815', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm', 'XDG_SESSION_ID': '3', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1001', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'AMENT_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge', 'SSH_CONNECTION': '192.168.7.225 64982 192.168.7.54 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'JETSON_P_NUMBER': 'p3448-0000'}, 'shell': False}
+[3.025138] (-) TimerEvent: {}
+[3.125951] (-) TimerEvent: {}
+[3.226687] (-) TimerEvent: {}
+[3.231547] (arm_bringup) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.281648] (arm_bringup) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.283891] (arm_bringup) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.297082] (arm_bringup) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[3.326913] (-) TimerEvent: {}
+[3.427598] (-) TimerEvent: {}
+[3.528234] (-) TimerEvent: {}
+[3.628881] (-) TimerEvent: {}
+[3.729571] (-) TimerEvent: {}
+[3.767558] (arm_bringup) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[3.771275] (arm_bringup) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.829809] (-) TimerEvent: {}
+[3.930589] (-) TimerEvent: {}
+[4.031297] (-) TimerEvent: {}
+[4.057857] (stm32_bridge) StderrLine: {'line': b"/usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[4.058460] (stm32_bridge) StderrLine: {'line': b'  warnings.warn(\n'}
+[4.131499] (-) TimerEvent: {}
+[4.191087] (stm32_bridge) StdoutLine: {'line': b'running egg_info\n'}
+[4.194333] (stm32_bridge) StdoutLine: {'line': b'writing ../../build/stm32_bridge/stm32_bridge.egg-info/PKG-INFO\n'}
+[4.196009] (stm32_bridge) StdoutLine: {'line': b'writing dependency_links to ../../build/stm32_bridge/stm32_bridge.egg-info/dependency_links.txt\n'}
+[4.196664] (stm32_bridge) StdoutLine: {'line': b'writing entry points to ../../build/stm32_bridge/stm32_bridge.egg-info/entry_points.txt\n'}
+[4.197176] (stm32_bridge) StdoutLine: {'line': b'writing requirements to ../../build/stm32_bridge/stm32_bridge.egg-info/requires.txt\n'}
+[4.197552] (stm32_bridge) StdoutLine: {'line': b'writing top-level names to ../../build/stm32_bridge/stm32_bridge.egg-info/top_level.txt\n'}
+[4.209298] (stm32_bridge) StdoutLine: {'line': b"reading manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'\n"}
+[4.213584] (stm32_bridge) StdoutLine: {'line': b"writing manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'\n"}
+[4.214238] (stm32_bridge) StdoutLine: {'line': b'running build\n'}
+[4.214618] (stm32_bridge) StdoutLine: {'line': b'running build_py\n'}
+[4.216151] (stm32_bridge) StdoutLine: {'line': b'running install\n'}
+[4.219784] (stm32_bridge) StdoutLine: {'line': b'running install_lib\n'}
+[4.226098] (stm32_bridge) StdoutLine: {'line': b'running install_data\n'}
+[4.226731] (stm32_bridge) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.231667] (-) TimerEvent: {}
+[4.233515] (stm32_bridge) StdoutLine: {'line': b"removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[4.235128] (stm32_bridge) StdoutLine: {'line': b'Copying ../../build/stm32_bridge/stm32_bridge.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info\n'}
+[4.239738] (stm32_bridge) StdoutLine: {'line': b'running install_scripts\n'}
+[4.272862] (arm_bringup) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.314557] (stm32_bridge) StdoutLine: {'line': b'Installing stm32_interface_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/stm32_bridge\n'}
+[4.316080] (stm32_bridge) StdoutLine: {'line': b"writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log'\n"}
+[4.323623] (arm_bringup) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.325884] (arm_bringup) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.331905] (-) TimerEvent: {}
+[4.409763] (stm32_bridge) CommandEnded: {'returncode': 0}
+[4.432089] (-) TimerEvent: {}
+[4.452973] (stm32_bridge) JobEnded: {'identifier': 'stm32_bridge', 'rc': 0}
+[4.532235] (-) TimerEvent: {}
+[4.632721] (-) TimerEvent: {}
+[4.733182] (-) TimerEvent: {}
+[4.833673] (-) TimerEvent: {}
+[4.884291] (arm_bringup) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[4.933900] (-) TimerEvent: {}
+[5.034529] (-) TimerEvent: {}
+[5.371790] (-) TimerEvent: {}
+[5.425422] (arm_bringup) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[5.426178] (arm_bringup) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[5.471966] (-) TimerEvent: {}
+[5.572439] (-) TimerEvent: {}
+[5.672988] (-) TimerEvent: {}
+[5.773710] (-) TimerEvent: {}
+[5.874258] (-) TimerEvent: {}
+[5.974850] (-) TimerEvent: {}
+[6.075451] (-) TimerEvent: {}
+[6.176099] (-) TimerEvent: {}
+[6.276687] (-) TimerEvent: {}
+[6.377220] (-) TimerEvent: {}
+[6.477782] (-) TimerEvent: {}
+[6.578366] (-) TimerEvent: {}
+[6.598827] (arm_bringup) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[6.678577] (-) TimerEvent: {}
+[6.779276] (-) TimerEvent: {}
+[6.879841] (-) TimerEvent: {}
+[6.940927] (arm_bringup) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[6.950382] (arm_bringup) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[6.953387] (arm_bringup) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[6.956038] (arm_bringup) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[6.962078] (arm_bringup) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[6.972111] (arm_bringup) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.979865] (arm_bringup) StdoutLine: {'line': b'-- Generating done\n'}
+[6.980337] (-) TimerEvent: {}
+[6.985587] (arm_bringup) StdoutLine: {'line': b'-- Build files have been written to: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup\n'}
+[6.997589] (arm_bringup) CommandEnded: {'returncode': 0}
+[7.006694] (arm_bringup) JobProgress: {'identifier': 'arm_bringup', 'progress': 'build'}
+[7.006942] (arm_bringup) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup', '--', '-j4', '-l4'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bg99'), ('SSH_CLIENT', '192.168.7.225 64982 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bg99'), ('OLDPWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup'), ('SSH_TTY', '/dev/pts/0'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1001/bus'), ('COLCON_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bg99'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1423823045815'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1001'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('AMENT_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup'), ('SSH_CONNECTION', '192.168.7.225 64982 192.168.7.54 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy')]), 'shell': False}
+[7.080590] (-) TimerEvent: {}
+[7.134366] (arm_bringup) CommandEnded: {'returncode': 0}
+[7.136854] (arm_bringup) JobProgress: {'identifier': 'arm_bringup', 'progress': 'install'}
+[7.175414] (arm_bringup) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bg99'), ('SSH_CLIENT', '192.168.7.225 64982 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bg99'), ('OLDPWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup'), ('SSH_TTY', '/dev/pts/0'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1001/bus'), ('COLCON_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bg99'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1423823045815'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1001'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('AMENT_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup'), ('SSH_CONNECTION', '192.168.7.225 64982 192.168.7.54 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy')]), 'shell': False}
+[7.180718] (-) TimerEvent: {}
+[7.204149] (arm_bringup) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[7.204962] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/package_run_dependencies/arm_bringup\n'}
+[7.205868] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/parent_prefix_path/arm_bringup\n'}
+[7.206648] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/ament_prefix_path.sh\n'}
+[7.207493] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/ament_prefix_path.dsv\n'}
+[7.208090] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/path.sh\n'}
+[7.208620] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/path.dsv\n'}
+[7.209133] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.bash\n'}
+[7.209722] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.sh\n'}
+[7.210309] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.zsh\n'}
+[7.211002] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.dsv\n'}
+[7.211583] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/package.dsv\n'}
+[7.212352] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/packages/arm_bringup\n'}
+[7.213105] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/cmake/arm_bringupConfig.cmake\n'}
+[7.213520] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/cmake/arm_bringupConfig-version.cmake\n'}
+[7.214080] (arm_bringup) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/package.xml\n'}
+[7.219509] (arm_bringup) CommandEnded: {'returncode': 0}
+[7.280917] (-) TimerEvent: {}
+[7.381439] (-) TimerEvent: {}
+[7.393172] (arm_bringup) JobEnded: {'identifier': 'arm_bringup', 'rc': 0}
+[7.396177] (-) EventReactorShutdown: {}

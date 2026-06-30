@@ -1,0 +1,48 @@
+[0.061s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup': CMAKE_PREFIX_PATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup -DCMAKE_INSTALL_PREFIX=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup
+[1.023s] -- The C compiler identification is GNU 8.4.0
+[2.150s] -- The CXX compiler identification is GNU 8.4.0
+[2.183s] -- Check for working C compiler: /usr/bin/cc
+[2.701s] -- Check for working C compiler: /usr/bin/cc -- works
+[2.708s] -- Detecting C compiler ABI info
+[3.231s] -- Detecting C compiler ABI info - done
+[3.281s] -- Detecting C compile features
+[3.283s] -- Detecting C compile features - done
+[3.297s] -- Check for working CXX compiler: /usr/bin/c++
+[3.767s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[3.771s] -- Detecting CXX compiler ABI info
+[4.272s] -- Detecting CXX compiler ABI info - done
+[4.323s] -- Detecting CXX compile features
+[4.325s] -- Detecting CXX compile features - done
+[4.884s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[5.425s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[5.426s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[6.598s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[6.940s] -- Added test 'copyright' to check source files copyright and LICENSE
+[6.950s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.953s] -- Added test 'lint_cmake' to check CMake code style
+[6.955s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[6.961s] -- Added test 'xmllint' to check XML markup files
+[6.972s] -- Configuring done
+[6.979s] -- Generating done
+[6.985s] -- Build files have been written to: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup
+[7.001s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup' returned '0': CMAKE_PREFIX_PATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup -DCMAKE_INSTALL_PREFIX=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup
+[7.007s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup': CMAKE_PREFIX_PATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --build /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup -- -j4 -l4
+[7.134s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup' returned '0': CMAKE_PREFIX_PATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --build /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup -- -j4 -l4
+[7.176s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup': CMAKE_PREFIX_PATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --install /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup
+[7.204s] -- Install configuration: ""
+[7.204s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/package_run_dependencies/arm_bringup
+[7.205s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/parent_prefix_path/arm_bringup
+[7.206s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/ament_prefix_path.sh
+[7.207s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/ament_prefix_path.dsv
+[7.207s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/path.sh
+[7.208s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/environment/path.dsv
+[7.208s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.bash
+[7.209s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.sh
+[7.210s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.zsh
+[7.210s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/local_setup.dsv
+[7.211s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/package.dsv
+[7.212s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/packages/arm_bringup
+[7.212s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/cmake/arm_bringupConfig.cmake
+[7.213s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/cmake/arm_bringupConfig-version.cmake
+[7.213s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/package.xml
+[7.219s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup' returned '0': CMAKE_PREFIX_PATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --install /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup

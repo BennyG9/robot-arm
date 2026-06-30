@@ -67,39 +67,10 @@ class Protocol:
             if(checksum != current_byte[0]):
                 return -1
             self.read_state = self.WaitStart
-            print(self.packet)
+            #print(self.packet)
             return self.packet[:]
 
         return None
-
-        # check for starte byte
-        #current_byte = self.serial.read_byte()
-        #if(current_byte != bytes([int(self.protocol["framing"]["start_byte"], 16)])):
-        #    return None
-
-        # initialize packet
-        #packet = [current_byte]
-
-        # get command
-        #current_byte = self.serial.read_byte()
-        #packet.append(current_byte)
-
-        # determine length of packet
-        #cmd_length = self.get_command_length(current_byte)
-
-        # get the rest of the packet
-        #for _ in range(cmd_length - 2):
-        #    packet.append(self.serial.read_byte())
-
-        #print(packet)
-
-        # verify checksum
-        #checksum = self.get_checksum(packet[1:len(packet)-1])
-        #if(checksum != packet[len(packet)-1][0]):
-        #    print("CHECKSUM ERROR")
-        #    return -1
-
-        #return packet
 
     def parse_packet(self, packet):
 
@@ -162,6 +133,10 @@ class Protocol:
         self.serial.write_bytes(bytes(packet))
 
         return bytes(packet)
+
+    def clear_serial(self):
+        self.serial.clear()
+        pass
 
 #******************#
 # HELPER FUNCTIONS #

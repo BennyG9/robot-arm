@@ -19,7 +19,10 @@ class STM32Bridge(Node):
         self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
 
         #Communication loop
-        self.timer = self.create_timer(0.1, self.read_serial)
+        self.timer = self.create_timer(0.0001, self.read_serial)
+
+        #Clear serial
+        self.protocol.clear_serial()
 
         self.get_logger().info("STM32 Bridge Initiated")
         pass
