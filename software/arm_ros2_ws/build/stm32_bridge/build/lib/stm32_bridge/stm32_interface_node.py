@@ -1,6 +1,8 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
+from arm_interfaces.srv import Calibrate
+from arm_interfaces.srv import Home
 
 from .protocol import Protocol
 
@@ -17,6 +19,19 @@ class STM32Bridge(Node):
 
         #Joint State publisher
         self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
+
+        #Services
+        self.calibrate_srv = self.create_service(
+            Calibrate,
+            "calibrate",
+            self.calibrate_callback
+        )
+
+        self.home_srv = self.create_service(
+            Home,
+            "home",
+            self.home_callback
+        )
 
         #Communication loop
         self.timer = self.create_timer(0.0001, self.read_serial)
@@ -53,6 +68,19 @@ class STM32Bridge(Node):
             pass
 
         pass
+
+
+    def calibrate_callback(self):
+        self.protocol.write_packet("CALIBRATE")
+        response.success = True
+        return response
+
+
+    def home_callback(self):
+        self.protocol.write_packet("HOME")
+        response.success = True
+        return response
+
 
     def publish_joint_states(self, joint_angles):
         msg = JointState()

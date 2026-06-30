@@ -1,0 +1,20 @@
+[1.244s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --build /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces -- -j4 -l4
+[2.482s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --build /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces -- -j4 -l4
+[2.522s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --install /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces
+[2.552s] -- Install configuration: ""
+[2.552s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/package_run_dependencies/arm_interfaces
+[2.553s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/parent_prefix_path/arm_interfaces
+[2.554s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.sh
+[2.554s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.dsv
+[2.555s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.sh
+[2.555s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.dsv
+[2.556s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.bash
+[2.556s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.sh
+[2.557s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.zsh
+[2.557s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.dsv
+[2.558s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.dsv
+[2.558s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/packages/arm_interfaces
+[2.559s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig.cmake
+[2.559s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig-version.cmake
+[2.560s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.xml
+[2.566s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy /usr/bin/cmake --install /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces

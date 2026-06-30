@@ -10,6 +10,7 @@ setup.py
 ../../build/arm_bringup/arm_bringup.egg-info/zip-safe
 arm_bringup/__init__.py
 launch/hardware.launch.py
+launch/teleop.launch.py
 resource/arm_bringup
 test/test_copyright.py
 test/test_flake8.py

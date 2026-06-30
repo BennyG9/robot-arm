@@ -1,0 +1,15 @@
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/package_run_dependencies/arm_interfaces
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/parent_prefix_path/arm_interfaces
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.sh
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.dsv
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.sh
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.dsv
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.bash
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.sh
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.zsh
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.dsv
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.dsv
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/packages/arm_interfaces
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig.cmake
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig-version.cmake
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.xml

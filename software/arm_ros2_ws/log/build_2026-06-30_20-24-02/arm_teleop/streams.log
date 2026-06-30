@@ -1,0 +1,39 @@
+[7.043s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_teleop': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_teleop build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log --install-scripts $base/lib/arm_teleop --single-version-externally-managed install_data
+[8.121s] /usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[8.121s]   warnings.warn(
+[8.263s] running egg_info
+[8.266s] creating ../../build/arm_teleop/arm_teleop.egg-info
+[8.268s] writing ../../build/arm_teleop/arm_teleop.egg-info/PKG-INFO
+[8.270s] writing dependency_links to ../../build/arm_teleop/arm_teleop.egg-info/dependency_links.txt
+[8.271s] writing entry points to ../../build/arm_teleop/arm_teleop.egg-info/entry_points.txt
+[8.271s] writing requirements to ../../build/arm_teleop/arm_teleop.egg-info/requires.txt
+[8.272s] writing top-level names to ../../build/arm_teleop/arm_teleop.egg-info/top_level.txt
+[8.275s] writing manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'
+[8.282s] reading manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'
+[8.286s] writing manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'
+[8.287s] running build
+[8.288s] running build_py
+[8.289s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build
+[8.289s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib
+[8.289s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop
+[8.290s] copying arm_teleop/__init__.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop
+[8.292s] copying arm_teleop/keyboard_teleop_node.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop
+[8.292s] running install
+[8.293s] running install_lib
+[8.297s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop
+[8.297s] copying /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop/__init__.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop
+[8.298s] copying /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop/keyboard_teleop_node.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop
+[8.300s] byte-compiling /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop/__init__.py to __init__.cpython-38.pyc
+[8.301s] byte-compiling /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop/keyboard_teleop_node.py to keyboard_teleop_node.cpython-38.pyc
+[8.303s] running install_data
+[8.303s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/share/ament_index
+[8.304s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/share/ament_index/resource_index
+[8.305s] creating /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/share/ament_index/resource_index/packages
+[8.305s] copying resource/arm_teleop -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/share/ament_index/resource_index/packages
+[8.305s] copying package.xml -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/share/arm_teleop
+[8.306s] running install_egg_info
+[8.312s] Copying ../../build/arm_teleop/arm_teleop.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop-0.0.0-py3.8.egg-info
+[8.316s] running install_scripts
+[8.398s] Installing keyboard_teleop script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/arm_teleop
+[8.400s] writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log'
+[8.519s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_teleop' returned '0': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_teleop build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log --install-scripts $base/lib/arm_teleop --single-version-externally-managed install_data

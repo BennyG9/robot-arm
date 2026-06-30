@@ -3,6 +3,7 @@
 /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/ament_index/resource_index/packages/arm_bringup
 /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/package.xml
 /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/launch/hardware.launch.py
+/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/share/arm_bringup/launch/teleop.launch.py
 /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info/top_level.txt
 /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info/entry_points.txt
 /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info/dependency_links.txt
