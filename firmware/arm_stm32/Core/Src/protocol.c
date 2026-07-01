@@ -57,6 +57,12 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 		// waits for all argument bytes
 		case WaitArgs:
 
+			// skip if no args
+			if(packet->arg_length == 0){
+				current_state = WaitChecksum;
+				break;
+			}
+
 			// look for enough bytes in serial monitor
 			if(SerialMonitor_Available() >= packet->arg_length){
 
