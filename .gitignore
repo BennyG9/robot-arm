@@ -1,5 +1,5 @@
 # ROS2 build
-arm_ros2_ws/build/
+build/
 install/
 log/
 
