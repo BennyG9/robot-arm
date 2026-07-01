@@ -1,7 +1,0 @@
-{
-  "package_name": "arm_interfaces",
-  "non_idl_tuples": [
-    "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_interfaces:srv/Calibrate.srv",
-    "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_interfaces:srv/Home.srv"
-  ]
-}
