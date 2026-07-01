@@ -1,7 +1,0 @@
-/usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
-  warnings.warn(
-  File "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge/protocol.py", line 18
-    print(data["id")
-                   ^
-SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
-

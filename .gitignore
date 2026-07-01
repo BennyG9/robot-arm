@@ -1,0 +1,13 @@
+# ROS2 build
+arm_ros2_ws/build/
+install/
+log/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Python
+__pycache__/
+*.pyc
