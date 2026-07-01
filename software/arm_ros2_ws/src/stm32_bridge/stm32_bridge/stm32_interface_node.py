@@ -65,18 +65,22 @@ class STM32Bridge(Node):
             pass
 
         elif(command == "ERROR_MSG"):
+            self.get_logger().info("ERROR CODE: " + str(args[0][0]))
+            #print("ERROR CODE: " + str(args[[0]]))
             pass
 
         pass
 
 
-    def calibrate_callback(self):
+    def calibrate_callback(self, request, response):
+        self.get_logger().info("Calibrate Command Sent")
         self.protocol.write_packet("CALIBRATE")
         response.success = True
         return response
 
 
-    def home_callback(self):
+    def home_callback(self, request, response):
+        self.get_logger().info("Home Command Sent")
         self.protocol.write_packet("HOME")
         response.success = True
         return response

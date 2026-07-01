@@ -5,37 +5,47 @@ from arm_interfaces.srv import Calibrate
 from arm_interfaces.srv import Home
 
 from pynput import keyboard
+import time
 
 class KeyboardTeleopNode(Node):
 
-    def KeyboardTeleopNode(self):
+    def __init__(self):
         super().__init__('keyboard_teleop_node')
 
         #Services
         self.calibrate_client = self.create_client(Calibrate, "calibrate")
         self.home_client = self.create_client(Home, "home")
 
-        #Keyboard listener
+        #Keyboard listener loop
         self.listener = keyboard.Listener(on_press=self.on_press)
+        self.listener.start()
 
         self.get_logger().info("Keyboard Teleop Initiated")
+
+        time.sleep(2)
+        self.calibrate()
+        time.sleep(1)
+        self.home()
         pass
 
 
     def on_press(self, key):
+        print("KEY EVENT: ", key)
         try:
-            if(key.char == 'c'):
-                self.calibrate()
+            k = key.char
+        except:
+            return
 
-            elif(key.char == 'h'):
-                self.home()
+        if(k == 'c'):
+            print("keyboard working")
+            self.calibrate()
 
+        elif(k == 'h'):
+            self.home()
 
-            elif(key.char == 'q'):
-                rclpy.shutdown()
-
-        except AttributeError:
-            pass
+        elif(k == 'q'):
+            self.get_logger().info("Closing Teleop")
+            rclpy.shutdown()
         pass
 
 

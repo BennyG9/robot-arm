@@ -1,0 +1,22 @@
+[10.738s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_bringup build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/install.log --install-scripts $base/lib/arm_bringup --single-version-externally-managed install_data
+[11.817s] /usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[11.818s]   warnings.warn(
+[11.959s] running egg_info
+[11.963s] writing ../../build/arm_bringup/arm_bringup.egg-info/PKG-INFO
+[11.964s] writing dependency_links to ../../build/arm_bringup/arm_bringup.egg-info/dependency_links.txt
+[11.965s] writing entry points to ../../build/arm_bringup/arm_bringup.egg-info/entry_points.txt
+[11.966s] writing requirements to ../../build/arm_bringup/arm_bringup.egg-info/requires.txt
+[11.966s] writing top-level names to ../../build/arm_bringup/arm_bringup.egg-info/top_level.txt
+[11.977s] reading manifest file '../../build/arm_bringup/arm_bringup.egg-info/SOURCES.txt'
+[11.982s] writing manifest file '../../build/arm_bringup/arm_bringup.egg-info/SOURCES.txt'
+[11.982s] running build
+[11.983s] running build_py
+[11.984s] running install
+[11.986s] running install_lib
+[11.993s] running install_data
+[11.995s] running install_egg_info
+[12.000s] removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info' (and everything under it)
+[12.001s] Copying ../../build/arm_bringup/arm_bringup.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info
+[12.005s] running install_scripts
+[12.085s] writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/install.log'
+[12.198s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup' returned '0': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_bringup build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/install.log --install-scripts $base/lib/arm_bringup --single-version-externally-managed install_data

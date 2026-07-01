@@ -1,0 +1,928 @@
+[0.000000] (-) TimerEvent: {}
+[0.000431] (arm_bringup) JobQueued: {'identifier': 'arm_bringup', 'dependencies': OrderedDict()}
+[0.000578] (arm_interfaces) JobQueued: {'identifier': 'arm_interfaces', 'dependencies': OrderedDict()}
+[0.000692] (arm_teleop) JobQueued: {'identifier': 'arm_teleop', 'dependencies': OrderedDict()}
+[0.000867] (stm32_bridge) JobQueued: {'identifier': 'stm32_bridge', 'dependencies': OrderedDict()}
+[0.001106] (arm_bringup) JobStarted: {'identifier': 'arm_bringup'}
+[0.035021] (arm_interfaces) JobStarted: {'identifier': 'arm_interfaces'}
+[0.056681] (arm_teleop) JobStarted: {'identifier': 'arm_teleop'}
+[0.083820] (stm32_bridge) JobStarted: {'identifier': 'stm32_bridge'}
+[0.096833] (-) TimerEvent: {}
+[0.197588] (-) TimerEvent: {}
+[0.298552] (-) TimerEvent: {}
+[0.399237] (-) TimerEvent: {}
+[0.499893] (-) TimerEvent: {}
+[0.600552] (-) TimerEvent: {}
+[0.701251] (-) TimerEvent: {}
+[0.801891] (-) TimerEvent: {}
+[0.902568] (-) TimerEvent: {}
+[1.003226] (-) TimerEvent: {}
+[1.103891] (-) TimerEvent: {}
+[1.204566] (-) TimerEvent: {}
+[1.305755] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'cmake'}
+[1.306800] (-) TimerEvent: {}
+[1.308825] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'build'}
+[1.311807] (arm_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bg99'), ('SSH_CLIENT', '192.168.7.232 59318 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bg99'), ('OLDPWD', '/home/bg99/Documents/Projects/robot-arm/software'), ('SSH_TTY', '/dev/pts/0'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1001/bus'), ('COLCON_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bg99'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1423823045815'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm'), ('XDG_SESSION_ID', '39'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1001'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('AMENT_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces'), ('SSH_CONNECTION', '192.168.7.232 59318 192.168.7.54 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[1.407127] (-) TimerEvent: {}
+[1.508063] (-) TimerEvent: {}
+[1.608791] (-) TimerEvent: {}
+[1.709510] (-) TimerEvent: {}
+[1.810256] (-) TimerEvent: {}
+[1.910888] (-) TimerEvent: {}
+[2.011569] (-) TimerEvent: {}
+[2.112261] (-) TimerEvent: {}
+[2.212941] (-) TimerEvent: {}
+[2.313628] (-) TimerEvent: {}
+[2.414307] (-) TimerEvent: {}
+[2.515092] (-) TimerEvent: {}
+[2.615917] (-) TimerEvent: {}
+[2.716777] (-) TimerEvent: {}
+[2.817493] (-) TimerEvent: {}
+[2.918199] (-) TimerEvent: {}
+[3.018842] (-) TimerEvent: {}
+[3.119545] (-) TimerEvent: {}
+[3.220228] (-) TimerEvent: {}
+[3.320896] (-) TimerEvent: {}
+[3.421628] (-) TimerEvent: {}
+[3.522307] (-) TimerEvent: {}
+[3.623002] (-) TimerEvent: {}
+[3.785130] (-) TimerEvent: {}
+[3.872983] (arm_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[3.875441] (arm_interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[3.876256] (arm_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[3.876923] (arm_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.878244] (arm_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.880292] (arm_interfaces) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.882103] (arm_interfaces) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.883181] (arm_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.885750] (-) TimerEvent: {}
+[3.986972] (-) TimerEvent: {}
+[4.025005] (arm_interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[4.087108] (-) TimerEvent: {}
+[4.187890] (-) TimerEvent: {}
+[4.288977] (-) TimerEvent: {}
+[4.390045] (-) TimerEvent: {}
+[4.490994] (-) TimerEvent: {}
+[4.591968] (-) TimerEvent: {}
+[4.692967] (-) TimerEvent: {}
+[4.794082] (-) TimerEvent: {}
+[4.895093] (-) TimerEvent: {}
+[4.996153] (-) TimerEvent: {}
+[5.097235] (-) TimerEvent: {}
+[5.198266] (-) TimerEvent: {}
+[5.299250] (-) TimerEvent: {}
+[5.400336] (-) TimerEvent: {}
+[5.501438] (-) TimerEvent: {}
+[5.602547] (-) TimerEvent: {}
+[5.703912] (-) TimerEvent: {}
+[5.758559] (arm_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/arm_teleop', 'build', '--build-base', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build', 'install', '--record', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log', '--install-scripts', '$base/lib/arm_teleop', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_teleop', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'bg99', 'SSH_CLIENT': '192.168.7.232 59318 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/bg99', 'OLDPWD': '/home/bg99/Documents/Projects/robot-arm/software', 'SSH_TTY': '/dev/pts/0', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'LC_MONETARY': 'nl_NL.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLCON_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'bg99', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1423823045815', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm', 'XDG_SESSION_ID': '39', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1001', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'AMENT_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop', 'SSH_CONNECTION': '192.168.7.232 59318 192.168.7.54 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'CMAKE_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup', 'JETSON_P_NUMBER': 'p3448-0000'}, 'shell': False}
+[6.243012] (-) TimerEvent: {}
+[6.243573] (arm_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/arm_bringup', 'build', '--build-base', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/build', 'install', '--record', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/install.log', '--install-scripts', '$base/lib/arm_bringup', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_bringup', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'bg99', 'SSH_CLIENT': '192.168.7.232 59318 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/bg99', 'OLDPWD': '/home/bg99/Documents/Projects/robot-arm/software', 'SSH_TTY': '/dev/pts/0', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'LC_MONETARY': 'nl_NL.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLCON_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'bg99', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1423823045815', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm', 'XDG_SESSION_ID': '39', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1001', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'AMENT_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup', 'SSH_CONNECTION': '192.168.7.232 59318 192.168.7.54 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'CMAKE_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup', 'JETSON_P_NUMBER': 'p3448-0000'}, 'shell': False}
+[6.246132] (stm32_bridge) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/stm32_bridge', 'build', '--build-base', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/build', 'install', '--record', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log', '--install-scripts', '$base/lib/stm32_bridge', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/stm32_bridge', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'bg99', 'SSH_CLIENT': '192.168.7.232 59318 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/bg99', 'OLDPWD': '/home/bg99/Documents/Projects/robot-arm/software', 'SSH_TTY': '/dev/pts/0', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'LC_MONETARY': 'nl_NL.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLCON_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'bg99', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1423823045815', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm', 'XDG_SESSION_ID': '39', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1001', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'AMENT_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge', 'SSH_CONNECTION': '192.168.7.232 59318 192.168.7.54 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'CMAKE_PREFIX_PATH': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup', 'JETSON_P_NUMBER': 'p3448-0000'}, 'shell': False}
+[6.343183] (-) TimerEvent: {}
+[6.444206] (-) TimerEvent: {}
+[6.545201] (-) TimerEvent: {}
+[6.646220] (-) TimerEvent: {}
+[6.685083] (arm_interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[6.746375] (-) TimerEvent: {}
+[6.847389] (-) TimerEvent: {}
+[6.911495] (arm_bringup) StderrLine: {'line': b"/usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[6.912191] (arm_bringup) StderrLine: {'line': b'  warnings.warn(\n'}
+[6.919431] (stm32_bridge) StderrLine: {'line': b"/usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[6.920266] (stm32_bridge) StderrLine: {'line': b'  warnings.warn(\n'}
+[6.933100] (arm_teleop) StderrLine: {'line': b"/usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[6.933759] (arm_teleop) StderrLine: {'line': b'  warnings.warn(\n'}
+[6.947560] (-) TimerEvent: {}
+[7.054124] (-) TimerEvent: {}
+[7.067656] (arm_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[7.068489] (stm32_bridge) StdoutLine: {'line': b'running egg_info\n'}
+[7.071370] (stm32_bridge) StdoutLine: {'line': b'writing ../../build/stm32_bridge/stm32_bridge.egg-info/PKG-INFO\n'}
+[7.073495] (stm32_bridge) StdoutLine: {'line': b'writing dependency_links to ../../build/stm32_bridge/stm32_bridge.egg-info/dependency_links.txt\n'}
+[7.074257] (stm32_bridge) StdoutLine: {'line': b'writing entry points to ../../build/stm32_bridge/stm32_bridge.egg-info/entry_points.txt\n'}
+[7.074715] (arm_bringup) StdoutLine: {'line': b'writing ../../build/arm_bringup/arm_bringup.egg-info/PKG-INFO\n'}
+[7.075284] (arm_bringup) StdoutLine: {'line': b'writing dependency_links to ../../build/arm_bringup/arm_bringup.egg-info/dependency_links.txt\n'}
+[7.075702] (arm_bringup) StdoutLine: {'line': b'writing entry points to ../../build/arm_bringup/arm_bringup.egg-info/entry_points.txt\n'}
+[7.076293] (stm32_bridge) StdoutLine: {'line': b'writing requirements to ../../build/stm32_bridge/stm32_bridge.egg-info/requires.txt\n'}
+[7.076723] (stm32_bridge) StdoutLine: {'line': b'writing top-level names to ../../build/stm32_bridge/stm32_bridge.egg-info/top_level.txt\n'}
+[7.077838] (arm_bringup) StdoutLine: {'line': b'writing requirements to ../../build/arm_bringup/arm_bringup.egg-info/requires.txt\n'}
+[7.078967] (arm_bringup) StdoutLine: {'line': b'writing top-level names to ../../build/arm_bringup/arm_bringup.egg-info/top_level.txt\n'}
+[7.087890] (arm_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[7.088654] (stm32_bridge) StdoutLine: {'line': b"reading manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'\n"}
+[7.091560] (arm_teleop) StdoutLine: {'line': b'writing ../../build/arm_teleop/arm_teleop.egg-info/PKG-INFO\n'}
+[7.092278] (arm_teleop) StdoutLine: {'line': b'writing dependency_links to ../../build/arm_teleop/arm_teleop.egg-info/dependency_links.txt\n'}
+[7.092940] (arm_teleop) StdoutLine: {'line': b'writing entry points to ../../build/arm_teleop/arm_teleop.egg-info/entry_points.txt\n'}
+[7.093602] (stm32_bridge) StdoutLine: {'line': b"writing manifest file '../../build/stm32_bridge/stm32_bridge.egg-info/SOURCES.txt'\n"}
+[7.094119] (stm32_bridge) StdoutLine: {'line': b'running build\n'}
+[7.094509] (stm32_bridge) StdoutLine: {'line': b'running build_py\n'}
+[7.094864] (arm_teleop) StdoutLine: {'line': b'writing requirements to ../../build/arm_teleop/arm_teleop.egg-info/requires.txt\n'}
+[7.095376] (arm_teleop) StdoutLine: {'line': b'writing top-level names to ../../build/arm_teleop/arm_teleop.egg-info/top_level.txt\n'}
+[7.095934] (stm32_bridge) StdoutLine: {'line': b'running install\n'}
+[7.097211] (arm_bringup) StdoutLine: {'line': b"reading manifest file '../../build/arm_bringup/arm_bringup.egg-info/SOURCES.txt'\n"}
+[7.099398] (stm32_bridge) StdoutLine: {'line': b'running install_lib\n'}
+[7.103134] (arm_bringup) StdoutLine: {'line': b"writing manifest file '../../build/arm_bringup/arm_bringup.egg-info/SOURCES.txt'\n"}
+[7.104213] (arm_bringup) StdoutLine: {'line': b'running build\n'}
+[7.104943] (arm_bringup) StdoutLine: {'line': b'running build_py\n'}
+[7.106172] (stm32_bridge) StdoutLine: {'line': b'running install_data\n'}
+[7.106881] (arm_teleop) StdoutLine: {'line': b"reading manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'\n"}
+[7.107356] (stm32_bridge) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.108448] (arm_bringup) StdoutLine: {'line': b'running install\n'}
+[7.110910] (arm_teleop) StdoutLine: {'line': b"writing manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'\n"}
+[7.111603] (arm_teleop) StdoutLine: {'line': b'running build\n'}
+[7.112035] (arm_teleop) StdoutLine: {'line': b'running build_py\n'}
+[7.112605] (arm_teleop) StdoutLine: {'line': b'running install\n'}
+[7.113790] (stm32_bridge) StdoutLine: {'line': b"removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[7.115230] (stm32_bridge) StdoutLine: {'line': b'Copying ../../build/stm32_bridge/stm32_bridge.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages/stm32_bridge-0.0.0-py3.8.egg-info\n'}
+[7.116400] (arm_teleop) StdoutLine: {'line': b'running install_lib\n'}
+[7.117545] (arm_bringup) StdoutLine: {'line': b'running install_lib\n'}
+[7.119360] (stm32_bridge) StdoutLine: {'line': b'running install_scripts\n'}
+[7.122714] (arm_teleop) StdoutLine: {'line': b'running install_data\n'}
+[7.123405] (arm_teleop) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.126222] (arm_bringup) StdoutLine: {'line': b'running install_data\n'}
+[7.128189] (arm_bringup) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.130583] (arm_teleop) StdoutLine: {'line': b"removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[7.131955] (arm_teleop) StdoutLine: {'line': b'Copying ../../build/arm_teleop/arm_teleop.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop-0.0.0-py3.8.egg-info\n'}
+[7.136060] (arm_teleop) StdoutLine: {'line': b'running install_scripts\n'}
+[7.138845] (arm_bringup) StdoutLine: {'line': b"removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[7.141176] (arm_bringup) StdoutLine: {'line': b'Copying ../../build/arm_bringup/arm_bringup.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages/arm_bringup-0.0.0-py3.8.egg-info\n'}
+[7.146826] (arm_bringup) StdoutLine: {'line': b'running install_scripts\n'}
+[7.154282] (-) TimerEvent: {}
+[7.200788] (stm32_bridge) StdoutLine: {'line': b'Installing stm32_interface_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/stm32_bridge\n'}
+[7.202388] (stm32_bridge) StdoutLine: {'line': b"writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/stm32_bridge/install.log'\n"}
+[7.220415] (arm_teleop) StdoutLine: {'line': b'Installing keyboard_teleop_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/arm_teleop\n'}
+[7.221923] (arm_teleop) StdoutLine: {'line': b"writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log'\n"}
+[7.232505] (arm_bringup) StdoutLine: {'line': b"writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_bringup/install.log'\n"}
+[7.254531] (-) TimerEvent: {}
+[7.312185] (stm32_bridge) CommandEnded: {'returncode': 0}
+[7.355107] (-) TimerEvent: {}
+[7.359300] (arm_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[7.367870] (stm32_bridge) JobEnded: {'identifier': 'stm32_bridge', 'rc': 0}
+[7.373927] (arm_teleop) CommandEnded: {'returncode': 0}
+[7.400746] (arm_teleop) JobEnded: {'identifier': 'arm_teleop', 'rc': 0}
+[7.403813] (arm_bringup) CommandEnded: {'returncode': 0}
+[7.405575] (arm_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[7.439616] (arm_bringup) JobEnded: {'identifier': 'arm_bringup', 'rc': 0}
+[7.455261] (-) TimerEvent: {}
+[7.502589] (arm_interfaces) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[7.515086] (arm_interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[7.555413] (-) TimerEvent: {}
+[7.626951] (arm_interfaces) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[7.627720] (arm_interfaces) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[7.628120] (arm_interfaces) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[7.628505] (arm_interfaces) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.8.so\n'}
+[7.655559] (-) TimerEvent: {}
+[7.713846] (arm_interfaces) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[7.755773] (-) TimerEvent: {}
+[7.856408] (-) TimerEvent: {}
+[7.880618] (arm_interfaces) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[7.926475] (arm_interfaces) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[7.935651] (arm_interfaces) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[7.940728] (arm_interfaces) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[7.956603] (-) TimerEvent: {}
+[7.959919] (arm_interfaces) StdoutLine: {'line': b'-- Configuring done\n'}
+[8.056822] (-) TimerEvent: {}
+[8.086846] (arm_interfaces) StdoutLine: {'line': b'-- Generating done\n'}
+[8.128583] (arm_interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces\n'}
+[8.157051] (-) TimerEvent: {}
+[8.213832] (arm_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[8.214744] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__cpp\x1b[0m\n'}
+[8.251282] (arm_interfaces) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[8.257276] (-) TimerEvent: {}
+[8.357915] (-) TimerEvent: {}
+[8.458544] (-) TimerEvent: {}
+[8.559046] (-) TimerEvent: {}
+[8.659500] (-) TimerEvent: {}
+[8.759969] (-) TimerEvent: {}
+[13.092974] (-) TimerEvent: {}
+[13.193666] (-) TimerEvent: {}
+[13.294368] (-) TimerEvent: {}
+[13.394945] (-) TimerEvent: {}
+[13.495543] (-) TimerEvent: {}
+[13.596198] (-) TimerEvent: {}
+[13.696835] (-) TimerEvent: {}
+[13.797508] (-) TimerEvent: {}
+[13.941366] (-) TimerEvent: {}
+[14.042006] (-) TimerEvent: {}
+[14.142554] (-) TimerEvent: {}
+[14.243168] (-) TimerEvent: {}
+[14.343792] (-) TimerEvent: {}
+[14.444378] (-) TimerEvent: {}
+[14.545396] (-) TimerEvent: {}
+[14.563437] (arm_interfaces) StdoutLine: {'line': b'[  5%] Built target arm_interfaces__cpp\n'}
+[14.604335] (arm_interfaces) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[14.605259] (arm_interfaces) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[14.645557] (-) TimerEvent: {}
+[14.682967] (arm_interfaces) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[14.742507] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_generator_c\x1b[0m\n'}
+[14.745714] (-) TimerEvent: {}
+[14.800909] (arm_interfaces) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/arm_interfaces/srv/detail/calibrate__functions.c.o\x1b[0m\n'}
+[14.845883] (-) TimerEvent: {}
+[14.946565] (-) TimerEvent: {}
+[15.047585] (-) TimerEvent: {}
+[15.112070] (arm_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_generator_c.dir/rosidl_generator_c/arm_interfaces/srv/detail/home__functions.c.o\x1b[0m\n'}
+[15.147761] (-) TimerEvent: {}
+[15.248808] (-) TimerEvent: {}
+[15.333503] (arm_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking C shared library libarm_interfaces__rosidl_generator_c.so\x1b[0m\n'}
+[15.348984] (-) TimerEvent: {}
+[15.450050] (-) TimerEvent: {}
+[15.456623] (arm_interfaces) StdoutLine: {'line': b'[ 20%] Built target arm_interfaces__rosidl_generator_c\n'}
+[15.493030] (arm_interfaces) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[15.550134] (-) TimerEvent: {}
+[15.650748] (-) TimerEvent: {}
+[15.751721] (-) TimerEvent: {}
+[15.852694] (-) TimerEvent: {}
+[15.889540] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[15.951228] (arm_interfaces) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/arm_interfaces/srv/calibrate__type_support.cpp.o\x1b[0m\n'}
+[15.952852] (-) TimerEvent: {}
+[16.053797] (-) TimerEvent: {}
+[16.154884] (-) TimerEvent: {}
+[16.169841] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[16.219036] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[16.223306] (arm_interfaces) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/arm_interfaces/srv/detail/calibrate__type_support.cpp.o\x1b[0m\n'}
+[16.255075] (-) TimerEvent: {}
+[16.355672] (-) TimerEvent: {}
+[16.453452] (arm_interfaces) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/arm_interfaces/srv/detail/dds_fastrtps/calibrate__type_support.cpp.o\x1b[0m\n'}
+[16.455900] (-) TimerEvent: {}
+[16.556851] (-) TimerEvent: {}
+[16.657864] (-) TimerEvent: {}
+[16.758570] (-) TimerEvent: {}
+[16.859653] (-) TimerEvent: {}
+[16.960672] (-) TimerEvent: {}
+[17.061743] (-) TimerEvent: {}
+[17.162872] (-) TimerEvent: {}
+[17.252994] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[17.263022] (-) TimerEvent: {}
+[17.363637] (-) TimerEvent: {}
+[17.464317] (-) TimerEvent: {}
+[17.565002] (-) TimerEvent: {}
+[17.665681] (-) TimerEvent: {}
+[17.766443] (-) TimerEvent: {}
+[17.867118] (-) TimerEvent: {}
+[17.967725] (-) TimerEvent: {}
+[18.068227] (-) TimerEvent: {}
+[18.168644] (-) TimerEvent: {}
+[18.269047] (-) TimerEvent: {}
+[18.369429] (-) TimerEvent: {}
+[18.469844] (-) TimerEvent: {}
+[18.570364] (-) TimerEvent: {}
+[18.670802] (-) TimerEvent: {}
+[18.771188] (-) TimerEvent: {}
+[18.871569] (-) TimerEvent: {}
+[18.971994] (-) TimerEvent: {}
+[22.554354] (-) TimerEvent: {}
+[22.654839] (-) TimerEvent: {}
+[22.684145] (arm_interfaces) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/arm_interfaces/srv/home__type_support.cpp.o\x1b[0m\n'}
+[22.688485] (arm_interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/arm_interfaces/srv/detail/home__type_support.cpp.o\x1b[0m\n'}
+[22.693160] (arm_interfaces) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/arm_interfaces/srv/detail/dds_fastrtps/home__type_support.cpp.o\x1b[0m\n'}
+[22.755058] (-) TimerEvent: {}
+[22.848185] (arm_interfaces) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_interfaces/srv/detail/calibrate__type_support.c.o\x1b[0m\n'}
+[22.855236] (-) TimerEvent: {}
+[22.956340] (-) TimerEvent: {}
+[23.057460] (-) TimerEvent: {}
+[23.158543] (-) TimerEvent: {}
+[23.259562] (-) TimerEvent: {}
+[23.360651] (-) TimerEvent: {}
+[23.461721] (-) TimerEvent: {}
+[23.562755] (-) TimerEvent: {}
+[23.663834] (-) TimerEvent: {}
+[23.764533] (-) TimerEvent: {}
+[23.865218] (-) TimerEvent: {}
+[23.965923] (-) TimerEvent: {}
+[24.066680] (-) TimerEvent: {}
+[25.965052] (arm_interfaces) StdoutLine: {'line': b'[ 46%] \x1b[32m\x1b[1mLinking CXX shared library libarm_interfaces__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[25.965700] (-) TimerEvent: {}
+[25.966783] (arm_interfaces) StdoutLine: {'line': b'[ 46%] \x1b[32m\x1b[1mLinking CXX shared library libarm_interfaces__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[25.984495] (arm_interfaces) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/arm_interfaces/srv/detail/home__type_support.c.o\x1b[0m\n'}
+[26.065883] (-) TimerEvent: {}
+[26.101199] (arm_interfaces) StdoutLine: {'line': b'[ 48%] Built target arm_interfaces__rosidl_typesupport_cpp\n'}
+[26.134783] (arm_interfaces) StdoutLine: {'line': b'[ 51%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[26.166140] (-) TimerEvent: {}
+[26.266773] (-) TimerEvent: {}
+[26.304456] (arm_interfaces) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libarm_interfaces__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[26.362422] (arm_interfaces) StdoutLine: {'line': b'[ 53%] Built target arm_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[26.366938] (-) TimerEvent: {}
+[26.467578] (-) TimerEvent: {}
+[26.568207] (-) TimerEvent: {}
+[26.668774] (-) TimerEvent: {}
+[26.697272] (arm_interfaces) StdoutLine: {'line': b'[ 56%] \x1b[32m\x1b[1mLinking C shared library libarm_interfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[26.769026] (-) TimerEvent: {}
+[26.807956] (arm_interfaces) StdoutLine: {'line': b'[ 56%] Built target arm_interfaces__rosidl_typesupport_introspection_c\n'}
+[26.869267] (-) TimerEvent: {}
+[26.910100] (arm_interfaces) StdoutLine: {'line': b'[ 56%] Built target arm_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[26.944366] (arm_interfaces) StdoutLine: {'line': b'[ 58%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[26.969469] (-) TimerEvent: {}
+[27.070084] (-) TimerEvent: {}
+[27.170651] (-) TimerEvent: {}
+[27.271271] (-) TimerEvent: {}
+[27.371870] (-) TimerEvent: {}
+[27.472444] (-) TimerEvent: {}
+[27.573099] (-) TimerEvent: {}
+[27.673794] (-) TimerEvent: {}
+[27.772733] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_c\x1b[0m\n'}
+[27.773895] (-) TimerEvent: {}
+[27.817829] (arm_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/arm_interfaces/srv/calibrate__type_support.cpp.o\x1b[0m\n'}
+[27.818572] (arm_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/arm_interfaces/srv/home__type_support.cpp.o\x1b[0m\n'}
+[27.874121] (-) TimerEvent: {}
+[27.975160] (-) TimerEvent: {}
+[28.075791] (-) TimerEvent: {}
+[28.176400] (-) TimerEvent: {}
+[28.276988] (-) TimerEvent: {}
+[28.377566] (-) TimerEvent: {}
+[28.478072] (-) TimerEvent: {}
+[28.578559] (-) TimerEvent: {}
+[28.678982] (-) TimerEvent: {}
+[28.779367] (-) TimerEvent: {}
+[28.879749] (-) TimerEvent: {}
+[28.980164] (-) TimerEvent: {}
+[29.080695] (-) TimerEvent: {}
+[29.181175] (-) TimerEvent: {}
+[30.449489] (arm_interfaces) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX shared library libarm_interfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[30.450137] (-) TimerEvent: {}
+[30.550664] (-) TimerEvent: {}
+[30.578531] (arm_interfaces) StdoutLine: {'line': b'[ 66%] Built target arm_interfaces__rosidl_typesupport_c\n'}
+[30.650868] (-) TimerEvent: {}
+[30.751471] (-) TimerEvent: {}
+[30.852043] (-) TimerEvent: {}
+[30.952634] (-) TimerEvent: {}
+[30.985479] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[31.052293] (arm_interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/arm_interfaces/srv/detail/calibrate__type_support_c.cpp.o\x1b[0m\n'}
+[31.052914] (-) TimerEvent: {}
+[31.053702] (arm_interfaces) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/arm_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/arm_interfaces/srv/detail/home__type_support_c.cpp.o\x1b[0m\n'}
+[31.153147] (-) TimerEvent: {}
+[31.253728] (-) TimerEvent: {}
+[31.354235] (-) TimerEvent: {}
+[31.454653] (-) TimerEvent: {}
+[31.555101] (-) TimerEvent: {}
+[31.655579] (-) TimerEvent: {}
+[31.755995] (-) TimerEvent: {}
+[31.856400] (-) TimerEvent: {}
+[31.956800] (-) TimerEvent: {}
+[32.057202] (-) TimerEvent: {}
+[32.157591] (-) TimerEvent: {}
+[32.257978] (-) TimerEvent: {}
+[32.358429] (-) TimerEvent: {}
+[32.458839] (-) TimerEvent: {}
+[32.559288] (-) TimerEvent: {}
+[32.659735] (-) TimerEvent: {}
+[32.760151] (-) TimerEvent: {}
+[32.860532] (-) TimerEvent: {}
+[32.960924] (-) TimerEvent: {}
+[33.061335] (-) TimerEvent: {}
+[33.161737] (-) TimerEvent: {}
+[33.262116] (-) TimerEvent: {}
+[33.362489] (-) TimerEvent: {}
+[33.462926] (-) TimerEvent: {}
+[33.563547] (-) TimerEvent: {}
+[33.664257] (-) TimerEvent: {}
+[33.765005] (-) TimerEvent: {}
+[33.865707] (-) TimerEvent: {}
+[33.966368] (-) TimerEvent: {}
+[34.067008] (-) TimerEvent: {}
+[34.167713] (-) TimerEvent: {}
+[34.268443] (-) TimerEvent: {}
+[34.369349] (-) TimerEvent: {}
+[36.102568] (-) TimerEvent: {}
+[36.168811] (arm_interfaces) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libarm_interfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[36.202731] (-) TimerEvent: {}
+[36.303393] (-) TimerEvent: {}
+[36.404056] (-) TimerEvent: {}
+[36.464172] (arm_interfaces) StdoutLine: {'line': b'[ 74%] Built target arm_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[36.497520] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces\x1b[0m\n'}
+[36.504292] (-) TimerEvent: {}
+[36.531975] (arm_interfaces) StdoutLine: {'line': b'[ 74%] Built target arm_interfaces\n'}
+[36.565491] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__py\x1b[0m\n'}
+[36.600391] (arm_interfaces) StdoutLine: {'line': b'[ 76%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[36.604434] (-) TimerEvent: {}
+[36.705058] (-) TimerEvent: {}
+[36.805632] (-) TimerEvent: {}
+[36.906086] (-) TimerEvent: {}
+[37.006520] (-) TimerEvent: {}
+[37.107018] (-) TimerEvent: {}
+[37.207439] (-) TimerEvent: {}
+[37.307835] (-) TimerEvent: {}
+[37.408219] (-) TimerEvent: {}
+[37.508604] (-) TimerEvent: {}
+[37.609080] (-) TimerEvent: {}
+[37.709495] (-) TimerEvent: {}
+[37.809895] (-) TimerEvent: {}
+[37.910352] (-) TimerEvent: {}
+[38.010777] (-) TimerEvent: {}
+[38.111183] (-) TimerEvent: {}
+[38.211577] (-) TimerEvent: {}
+[38.311991] (-) TimerEvent: {}
+[38.412368] (-) TimerEvent: {}
+[38.512758] (-) TimerEvent: {}
+[38.613222] (-) TimerEvent: {}
+[38.713701] (-) TimerEvent: {}
+[38.814319] (-) TimerEvent: {}
+[38.914956] (-) TimerEvent: {}
+[39.015626] (-) TimerEvent: {}
+[39.116271] (-) TimerEvent: {}
+[39.216907] (-) TimerEvent: {}
+[39.317521] (-) TimerEvent: {}
+[39.418145] (-) TimerEvent: {}
+[39.575566] (-) TimerEvent: {}
+[39.676454] (-) TimerEvent: {}
+[39.777333] (-) TimerEvent: {}
+[39.878226] (-) TimerEvent: {}
+[39.979089] (-) TimerEvent: {}
+[40.079948] (-) TimerEvent: {}
+[40.180756] (-) TimerEvent: {}
+[40.281571] (-) TimerEvent: {}
+[40.382327] (-) TimerEvent: {}
+[40.483077] (-) TimerEvent: {}
+[40.583828] (-) TimerEvent: {}
+[40.684641] (-) TimerEvent: {}
+[40.785417] (-) TimerEvent: {}
+[40.886060] (-) TimerEvent: {}
+[40.986797] (-) TimerEvent: {}
+[41.087550] (-) TimerEvent: {}
+[41.188343] (-) TimerEvent: {}
+[41.289113] (-) TimerEvent: {}
+[41.389925] (-) TimerEvent: {}
+[41.490778] (-) TimerEvent: {}
+[41.591569] (-) TimerEvent: {}
+[41.692351] (-) TimerEvent: {}
+[41.793086] (-) TimerEvent: {}
+[41.893830] (-) TimerEvent: {}
+[41.994598] (-) TimerEvent: {}
+[42.095531] (-) TimerEvent: {}
+[42.196427] (-) TimerEvent: {}
+[42.297384] (-) TimerEvent: {}
+[42.326754] (arm_interfaces) StdoutLine: {'line': b'[ 76%] Built target arm_interfaces__py\n'}
+[42.360145] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__python\x1b[0m\n'}
+[42.397510] (-) TimerEvent: {}
+[42.498062] (-) TimerEvent: {}
+[42.598592] (-) TimerEvent: {}
+[42.699030] (-) TimerEvent: {}
+[42.799424] (-) TimerEvent: {}
+[42.899760] (-) TimerEvent: {}
+[43.000165] (-) TimerEvent: {}
+[43.100524] (-) TimerEvent: {}
+[43.200935] (-) TimerEvent: {}
+[43.301315] (-) TimerEvent: {}
+[43.401681] (-) TimerEvent: {}
+[43.502068] (-) TimerEvent: {}
+[43.602474] (-) TimerEvent: {}
+[43.702882] (-) TimerEvent: {}
+[43.803298] (-) TimerEvent: {}
+[43.903703] (-) TimerEvent: {}
+[44.004121] (-) TimerEvent: {}
+[44.104583] (-) TimerEvent: {}
+[44.204990] (-) TimerEvent: {}
+[44.305376] (-) TimerEvent: {}
+[44.405757] (-) TimerEvent: {}
+[44.506165] (-) TimerEvent: {}
+[44.606632] (-) TimerEvent: {}
+[46.521470] (-) TimerEvent: {}
+[46.622047] (-) TimerEvent: {}
+[46.722526] (-) TimerEvent: {}
+[46.823007] (-) TimerEvent: {}
+[46.923489] (-) TimerEvent: {}
+[47.024003] (-) TimerEvent: {}
+[47.124535] (-) TimerEvent: {}
+[47.225037] (-) TimerEvent: {}
+[47.325514] (-) TimerEvent: {}
+[47.425914] (-) TimerEvent: {}
+[47.526426] (-) TimerEvent: {}
+[47.626939] (-) TimerEvent: {}
+[47.727401] (-) TimerEvent: {}
+[47.827810] (-) TimerEvent: {}
+[47.928261] (-) TimerEvent: {}
+[48.028694] (-) TimerEvent: {}
+[48.129144] (-) TimerEvent: {}
+[48.229588] (-) TimerEvent: {}
+[48.330042] (-) TimerEvent: {}
+[48.430450] (-) TimerEvent: {}
+[48.530862] (-) TimerEvent: {}
+[48.631332] (-) TimerEvent: {}
+[48.731739] (-) TimerEvent: {}
+[48.832123] (-) TimerEvent: {}
+[48.932506] (-) TimerEvent: {}
+[49.032889] (-) TimerEvent: {}
+[49.133272] (-) TimerEvent: {}
+[49.233647] (-) TimerEvent: {}
+[49.334067] (-) TimerEvent: {}
+[49.434469] (-) TimerEvent: {}
+[49.534935] (-) TimerEvent: {}
+[49.635467] (-) TimerEvent: {}
+[52.469348] (-) TimerEvent: {}
+[52.569861] (-) TimerEvent: {}
+[52.670340] (-) TimerEvent: {}
+[52.770698] (-) TimerEvent: {}
+[52.871112] (-) TimerEvent: {}
+[52.971583] (-) TimerEvent: {}
+[53.072109] (-) TimerEvent: {}
+[53.172637] (-) TimerEvent: {}
+[53.273071] (-) TimerEvent: {}
+[53.373462] (-) TimerEvent: {}
+[53.473862] (-) TimerEvent: {}
+[53.574293] (-) TimerEvent: {}
+[53.674848] (-) TimerEvent: {}
+[53.775328] (-) TimerEvent: {}
+[53.875792] (-) TimerEvent: {}
+[53.976201] (-) TimerEvent: {}
+[54.076605] (-) TimerEvent: {}
+[54.177019] (-) TimerEvent: {}
+[54.277413] (-) TimerEvent: {}
+[54.377789] (-) TimerEvent: {}
+[54.478197] (-) TimerEvent: {}
+[54.578589] (-) TimerEvent: {}
+[54.679006] (-) TimerEvent: {}
+[54.779358] (-) TimerEvent: {}
+[54.879736] (-) TimerEvent: {}
+[54.980123] (-) TimerEvent: {}
+[55.080557] (-) TimerEvent: {}
+[55.180947] (-) TimerEvent: {}
+[55.281322] (-) TimerEvent: {}
+[55.381707] (-) TimerEvent: {}
+[55.482088] (-) TimerEvent: {}
+[55.582541] (-) TimerEvent: {}
+[55.682998] (-) TimerEvent: {}
+[55.783406] (-) TimerEvent: {}
+[55.883819] (-) TimerEvent: {}
+[55.984175] (-) TimerEvent: {}
+[56.084601] (-) TimerEvent: {}
+[56.185028] (-) TimerEvent: {}
+[56.285462] (-) TimerEvent: {}
+[56.385854] (-) TimerEvent: {}
+[56.486228] (-) TimerEvent: {}
+[56.586623] (-) TimerEvent: {}
+[56.687029] (-) TimerEvent: {}
+[56.787407] (-) TimerEvent: {}
+[56.887786] (-) TimerEvent: {}
+[56.988217] (-) TimerEvent: {}
+[57.088700] (-) TimerEvent: {}
+[57.189116] (-) TimerEvent: {}
+[57.289456] (-) TimerEvent: {}
+[57.389787] (-) TimerEvent: {}
+[57.490173] (-) TimerEvent: {}
+[57.590622] (-) TimerEvent: {}
+[57.691097] (-) TimerEvent: {}
+[57.791524] (-) TimerEvent: {}
+[57.891932] (-) TimerEvent: {}
+[57.992402] (-) TimerEvent: {}
+[58.093001] (-) TimerEvent: {}
+[58.193456] (-) TimerEvent: {}
+[58.293856] (-) TimerEvent: {}
+[58.394274] (-) TimerEvent: {}
+[58.494665] (-) TimerEvent: {}
+[58.595114] (-) TimerEvent: {}
+[58.695607] (-) TimerEvent: {}
+[58.796101] (-) TimerEvent: {}
+[58.896535] (-) TimerEvent: {}
+[58.996976] (-) TimerEvent: {}
+[59.097519] (-) TimerEvent: {}
+[59.197968] (-) TimerEvent: {}
+[59.298391] (-) TimerEvent: {}
+[59.398787] (-) TimerEvent: {}
+[59.499181] (-) TimerEvent: {}
+[59.599648] (-) TimerEvent: {}
+[59.700125] (-) TimerEvent: {}
+[59.800548] (-) TimerEvent: {}
+[59.900983] (-) TimerEvent: {}
+[60.001415] (-) TimerEvent: {}
+[61.383890] (-) TimerEvent: {}
+[61.484395] (-) TimerEvent: {}
+[61.584895] (-) TimerEvent: {}
+[61.685397] (-) TimerEvent: {}
+[61.785821] (-) TimerEvent: {}
+[61.886240] (-) TimerEvent: {}
+[61.986668] (-) TimerEvent: {}
+[62.087104] (-) TimerEvent: {}
+[62.187504] (-) TimerEvent: {}
+[62.287973] (-) TimerEvent: {}
+[62.388452] (-) TimerEvent: {}
+[62.488872] (-) TimerEvent: {}
+[62.589337] (-) TimerEvent: {}
+[62.689797] (-) TimerEvent: {}
+[62.790271] (-) TimerEvent: {}
+[62.890669] (-) TimerEvent: {}
+[62.991138] (-) TimerEvent: {}
+[63.091567] (-) TimerEvent: {}
+[63.191963] (-) TimerEvent: {}
+[63.292349] (-) TimerEvent: {}
+[63.392735] (-) TimerEvent: {}
+[63.493127] (-) TimerEvent: {}
+[63.593598] (-) TimerEvent: {}
+[63.694063] (-) TimerEvent: {}
+[63.794473] (-) TimerEvent: {}
+[63.894870] (-) TimerEvent: {}
+[63.995267] (-) TimerEvent: {}
+[64.095701] (-) TimerEvent: {}
+[64.196131] (-) TimerEvent: {}
+[64.296617] (-) TimerEvent: {}
+[64.397032] (-) TimerEvent: {}
+[64.497435] (-) TimerEvent: {}
+[64.553858] (arm_interfaces) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__python.dir/rosidl_generator_py/arm_interfaces/srv/_home_s.c.o\x1b[0m\n'}
+[64.554628] (arm_interfaces) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__python.dir/rosidl_generator_py/arm_interfaces/srv/_calibrate_s.c.o\x1b[0m\n'}
+[64.597613] (-) TimerEvent: {}
+[64.698281] (-) TimerEvent: {}
+[64.798921] (-) TimerEvent: {}
+[64.899630] (-) TimerEvent: {}
+[65.000291] (-) TimerEvent: {}
+[65.100873] (-) TimerEvent: {}
+[69.987806] (arm_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/arm_interfaces/libarm_interfaces__python.so\x1b[0m\n'}
+[69.988397] (-) TimerEvent: {}
+[70.088945] (-) TimerEvent: {}
+[70.168291] (arm_interfaces) StdoutLine: {'line': b'[ 84%] Built target arm_interfaces__python\n'}
+[70.189132] (-) TimerEvent: {}
+[70.204145] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[70.204752] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[70.205134] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target arm_interfaces__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[70.289309] (-) TimerEvent: {}
+[70.389842] (-) TimerEvent: {}
+[70.490320] (-) TimerEvent: {}
+[70.590715] (-) TimerEvent: {}
+[70.691195] (-) TimerEvent: {}
+[70.791621] (-) TimerEvent: {}
+[70.892020] (-) TimerEvent: {}
+[70.992448] (-) TimerEvent: {}
+[71.092970] (-) TimerEvent: {}
+[71.193425] (-) TimerEvent: {}
+[71.293787] (-) TimerEvent: {}
+[71.394220] (-) TimerEvent: {}
+[71.494624] (-) TimerEvent: {}
+[71.595064] (-) TimerEvent: {}
+[71.695549] (-) TimerEvent: {}
+[71.796004] (-) TimerEvent: {}
+[71.896403] (-) TimerEvent: {}
+[71.996790] (-) TimerEvent: {}
+[72.097193] (-) TimerEvent: {}
+[72.197609] (-) TimerEvent: {}
+[72.297961] (-) TimerEvent: {}
+[72.398372] (-) TimerEvent: {}
+[72.498754] (-) TimerEvent: {}
+[72.599239] (-) TimerEvent: {}
+[72.660347] (arm_interfaces) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/arm_interfaces/_arm_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[72.661077] (arm_interfaces) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/arm_interfaces/_arm_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[72.668911] (arm_interfaces) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/arm_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/arm_interfaces/_arm_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[72.699465] (-) TimerEvent: {}
+[72.800187] (-) TimerEvent: {}
+[72.901271] (-) TimerEvent: {}
+[73.002395] (-) TimerEvent: {}
+[73.102984] (-) TimerEvent: {}
+[73.203459] (-) TimerEvent: {}
+[73.303869] (-) TimerEvent: {}
+[73.404252] (-) TimerEvent: {}
+[73.504655] (-) TimerEvent: {}
+[73.605116] (-) TimerEvent: {}
+[73.705573] (-) TimerEvent: {}
+[73.805977] (-) TimerEvent: {}
+[73.906410] (-) TimerEvent: {}
+[74.006802] (-) TimerEvent: {}
+[74.107212] (-) TimerEvent: {}
+[74.207628] (-) TimerEvent: {}
+[74.308011] (-) TimerEvent: {}
+[74.408385] (-) TimerEvent: {}
+[74.508780] (-) TimerEvent: {}
+[74.609219] (-) TimerEvent: {}
+[74.709656] (-) TimerEvent: {}
+[74.810058] (-) TimerEvent: {}
+[74.910427] (-) TimerEvent: {}
+[75.010823] (-) TimerEvent: {}
+[75.111419] (-) TimerEvent: {}
+[75.211882] (-) TimerEvent: {}
+[80.621235] (arm_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/arm_interfaces/arm_interfaces_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[80.621940] (-) TimerEvent: {}
+[80.622927] (arm_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/arm_interfaces/arm_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[80.623588] (arm_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/arm_interfaces/arm_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[80.722199] (-) TimerEvent: {}
+[80.746798] (arm_interfaces) StdoutLine: {'line': b'[100%] Built target arm_interfaces__rosidl_typesupport_c__pyext\n'}
+[80.822418] (-) TimerEvent: {}
+[80.847135] (arm_interfaces) StdoutLine: {'line': b'[100%] Built target arm_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[80.922559] (-) TimerEvent: {}
+[81.023117] (-) TimerEvent: {}
+[81.123567] (-) TimerEvent: {}
+[81.223987] (-) TimerEvent: {}
+[81.324386] (-) TimerEvent: {}
+[81.424765] (-) TimerEvent: {}
+[81.525154] (-) TimerEvent: {}
+[81.625613] (-) TimerEvent: {}
+[81.726078] (-) TimerEvent: {}
+[81.826499] (-) TimerEvent: {}
+[81.926893] (-) TimerEvent: {}
+[82.027334] (-) TimerEvent: {}
+[82.127757] (-) TimerEvent: {}
+[82.228193] (-) TimerEvent: {}
+[82.328595] (-) TimerEvent: {}
+[82.428975] (-) TimerEvent: {}
+[82.529372] (-) TimerEvent: {}
+[82.629814] (-) TimerEvent: {}
+[82.730303] (-) TimerEvent: {}
+[82.830729] (-) TimerEvent: {}
+[82.931132] (-) TimerEvent: {}
+[83.031592] (-) TimerEvent: {}
+[83.132124] (-) TimerEvent: {}
+[83.232553] (-) TimerEvent: {}
+[83.332928] (-) TimerEvent: {}
+[83.433332] (-) TimerEvent: {}
+[83.533755] (-) TimerEvent: {}
+[83.634271] (-) TimerEvent: {}
+[83.734688] (-) TimerEvent: {}
+[83.835050] (-) TimerEvent: {}
+[83.935438] (-) TimerEvent: {}
+[84.035833] (-) TimerEvent: {}
+[84.136259] (-) TimerEvent: {}
+[84.236707] (-) TimerEvent: {}
+[84.337061] (-) TimerEvent: {}
+[84.437425] (-) TimerEvent: {}
+[84.537791] (-) TimerEvent: {}
+[84.638312] (-) TimerEvent: {}
+[84.738753] (-) TimerEvent: {}
+[84.839146] (-) TimerEvent: {}
+[84.939551] (-) TimerEvent: {}
+[85.039971] (-) TimerEvent: {}
+[85.140329] (-) TimerEvent: {}
+[85.240730] (-) TimerEvent: {}
+[85.341112] (-) TimerEvent: {}
+[85.441493] (-) TimerEvent: {}
+[85.541881] (-) TimerEvent: {}
+[85.642303] (-) TimerEvent: {}
+[85.742745] (-) TimerEvent: {}
+[85.843103] (-) TimerEvent: {}
+[85.943467] (-) TimerEvent: {}
+[86.043854] (-) TimerEvent: {}
+[86.144273] (-) TimerEvent: {}
+[86.244705] (-) TimerEvent: {}
+[86.345073] (-) TimerEvent: {}
+[86.445467] (-) TimerEvent: {}
+[86.545880] (-) TimerEvent: {}
+[86.646364] (-) TimerEvent: {}
+[86.746823] (-) TimerEvent: {}
+[86.847226] (-) TimerEvent: {}
+[86.947617] (-) TimerEvent: {}
+[87.048045] (-) TimerEvent: {}
+[91.304558] (arm_interfaces) StdoutLine: {'line': b'[100%] Built target arm_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[91.305143] (-) TimerEvent: {}
+[91.405749] (-) TimerEvent: {}
+[91.506461] (-) TimerEvent: {}
+[91.606989] (-) TimerEvent: {}
+[91.707480] (-) TimerEvent: {}
+[91.807922] (-) TimerEvent: {}
+[91.908326] (-) TimerEvent: {}
+[92.008713] (-) TimerEvent: {}
+[92.109111] (-) TimerEvent: {}
+[92.209520] (-) TimerEvent: {}
+[92.309933] (-) TimerEvent: {}
+[92.410359] (-) TimerEvent: {}
+[92.510748] (-) TimerEvent: {}
+[92.611193] (-) TimerEvent: {}
+[92.711652] (-) TimerEvent: {}
+[92.812090] (-) TimerEvent: {}
+[92.912489] (-) TimerEvent: {}
+[93.012898] (-) TimerEvent: {}
+[93.113311] (-) TimerEvent: {}
+[93.213705] (-) TimerEvent: {}
+[93.314108] (-) TimerEvent: {}
+[93.414502] (-) TimerEvent: {}
+[93.514904] (-) TimerEvent: {}
+[93.615303] (-) TimerEvent: {}
+[93.659332] (arm_interfaces) CommandEnded: {'returncode': 0}
+[93.661628] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'install'}
+[93.697878] (arm_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces'], 'cwd': '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bg99'), ('SSH_CLIENT', '192.168.7.232 59318 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/bg99'), ('OLDPWD', '/home/bg99/Documents/Projects/robot-arm/software'), ('SSH_TTY', '/dev/pts/0'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1001/bus'), ('COLCON_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bg99'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1423823045815'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm'), ('XDG_SESSION_ID', '39'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/home/bg99/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1001'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('AMENT_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces'), ('SSH_CONNECTION', '192.168.7.232 59318 192.168.7.54 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge/lib/python3.8/site-packages:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_bringup:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[93.715609] (-) TimerEvent: {}
+[93.732898] (arm_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[93.733766] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/rosidl_interfaces/arm_interfaces\n'}
+[93.734362] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces\n'}
+[93.734923] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv\n'}
+[93.735428] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail\n'}
+[93.735779] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.h\n'}
+[93.736380] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__functions.h\n'}
+[93.736724] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.h\n'}
+[93.737161] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__functions.c\n'}
+[93.737552] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__struct.h\n'}
+[93.737929] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__struct.h\n'}
+[93.738445] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__functions.h\n'}
+[93.738967] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__functions.c\n'}
+[93.739453] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/calibrate.h\n'}
+[93.739907] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/home.h\n'}
+[93.740339] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg\n'}
+[93.740728] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[93.741392] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/library_path.sh\n'}
+[93.742077] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/library_path.dsv\n'}
+[93.742955] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_generator_c.so\n'}
+[93.744406] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_generator_c.so" to ""\n'}
+[93.744873] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces\n'}
+[93.745299] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv\n'}
+[93.745625] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail\n'}
+[93.746053] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_fastrtps_c.h\n'}
+[93.746409] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_fastrtps_c.h\n'}
+[93.746835] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg\n'}
+[93.747161] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[93.747546] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[93.748899] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[93.749276] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces\n'}
+[93.749680] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv\n'}
+[93.750084] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail\n'}
+[93.750475] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[93.750814] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[93.751174] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/dds_fastrtps\n'}
+[93.751576] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg\n'}
+[93.751896] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[93.752298] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[93.753727] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[93.754175] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces\n'}
+[93.754640] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv\n'}
+[93.754978] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail\n'}
+[93.755355] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_introspection_c.h\n'}
+[93.755675] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.c\n'}
+[93.756053] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_introspection_c.h\n'}
+[93.756414] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.c\n'}
+[93.756785] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg\n'}
+[93.757147] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[93.757812] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[93.759298] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[93.759733] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_c.so\n'}
+[93.761002] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[93.761379] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces\n'}
+[93.761792] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv\n'}
+[93.762213] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/home.hpp\n'}
+[93.762594] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail\n'}
+[93.762955] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__struct.hpp\n'}
+[93.763269] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__traits.hpp\n'}
+[93.763638] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.hpp\n'}
+[93.763994] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__builder.hpp\n'}
+[93.764385] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.hpp\n'}
+[93.764860] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__builder.hpp\n'}
+[93.765348] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__struct.hpp\n'}
+[93.765845] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__traits.hpp\n'}
+[93.766458] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/calibrate.hpp\n'}
+[93.766937] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg\n'}
+[93.767336] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[93.767723] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces\n'}
+[93.768124] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv\n'}
+[93.768478] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail\n'}
+[93.768830] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_introspection_cpp.hpp\n'}
+[93.769149] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.cpp\n'}
+[93.769523] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_introspection_cpp.hpp\n'}
+[93.769941] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.cpp\n'}
+[93.770802] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[93.772187] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[93.772660] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_cpp.so\n'}
+[93.773951] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[93.774442] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/pythonpath.sh\n'}
+[93.775066] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/pythonpath.dsv\n'}
+[93.775952] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/__init__.py\n'}
+[93.815789] (-) TimerEvent: {}
+[93.895516] (arm_interfaces) StdoutLine: {'line': b"Compiling '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/__init__.py'...\n"}
+[93.914198] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv\n'}
+[93.914935] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_home.py\n'}
+[93.915460] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_calibrate_s.c\n'}
+[93.915931] (-) TimerEvent: {}
+[93.916366] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_calibrate.py\n'}
+[93.916828] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_home_s.c\n'}
+[93.917188] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/__init__.py\n'}
+[93.917844] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\n'}
+[93.919721] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so" to ""\n'}
+[93.920432] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\n'}
+[93.922401] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so" to ""\n'}
+[93.923094] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\n'}
+[93.924791] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so" to ""\n'}
+[93.925302] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__python.so\n'}
+[93.926743] (arm_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__python.so" to ""\n'}
+[93.927215] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate.idl\n'}
+[93.927765] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home.idl\n'}
+[93.928361] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate.srv\n'}
+[93.928957] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate_Request.msg\n'}
+[93.929551] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate_Response.msg\n'}
+[93.930203] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home.srv\n'}
+[93.930772] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home_Request.msg\n'}
+[93.931348] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home_Response.msg\n'}
+[93.932020] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/package_run_dependencies/arm_interfaces\n'}
+[93.932705] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/parent_prefix_path/arm_interfaces\n'}
+[93.933383] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.sh\n'}
+[93.933761] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.dsv\n'}
+[93.934491] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.sh\n'}
+[93.934908] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.dsv\n'}
+[93.935379] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.bash\n'}
+[93.935840] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.sh\n'}
+[93.936333] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.zsh\n'}
+[93.936721] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.dsv\n'}
+[93.937177] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.dsv\n'}
+[93.937840] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/packages/arm_interfaces\n'}
+[93.938307] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_generator_cExport.cmake\n'}
+[93.939051] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[93.939895] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[93.940617] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[93.941433] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[93.942112] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[93.942983] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_generator_cppExport.cmake\n'}
+[93.943817] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[93.944508] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[93.945337] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[93.946028] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[93.946805] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[93.947427] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[93.948077] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[93.948673] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[93.949308] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[93.949983] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[93.950665] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[93.951297] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig.cmake\n'}
+[93.951829] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig-version.cmake\n'}
+[93.952202] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.xml\n'}
+[93.960037] (arm_interfaces) CommandEnded: {'returncode': 0}
+[94.016096] (-) TimerEvent: {}
+[94.116699] (-) TimerEvent: {}
+[94.146164] (arm_interfaces) JobEnded: {'identifier': 'arm_interfaces', 'rc': 0}
+[94.148300] (-) EventReactorShutdown: {}

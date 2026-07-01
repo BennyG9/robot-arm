@@ -125,11 +125,6 @@ class Protocol:
 
         # write packet to serial
 
-        #for b in packet:
-        #    #print(bytes([b]))
-        #    self.serial.write_bytes(bytes([b]))
-        #    time.sleep(0.01)
-
         self.serial.write_bytes(bytes(packet))
 
         return bytes(packet)

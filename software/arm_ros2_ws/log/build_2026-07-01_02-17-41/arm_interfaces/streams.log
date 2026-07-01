@@ -1,0 +1,144 @@
+[1.292s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/opt/ros/foxy /usr/bin/cmake --build /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces -- -j4 -l4
+[4.561s] [  2%] Built target arm_interfaces__cpp
+[4.562s] [ 12%] Built target arm_interfaces__rosidl_generator_c
+[4.563s] [ 23%] Built target arm_interfaces__rosidl_typesupport_cpp
+[4.564s] [ 33%] Built target arm_interfaces__rosidl_typesupport_introspection_c
+[4.565s] [ 43%] Built target arm_interfaces__rosidl_typesupport_fastrtps_cpp
+[4.565s] [ 53%] Built target arm_interfaces__rosidl_typesupport_introspection_cpp
+[4.566s] [ 64%] Built target arm_interfaces__rosidl_typesupport_c
+[4.568s] [ 74%] Built target arm_interfaces__rosidl_typesupport_fastrtps_c
+[4.569s] [ 74%] Built target arm_interfaces
+[4.569s] [ 76%] Built target arm_interfaces__py
+[4.570s] [ 84%] Built target arm_interfaces__python
+[4.571s] [100%] Built target arm_interfaces__rosidl_typesupport_introspection_c__pyext
+[4.575s] [100%] Built target arm_interfaces__rosidl_typesupport_c__pyext
+[4.576s] [100%] Built target arm_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[4.576s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/opt/ros/foxy /usr/bin/cmake --build /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces -- -j4 -l4
+[4.611s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/opt/ros/foxy /usr/bin/cmake --install /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces
+[4.646s] -- Install configuration: ""
+[4.647s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/rosidl_interfaces/arm_interfaces
+[4.650s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces
+[4.650s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv
+[4.656s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail
+[4.657s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.h
+[4.657s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__functions.h
+[4.658s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.h
+[4.658s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__functions.c
+[4.659s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__struct.h
+[4.659s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__struct.h
+[4.660s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__functions.h
+[4.661s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__functions.c
+[4.661s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/calibrate.h
+[4.662s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/home.h
+[4.663s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg
+[4.663s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_generator_c__visibility_control.h
+[4.664s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/library_path.sh
+[4.665s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/library_path.dsv
+[4.665s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_generator_c.so
+[4.666s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces
+[4.666s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv
+[4.667s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail
+[4.667s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_fastrtps_c.h
+[4.668s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_fastrtps_c.h
+[4.668s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg
+[4.670s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.673s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_c.so
+[4.673s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces
+[4.674s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv
+[4.676s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail
+[4.677s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_fastrtps_cpp.hpp
+[4.678s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_fastrtps_cpp.hpp
+[4.678s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/dds_fastrtps
+[4.678s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg
+[4.679s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.679s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[4.680s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces
+[4.680s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv
+[4.680s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail
+[4.681s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_introspection_c.h
+[4.685s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.c
+[4.686s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_introspection_c.h
+[4.686s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.c
+[4.686s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg
+[4.687s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.687s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_c.so
+[4.688s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_c.so
+[4.688s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces
+[4.689s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv
+[4.689s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/home.hpp
+[4.690s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail
+[4.690s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__struct.hpp
+[4.690s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__traits.hpp
+[4.691s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.hpp
+[4.691s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__builder.hpp
+[4.692s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.hpp
+[4.692s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__builder.hpp
+[4.693s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__struct.hpp
+[4.705s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__traits.hpp
+[4.706s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/calibrate.hpp
+[4.706s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg
+[4.707s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[4.707s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces
+[4.707s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv
+[4.708s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail
+[4.708s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__rosidl_typesupport_introspection_cpp.hpp
+[4.709s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__type_support.cpp
+[4.709s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/calibrate__rosidl_typesupport_introspection_cpp.hpp
+[4.710s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/include/arm_interfaces/srv/detail/home__type_support.cpp
+[4.710s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_cpp.so
+[4.710s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_cpp.so
+[4.711s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/pythonpath.sh
+[4.711s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/pythonpath.dsv
+[4.712s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/__init__.py
+[4.847s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv
+[4.848s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_home.py
+[4.850s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_calibrate_s.c
+[4.851s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_calibrate.py
+[4.853s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/_home_s.c
+[4.854s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/srv/__init__.py
+[4.857s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+[4.858s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+[4.861s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/python3.8/site-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+[4.864s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/lib/libarm_interfaces__python.so
+[4.866s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate.idl
+[4.867s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home.idl
+[4.868s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate.srv
+[4.869s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate_Request.msg
+[4.871s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Calibrate_Response.msg
+[4.872s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home.srv
+[4.873s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home_Request.msg
+[4.874s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/srv/Home_Response.msg
+[4.875s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/package_run_dependencies/arm_interfaces
+[4.877s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/parent_prefix_path/arm_interfaces
+[4.878s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.sh
+[4.879s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.dsv
+[4.880s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.sh
+[4.881s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/environment/path.dsv
+[4.883s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.bash
+[4.884s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.sh
+[4.885s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.zsh
+[4.886s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/local_setup.dsv
+[4.887s] -- Installing: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.dsv
+[4.889s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/ament_index/resource_index/packages/arm_interfaces
+[4.891s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_generator_cExport.cmake
+[4.892s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_generator_cExport-noconfig.cmake
+[4.894s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[4.895s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.897s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cExport.cmake
+[4.899s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[4.900s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_generator_cppExport.cmake
+[4.902s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[4.903s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.905s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cppExport.cmake
+[4.906s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[4.907s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake-extras.cmake
+[4.909s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.910s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[4.911s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[4.912s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.913s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.915s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.916s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig.cmake
+[4.917s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig-version.cmake
+[4.918s] -- Up-to-date: /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_interfaces/share/arm_interfaces/package.xml
+[4.934s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/stm32_bridge:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop:/opt/ros/foxy /usr/bin/cmake --install /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_interfaces

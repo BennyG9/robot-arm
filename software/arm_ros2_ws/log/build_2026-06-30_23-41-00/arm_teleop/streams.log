@@ -1,0 +1,26 @@
+[6.515s] Invoking command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_teleop': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_teleop build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log --install-scripts $base/lib/arm_teleop --single-version-externally-managed install_data
+[7.603s] /usr/local/lib/python3.8/dist-packages/setuptools/dist.py:717: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[7.604s]   warnings.warn(
+[7.744s] running egg_info
+[7.749s] writing ../../build/arm_teleop/arm_teleop.egg-info/PKG-INFO
+[7.749s] writing dependency_links to ../../build/arm_teleop/arm_teleop.egg-info/dependency_links.txt
+[7.750s] writing entry points to ../../build/arm_teleop/arm_teleop.egg-info/entry_points.txt
+[7.750s] writing requirements to ../../build/arm_teleop/arm_teleop.egg-info/requires.txt
+[7.751s] writing top-level names to ../../build/arm_teleop/arm_teleop.egg-info/top_level.txt
+[7.763s] reading manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'
+[7.767s] writing manifest file '../../build/arm_teleop/arm_teleop.egg-info/SOURCES.txt'
+[7.767s] running build
+[7.768s] running build_py
+[7.768s] copying arm_teleop/keyboard_teleop_node.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop
+[7.769s] running install
+[7.772s] running install_lib
+[7.778s] copying /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build/lib/arm_teleop/keyboard_teleop_node.py -> /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop
+[7.781s] byte-compiling /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop/keyboard_teleop_node.py to keyboard_teleop_node.cpython-38.pyc
+[7.781s] running install_data
+[7.783s] running install_egg_info
+[7.789s] removing '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop-0.0.0-py3.8.egg-info' (and everything under it)
+[7.790s] Copying ../../build/arm_teleop/arm_teleop.egg-info to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages/arm_teleop-0.0.0-py3.8.egg-info
+[7.795s] running install_scripts
+[7.874s] Installing keyboard_teleop_node script to /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/arm_teleop
+[7.876s] writing list of installed files to '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log'
+[7.989s] Invoked command in '/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/src/arm_teleop' returned '0': PYTHONPATH=/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/install/arm_teleop/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_teleop build --build-base /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/build install --record /home/bg99/Documents/Projects/robot-arm/software/arm_ros2_ws/build/arm_teleop/install.log --install-scripts $base/lib/arm_teleop --single-version-externally-managed install_data

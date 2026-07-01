@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from arm_interfaces/srv/Calibrate.srv
+// generated code does not contain a copyright notice
+
+
+module arm_interfaces {
+  module srv {
+    struct Calibrate_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct Calibrate_Response {
+      boolean success;
+    };
+  };
+};
