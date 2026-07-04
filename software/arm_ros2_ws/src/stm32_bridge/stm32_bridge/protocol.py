@@ -51,7 +51,7 @@ class Protocol:
         # get all args
         if(self.read_state == self.WaitArgs):
             cmd_length = self.get_command_length(self.packet[1])
-            if(self.serial.available() < cmd_length - 1):
+            if(self.serial.available() < cmd_length - 3):
                 return None
             for _ in range(cmd_length - 3):
                 self.packet.append(self.serial.read_byte())
