@@ -30,14 +30,12 @@ class KeyboardTeleopNode(Node):
 
 
     def on_press(self, key):
-        print("KEY EVENT: ", key)
         try:
             k = key.char
         except:
             return
 
         if(k == 'c'):
-            print("keyboard working")
             self.calibrate()
 
         elif(k == 'h'):

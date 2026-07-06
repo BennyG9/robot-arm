@@ -67,7 +67,6 @@ class Protocol:
             if(checksum != current_byte[0]):
                 return -1
             self.read_state = self.WaitStart
-            #print(self.packet)
             return self.packet[:]
 
         return None
