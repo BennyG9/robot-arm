@@ -1,6 +1,5 @@
-../Core/Src/serial_monitor.c:12:6:SerialMonitor_Init	4	static
-../Core/Src/serial_monitor.c:19:6:SerialMonitor_Append	24	static
-../Core/Src/serial_monitor.c:38:21:SerialMonitor_Pop	16	static
-../Core/Src/serial_monitor.c:49:19:SerialMonitor_ReadByte	24	static
-../Core/Src/serial_monitor.c:61:19:SerialMonitor_ReadBytes	24	static
-../Core/Src/serial_monitor.c:78:10:SerialMonitor_Available	4	static
+../Core/Src/serial_monitor.c:16:6:SerialMonitor_Init	4	static
+../Core/Src/serial_monitor.c:25:6:SerialMonitor_Append	24	static
+../Core/Src/serial_monitor.c:67:19:SerialMonitor_ReadByte	16	static
+../Core/Src/serial_monitor.c:86:19:SerialMonitor_ReadBytes	24	static
+../Core/Src/serial_monitor.c:113:10:SerialMonitor_Available	4	static

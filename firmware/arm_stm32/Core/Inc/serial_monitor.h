@@ -11,23 +11,25 @@
 #include "main.h"
 #include <stdlib.h>
 
-typedef struct SerialMonitorEntry{
+#define BUFFER_SIZE 512
 
-	uint8_t byte;
-
-	struct SerialMonitorEntry* next;
-
-} SerialMonitorEntry;
-
-typedef struct{
-
-	SerialMonitorEntry* head;
-
-	SerialMonitorEntry* tail;
-
-	uint16_t length;
-
-} SerialMonitor;
+//typedef struct SerialMonitorEntry{
+//
+//	uint8_t byte;
+//
+//	struct SerialMonitorEntry* next;
+//
+//} SerialMonitorEntry;
+//
+//typedef struct{
+//
+//	SerialMonitorEntry* head;
+//
+//	SerialMonitorEntry* tail;
+//
+//	uint16_t length;
+//
+//} SerialMonitor;
 
 void SerialMonitor_Init(void);
 

@@ -67,6 +67,7 @@ enum State state = IDLE;
 
 uint8_t rx_byte;
 Packet packet;
+uint8_t joint_publish_flag = 0;
 
 static uint16_t JOINT_PUBLISH_FREQ = 100;  //Hz
 uint16_t joint_publish_counter = 0;
@@ -176,6 +177,17 @@ int main(void)
 		  HAL_Delay(200);
 	  }
 
+
+//	  if(SerialMonitor_Available() > 0){
+//		  uint8_t byte;
+//		  SerialMonitor_ReadByte(&byte);
+//		  Protocol_WriteError(byte);
+//	  }
+
+	  if(joint_publish_flag == 1){
+		  Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
+		  joint_publish_flag = 0;
+	  }
 
     /* USER CODE END WHILE */
 
@@ -525,6 +537,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 //			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 //		}
 
+
 		// state control
 		switch(state){
 			case CONTR:
@@ -555,11 +568,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case CALIBRATE:
-					Protocol_WriteError(5);
+					//Protocol_WriteError(5);
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 					break;
 
 				case HOME:
-					Protocol_WriteError(9);
+					//Protocol_WriteError(9);
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 					break;
 
 				case SET_PID:
@@ -576,8 +591,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 		joint_publish_counter++;
 		if(joint_publish_counter >= (uint16_t)(1000 / JOINT_PUBLISH_FREQ)){
-			Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
+			//Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
 			joint_publish_counter = 0;
+			joint_publish_flag = 1;
 		}
 
 	}
@@ -590,6 +606,17 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart){
 		HAL_UART_Receive_IT(huart, &rx_byte, 1);
 	}
 }
+
+//void HAL_UART_ErrorCallback(UART_HandleTypeDef* huart){
+//	if(huart->Instance == USART2){
+//		uint32_t err = HAL_UART_GetError(huart);
+//		Protocol_WriteError((uint8_t)err);
+//		Protocol_WriteError((uint8_t)huart->RxState);
+//		Protocol_WriteError((uint8_t)huart->gState);
+//		HAL_StatusTypeDef status = HAL_UART_Receive_IT(huart, &rx_byte, 1);
+//		Protocol_WriteError((uint8_t)status);
+//	}
+//}
 
 
 
