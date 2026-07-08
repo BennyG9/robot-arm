@@ -1,8 +1,10 @@
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import JointState
+#from sensor_msgs.msg import JointState
 from arm_interfaces.srv import Calibrate
 from arm_interfaces.srv import Home
+from arm_interfaces.msg import JointStates
+from arm_interfaces.msg import JointTargets
 
 from .protocol import Protocol
 
@@ -18,7 +20,8 @@ class STM32Bridge(Node):
         self.protocol = Protocol()
 
         #Joint State publisher
-        self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
+        #self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
+        self.joint_pub - self.create_publisher(JointStates, "joint_states", 10)
 
         #Services
         self.calibrate_srv = self.create_service(
@@ -87,21 +90,21 @@ class STM32Bridge(Node):
 
 
     def publish_joint_states(self, joint_angles):
-        msg = JointState()
-
-        msg.name = [
-            "base_joint",
-            "shoulder_joint",
-        ]
-
-        msg.position = [
-            math.radians(joint_angles[0]),
-            math.radians(joint_angles[1]),
-        ]
-
-        msg.velocity = []
-        msg.effort = []
-
+#        msg = JointState()
+#        msg.name = [
+#            "base_joint",
+#            "shoulder_joint",
+#        ]
+#        msg.position = [
+#            math.radians(joint_angles[0]),
+#            math.radians(joint_angles[1]),
+#        ]
+#        msg.velocity = []
+#        msg.effort = []
+#        self.joint_pub.publish(msg)
+        msg = JointStates()
+        msg.base = math.radians(joint_angles[0])
+        msg.shoulder = math.radians(joint_angles[1])
         self.joint_pub.publish(msg)
         pass
 
