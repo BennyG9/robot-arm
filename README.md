@@ -55,7 +55,7 @@ Last Documentation Update: 6/14/2026
 <div>
   <img align="right" src="media/6-14-2026/Embedded_Prototype_6-14-2026.jpeg" width="300"> 
   
-  <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. <br> <br> The plan is to flesh out communication between the STM32 and an NVIDIA Jetson Nano which will handle higher level computation using ROS2. <br><br> Next steps: Jetson-STM serial communication, basic control inputs using ROS2</p>
+  <p>The robotic arm is powered by an STM32 Nucleo-F446RE, responsible for all of the real-time control code. Motors are driven by IBT-2 type motor driver modules rated for up to 43A. The system uses a custom serial USB communication protcol defined in `communication/protocol.json` and supports variable argument length with checksum packet verification. The Jetson Nano runs ROS2 Foxy with custom services, launch files, and communication nodes. Only basic calibration and homing teleoperation commands are supported currently.<br><br> Next steps: ROS2 teleop angular control, ROS2 high-level kinematics</p>
   <br clear="right" />
 </div>
 
