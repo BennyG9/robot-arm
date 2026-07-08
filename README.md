@@ -59,7 +59,7 @@ Last Documentation Update: 6/14/2026
   <br clear="right" />
 </div>
 
-hello
+   
 [Embedded Communication System & ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc)
 
 ### Control
