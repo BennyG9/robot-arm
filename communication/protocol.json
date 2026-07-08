@@ -23,7 +23,7 @@
         "JOINT_STATE": {
             "id": 1,
             "args": [
-                {"name": "joint_positions", "type": "float", "count": 4}
+                {"name": "joint_positions", "type": "float", "count": 2}
             ],
             "direction": "STM32_TO_JETSON",
             "description": "broadcast the current state of each joint",
@@ -33,7 +33,7 @@
         "SET_POSITION": {
             "id": 2,
             "args": [
-                {"name": "joint_positions", "type": "float", "count": 4}
+                {"name": "joint_positions", "type": "float", "count": 2}
             ],
             "direction": "JETSON_TO_STM32",
             "description": "set the target positions for each joint",

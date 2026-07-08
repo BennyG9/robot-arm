@@ -4,7 +4,7 @@
 #include "main.h"
 
 #define START_BYTE 0xAA
-#define MAX_ARG_SIZE 16
+#define MAX_ARG_SIZE 13
 
 typedef enum{
 	JOINT_STATE = 1,

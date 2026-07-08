@@ -189,7 +189,7 @@ int main(void)
 //	  }
 
 	  if(joint_publish_flag == 1){
-		  Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
+		  Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint));
 		  joint_publish_flag = 0;
 	  }
 
@@ -583,6 +583,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 						memcpy(&(positions[float_index]), &(packet.args[byte_index]), sizeof(float));
 						byte_index += 4;
 					}
+					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 					break;
 
 				case CALIBRATE:
@@ -590,7 +591,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case HOME:
-					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 					Joint_SetTargetAngle(&base_joint, 0.0f);
 					Joint_SetTargetAngle(&shoulder_joint, 0.0f);
 					break;

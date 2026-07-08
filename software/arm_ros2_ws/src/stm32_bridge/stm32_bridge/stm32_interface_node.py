@@ -23,6 +23,9 @@ class STM32Bridge(Node):
         #self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
         self.joint_pub - self.create_publisher(JointStates, "joint_states", 10)
 
+        #Joint Target listener
+        self.joint_sub = self.create_subscription(JointTargets, "joint_targets", self.joint_targets_callback, 10)
+
         #Services
         self.calibrate_srv = self.create_service(
             Calibrate,
@@ -106,6 +109,11 @@ class STM32Bridge(Node):
         msg.base = math.radians(joint_angles[0])
         msg.shoulder = math.radians(joint_angles[1])
         self.joint_pub.publish(msg)
+        pass
+
+
+    def joint_targets_callback(self, msg):
+        self.protocol.write_packet("SET_POSITION", msg.base, msg.shoulder)
         pass
 
     pass

@@ -3,9 +3,9 @@
 uint16_t Protocol_GetPacketLength(uint8_t cmd_id){
 	switch((CommandID)cmd_id){
 		case JOINT_STATE:
-			return 19;
+			return 11;
 		case SET_POSITION:
-			return 19;
+			return 11;
 		case CALIBRATE:
 			return 3;
 		case HOME:
@@ -25,14 +25,10 @@ HAL_StatusTypeDef Protocol_GetArgumentTypes(uint8_t cmd_id, Type* type_list){
 		case JOINT_STATE:
 			type_list[0] = FLOAT;
 			type_list[1] = FLOAT;
-			type_list[2] = FLOAT;
-			type_list[3] = FLOAT;
 			return HAL_OK;
 		case SET_POSITION:
 			type_list[0] = FLOAT;
 			type_list[1] = FLOAT;
-			type_list[2] = FLOAT;
-			type_list[3] = FLOAT;
 			return HAL_OK;
 		case CALIBRATE:
 			type_list[0] = NONE;
@@ -59,9 +55,9 @@ HAL_StatusTypeDef Protocol_GetArgumentTypes(uint8_t cmd_id, Type* type_list){
 uint16_t Protocol_GetNumArguments(uint8_t cmd_id){
 	switch((CommandID)cmd_id){
 		case JOINT_STATE:
-			return 4;
+			return 2;
 		case SET_POSITION:
-			return 4;
+			return 2;
 		case CALIBRATE:
 			return 0;
 		case HOME:
