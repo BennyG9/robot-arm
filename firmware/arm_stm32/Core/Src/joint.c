@@ -78,6 +78,7 @@ void Joint_Calibrate(Joint* joint){
 	//set encoder angle to max value
 	HAL_Delay(250);
 	Encoder_SetAngle(joint->encoder, joint->max_angle);
+	joint->target_position = Encoder_GetPosition(joint->encoder);
 }
 
 

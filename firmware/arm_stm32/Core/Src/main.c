@@ -58,16 +58,19 @@ UART_HandleTypeDef huart2;
 static Joint shoulder_joint;
 static Joint base_joint;
 
-enum State {
-	IDLE,
-	CAL,
-	CONTR
-};
-enum State state = IDLE;
+//enum State {
+//	IDLE,
+//	CAL,
+//	CONTR,
+//};
+//enum State state = IDLE;
 
 uint8_t rx_byte;
 Packet packet;
+
 uint8_t joint_publish_flag = 0;
+uint8_t joint_calibrate_flag = 0;
+uint8_t joint_control_flag = 0;
 
 static uint16_t JOINT_PUBLISH_FREQ = 100;  //Hz
 uint16_t joint_publish_counter = 0;
@@ -158,12 +161,13 @@ int main(void)
   PID base_pid = {.Kp=3.5f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
   Joint_Init(&base_joint, &base_motor, &base_encoder, &base_pid, B_Limit_Switch_Pin, 0, 80.0, -90.0);
 
+  joint_control_flag = 0;
+
   //serial initialization
   Serial_Init(&huart2);
   HAL_UART_Receive_IT(&huart2, &rx_byte, 1);
   SerialMonitor_Init();
 
-  state = IDLE;
 
   while (1)
   {
@@ -187,6 +191,17 @@ int main(void)
 	  if(joint_publish_flag == 1){
 		  Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
 		  joint_publish_flag = 0;
+	  }
+
+	  if(joint_calibrate_flag == 1){
+		  joint_control_flag = 0;
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  Joint_Calibrate(&base_joint);
+		  HAL_Delay(250);
+		  Joint_Calibrate(&shoulder_joint);
+		  HAL_Delay(250);
+		  joint_calibrate_flag = 0;
+		  joint_control_flag = 1;
 	  }
 
     /* USER CODE END WHILE */
@@ -539,16 +554,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 
 		// state control
-		switch(state){
-			case CONTR:
-				Joint_Update(&shoulder_joint);
-				Joint_Update(&base_joint);
-				break;
-
-			case IDLE:
-				break;
-			case CAL:
-				break;
+//		switch(state){
+//			case CONTR:
+//				Joint_Update(&shoulder_joint);
+//				Joint_Update(&base_joint);
+//				break;
+//			case IDLE:
+//				break;
+//			case CAL:
+//				break;
+//		}
+		if(joint_control_flag == 1){
+			Joint_Update(&shoulder_joint);
+			Joint_Update(&base_joint);
 		}
 
 		// serial monitoring
@@ -568,13 +586,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case CALIBRATE:
-					//Protocol_WriteError(5);
-					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					joint_calibrate_flag = 1;
 					break;
 
 				case HOME:
-					//Protocol_WriteError(9);
 					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+					Joint_SetTargetAngle(&base_joint, 0.0f);
+					Joint_SetTargetAngle(&shoulder_joint, 0.0f);
 					break;
 
 				case SET_PID:
@@ -591,7 +609,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 
 		joint_publish_counter++;
 		if(joint_publish_counter >= (uint16_t)(1000 / JOINT_PUBLISH_FREQ)){
-			//Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&base_joint), 0.0f, 0.0f);
 			joint_publish_counter = 0;
 			joint_publish_flag = 1;
 		}

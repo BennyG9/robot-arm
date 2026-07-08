@@ -24,7 +24,7 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 				uint8_t byte;
 				if(SerialMonitor_ReadByte(&byte) == HAL_ERROR){
 					Protocol_WriteError(1);
-					return HAL_ERROR;
+					//return HAL_ERROR;
 				}
 
 				// check for start byte
@@ -46,7 +46,7 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 
 				// get command byte from serial monitor
 				if(SerialMonitor_ReadByte(&(packet->command)) == HAL_ERROR){
-					Protocol_WriteError(2);
+					//Protocol_WriteError(2);
 					return HAL_ERROR;
 				}
 
@@ -74,7 +74,7 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 
 				// get all argument bytes from serial monitor
 				if(SerialMonitor_ReadBytes(packet->args, packet->arg_length) == HAL_ERROR){
-					Protocol_WriteError(3);
+					//Protocol_WriteError(3);
 					return HAL_ERROR;
 				}
 
@@ -94,13 +94,13 @@ HAL_StatusTypeDef Protocol_ReadPacket(Packet* packet){
 				// get checksum byte from serial monitor
 				uint8_t byte;
 				if(SerialMonitor_ReadByte(&byte) == HAL_ERROR){
-					Protocol_WriteError(4);
+					//Protocol_WriteError(4);
 					return HAL_ERROR;
 				}
 
 				// get and verify checksum
 				if(byte != Protocol_Checksum(packet)){
-					Protocol_WriteError(5);
+					//Protocol_WriteError(5);
 					// ditch corrupted packet
 					current_state = WaitStart;
 					return HAL_ERROR;
