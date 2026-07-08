@@ -3,6 +3,7 @@
 STM32-based robotic arm project focused on embedded control systems and robotic system design. The long-term goal is a 4-5 DOF manipulator with ROS2 integration, computer vision, and AI-assisted task execution using an NVIDIA Jetson Nano. This project is a work in progress and is documented regularly...
 <br><br>
 Here are some videos demonstrating the current progress:
+* [Embedded Communication System & ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc)
 * [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
 * [PID Position Control Demo (5-29-2026)](https://youtu.be/YCUa2xMnsVE)
 
