@@ -9,7 +9,7 @@ Here are some videos demonstrating the current progress:
 
 Project Started: May 2026
 <br>
-Last Documentation Update: 6/14/2026
+Last Documentation Update: 7/7/2026
 
 ## Project Goals 
 
@@ -31,7 +31,8 @@ Last Documentation Update: 6/14/2026
 ### In Progress
 * ROS2 Teleoperation angular control
 * 2-joint forward kimeatics, inverse kinematics 
-* Elbow joint mechanical prototype 
+* Elbow joint mechanical prototype
+* PID tuning for all joints
 
 ### Planned
 * 2 then 3-DOF mechanics and control, ultimately expand to 4 or 5 DOF
@@ -39,6 +40,7 @@ Last Documentation Update: 6/14/2026
 * RTOS implementation 
 * ROS2 package for high-level robot interfacing
 * AI and computer vision integration
+* Custom PCB design
 
 ## How it Works 
 
@@ -82,6 +84,7 @@ The shoulder and base joints currently uses a 1kHz closed-loop PID controller ru
 ### Design Tools 
 * OnShape (CAD)
 * STM32CubeMX & STM32CubeIDE
+* PuTTY & NoMachine
 * Git
 
 ## Repository Structure 
