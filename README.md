@@ -23,12 +23,14 @@ Last Documentation Update: 6/14/2026
 ### Completed
 * Shoulder & base joints mechanical prototypes
 * Shoulder & base joints PID positional control using STM32
-* STM32 embedded software architecture
-* Shoulder & base joints calibration procedures 
+* STM32 embedded firmware architecture
+* ROS2 Jetson Nano software architecture
+* Shoulder & base joints calibration procedures
+* Jetson Nano - STM32 USB serial communication and ROS2 Teleoperation
 
 ### In Progress
-* 2-joint angular control, forward kimeatics, inverse kinematics 
-* Jetson Nano - STM32 USB serial communication 
+* ROS2 Teleoperation angular control
+* 2-joint forward kimeatics, inverse kinematics 
 * Elbow joint mechanical prototype 
 
 ### Planned
@@ -62,6 +64,7 @@ Last Documentation Update: 6/14/2026
 ---
 The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> Next steps: basic angular control of each joint, 2-joint forward kinematics, 2-joint inverse kinematics. 
 
+[Embedded Communication System & ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc)
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
 
 ## Technical Stack
@@ -101,10 +104,15 @@ robotic-arm/
   * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
   * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
 * `software/arm_ros2_ws/` - ROS2 workspace
+  * `software/arm_ros2_ws/src/arm_bringup/` - ROS2 launch files
+  * `software/arm_ros2_ws/src/arm_interfaces/` - ROS2 custom services source code
+  * `software/arm_ros2_ws/src/arm_teleop/` - ROS2 teleoperation nodes
   * `software/arm_ros2_ws/src/stm32_bridge/` - Jetson Nano & STM32 serial communication package
+
 
 ## Media 
 
+[Embedded Communication System & ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc) <br>
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg) <br>
 [PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 
