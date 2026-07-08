@@ -66,7 +66,7 @@ Last Documentation Update: 7/7/2026
 
 ### Control
 ---
-The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> Next steps: basic angular control of each joint, 2-joint forward kinematics, 2-joint inverse kinematics. 
+The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> 2-joint forward kinematics, 2-joint inverse kinematics, 3 joints. 
 
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
 
