@@ -21,11 +21,6 @@ class KeyboardTeleopNode(Node):
         self.listener.start()
 
         self.get_logger().info("Keyboard Teleop Initiated")
-
-        time.sleep(2)
-        self.calibrate()
-        time.sleep(1)
-        self.home()
         pass
 
 
