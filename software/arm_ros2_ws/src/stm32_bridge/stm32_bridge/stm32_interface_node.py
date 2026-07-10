@@ -106,8 +106,8 @@ class STM32Bridge(Node):
 #        msg.effort = []
 #        self.joint_pub.publish(msg)
         msg = JointStates()
-        msg.base = math.radians(joint_angles[0])
-        msg.shoulder = math.radians(joint_angles[1])
+        msg.base = joint_angles[0]
+        msg.shoulder = joint_angles[1]
         self.joint_pub.publish(msg)
         pass
 
