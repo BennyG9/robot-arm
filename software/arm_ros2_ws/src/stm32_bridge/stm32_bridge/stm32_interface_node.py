@@ -21,7 +21,7 @@ class STM32Bridge(Node):
 
         #Joint State publisher
         #self.joint_pub = self.create_publisher(JointState, "joint_states", 10)
-        self.joint_pub - self.create_publisher(JointStates, "joint_states", 10)
+        self.joint_pub = self.create_publisher(JointStates, "joint_states", 10)
 
         #Joint Target listener
         self.joint_sub = self.create_subscription(JointTargets, "joint_targets", self.joint_targets_callback, 10)

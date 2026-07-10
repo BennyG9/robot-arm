@@ -22,6 +22,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
     "srv/Calibrate.srv"
     "srv/Home.srv"
+    "msg/JointStates.msg"
+    "msg/JointTargets.msg"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
