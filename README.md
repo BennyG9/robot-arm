@@ -63,7 +63,7 @@ Last Documentation Update: 7/10/2026
 </div>
 
    
-[Embedded Communication System & Basic ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc)
+[Embedded Communication System & Basic ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc)<br>
 [ROS2 Full Teleoperation (7-10-2026)](https://youtu.be/LquclRMNV8o)
 
 ### Control
