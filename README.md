@@ -118,6 +118,7 @@ robotic-arm/
 
 ## Media 
 
+[ROS2 Full Teleoperation (7-10-2026)](https://youtu.be/LquclRMNV8o)<br>
 [Embedded Communication System & ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc) <br>
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg) <br>
 [PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
