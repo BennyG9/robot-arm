@@ -61,16 +61,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define Blue_On_Board_Button_Pin GPIO_PIN_13
-#define Blue_On_Board_Button_GPIO_Port GPIOC
 #define S_Limit_Switch_Pin GPIO_PIN_0
 #define S_Limit_Switch_GPIO_Port GPIOC
 #define B_Limit_Switch_Pin GPIO_PIN_1
 #define B_Limit_Switch_GPIO_Port GPIOC
-#define S_ENC_A_Pin GPIO_PIN_0
-#define S_ENC_A_GPIO_Port GPIOA
-#define S_ENC_B_Pin GPIO_PIN_1
-#define S_ENC_B_GPIO_Port GPIOA
+#define E_Limit_Switch_Pin GPIO_PIN_2
+#define E_Limit_Switch_GPIO_Port GPIOC
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
@@ -85,16 +81,28 @@ void Error_Handler(void);
 #define B_MTR_F_GPIO_Port GPIOB
 #define B_MTR_B_Pin GPIO_PIN_1
 #define B_MTR_B_GPIO_Port GPIOB
+#define E_MTR_B_Pin GPIO_PIN_14
+#define E_MTR_B_GPIO_Port GPIOB
+#define E_MTR_F_Pin GPIO_PIN_15
+#define E_MTR_F_GPIO_Port GPIOB
+#define E_ENC_B_Pin GPIO_PIN_6
+#define E_ENC_B_GPIO_Port GPIOC
+#define E_ENC_A_Pin GPIO_PIN_7
+#define E_ENC_A_GPIO_Port GPIOC
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define S_ENC_A_Pin GPIO_PIN_15
+#define S_ENC_A_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 #define B_ENC_B_Pin GPIO_PIN_6
 #define B_ENC_B_GPIO_Port GPIOB
 #define B_ENC_A_Pin GPIO_PIN_7
 #define B_ENC_A_GPIO_Port GPIOB
+#define S_ENC_B_Pin GPIO_PIN_9
+#define S_ENC_B_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
