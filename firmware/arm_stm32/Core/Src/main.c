@@ -191,26 +191,26 @@ int main(void)
   while (1)
   {
 
-	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-		  Motor_SetPower(&elbow_motor, 300);
-	  }else{
-		  Motor_SetPower(&elbow_motor, 0);
-	  }
-
-	  if(HAL_GPIO_ReadPin(GPIOC, E_Limit_Switch_Pin) == GPIO_PIN_SET){
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	  }else{
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	  }
-
-	  int32_t pos = Encoder_GetPosition(&elbow_encoder);
-	  char buf[32];
-	  sprintf(buf, "%ld\r\n", pos);
-	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
+//	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
+//		  Motor_SetPower(&elbow_motor, 1000);
+//	  }else{
+//		  Motor_SetPower(&elbow_motor, 0);
+//	  }
+//
+//	  if(HAL_GPIO_ReadPin(GPIOC, E_Limit_Switch_Pin) == GPIO_PIN_SET){
+//		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+//	  }else{
+//		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+//	  }
+//
+//	  int32_t pos = Encoder_GetPosition(&elbow_encoder);
+//	  char buf[32];
+//	  sprintf(buf, "%ld\r\n", pos);
+//	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
 
 
 	  if(joint_publish_flag == 1){
-		  Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&base_joint), Joint_GetAngle(&shoulder_joint));
+		  Protocol_WriteCommand(JOINT_STATE, Joint_GetAngle(&base_joint), Joint_GetAngle(&shoulder_joint), Joint_GetAngle(&elbow_joint));
 		  joint_publish_flag = 0;
 	  }
 
@@ -224,6 +224,8 @@ int main(void)
 		  joint_calibrate_flag = 0;
 		  joint_control_flag = 1;
 	  }
+
+
 
     /* USER CODE END WHILE */
 
@@ -690,6 +692,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 		if(joint_control_flag == 1){
 			Joint_Update(&shoulder_joint);
 			Joint_Update(&base_joint);
+			joint_Update(&elbow_joint);
 		}
 
 		// serial monitoring

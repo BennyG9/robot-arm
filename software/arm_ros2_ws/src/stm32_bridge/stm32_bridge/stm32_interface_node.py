@@ -93,27 +93,16 @@ class STM32Bridge(Node):
 
 
     def publish_joint_states(self, joint_angles):
-#        msg = JointState()
-#        msg.name = [
-#            "base_joint",
-#            "shoulder_joint",
-#        ]
-#        msg.position = [
-#            math.radians(joint_angles[0]),
-#            math.radians(joint_angles[1]),
-#        ]
-#        msg.velocity = []
-#        msg.effort = []
-#        self.joint_pub.publish(msg)
         msg = JointStates()
         msg.base = joint_angles[0]
         msg.shoulder = joint_angles[1]
+        msg.elbow = joint_angles[2]
         self.joint_pub.publish(msg)
         pass
 
 
     def joint_targets_callback(self, msg):
-        self.protocol.write_packet("SET_POSITION", msg.base, msg.shoulder)
+        self.protocol.write_packet("SET_POSITION", msg.base, msg.shoulder, msg.elbow)
         pass
 
     pass
