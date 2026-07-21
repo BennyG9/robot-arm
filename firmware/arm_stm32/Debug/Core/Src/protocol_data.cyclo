@@ -1,3 +1,3 @@
 ../Core/Src/protocol_data.c:3:10:Protocol_GetPacketLength	8
 ../Core/Src/protocol_data.c:23:19:Protocol_GetArgumentTypes	8
-../Core/Src/protocol_data.c:55:10:Protocol_GetNumArguments	8
+../Core/Src/protocol_data.c:57:10:Protocol_GetNumArguments	8

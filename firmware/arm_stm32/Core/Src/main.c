@@ -221,6 +221,8 @@ int main(void)
 		  HAL_Delay(250);
 		  Joint_Calibrate(&shoulder_joint);
 		  HAL_Delay(250);
+		  Joint_Calibrate(&elbow_joint);
+		  HAL_Delay(250);
 		  joint_calibrate_flag = 0;
 		  joint_control_flag = 1;
 	  }
@@ -692,7 +694,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 		if(joint_control_flag == 1){
 			Joint_Update(&shoulder_joint);
 			Joint_Update(&base_joint);
-			joint_Update(&elbow_joint);
+			Joint_Update(&elbow_joint);
 		}
 
 		// serial monitoring
@@ -703,14 +705,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 					break;
 
 				case SET_POSITION:
-					float positions[2];
+					float positions[3];
 					int byte_index = 0;
-					for(int float_index = 0; float_index < 2; float_index++){
+					for(int float_index = 0; float_index < 3; float_index++){
 						memcpy(&(positions[float_index]), &(packet.args[byte_index]), sizeof(float));
 						byte_index += 4;
 					}
 					Joint_SetTargetAngle(&base_joint, positions[0]);
 					Joint_SetTargetAngle(&shoulder_joint, positions[1]);
+					Joint_SetTargetAngle(&elbow_joint, positions[2]);
 					HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 					break;
 
@@ -721,6 +724,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 				case HOME:
 					Joint_SetTargetAngle(&base_joint, 0.0f);
 					Joint_SetTargetAngle(&shoulder_joint, 0.0f);
+					Joint_SetTargetAngle(&elbow_joint, 0.0f);
 					break;
 
 				case SET_PID:
