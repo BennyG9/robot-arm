@@ -11,7 +11,7 @@ Here are some videos demonstrating the current progress:
 
 Project Started: May 2026
 <br>
-Last Documentation Update: 7/10/2026
+Last Documentation Update: 7/22/2026
 
 ## Project Goals 
 
