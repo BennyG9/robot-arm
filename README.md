@@ -35,7 +35,7 @@ Last Documentation Update: 7/22/2026
 * PID tuning for all joints
 
 ### Planned
-* 2 then 3-DOF mechanics and control, ultimately expand to 4 or 5 DOF
+* 3-DOF mechanics and control, ultimately expand to 4 or 5 DOF
 * NVIDIA Jetson Nano + STM32 distributed system for high-level planning and real-time control
 * RTOS implementation 
 * ROS2 package for high-level robot interfacing
