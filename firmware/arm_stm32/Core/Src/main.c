@@ -183,7 +183,7 @@ int main(void)
   Motor elbow_motor = {.timer=&htim12, .forward_channel=TIM_CHANNEL_1, .reverse_channel=TIM_CHANNEL_2, .min_duty_forward=100, .min_duty_reverse=-100};
   Encoder elbow_encoder = {.timer=&htim8, .offset=0, .resolution=11000};
   PID elbow_pid = {.Kp=3.5f, .Ki=0.0f, .Kd=0.0f, .integral=0, .prev_error=0};
-  Joint_Init(&elbow_joint, &elbow_motor, &elbow_encoder, &elbow_pid, E_Limit_Switch_Pin, 0, 90.0, -90.0);
+  Joint_Init(&elbow_joint, &elbow_motor, &elbow_encoder, &elbow_pid, E_Limit_Switch_Pin, 0, 119.0, -90.0);
 
   joint_control_flag = 0;
 

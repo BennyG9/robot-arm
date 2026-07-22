@@ -1398,7 +1398,7 @@ int main(void)
  8000e04:	60fb      	str	r3, [r7, #12]
  8000e06:	f04f 0300 	mov.w	r3, #0
  8000e0a:	613b      	str	r3, [r7, #16]
-  Joint_Init(&elbow_joint, &elbow_motor, &elbow_encoder, &elbow_pid, E_Limit_Switch_Pin, 0, 90.0, -90.0);
+  Joint_Init(&elbow_joint, &elbow_motor, &elbow_encoder, &elbow_pid, E_Limit_Switch_Pin, 0, 119.0, -90.0);
  8000e0c:	463b      	mov	r3, r7
  8000e0e:	f107 0214 	add.w	r2, r7, #20
  8000e12:	f107 0120 	add.w	r1, r7, #32
@@ -1532,7 +1532,7 @@ int main(void)
  8000f2c:	2000023c 	.word	0x2000023c
  8000f30:	08005e4c 	.word	0x08005e4c
  8000f34:	08005e60 	.word	0x08005e60
- 8000f38:	42b40000 	.word	0x42b40000
+ 8000f38:	42ee0000 	.word	0x42ee0000
  8000f3c:	20000254 	.word	0x20000254
  8000f40:	20000282 	.word	0x20000282
  8000f44:	200001dc 	.word	0x200001dc
