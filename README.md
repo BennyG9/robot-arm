@@ -80,8 +80,7 @@ The shoulder, base, and elbow joints currently uses a 1kHz closed-loop PID contr
 * Geared DC Motors with Encoders
 ### Software
 * C (STM32)
-* FreeRTOS (planned)
-* ROS2 (planned)
+* ROS2 Foxy (Jetson Nano)
 ### Design Tools 
 * OnShape (CAD)
 * STM32CubeMX & STM32CubeIDE
