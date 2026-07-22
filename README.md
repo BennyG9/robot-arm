@@ -23,17 +23,15 @@ Last Documentation Update: 7/10/2026
 ## Status 
 
 ### Completed
-* Shoulder & base joints mechanical prototypes
-* Shoulder & base joints PID positional control using STM32
+* Shoulder, base, and elbow joints mechanical prototypes
+* 3-DOF PID positional control using STM32
 * STM32 embedded firmware architecture
 * ROS2 Jetson Nano software architecture
-* Shoulder & base joints calibration procedures
+* 3-DOF calibration and homing procedures
 * Jetson Nano - STM32 USB serial communication and ROS2 Teleoperation
 
 ### In Progress
-* ROS2 Teleoperation angular control
-* 2-joint forward kimeatics, inverse kinematics 
-* Elbow joint mechanical prototype
+* 3-joint forward kimeatics, inverse kinematics 
 * PID tuning for all joints
 
 ### Planned
@@ -50,7 +48,7 @@ Last Documentation Update: 7/10/2026
 ---
 <div>
   <img align="right" src="media/6-14-2026/Mechanical_Prototype_6-14-2026.jpeg" width="275"> 
-  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic shoulder joint and rotating base design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the shoulder joint. The new design improves stiffness and reduces footprint from the previous version. The design builds in limit switches for joint position calibration. <br><br> Next steps: elbow joint design</p>
+  <p>The mechanical structure is being developed using OnShape. The current prototype shows basic 3-DOF design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the joints. The new design improves stiffness and reduces footprint from the previous version. The design builds in limit switches for joint position calibration. <br><br> Next steps: redesign motor couplers for less backlash</p>
   <br clear="right" />
 </div>
 
@@ -69,9 +67,9 @@ Last Documentation Update: 7/10/2026
 
 ### Control
 ---
-The shoulder and base joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> 2-joint forward kinematics, 2-joint inverse kinematics, 3 joints. 
+The shoulder, base, and elbow joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> Next steps: 3-DOF forward kinematics, 3-DOF inverse kinematics. 
 
-[Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg)
+[3-DOF Robotic Arm Calibration and Homing (7-22-2026)](https://youtu.be/QVaRYJWts_0)
 
 ## Technical Stack
 
@@ -119,6 +117,7 @@ robotic-arm/
 
 ## Media 
 
+[3-DOF Robotic Arm Calibration and Homing (7-22-2026)](https://youtu.be/QVaRYJWts_0)
 [ROS2 Full Teleoperation (7-10-2026)](https://youtu.be/LquclRMNV8o)<br>
 [Embedded Communication System & ROS2 Teleoperation (7-7-2026)](https://youtu.be/_pa4kOoXHEc) <br>
 [Base & Shoulder Calibration and Homing (6-14-2026)](https://youtu.be/knIQMhBv_wg) <br>
