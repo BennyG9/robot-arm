@@ -47,7 +47,7 @@ Last Documentation Update: 7/10/2026
 ### Mechanical Design
 ---
 <div>
-  <img align="right" src="media/6-14-2026/Mechanical_Prototype_6-14-2026.jpeg" width="275"> 
+  <img align="right" src="media/7-22-2026/3DOF_Arm_Zoomed.jpeg" width="275"> 
   <p>The mechanical structure is being developed using OnShape. The current prototype shows basic 3-DOF design. The design distributes mechanical loads through dedicated bearings rather than motor shafts and maximizes torque closer to the joints. The new design improves stiffness and reduces footprint from the previous version. The design builds in limit switches for joint position calibration. <br><br> Next steps: redesign motor couplers for less backlash</p>
   <br clear="right" />
 </div>
