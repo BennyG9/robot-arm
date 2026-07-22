@@ -23,7 +23,7 @@ Last Documentation Update: 7/22/2026
 ## Status 
 
 ### Completed
-* Shoulder, base, and elbow joints mechanical prototypes
+* Shoulder, base, and elbow joints electro-mechanical prototypes
 * 3-DOF PID positional control using STM32
 * STM32 embedded firmware architecture
 * ROS2 Jetson Nano software architecture
