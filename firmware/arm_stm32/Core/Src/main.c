@@ -137,9 +137,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
+  HAL_StatusTypeDef status = HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
   HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
   HAL_TIM_Encoder_Start(&htim8, TIM_CHANNEL_ALL);
+
+  if(status != HAL_OK){
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	  while(1);
+  }
 
   HAL_TIM_Base_Start_IT(&htim6);
 
@@ -192,9 +197,9 @@ int main(void)
   {
 
 //	  if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) == GPIO_PIN_RESET){
-//		  Motor_SetPower(&elbow_motor, 1000);
+//		  Motor_SetPower(&shoulder_motor, -300);
 //	  }else{
-//		  Motor_SetPower(&elbow_motor, 0);
+//		  Motor_SetPower(&shoulder_motor, 0);
 //	  }
 //
 //	  if(HAL_GPIO_ReadPin(GPIOC, E_Limit_Switch_Pin) == GPIO_PIN_SET){
@@ -203,9 +208,9 @@ int main(void)
 //		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 //	  }
 //
-//	  int32_t pos = Encoder_GetPosition(&elbow_encoder);
+//	  //int32_t pos = Encoder_GetPosition(&shoulder_encoder);
 //	  char buf[32];
-//	  sprintf(buf, "%ld\r\n", pos);
+//	  sprintf(buf, "%ld\r\n", __HAL_TIM_GET_COUNTER(&htim2));
 //	  HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
 
 
@@ -690,7 +695,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim){
 //				break;
 //			case CAL:
 //				break;
-//		}
+//		}c
 		if(joint_control_flag == 1){
 			Joint_Update(&shoulder_joint);
 			Joint_Update(&base_joint);
