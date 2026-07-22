@@ -29,7 +29,7 @@ class KeyboardTeleopNode(Node):
         self.selected_joint = None
         self.current_targets = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
         self.increment = 1.0
-        self.joint_ranges = {"base":{"min":(-90.0), "max":(80.0)}, "shoulder":{"min":(-90.0), "max":(78.0)}, "elbow":{"min":(-90.0), "max":(90.0)}}
+        self.joint_ranges = {"base":{"min":(-90.0), "max":(80.0)}, "shoulder":{"min":(-90.0), "max":(78.0)}, "elbow":{"min":(-90.0), "max":(119.0)}}
 
         self.get_logger().info("Keyboard Teleop Initiated")
         pass
@@ -97,7 +97,7 @@ class KeyboardTeleopNode(Node):
         self.calibrate_client.call_async(request)
         #self.current_targets["base"] = 80.0
         #self.current_targets["shoulder"] = 78.0
-        for joint, joint_range in self.joint_ranges:
+        for joint, joint_range in self.joint_ranges.items():
             self.current_targets[joint] = joint_range["max"]
         pass
 
