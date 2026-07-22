@@ -38,6 +38,7 @@ class KeyboardTeleopNode(Node):
     def joint_states_callback(self, msg):
         self.current_states["base"] = msg.base
         self.current_states["shoulder"] = msg.shoulder
+        self.current_states["elbow"] = msg.elbow
         pass
 
 
@@ -88,19 +89,23 @@ class KeyboardTeleopNode(Node):
         self.home_client.call_async(request)
         self.current_targets["base"] = 0.0
         self.current_targets["shoulder"] = 0.0
+        self.current_targets["elbow"] = 0.0
         pass
 
     def calibrate(self):
         request = Calibrate.Request()
         self.calibrate_client.call_async(request)
-        self.current_targets["base"] = 80.0
-        self.current_targets["shoulder"] = 78.0
+        #self.current_targets["base"] = 80.0
+        #self.current_targets["shoulder"] = 78.0
+        for joint, joint_range in self.joint_ranges:
+            self.current_targets[joint] = joint_range["max"]
         pass
 
     def send_targets(self):
         msg = JointTargets()
         msg.base = self.current_targets["base"]
         msg.shoulder = self.current_targets["shoulder"]
+        msg.elbow = self.current_targets["elbow"]
         self.joint_pub.publish(msg)
         pass
 
