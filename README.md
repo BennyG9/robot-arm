@@ -123,6 +123,8 @@ robotic-arm/
 [PID Position Control Demo (5-28-2026)](https://youtu.be/YCUa2xMnsVE)
 
 <div align="left">
+  <img src="media/7-22-2026/3DOF_Arm_Wide_7-22-2026.jpeg" width="300"/>
+  <img src="media/7-22-2026/3DOF_Arm_Zoomed_7-22-2026.jpeg" width="300"/>
   <img src="media/6-14-2026/CAD_Prototype_6-14-2026.jpg" width="300"/>
   <img src="media/6-14-2026/Embedded_Prototype_6-14-2026.jpeg" width="350"/>
   <img src="media/6-14-2026/Mechanical_Prototype_6-14-2026.jpeg" width="200"/>
