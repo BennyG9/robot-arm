@@ -1,0 +1,24 @@
+function R = forward_kinematics(phi, theta1, theta2, L1, L2, L3, l3)
+
+
+    z1 = L1;
+    R1 = [0; 0; z1];
+
+
+    r2 = L2*sin(theta1);
+    x2 = r2*sin(phi);
+    y2 = r2*cos(phi);
+    z2 = L1 + L2*cos(theta1);
+    R2 = [x2 ;y2; z2];
+
+
+    r3 = L2*sin(theta1);
+
+
+    r = L2*sin(theta1) + L3*sin(theta1-theta2);
+    x = r*sin(phi) + l3*cos(phi);
+    y = r*cos(phi) + l3*sin(phi);
+    z = L1 + L2*cos(theta1) + L3*cos(theta1-theta2);
+    R4 = [x; y; z];
+
+end
