@@ -1,0 +1,20 @@
+function animate_path(mode, path, robot)
+    arguments
+        mode (1,1) string {mustBeMember(mode, ["coords", "angles"])}
+        path (:,3) double
+        robot (1,1) struct
+    end
+
+    switch mode
+        case "coords"
+            disp("Unimplemented...");
+
+        case "angles"
+            for q = path
+                R = forward_kinematics(q, robot);
+    end
+
+
+
+
+end

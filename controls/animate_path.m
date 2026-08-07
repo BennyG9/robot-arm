@@ -1,0 +1,28 @@
+function animate_path(mode, path, robot)
+    arguments
+        mode (1,1) string {mustBeMember(mode, ["coords", "angles"])}
+        path (3,:) double
+        robot (1,1) struct
+    end
+
+    trace = [];
+
+    switch mode
+        case "coords"
+            disp("Implement once IK is done...");
+
+        case "angles"
+            for q = path
+                R = forward_kinematics(q, robot);
+                
+                plot_robot(R);
+
+                trace = [trace, R(:,end)];
+                hold on;
+                plot3(trace(1,:), trace(2,:), trace(3,:), "LineWidth", 2);
+                hold off;
+
+                pause(0.01);
+            end
+    end
+end

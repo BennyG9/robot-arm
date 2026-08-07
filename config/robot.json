@@ -1,0 +1,39 @@
+{
+    "name": "robot_arm",
+
+    "metadata": {
+        "angles": "deg",
+        "lengths": "m"
+    },
+
+    "links": {
+        "L1": 0.12660,
+
+        "L2": 0.14074976,
+
+        "L3": 0.08187597
+    },
+
+    "joints": {
+        "base": {
+            "max_angle": 80.0,
+            "min_angle": -90.0,
+
+            "l": 0.0
+        },
+
+        "shoulder": {
+            "max_angle": 78.0,
+            "min_angle": -90.0,
+
+            "l": 0.0
+        },
+
+        "elbow": {
+            "max_angle": 119.0,
+            "min_angle": -90.0,
+
+            "l": 0.04
+        }
+    }
+}

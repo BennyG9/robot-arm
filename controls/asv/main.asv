@@ -6,11 +6,9 @@ close all;
 
 robot = load_robot();
 
-
 %% SINGLE POSITION
 
-%%% Position #1
-pos_fig1 = create_robot_figure();
+figure;
 
 q = deg2rad([
     0;
@@ -23,16 +21,28 @@ R = forward_kinematics(q, robot);
 disp(R);
 plot_robot(R);
 
-
 %% ANGLE SWEEP ANIMATION
 
 %%% Animation #1
-an_fig1 = create_robot_figure();
+figure;
 
 Q = [
     linspace(pi/2, -pi/2, 200);
+    linspace(pi/6, pi/6, 200);
+    linspace(-pi/2, -pi/2, 200)
+];
+
+animate_path("angles", Q, robot);
+
+
+%%% Animation #2 
+figure;
+
+Q = [
+    linspace(0, 0, 200);
     linspace(0, pi/2, 200);
     linspace(0, -pi/2, 200);
 ];
 
 animate_path("angles", Q, robot);
+
