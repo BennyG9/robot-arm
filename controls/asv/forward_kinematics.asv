@@ -1,24 +1,44 @@
-function R = forward_kinematics(phi, theta1, theta2, L1, L2, L3, l3)
+function T = forward_kinematics(q, robot)
 
+    phi = q(1);
+    theta1 = q(2);
+    theta2 = q(3);
 
-    z1 = L1;
-    R1 = [0; 0; z1];
+    %base frame relative to stationary environment frame
+    T01 = [
+        rot_z(-phi) [0; 0; 0];
+        0 0 0 1
+    ];
 
+    %shoulder frame relative to base
+    T12 = [
+        rot_x(-theta1) [0; 0; robot.L1];
+        0 0 0 1
+    ];
 
-    r2 = L2*sin(theta1);
-    x2 = r2*sin(phi);
-    y2 = r2*cos(phi);
-    z2 = L1 + L2*cos(theta1);
-    R2 = [x2 ;y2; z2];
+    %elbow1 frame relative to shoulder
+    T23 = [
+        rot_y(pi/2) [0; 0; robot.L2];
+        0 0 0 1
+    ];
 
+    %elbow2 frame relative to elbow1
+    T34 = [
+        rot_y(-pi/2)*rot_x(theta2) [0; 0; robot.l3];
+        0 0 0 1
+    ];
 
-    r3 = L2*sin(theta1);
+    %end effector frame relative to elbow2
+    T45 = [
+        1 0 0 0;
+        0 1 0 0;
+        0 0 1 robot.L3;
+        0 0 0 1
+    ];
 
-
-    r = L2*sin(theta1) + L3*sin(theta1-theta2);
-    x = r*sin(phi) + l3*cos(phi);
-    y = r*cos(phi) + l3*sin(phi);
-    z = L1 + L2*cos(theta1) + L3*cos(theta1-theta2);
-    R4 = [x; y; z];
-
+    T(:,:,1) = T01; 
+    T(:,:,2) = T01*T12;
+    T(:,:,3) = T01*T12*T23;
+    T(:,:,4) = T01*T12*T23*T34;
+    T(:,:,5) = T01*T12*T23*T34*T45;
 end
