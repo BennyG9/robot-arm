@@ -1,0 +1,15 @@
+function q = inverse_kinematics(position, robot)
+    
+    x = position(1);
+    y = position(2);
+    z = position(3);
+
+    r = sqrt(x^2 + y^2 - robot.l3^2);
+
+    phi = atan2(x, y) - atan2(robot.l3, r);
+
+    D2 = r^2  + (z-robot.L1)^2;
+    
+
+    q = [phi, theta1, theta2];
+end

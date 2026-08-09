@@ -1,8 +1,5 @@
 function plot_robot(T)
 
-    % X = [0, R(1,:)];
-    % Y = [0, R(2,:)];
-    % Z = [0, R(3,:)];
     X = reshape(T(1,4,:), 1, []);
     Y = reshape(T(2,4,:), 1, []);
     Z = reshape(T(3,4,:), 1, []);
@@ -23,16 +20,6 @@ function plot_robot(T)
         quiver3(origin(1), origin(2), origin(3), scale*y_axis(1), scale*y_axis(2), scale*y_axis(3), 'g');
         quiver3(origin(1), origin(2), origin(3), scale*z_axis(1), scale*z_axis(2), scale*z_axis(3), 'b');
     end
-
-    % grid on;
-    % axis equal;
-    % xlim([-0.4 0.4]);
-    % ylim([-0.4 0.4]);
-    % zlim([0 0.4]);
-    % xlabel('X');
-    % ylabel('Y');
-    % zlabel('Z');
-    % view(45, 30);
 
     hold off;
     drawnow;
