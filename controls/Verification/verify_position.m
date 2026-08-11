@@ -1,11 +1,13 @@
 function valid = verify_position(position, robot)
     epsilon = 1e-8;
 
-    [q, valid] = inverse_kinematics(position, robot);
+    [Q, valid] = inverse_kinematics(position, robot);
 
     if(~valid)
         return;
     end
+
+    q = Q(1:3,1);
 
     if(~verify_angles(q, robot))
         valid = false;

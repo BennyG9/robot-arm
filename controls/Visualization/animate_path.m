@@ -9,7 +9,28 @@ function animate_path(mode, path, robot)
 
     switch mode
         case "coords"
-            disp("Implement once IK is done...");
+            for r = path
+
+                if(~verify_position(r, robot))
+                    disp("INVALID POSE");
+                    
+                    continue;
+                end
+
+                Q = inverse_kinematics(r, robot);
+                q = Q(1:3,1);
+
+                T = forward_kinematics(q, robot);
+
+                plot_robot(T);
+                
+                trace = [trace, T(1:3,4,5)];
+                hold on;
+                plot3(trace(1,:), trace(2,:), trace(3,:), "LineWidth", 2);
+                hold off;
+
+                pause(0.01);
+            end
 
         case "angles"
             for q = path

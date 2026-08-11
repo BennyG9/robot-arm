@@ -59,19 +59,23 @@ function [q, valid] = inverse_kinematics(position, robot)
     %all positionally accurate configurations
     Q = [
          phi        phi2          phi         phi2;
-        alpha-beta  -alpha+beta  alpha+beta  alpha-beta;
+        alpha-beta  -alpha+beta  alpha+beta  -alpha-beta;
         -theta2     theta2       theta2       -theta2
     ];
 
     %return configuration with valid angles
+    q = [];
     for i = 1:4
-        q = Q(1:3,i);
-        if(verify_angles(q, robot))
-            return;
+        qi = Q(1:3,i);
+        if(verify_angles(qi, robot))
+            q(1:3, end+1) = qi;
         end
     end
 
     %no valid configurations
-    valid = false;
-    q = [0; 0; 0];
+    if(isempty(q))
+        valid = false;
+        q = [0; 0; 0];
+        return;
+    end
 end
