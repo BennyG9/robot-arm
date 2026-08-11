@@ -13,5 +13,5 @@ function fig = create_robot_figure()
     ylabel('Y');
     zlabel('Z');
     
-    view(45, 30);
+    view(45,15);
 end
