@@ -1,4 +1,8 @@
 if(-not (Test-Path -Path "asv")){
     mkdir asv | Out-Null
 }
-Move-item -Path .\*.asv -Destination ".\asv" -Force
+
+$destFolder = (Get-Item -Path ".\asv").FullName
+
+#Move-item -Path .\*.asv -Destination ".\asv" -Force
+Get-ChildItem -Path . -Filter "*.asv" -Recurse -File | Where-Object { $_.DirectoryName -ne $destFolder } | Move-Item -Destination $destFolder -Force
