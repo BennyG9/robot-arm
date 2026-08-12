@@ -183,7 +183,9 @@ robot = load_robot();
 path_fig1 = create_robot_figure();
 T1 = forward_kinematics(random_angles(robot), robot);
 T2 = forward_kinematics(random_angles(robot), robot);
-R = line_path(T1(1:3,4,5), T2(1:3,4,5), 100);
-animate_path("coords", R, robot);
+R = line_path(T1(1:3,4,5), T2(1:3,4,5), 200);
+Q = path2angles(R, robot);
+disp(Q);
+animate_path("angles", Q, robot);
 
 

@@ -1,4 +1,5 @@
-function path = line_path(pos1, pos2, n)
+function path = line_path(pos1, pos2, res)
+    n = norm(pos1-pos2);
     path = [
         linspace(pos1(1), pos2(1), n);
         linspace(pos1(2), pos2(2), n);
