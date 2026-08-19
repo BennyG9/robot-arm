@@ -35,14 +35,14 @@ function [q, valid] = inverse_kinematics(position, robot)
     if(D2 < 1e-14)
         valid = false;
         q = [0; 0; 0];
-        disp("D2 < 1e-14");
+        %disp("D2 < 1e-14");
         return;
     end
     C2 = (D2 - robot.L2^2 - robot.L3^2) / (2 * robot.L2 * robot.L3);
     if(abs(C2) > 1)
         valid = false;
         q = [0; 0; 0];
-        disp("abs(C2) > 1");
+        %disp("abs(C2) > 1");
         return;
     end
     C2 = max(-1, min(1, C2));
@@ -54,7 +54,7 @@ function [q, valid] = inverse_kinematics(position, robot)
     if(abs(C1) > 1)
         valid = false;
         q = [0; 0; 0];
-        disp("abs(C1) > 1");
+        %disp("abs(C1) > 1");
         return;
     end
     C1 = max(-1, min(1, C1));
