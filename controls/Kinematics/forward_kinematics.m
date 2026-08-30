@@ -4,9 +4,16 @@ function T = forward_kinematics(q, robot)
     theta1 = q(2);
     theta2 = q(3);
 
+    T0 = [
+      1 0 0 0;
+      0 1 0 0;
+      0 0 1 0;
+      0 0 0 1;
+    ];
+
     %base frame relative to stationary environment frame
     T01 = [
-        rot_z(-phi) [0; 0; 0];
+        rot_z(-phi) [0; 0; robot.base_height];
         0 0 0 1
     ];
 
@@ -36,9 +43,11 @@ function T = forward_kinematics(q, robot)
         0 0 0 1
     ];
 
-    T(:,:,1) = T01; 
-    T(:,:,2) = T01*T12;
-    T(:,:,3) = T01*T12*T23;
-    T(:,:,4) = T01*T12*T23*T34;
-    T(:,:,5) = T01*T12*T23*T34*T45;
+
+    T(:,:,1) = T0;
+    T(:,:,2) = T01; 
+    T(:,:,3) = T01*T12;
+    T(:,:,4) = T01*T12*T23;
+    T(:,:,5) = T01*T12*T23*T34;
+    T(:,:,6) = T01*T12*T23*T34*T45;
 end

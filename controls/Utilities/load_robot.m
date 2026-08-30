@@ -6,6 +6,7 @@ function robot = load_robot()
 
     robot.metadata = config.metadata;
 
+    robot.base_height = config.links.base_height;
     robot.L1 = config.links.L1;
     robot.L2 = config.links.L2;
     robot.L3 = config.links.L3;

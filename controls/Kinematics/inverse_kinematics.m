@@ -31,7 +31,7 @@ function [q, valid] = inverse_kinematics(position, robot)
     end
 
     %calculate and verify theta2
-    D2 = r^2  + (z-robot.L1)^2;
+    D2 = r^2  + (z-(robot.L1+robot.base_height))^2;
     if(D2 < 1e-14)
         valid = false;
         q = [0; 0; 0];
@@ -49,7 +49,7 @@ function [q, valid] = inverse_kinematics(position, robot)
     theta2 = acos(C2);
 
     %calculate alpha and beta for theta1 configurations
-    alpha = atan2(r, z - robot.L1);
+    alpha = atan2(r, z - (robot.L1+robot.base_height));
     C1 = (robot.L2^2 + D2 - robot.L3^2) / (2 * robot.L2 * sqrt(D2));
     if(abs(C1) > 1)
         valid = false;

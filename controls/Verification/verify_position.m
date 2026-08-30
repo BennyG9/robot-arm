@@ -15,7 +15,7 @@ function valid = verify_position(position, robot)
     end
 
     T = forward_kinematics(q, robot);
-    robot_position = T(1:3,4,5);
+    robot_position = T(1:3,4,6);
 
     valid = norm(position-robot_position) <= epsilon;
 end

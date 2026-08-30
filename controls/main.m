@@ -20,12 +20,12 @@ robot = load_robot();
 % plot_robot(T1);
 % 
 % pos_fig2 = create_robot_figure();
-% q2 = inverse_kinematics(T1(1:3,4,5), robot);
+% q2 = inverse_kinematics(T1(1:3,4,6), robot);
 % T2 = forward_kinematics(q2, robot);
 % plot_robot(T2);
 % 
-% disp(T1(:,:,5));
-% disp(T2(:,:,5));
+% disp(T1(:,:,6));
+% disp(T2(:,:,6));
 
 %%% Random Position
 % pos_fig1 = create_robot_figure();
@@ -34,13 +34,13 @@ robot = load_robot();
 % plot_robot(T1);
 % 
 % pos_fig2 = create_robot_figure();
-% [q2, succ] = inverse_kinematics(T1(1:3,4,5), robot);
+% [q2, succ] = inverse_kinematics(T1(1:3,4,6), robot);
 % q2 = q2(1:3, 1);
 % T2 = forward_kinematics(q2, robot);
 % plot_robot(T2);
 % 
-% disp(T1(:,:,5));
-% disp(T2(:,:,5));
+% disp(T1(:,:,6));
+% disp(T2(:,:,6));
 % 
 % fprintf("Original Angles:\n");
 % disp(rad2deg(q1));

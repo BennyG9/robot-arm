@@ -24,7 +24,7 @@ function animate_path(mode, path, robot)
 
                 plot_robot(T);
                 
-                trace = [trace, T(1:3,4,5)];
+                trace = [trace, T(1:3,4,6)];
                 hold on;
                 plot3(trace(1,:), trace(2,:), trace(3,:), "LineWidth", 2);
                 hold off;
@@ -38,7 +38,7 @@ function animate_path(mode, path, robot)
                 
                 plot_robot(T);
 
-                trace = [trace, T(1:3,4,5)];
+                trace = [trace, T(1:3,4,6)];
                 hold on;
                 plot3(trace(1,:), trace(2,:), trace(3,:), "LineWidth", 2);
                 hold off;
