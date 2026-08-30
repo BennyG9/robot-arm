@@ -5,6 +5,11 @@ cd communication
 ./build.sh
 cd ..
 
+# build robot description
+cd config
+./build.sh
+cd ..
+
 # source ROS2 foxy
 source /opt/ros/foxy/setup.bash
 

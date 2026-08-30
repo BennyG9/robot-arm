@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_arm">
+
+    <xacro:include filename="robot_variables.xacro"/>
+
+    <link name = "gnd_base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+    <link name = "base_shoulder_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+    <link name = "shoulder_elbow_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+    <link name = "elbow_end_effector_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+    <link name = "end_effector_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+    </link>
+
+
+    <joint name="base_joint" type="revolute">
+        <parent link="gnd_base_link"/>
+        <child link="base_shoulder_link"/>
+
+        <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+        <axis xyz="0 0 -1"/>
+
+        <limit
+            lower="${base_joint_min}"
+            upper="${base_joint_max}"
+            effort="2.0"
+            velocity="2.0"/>
+    </joint>
+
+    <joint name="shoulder_joint" type="revolute">
+        <parent link="base_shoulder_link"/>
+        <child link="shoulder_elbow_link"/>
+
+        <origin xyz="0 0 ${L1}" rpy="0 0 0"/>
+        <axis xyz="-1 0 0"/>
+
+        <limit
+            lower="${shoulder_joint_min}"
+            upper="${shoulder_joint_max}"
+            effort="2.0"
+            velocity="2.0"/>
+    </joint>
+
+    <joint name="elbow_joint" type="revolute">
+        <parent link="shoulder_elbow_link"/>
+        <child link="elbow_end_effector_link"/>
+
+        <origin xyz="${elbow_joint_offset} 0 ${L2}" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+
+        <limit
+            lower="${elbow_joint_min}"
+            upper="${elbow_joint_max}"
+            effort="2.0"
+            velocity="2.0"/>
+    </joint>
+
+    <joint name="end_effector_joint" type="fixed">
+        <parent link="elbow_end_effector_link"/>
+        <child link="end_effector_link"/>
+
+        <origin xyz="0 0 ${L3}" rpy="0 0 0"/>
+    </joint>
+
+</robot>

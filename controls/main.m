@@ -10,22 +10,22 @@ robot = load_robot();
 %% SINGLE POSITION
 
 %%% Position #1
-% pos_fig1 = create_robot_figure();
-% q1 = deg2rad([
-%     0;
-%     90;
-%     -90
-% ]);
-% T1 = forward_kinematics(q1, robot);
-% plot_robot(T1);
-% 
-% pos_fig2 = create_robot_figure();
-% q2 = inverse_kinematics(T1(1:3,4,6), robot);
-% T2 = forward_kinematics(q2, robot);
-% plot_robot(T2);
-% 
-% disp(T1(:,:,6));
-% disp(T2(:,:,6));
+pos_fig1 = create_robot_figure();
+q1 = deg2rad([
+    0;
+    0;
+    0
+]);
+T1 = forward_kinematics(q1, robot);
+plot_robot(T1);
+
+pos_fig2 = create_robot_figure();
+q2 = inverse_kinematics(T1(1:3,4,6), robot);
+T2 = forward_kinematics(q2, robot);
+plot_robot(T2);
+
+disp(T1(:,:,6));
+disp(T2(:,:,6));
 
 %%% Random Position
 % pos_fig1 = create_robot_figure();
@@ -51,31 +51,31 @@ robot = load_robot();
 % fprintf( "Valid Position: %s \n", string( verify_position(T1(1:3,4,5), robot) ) );
 
 %%% Position #2
-% pos_fig1 = create_robot_figure();
-% q1 = deg2rad([
-%     -68.5225;
-%     -29.6251;
-%     110.3858
-% ]);
-% T1 = forward_kinematics(q1, robot);
-% plot_robot(T1);
-% 
-% pos_fig2 = create_robot_figure();
-% [q2, succ] = inverse_kinematics(T1(1:3,4,5), robot);
-% q2 = q2(1:3, 1);
-% T2 = forward_kinematics(q2, robot);
-% plot_robot(T2);
-% 
-% disp(T1(:,:,5));
-% disp(T2(:,:,5));
-% 
-% fprintf("Original Angles:\n");
-% disp(rad2deg(q1));
-% 
-% fprintf("IK Angles: %s\n", string(succ));
-% disp(rad2deg(q2));
-% 
-% fprintf( "Valid Position: %s \n", string( verify_position(T1(1:3,4,5), robot) ) );
+pos_fig1 = create_robot_figure();
+q1 = deg2rad([
+    75.2256;
+    29.6251;
+    -110.3858
+]);
+T1 = forward_kinematics(q1, robot);
+plot_robot(T1);
+
+pos_fig2 = create_robot_figure();
+[q2, succ] = inverse_kinematics(T1(1:3,4,6), robot);
+q2 = q2(1:3, 1);
+T2 = forward_kinematics(q2, robot);
+plot_robot(T2);
+
+disp(T1(:,:,6));
+disp(T2(:,:,6));
+
+fprintf("Original Angles:\n");
+disp(rad2deg(q1));
+
+fprintf("IK Angles: %s\n", string(succ));
+disp(rad2deg(q2));
+
+fprintf( "Valid Position: %s \n", string( verify_position(T1(1:3,4,5), robot) ) );
 
 
 %% ANGLE SWEEP ANIMATION
@@ -180,12 +180,12 @@ robot = load_robot();
 %% ANIMATE PATHS
 
 %%% Random Linear Path
-path_fig1 = create_robot_figure();
-T1 = forward_kinematics(random_angles(robot), robot);
-T2 = forward_kinematics(random_angles(robot), robot);
-R = line_path(T1(1:3,4,5), T2(1:3,4,5), 200);
-Q = path2angles(R, robot);
-disp(Q);
-animate_path("angles", Q, robot);
+% path_fig1 = create_robot_figure();
+% T1 = forward_kinematics(random_angles(robot), robot);
+% T2 = forward_kinematics(random_angles(robot), robot);
+% R = line_path(T1(1:3,4,5), T2(1:3,4,5), 200);
+% Q = path2angles(R, robot);
+% disp(Q);
+% animate_path("angles", Q, robot);
 
 
