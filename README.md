@@ -81,6 +81,7 @@ The shoulder, base, and elbow joints currently uses a 1kHz closed-loop PID contr
 ### Software
 * C (STM32)
 * ROS2 Foxy (Jetson Nano)
+* MATLAB (Kinematics Simulation)
 ### Design Tools 
 * OnShape (CAD)
 * STM32CubeMX & STM32CubeIDE
@@ -91,6 +92,12 @@ The shoulder, base, and elbow joints currently uses a 1kHz closed-loop PID contr
 ````text
 robotic-arm/
 ├── communication/
+├── config/
+│   └── URDF/
+├── controls/
+│   ├── Kinematics/
+│   ├── Trajectory/
+│   └── Visualization/
 ├── firmware/ 
 │   └── arm_stm32/
 ├── hardware/
@@ -104,6 +111,12 @@ robotic-arm/
 
 ## Code Structure
 * `communication/` - Defines and builds serial communication protocol
+* `config/` - Defines robot configuration and important variables
+  * `config/URDF/` - Contains robot description and xacro variables build
+* `controls/` - MATLAB control code, simulation, and visualization
+  * `controls/Kinematics/` - Forward and inverse kinematics implementation
+  * `controls/Trajectory/` - Trajectory generation and path planning
+  * `controls/Visualization/` - Robot visualization
 * `firmware/arm_stm32/` - STM32 project main folder
   * `firmware/arm_stm32/Core/Src/` - Source files for STM32 real-time embedded control
   * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
