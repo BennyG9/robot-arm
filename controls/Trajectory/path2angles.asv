@@ -27,8 +27,8 @@ function Q = path2angles(path, robot)
 
         % insert rest of angles based on continuity
         for i = 1:4
-            min_norm = Inf;
             for qi = q
+                min_norm = Inf;
                 current_norm = norm(qi - all_angles(1:3, i, path_index-1));
                 if(current_norm < min_norm)
                     min_norm = current_norm;
