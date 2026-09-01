@@ -14,7 +14,6 @@ function Q = path2angles(path, robot)
 
         % unable to calculate angles
         if(~valid)
-            disp(zeros(3,4));
             all_angles(1:3, 1:4, path_index) = zeros(3, 4);
             continue;
         end
@@ -39,6 +38,39 @@ function Q = path2angles(path, robot)
 
         Q = all_angles(:, :, :);
 
+    end
+
+
+    for k = 1:4
+        invalid_angles = 0;
+        for i = 1:size(Q,3)
+            qki = Q(:,k,i);
+
+            if(all(qki == 0))
+                invalid_angles = invalid_angles + 1;
+            end
+
+            valid = verify_angles(qki, robot);
+            if(~valid)
+                %disp("angles clamped");
+                invalid_angles = invalid_angles + 1;
+                Q(:,k,i) = clamp_angles(qki, robot);
+            end
+
+        end
+    end
+
+
+    % for i = 1:size(Q,3);
+    %     qi = Q(:,:,:)
+    %     [valid, base, shoulder, elbow] = verify_angles(qi, robot);
+    %     if(~valid)
+    %         %clamp_angles(qi, robot);
+    % 
+    %     end
+    % end
+
+end
 
 
     %     if(valid == 0)
@@ -81,5 +113,3 @@ function Q = path2angles(path, robot)
     %     q_start = Q(1:3, i_start-1);
     %     q_end = Q(1:3, i_end+1);
     %     Q(1:3, i_start-1:i_end+1) = [linspace(q_start(1),q_end(1),n); linspace(q_start(2),q_end(2),n); linspace(q_start(3),q_end(3),n)];
-    end
-end

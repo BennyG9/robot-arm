@@ -11,7 +11,7 @@ function [q, valid] = inverse_kinematics(position, robot)
     if(r2 < 0)
         valid = false;
         q = [0; 0; 0];
-        disp("r2 < 0");
+        %disp("r2 < 0");
         return;
     end
     r = sqrt(r2);

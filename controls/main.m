@@ -185,7 +185,8 @@ T1 = forward_kinematics(random_angles(robot), robot);
 T2 = forward_kinematics(random_angles(robot), robot);
 R = line_path(T1(1:3,4,5), T2(1:3,4,5), 200);
 Q = path2angles(R, robot);
-disp(Q);
+%disp(Q);
+%disp(Q(:,1,:));
 animate_path("angles", Q(:,1,:), robot);
 
 
