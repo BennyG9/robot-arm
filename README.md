@@ -11,7 +11,7 @@ Here are some videos demonstrating the current progress:
 
 Project Started: May 2026
 <br>
-Last Documentation Update: 7/22/2026
+Last Documentation Update: 9/8/2026
 
 ## Project Goals 
 
@@ -29,9 +29,11 @@ Last Documentation Update: 7/22/2026
 * ROS2 Jetson Nano software architecture
 * 3-DOF calibration and homing procedures
 * Jetson Nano - STM32 USB serial communication and ROS2 Teleoperation
+* 3-joint forward kinematics, inverse kinematics in MATLAB
+* Linear trajectory planning 
 
 ### In Progress
-* 3-joint forward kimeatics, inverse kinematics 
+* ROS2 kinematics integration
 * PID tuning for all joints
 
 ### Planned
@@ -128,9 +130,12 @@ robotic-arm/
   * `firmware/arm_stm32/Core/Inc/` - Header files for embedded code
 * `software/arm_ros2_ws/` - ROS2 workspace
   * `software/arm_ros2_ws/src/arm_bringup/` - ROS2 launch files
+  * `software/arm_ros2_ws/src/arm_description/` - URDF package 
   * `software/arm_ros2_ws/src/arm_interfaces/` - ROS2 custom services source code
   * `software/arm_ros2_ws/src/arm_teleop/` - ROS2 teleoperation nodes
+  * `software/arm_ros2_ws/src/kinematics/` - ROS2 kinematics & related nodes
   * `software/arm_ros2_ws/src/stm32_bridge/` - Jetson Nano & STM32 serial communication package
+  * `software/arm_ros2_ws/src/trajectory/` - Trajectory planning nodes
 
 
 ## Media 
