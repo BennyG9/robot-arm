@@ -5,8 +5,8 @@ cd URDF
 python3 build_urdf_xacro.py
 
 # move description files to ROS package
-mv robot_variables.xacro
-mv robot.urdf.xacro
+cp robot_variables.xacro ../software/arm_ros2_ws/src/arm_description/urdf/robot_variables.xacro
+cp robot.urdf.xacro ../software/arm_ros2_ws/src/arm_description/urdf/robot.urdf.xacro
 
 # return
 cd ..
