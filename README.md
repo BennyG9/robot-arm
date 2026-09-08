@@ -15,7 +15,7 @@ Last Documentation Update: 9/8/2026
 
 ## Project Goals 
 
-* Design and build a 4 or 5 DOF robotic arm
+* Design and build a Multi-DOF robotic arm
 * Implement real-time control system for precise mechanics
 * Enable AI functionality using computer vision on NVIDIA Jetson Nano
 * Design custom PCB integrating power systems, embedded processing, and motor driving
