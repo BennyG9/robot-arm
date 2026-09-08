@@ -67,6 +67,13 @@ Last Documentation Update: 7/22/2026
 
 ### Control
 ---
+<div>
+  <img align="right" src="media/9-8-2026/controls_MATLAB_1.1.gif" width="300">
+
+  <p>The shoulder, base, and elbow joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> Next steps: 3-DOF forward kinematics, 3-DOF inverse kinematics. </p>
+
+  <br clear="right" />
+</div>
 The shoulder, base, and elbow joints currently uses a 1kHz closed-loop PID controller running on an STM32F446RE. Joint position is determined using an encoder updated every control loop cycle. The motors are driven using IBT-2 type motor driver modules. Each joint has a calibration procedure using limit switches. <br><br> Next steps: 3-DOF forward kinematics, 3-DOF inverse kinematics. 
 
 [3-DOF Robotic Arm Calibration and Homing (7-22-2026)](https://youtu.be/QVaRYJWts_0)
