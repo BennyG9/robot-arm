@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 
-class IKNode(Node)
+class IKNode(Node):
 
     def __init__(self):
         super().__init__('ik_node')
