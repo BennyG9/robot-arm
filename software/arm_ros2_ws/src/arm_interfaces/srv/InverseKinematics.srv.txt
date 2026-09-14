@@ -1,0 +1,4 @@
+double[3] coordinates
+---
+bool validity
+double[12] configurations

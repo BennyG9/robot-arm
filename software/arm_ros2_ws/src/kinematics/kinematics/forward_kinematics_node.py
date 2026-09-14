@@ -1,6 +1,8 @@
 import rclpy
 from rclpy.node import Node
 
+from arm_interfaces.srv import ForwardKinematics
+
 import numpy as np
 import math
 
@@ -9,8 +11,16 @@ class FKNode(Node):
     def __init__(self):
         super().__init__('fk_node')
 
+        # fk service
+        self.forward_kinematics_srv = self.create_service(
+            ForwardKinematics,
+            "fk",
+            self.fk_callback
+        )
+
         self.get_logger().info("Forward Kinematics Initiated")
         pass
+
 
     def get_transformation_matrices(self, q):
         phi = q[0]
@@ -55,10 +65,22 @@ class FKNode(Node):
 
         return [T0, T01, T12, T23, T34, T45]
 
-    def forward_kinematics(self):
+    def forward_kinematics(self, q):
+
+        transformations = self.get_transformation_matrices(q)
+
+        frames = transformations
+        for i in range(1, len(frames)):
+            frames[i] = frames[i-1] @ frames[i]
+            pass
+
+        return frames
 
 
-        pass
+    def fk_callback(self, request, response):
+        frames = self.forward_kinematics(request.angles)
+        response.frames = np.reshape(frames, (1, 96))
+        return response
 
 pass
 
