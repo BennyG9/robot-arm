@@ -4,7 +4,6 @@ from rclpy.node import Node
 from arm_interfaces.srv import InverseKinematics
 from kinematics.inverse_kinematics import inverse_kinematics
 
-import math
 import numpy as np
 
 class IKNode(Node):
@@ -28,7 +27,6 @@ class IKNode(Node):
         response.validity = valid
         response.configurations = np.reshape(configs, (1, 12))
         return response
-
 pass
 
 

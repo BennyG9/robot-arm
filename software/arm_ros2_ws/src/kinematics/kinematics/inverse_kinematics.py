@@ -1,6 +1,8 @@
+import math
+
 epsilon = 1 * 10**(-14)
 
-def inverse_kinematics(self, R):
+def inverse_kinematics(R):
     x = R(0)
     y = R(1)
     z = R(2)

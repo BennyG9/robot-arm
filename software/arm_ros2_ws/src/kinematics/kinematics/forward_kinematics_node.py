@@ -26,7 +26,6 @@ class FKNode(Node):
         frames = forward_kinematics(request.angles)
         response.frames = np.reshape(frames, (1, 96))
         return response
-
 pass
 
 

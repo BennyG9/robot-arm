@@ -1,6 +1,9 @@
-def forward_kinematics(self, q):
+import math
+import numpy as np
 
-    transformations = self.get_transformation_matrices(q)
+def forward_kinematics(q):
+
+    transformations = get_transformation_matrices(q)
 
     frames = transformations
     for i in range(1, len(frames)):
@@ -10,7 +13,7 @@ def forward_kinematics(self, q):
     return frames
 
 
-def get_transformation_matrices(self, q):
+def get_transformation_matrices(q):
     phi = q[0]
     theta1 = q[1]
     theta2 = q[2]
