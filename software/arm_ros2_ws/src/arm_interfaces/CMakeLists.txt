@@ -22,6 +22,9 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
     "srv/Calibrate.srv"
     "srv/Home.srv"
+    "srv/ForwardKinematics.srv"
+    "srv/InverseKinematics.srv"
+    "srv/RobotParameters.srv"
     "msg/JointStates.msg"
     "msg/JointTargets.msg"
 )

@@ -3,6 +3,23 @@
 
     <xacro:include filename="robot_variables.xacro"/>
 
+    <kinematic_parameters
+        base_height="${base_height}"
+        L1="${L1}"
+        L2="${L2}"
+        L3="${L3}"
+
+        base_joint_min="${base_joint_min}"
+        base_joint_max="${base_joint_max}"
+        
+        shoulder_joint_min="${shoulder_joint_min}"
+        shoulder_joint_max="${shoulder_joint_max}"
+
+        elbow_joint_min="${elbow_joint_min}"
+        elbow_joint_max="${elbow_joint_max}"
+        elbow_joint_offset="${elbow_joint_offset}"
+    />
+
     <link name = "gnd_base_link">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>

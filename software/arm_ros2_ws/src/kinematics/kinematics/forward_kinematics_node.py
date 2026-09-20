@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 
 from arm_interfaces.srv import ForwardKinematics
+from arm_interfaces.srv import RobotParameters
 from kinematics.forward_kinematics import forward_kinematics
 
 import numpy as np
@@ -17,6 +18,13 @@ class FKNode(Node):
             "fk",
             self.fk_callback
         )
+
+        # grab robot config data
+        self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
+        request = RobotParameters.request()
+        self.future = self.parameters_client.call_async(request)
+        parameter_data = self.result
+        #CONTINUE HERE
 
         self.get_logger().info("Forward Kinematics Initiated")
         pass
