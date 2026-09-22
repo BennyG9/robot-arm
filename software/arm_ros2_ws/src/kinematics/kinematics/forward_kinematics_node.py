@@ -20,18 +20,20 @@ class FKNode(Node):
         )
 
         # grab robot config data
+        self.parameters = {}
         self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
         request = RobotParameters.request()
         self.future = self.parameters_client.call_async(request)
         parameter_data = self.result
-        #CONTINUE HERE
+        for i in range(len(parameter_data.names)):
+            self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
 
         self.get_logger().info("Forward Kinematics Initiated")
         pass
 
 
     def fk_callback(self, request, response):
-        frames = forward_kinematics(request.angles)
+        frames = forward_kinematics(request.angles, self.parameters)
         response.frames = np.reshape(frames, (1, 96))
         return response
 pass

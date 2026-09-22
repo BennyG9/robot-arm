@@ -14,13 +14,6 @@ import os
 
 def generate_launch_description():
 
-    #teleop_node = Node(
-    #    package="arm_teleop",
-    #    executable="keyboard_teleop_node",
-    #    name="keyboard_teleop_node",
-    #    output="screen",
-    #    emulate_tty=True,
-    #)
     teleop_node = ExecuteProcess(
     	cmd=["gnome-terminal", "--", "ros2", "run", "arm_teleop", "keyboard_teleop_node"],
     	output="screen",
