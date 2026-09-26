@@ -19,13 +19,22 @@ def generate_launch_description():
     	output="screen",
     )
 
+    # STM32 interface
     hardware = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory("arm_bringup"), "launch", "hardware.launch.py")
         )
     )
 
+    # description + parameters + validation + kinematics 
+    robot_model = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory("arm_bringup"), "launch", "robot_model.launch.py")
+        )
+    )
+
     return LaunchDescription([
         teleop_node,
         hardware,
+        robot_model,
     ])

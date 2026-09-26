@@ -115,20 +115,31 @@ class KeyboardTeleopNode(Node):
 
     def draw(self, stdscr):
         stdscr.clear()
-        #stdscr.erase()
+
+        # operation data
         stdscr.addstr(0, 0, "======== Robot Arm Teleop ========")
         stdscr.addstr(2, 0, f"Selected Joint : {self.selected_joint}")
         stdscr.addstr(3, 0, f"Increment      : {self.increment} deg")
+
+        # target angles
         stdscr.addstr(5, 0, "Target Angles")
         stdscr.addstr(6, 0, "----------------------------------")
         stdscr.addstr(7, 0, f"Base      : {self.current_targets['base']:7.2f}")
         stdscr.addstr(8, 0, f"Shoulder  : {self.current_targets['shoulder']:7.2f}")
         stdscr.addstr(9, 0, f"Elbow     : {self.current_targets['elbow']:7.2f}")
+
+        # measured angles
         stdscr.addstr(11, 0, "Actual Angles")
         stdscr.addstr(12, 0, "----------------------------------")
         stdscr.addstr(13, 0, f"Base      : {self.current_states['base']:7.2f}")
         stdscr.addstr(14, 0, f"Shoulder  : {self.current_states['shoulder']:7.2f}")
         stdscr.addstr(15, 0, f"Elbow     : {self.current_states['elbow']:7.2f}")
+
+        # kinematics tests
+        stdscr.addstr(17, 0, "IK results")
+        stdscr.addstr(18, 0, "----------------------------------")
+        stdscr.addstr()
+
         stdscr.refresh()
         pass
 
