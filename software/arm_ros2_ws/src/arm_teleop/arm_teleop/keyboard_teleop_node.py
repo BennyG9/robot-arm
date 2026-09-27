@@ -3,11 +3,15 @@ from rclpy.node import Node
 
 from arm_interfaces.srv import Calibrate
 from arm_interfaces.srv import Home
+from arm_interfaces.srv import InverseKinematics
+from arm_interfaces.srv import ForwardKinematics 
+
 from arm_interfaces.msg import JointTargets
 from arm_interfaces.msg import JointStates
 
 import time
 import curses
+import numpy as np
 
 class KeyboardTeleopNode(Node):
 
@@ -17,6 +21,11 @@ class KeyboardTeleopNode(Node):
         #Services
         self.calibrate_client = self.create_client(Calibrate, "calibrate")
         self.home_client = self.create_client(Home, "home")
+        self.fk_client = self.create_client(ForwardKinematics, "forward_kinematics")
+        self.current_coordinates = [0,0,0]
+        
+        self.ik_client = self.create_client(InverseKinematics, "inverse_kinematics")
+        self.ik_test = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
         #Joint Targets publisher
         self.joint_pub = self.create_publisher(JointTargets, "joint_targets", 10)
@@ -36,9 +45,28 @@ class KeyboardTeleopNode(Node):
 
 
     def joint_states_callback(self, msg):
+        # save current angles
         self.current_states["base"] = msg.base
         self.current_states["shoulder"] = msg.shoulder
         self.current_states["elbow"] = msg.elbow
+
+        # save corresponding cartesian coordinate 
+        frames = self.get_frames()
+        self.current_coordinates = frames[5][0:3][3]
+
+        # test IK
+        configurations = self.get_ik_result()
+        best_config = configurations[0]
+        min_normsq = (best_config[0]-self.current_states["base"])**2 + (best_config[1]-self.current_states["shoulder"])**2 + (best_config[2]-self.current_states["elbow"])**2
+        for i in range(1,len(configurations)):
+            current_normsq = (configurations[i][0]-self.current_states["base"])**2 + (configurations[i][1]-self.current_states["shoulder"])**2 + (configurations[i][2]-self.current_states["elbow"])**2
+            if(current_normsq < min_normsq):
+                min_normsq = current_normsq
+                best_config = configurations[i]
+            pass
+        self.ik_test["base"] = best_config[0]
+        self.ik_test["shoulder"] = best_config[1]
+        self.ik_test["elbow"] = best_config[2]
         pass
 
 
@@ -95,8 +123,6 @@ class KeyboardTeleopNode(Node):
     def calibrate(self):
         request = Calibrate.Request()
         self.calibrate_client.call_async(request)
-        #self.current_targets["base"] = 80.0
-        #self.current_targets["shoulder"] = 78.0
         for joint, joint_range in self.joint_ranges.items():
             self.current_targets[joint] = joint_range["max"]
         pass
@@ -108,6 +134,22 @@ class KeyboardTeleopNode(Node):
         msg.elbow = self.current_targets["elbow"]
         self.joint_pub.publish(msg)
         pass
+
+    def get_frames(self):
+        request = ForwardKinematics.Request()
+        request.angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
+        future = self.fk_client.call_async(request)
+
+        response = future.result()
+        return np.reshape(response.frames, (4,4,6))
+
+    def get_ik_result(self):
+        request = InverseKinematics.Request()
+        request.coordinates = self.current_coordinates
+        future = self.ik_client.call_async(request)
+
+        response = future.result()
+        return np.reshape(response.configurations, (4,3))
 
     def TEST(self):
 
@@ -135,10 +177,19 @@ class KeyboardTeleopNode(Node):
         stdscr.addstr(14, 0, f"Shoulder  : {self.current_states['shoulder']:7.2f}")
         stdscr.addstr(15, 0, f"Elbow     : {self.current_states['elbow']:7.2f}")
 
-        # kinematics tests
-        stdscr.addstr(17, 0, "IK results")
+        # end-effector cartesian coordinates
+        stdscr.addstr(17, 0, "End Coordinates")
         stdscr.addstr(18, 0, "----------------------------------")
-        stdscr.addstr()
+        stdscr.addstr(19, 0, f"X         : {self.current_coordinates[0]:7.2f}")
+        stdscr.addstr(20, 0, f"Y         : {self.current_coordinates[1]:7.2f}")
+        stdscr.addstr(21, 0, f"Z         : {self.current_coordinates[2]:7.2f}")
+
+        # ik test
+        stdscr.addstr(23, 0, f"IK Results")
+        stdscr.addstr(24, 0, f"----------------------------------")
+        stdscr.addstr(25, 0, f"Base      : {self.ik_test['base']:7.2f}")
+        stdscr.addstr(26, 0, f"Shoulder  : {self.ik_test['shoulder']:7.2f}")
+        stdscr.addstr(27, 0, f"Elbow     : {self.ik_test['elbow']:7.2f}")
 
         stdscr.refresh()
         pass
