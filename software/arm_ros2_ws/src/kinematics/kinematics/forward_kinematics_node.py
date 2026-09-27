@@ -23,8 +23,9 @@ class FKNode(Node):
         self.parameters = {}
         self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
         request = RobotParameters.request()
-        self.future = self.parameters_client.call_async(request)
-        parameter_data = self.result
+        future = self.parameters_client.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+        parameter_data = future.result()
         for i in range(len(parameter_data.names)):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
 

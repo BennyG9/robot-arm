@@ -23,7 +23,7 @@ class KeyboardTeleopNode(Node):
         self.home_client = self.create_client(Home, "home")
         self.fk_client = self.create_client(ForwardKinematics, "forward_kinematics")
         self.current_coordinates = [0,0,0]
-        
+
         self.ik_client = self.create_client(InverseKinematics, "inverse_kinematics")
         self.ik_test = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
@@ -139,7 +139,7 @@ class KeyboardTeleopNode(Node):
         request = ForwardKinematics.Request()
         request.angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
         future = self.fk_client.call_async(request)
-
+        rclpy.spin_until_future_complete(self, future)
         response = future.result()
         return np.reshape(response.frames, (4,4,6))
 
@@ -147,7 +147,7 @@ class KeyboardTeleopNode(Node):
         request = InverseKinematics.Request()
         request.coordinates = self.current_coordinates
         future = self.ik_client.call_async(request)
-
+        rclpy.spin_until_future_complete(self, future)
         response = future.result()
         return np.reshape(response.configurations, (4,3))
 
