@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'forward_kinematics_node = kinematics.forward_kinematics_node:main',
+            'inverse_kinematics_node = kinematics.inverse_kinematics_node:main'
         ],
     },
 )

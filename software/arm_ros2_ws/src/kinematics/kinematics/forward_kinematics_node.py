@@ -20,12 +20,16 @@ class FKNode(Node):
         )
 
         # grab robot config data
+        while(not self.parameters_client.wait_for_service(timeout_sec=1.0)):
+            self.get_logger().info("Waiting for robot parameters service...")
         self.parameters = {}
         self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
         request = RobotParameters.request()
         future = self.parameters_client.call_async(request)
         rclpy.spin_until_future_complete(self, future)
         parameter_data = future.result()
+        if(parameter_data is None):
+            self.get_logger().error("Failed to retreive robot parameters")
         for i in range(len(parameter_data.names)):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
 

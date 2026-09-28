@@ -51,22 +51,10 @@ class KeyboardTeleopNode(Node):
         self.current_states["elbow"] = msg.elbow
 
         # save corresponding cartesian coordinate 
-        frames = self.get_frames()
-        self.current_coordinates = frames[5][0:3][3]
+        self.log_coordinates()
 
         # test IK
-        configurations = self.get_ik_result()
-        best_config = configurations[0]
-        min_normsq = (best_config[0]-self.current_states["base"])**2 + (best_config[1]-self.current_states["shoulder"])**2 + (best_config[2]-self.current_states["elbow"])**2
-        for i in range(1,len(configurations)):
-            current_normsq = (configurations[i][0]-self.current_states["base"])**2 + (configurations[i][1]-self.current_states["shoulder"])**2 + (configurations[i][2]-self.current_states["elbow"])**2
-            if(current_normsq < min_normsq):
-                min_normsq = current_normsq
-                best_config = configurations[i]
-            pass
-        self.ik_test["base"] = best_config[0]
-        self.ik_test["shoulder"] = best_config[1]
-        self.ik_test["elbow"] = best_config[2]
+        self.get_ik_result()
         pass
 
 
@@ -135,21 +123,44 @@ class KeyboardTeleopNode(Node):
         self.joint_pub.publish(msg)
         pass
 
-    def get_frames(self):
+
+    def log_coordinates(self):
         request = ForwardKinematics.Request()
         request.angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
         future = self.fk_client.call_async(request)
-        rclpy.spin_until_future_complete(self, future)
+        future.add_done_callback(self.fk_response_callback)
+        pass
+
+    def fk_response_callback(self, future):
         response = future.result()
-        return np.reshape(response.frames, (4,4,6))
+        frames = np.reshape(response.frames, (6,4,4))
+        self.current_coordinates = frames[5][0:3][3]
+        pass
+
 
     def get_ik_result(self):
         request = InverseKinematics.Request()
         request.coordinates = self.current_coordinates
         future = self.ik_client.call_async(request)
-        rclpy.spin_until_future_complete(self, future)
-        response = future.result()
-        return np.reshape(response.configurations, (4,3))
+        future.add_done_callback(self.ik_response_callback)
+        pass
+
+    def ik_response_callback(self, future):
+        response = future.response()
+        configurations = np.reshape(response.configurations, (4,3))
+        
+        best_config = configurations[0]
+        min_normsq = (best_config[0]-self.current_states["base"])**2 + (best_config[1]-self.current_states["shoulder"])**2 + (best_config[2]-self.current_states["elbow"])**2
+        for i in range(1,len(configurations)):
+            current_normsq = (configurations[i][0]-self.current_states["base"])**2 + (configurations[i][1]-self.current_states["shoulder"])**2 + (configurations[i][2]-self.current_states["elbow"])**2
+            if(current_normsq < min_normsq):
+                min_normsq = current_normsq
+                best_config = configurations[i]
+            pass
+        self.ik_test["base"] = best_config[0]
+        self.ik_test["shoulder"] = best_config[1]
+        self.ik_test["elbow"] = best_config[2]
+        pass
 
     def TEST(self):
 

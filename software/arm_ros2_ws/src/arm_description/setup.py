@@ -52,6 +52,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'validation_node = arm_description.validation_node:main',
+            'robot_model_node = arm_description.robot_model_node:main'
         ],
     },
 )
