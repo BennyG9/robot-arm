@@ -18,10 +18,10 @@ class ValidationNode(Node):
         )
 
         # grab robot config data
+        self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
         while(not self.parameters_client.wait_for_service(timeout_sec=1.0)):
             self.get_logger().info("Waiting for robot parameters service...")
         self.parameters = {}
-        self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
         request = RobotParameters.request()
         self.future = self.parameters_client.call_async(request)
         parameter_data = self.result
