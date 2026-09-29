@@ -4,9 +4,12 @@ import os
 import math
 
 # open JSON file
-path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "robot.json")
+path = os.path.join(os.path.dirname(__file__), "../robot.json")
+#print(path)
 with open(path, "r") as file:
     robot = json.load(file)
+
+#print(robot)
 
 # create new .urdf.xacro file
 path = os.path.join(os.path.dirname(__file__), "robot_variables.xacro")
