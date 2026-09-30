@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-def parse_kinematics_parameters(urdf_path: str | Path) -> dict[str, float]:
+def parse_kinematics_parameters(urdf_path: str) -> dict[str, float]:
 
     urdf_path = Path(urdf_path)
 
