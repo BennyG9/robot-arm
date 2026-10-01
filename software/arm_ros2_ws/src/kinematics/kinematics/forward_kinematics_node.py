@@ -24,7 +24,7 @@ class FKNode(Node):
         while(not self.parameters_client.wait_for_service(timeout_sec=1.0)):
             self.get_logger().info("Waiting for robot parameters service...")
         self.parameters = {}
-        request = RobotParameters.request()
+        request = RobotParameters.Request()
         future = self.parameters_client.call_async(request)
         rclpy.spin_until_future_complete(self, future)
         parameter_data = future.result()

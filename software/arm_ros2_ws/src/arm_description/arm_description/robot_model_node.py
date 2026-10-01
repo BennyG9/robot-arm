@@ -34,8 +34,8 @@ class RobotModelNode(Node):
 
 
     def robot_parameters_callback(self, request, response):
-        response.names = self.parameters.keys()
-        response.parameters = self.parameters.values()
+        response.names = list(self.parameters.keys())
+        response.parameters = list(self.parameters.values())
         return response
 
     pass

@@ -22,9 +22,10 @@ class ValidationNode(Node):
         while(not self.parameters_client.wait_for_service(timeout_sec=1.0)):
             self.get_logger().info("Waiting for robot parameters service...")
         self.parameters = {}
-        request = RobotParameters.request()
-        self.future = self.parameters_client.call_async(request)
-        parameter_data = self.result
+        request = RobotParameters.Request()
+        future = self.parameters_client.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+        parameter_data = future.result()
         if(parameter_data is None):
             self.get_logger().error("Failed to retreive robot parameters")
         for i in range(len(parameter_data.names)):
