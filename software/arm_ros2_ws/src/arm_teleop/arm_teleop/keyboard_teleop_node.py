@@ -134,7 +134,8 @@ class KeyboardTeleopNode(Node):
     def fk_response_callback(self, future):
         response = future.result()
         frames = np.reshape(response.frames, (6,4,4))
-        self.current_coordinates = (frames[5][:3][3]).reshape(1,3);
+        coordinates = (frames[5][:3][3]).reshape(1,3);
+        self.current_coordinates = [float(coordinates[0]), float(coordinates[1]), float(coordinates[2])]
         pass
 
 
@@ -197,7 +198,7 @@ class KeyboardTeleopNode(Node):
 
         # ik test
         stdscr.addstr(23, 0, f"IK Results")
-        stdscr.addstr(24, 0, f"----------------------------------")
+        stdscr.addstr(24, 0, "----------------------------------")
         stdscr.addstr(25, 0, f"Base      : {self.ik_test['base']:7.2f}")
         stdscr.addstr(26, 0, f"Shoulder  : {self.ik_test['shoulder']:7.2f}")
         stdscr.addstr(27, 0, f"Elbow     : {self.ik_test['elbow']:7.2f}")
