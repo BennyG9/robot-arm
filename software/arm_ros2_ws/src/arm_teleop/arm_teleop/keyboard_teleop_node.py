@@ -134,7 +134,7 @@ class KeyboardTeleopNode(Node):
     def fk_response_callback(self, future):
         response = future.result()
         frames = np.reshape(response.frames, (6,4,4))
-        self.current_coordinates = frames[5][0:3][3]
+        self.current_coordinates = (frames[5][:3][3]).reshape(1,3);
         pass
 
 
