@@ -197,11 +197,7 @@ class KeyboardTeleopNode(Node):
         stdscr.addstr(21, 0, f"Z         : {self.current_coordinates[2]:7.2f}")
 
         # ik test
-        stdscr.addstr(23, 0, f"IK Results")
-        stdscr.addstr(24, 0, "----------------------------------")
-        stdscr.addstr(25, 0, f"Base      : {self.ik_test['base']:7.2f}")
-        stdscr.addstr(26, 0, f"Shoulder  : {self.ik_test['shoulder']:7.2f}")
-        stdscr.addstr(27, 0, f"Elbow     : {self.ik_test['elbow']:7.2f}")
+        stdscr.addstr(23, 0, f"({self.ik_test['base']:7.2f}, {self.ik_test['shoulder']:7.2f}, {self.ik_test['elbow']:7.2f})")
 
         stdscr.refresh()
         pass
