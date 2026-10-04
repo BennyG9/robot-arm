@@ -3,23 +3,25 @@ import math
 epsilon = 1 * 10**(-14)
 
 def inverse_kinematics(R, robot):
-    x = R(0)
-    y = R(1)
-    z = R(2)
+    x = R[0]
+    y = R[1]
+    z = R[2]
+
+    print(robot)
 
     # calculate and verify horizontal radius
-    r2 = (x**2 + y**2 - robot.l3**2)
+    r2 = (x**2 + y**2 - robot.elbow_joint_offset**2)
     if(r2 < 0):
         return False, [0,0,0]
     r = math.sqrt(r2)
 
     # calculate both base angles
-    phi = math.atan2(x, y) - math.atan2(robot.l3, r)
+    phi = math.atan2(x, y) - math.atan2(robot.elbow_joint_offset, r)
     if(phi < -math.pi):
         phi += 2*math.pi
     elif(phi > math.pi):
         phi -= 2*math.pi
-    phi2 = math.atan2(x, y) + math.atan2(robot.l3, r) - math.pi;
+    phi2 = math.atan2(x, y) + math.atan2(robot.elbow_joint_offset, r) - math.pi;
     if(phi2 < -math.pi):
         phi2 += 2*math.pi
     elif(phi2 > math.pi):
