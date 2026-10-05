@@ -140,9 +140,8 @@ class KeyboardTeleopNode(Node):
 
 
     def get_ik_result(self):
-        cc = "   ".join(str(item) for item in self.current_coordinates)
-        self.get_logger().error(cc)
-
+        #cc = "   ".join(str(item) for item in self.current_coordinates)
+        #self.get_logger().error(cc)
         request = InverseKinematics.Request()
         request.coordinates = self.current_coordinates
         future = self.ik_client.call_async(request)
