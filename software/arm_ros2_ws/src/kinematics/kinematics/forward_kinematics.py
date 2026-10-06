@@ -27,7 +27,7 @@ def get_transformation_matrices(q, robot):
     # Ground - top of base transform    rotz(-phi)
     T01 = np.array([[math.cos(-phi), -math.sin(-phi), 0, 0],
                     [math.sin(-phi), math.cos(-phi), 0, 0],
-                    [0, 0, 0, robot['base_height']],
+                    [0, 0, 1, robot['base_height']],
                     [0, 0, 0, 1]])
 
     # Top of base - shoulder transform  rotx(-theta1)

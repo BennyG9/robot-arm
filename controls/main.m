@@ -10,22 +10,22 @@ robot = load_robot();
 %% SINGLE POSITION
 
 %%% Position #1
-% pos_fig1 = create_robot_figure();
-% q1 = deg2rad([
-%     0;
-%     0;
-%     0
-% ]);
-% T1 = forward_kinematics(q1, robot);
-% plot_robot(T1);
-% 
-% pos_fig2 = create_robot_figure();
-% q2 = inverse_kinematics(T1(1:3,4,6), robot);
-% T2 = forward_kinematics(q2, robot);
-% plot_robot(T2);
-% 
-% disp(T1(:,:,6));
-% disp(T2(:,:,6));
+pos_fig1 = create_robot_figure();
+q1 = deg2rad([
+    0;
+    0;
+    0
+]);
+T1 = forward_kinematics(q1, robot);
+plot_robot(T1);
+
+pos_fig2 = create_robot_figure();
+q2 = inverse_kinematics(T1(1:3,4,6), robot);
+T2 = forward_kinematics(q2, robot);
+plot_robot(T2);
+
+disp(T1(:,:,6));
+disp(T2(:,:,6));
 
 %%% Random Position
 % pos_fig1 = create_robot_figure();
@@ -203,28 +203,28 @@ robot = load_robot();
 % end
 
 %%% Linear Path Boomerang
-path_fig3 = create_robot_figure();
-q1 = deg2rad([
-    -70;
-    70;
-    -100;
-]);
-q2 = deg2rad([
-    45;
-    30;
-    -60;
-]);
-T1 = forward_kinematics(q1, robot);
-T2 = forward_kinematics(q2, robot);
-R1 = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
-Q1 = path2angles(R1, robot);
-R2 = line_path(T2(1:3,4,6), T1(1:3,4,6), 200);
-Q2 = path2angles(R2, robot);
-plot_robot(T1);
-pause(1);
-animate_path("angles", Q1(:,1,:), robot);
-pause(0.5);
-animate_path("angles", Q2(:,1,:), robot);
+% path_fig3 = create_robot_figure();
+% q1 = deg2rad([
+%     -70;
+%     70;
+%     -100;
+% ]);
+% q2 = deg2rad([
+%     45;
+%     30;
+%     -60;
+% ]);
+% T1 = forward_kinematics(q1, robot);
+% T2 = forward_kinematics(q2, robot);
+% R1 = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
+% Q1 = path2angles(R1, robot);
+% R2 = line_path(T2(1:3,4,6), T1(1:3,4,6), 200);
+% Q2 = path2angles(R2, robot);
+% plot_robot(T1);
+% pause(1);
+% animate_path("angles", Q1(:,1,:), robot);
+% pause(0.5);
+% animate_path("angles", Q2(:,1,:), robot);
 
 
 
