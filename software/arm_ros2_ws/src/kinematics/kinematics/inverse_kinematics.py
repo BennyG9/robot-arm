@@ -7,7 +7,7 @@ def inverse_kinematics(R, robot):
     y = R[1]
     z = R[2]
 
-    print(robot)
+    #print(robot)
 
     # calculate and verify horizontal radius
     r2 = (x**2 + y**2 - robot['elbow_joint_offset']**2)
@@ -32,7 +32,7 @@ def inverse_kinematics(R, robot):
     if(D2 < epsilon):
         return False, [0,0,0]
     C2 = (D2 - robot['L2']**2 - robot['L3']**2) / (2 * robot['L2'] * robot['L3']);
-    if(math.abs(C2) > 1):
+    if(abs(C2) > 1):
         return False, [0,0,0]
     C2 = max(-1, min(1, C2))
     theta2 = math.acos(C2)

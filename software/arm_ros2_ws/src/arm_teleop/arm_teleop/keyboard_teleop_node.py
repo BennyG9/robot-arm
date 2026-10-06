@@ -22,7 +22,7 @@ class KeyboardTeleopNode(Node):
         self.calibrate_client = self.create_client(Calibrate, "calibrate")
         self.home_client = self.create_client(Home, "home")
         self.fk_client = self.create_client(ForwardKinematics, "fk")
-        self.current_coordinates = [1,1,1]
+        self.current_coordinates = [0.0,0.0,0.0]
 
         self.ik_client = self.create_client(InverseKinematics, "ik")
         self.ik_test = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
@@ -54,7 +54,7 @@ class KeyboardTeleopNode(Node):
         self.log_coordinates()
 
         # test IK
-        #self.get_ik_result()
+        self.get_ik_result()
         pass
 
 
