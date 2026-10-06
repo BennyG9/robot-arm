@@ -21,10 +21,10 @@ class KeyboardTeleopNode(Node):
         #Services
         self.calibrate_client = self.create_client(Calibrate, "calibrate")
         self.home_client = self.create_client(Home, "home")
-        self.fk_client = self.create_client(ForwardKinematics, "forward_kinematics")
-        self.current_coordinates = [0,0,0]
+        self.fk_client = self.create_client(ForwardKinematics, "fk")
+        self.current_coordinates = [1,1,1]
 
-        self.ik_client = self.create_client(InverseKinematics, "inverse_kinematics")
+        self.ik_client = self.create_client(InverseKinematics, "ik")
         self.ik_test = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
         #Joint Targets publisher
@@ -54,7 +54,7 @@ class KeyboardTeleopNode(Node):
         self.log_coordinates()
 
         # test IK
-        self.get_ik_result()
+        #self.get_ik_result()
         pass
 
 
@@ -129,12 +129,13 @@ class KeyboardTeleopNode(Node):
         request.angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
         future = self.fk_client.call_async(request)
         future.add_done_callback(self.fk_response_callback)
+        #self.current_coordinates = [0,0,0]
         pass
 
     def fk_response_callback(self, future):
         response = future.result()
         frames = np.reshape(response.frames, (6,4,4))
-        coordinates = (frames[5][:3][3])
+        coordinates = np.reshape(frames[5][:3,3], (3))
         self.current_coordinates = [float(coordinates[0]), float(coordinates[1]), float(coordinates[2])]
         pass
 
@@ -149,7 +150,7 @@ class KeyboardTeleopNode(Node):
         pass
 
     def ik_response_callback(self, future):
-        response = future.response()
+        response = future.result()
         configurations = np.reshape(response.configurations, (4,3))
         
         best_config = configurations[0]

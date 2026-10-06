@@ -40,7 +40,11 @@ class IKNode(Node):
     def ik_callback(self, request, response):
         valid, configs = inverse_kinematics(request.coordinates, self.parameters)
         response.validity = valid
-        response.configurations = np.reshape(configs, (1, 12))
+        if(configs == [0, 0, 0]):
+            response.configurations = np.zeros((12))
+        else:
+            response.configurations = np.reshape(configs, (12))
+        print(response.configurations)
         return response
 pass
 

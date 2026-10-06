@@ -14,9 +14,9 @@ def forward_kinematics(q, robot):
 
 
 def get_transformation_matrices(q, robot):
-    phi = q[0]
-    theta1 = q[1]
-    theta2 = q[2]
+    phi = math.radians(q[0])
+    theta1 = math.radians(q[1])
+    theta2 = math.radians(q[2])
 
     # Ground - ground transform
     T0 = np.array([[1, 0, 0, 0],

@@ -38,8 +38,9 @@ class FKNode(Node):
 
 
     def fk_callback(self, request, response):
+        self.get_logger().info("FK Request Received")
         frames = forward_kinematics(request.angles, self.parameters)
-        response.frames = np.reshape(frames, (1, 96))
+        response.frames = np.reshape(frames, (96))
         return response
 pass
 
