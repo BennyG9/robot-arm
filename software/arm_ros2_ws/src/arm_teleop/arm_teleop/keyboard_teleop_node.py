@@ -5,9 +5,12 @@ from arm_interfaces.srv import Calibrate
 from arm_interfaces.srv import Home
 from arm_interfaces.srv import InverseKinematics
 from arm_interfaces.srv import ForwardKinematics 
+from arm_interfaces.srv import RobotParameters
 
 from arm_interfaces.msg import JointTargets
 from arm_interfaces.msg import JointStates
+
+from kinematics import forward_kinematics
 
 import time
 import curses
@@ -34,11 +37,25 @@ class KeyboardTeleopNode(Node):
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
         self.current_states = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
-        #Keyboard Control variables
+        #Keyboard Control Variables
         self.selected_joint = None
         self.current_targets = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
         self.increment = 1.0
         self.joint_ranges = {"base":{"min":(-90.0), "max":(80.0)}, "shoulder":{"min":(-90.0), "max":(78.0)}, "elbow":{"min":(-90.0), "max":(119.0)}}
+
+        #Get Robot Parameters 
+        self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
+        while(not self.parameters_client.wait_for_service(timeout_sec=1.0)):
+            self.get_logger().info("Waiting for robot parameters service...")
+        self.parameters = {}
+        request = RobotParameters.Request()
+        future = self.parameters_client.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+        parameter_data = future.result()
+        if(parameter_data is None):
+            self.get_logger().error("Failed to retreive robot parameters")
+        for i in range(len(parameter_data.names)):
+            self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
 
         self.get_logger().info("Keyboard Teleop Initiated")
         pass
@@ -54,7 +71,7 @@ class KeyboardTeleopNode(Node):
         self.log_coordinates()
 
         # test IK
-        self.get_ik_result()
+        #self.get_ik_result()
         pass
 
 
@@ -125,11 +142,17 @@ class KeyboardTeleopNode(Node):
 
 
     def log_coordinates(self):
-        request = ForwardKinematics.Request()
-        request.angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
-        future = self.fk_client.call_async(request)
-        future.add_done_callback(self.fk_response_callback)
-        #self.current_coordinates = [0,0,0]
+        # Using ROS2 Service Call
+        # request = ForwardKinematics.Request()
+        # request.angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
+        # future = self.fk_client.call_async(request)
+        # future.add_done_callback(self.fk_response_callback)
+        
+        # Using Exposed Kinematics Functions Directly
+        frames = forward_kinematics(self.configurations,
+                                    [self.current_states['base'], self.current_states['shoulder'], self.current_states['elbow']])
+        pos = np.reshape(frames[5][:3,3], (3))
+        self.current_coordinates = [float(pos[0]), float(pos[1]), float(pos[2])]
         pass
 
     def fk_response_callback(self, future):
@@ -200,7 +223,7 @@ class KeyboardTeleopNode(Node):
         stdscr.addstr(21, 0, f"Z         : {self.current_coordinates[2]:7.2f}")
 
         # ik test
-        stdscr.addstr(23, 0, f"({self.ik_test['base']:7.2f}, {self.ik_test['shoulder']:7.2f}, {self.ik_test['elbow']:7.2f})")
+        #stdscr.addstr(23, 0, f"({self.ik_test['base']:7.2f}, {self.ik_test['shoulder']:7.2f}, {self.ik_test['elbow']:7.2f})")
 
         stdscr.refresh()
         pass

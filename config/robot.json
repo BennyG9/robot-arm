@@ -33,7 +33,7 @@
 
         "elbow": {
             "max_angle": 119.0,
-            "min_angle": -150.0,
+            "min_angle": -100.0,
 
             "l": 0.04
         }
