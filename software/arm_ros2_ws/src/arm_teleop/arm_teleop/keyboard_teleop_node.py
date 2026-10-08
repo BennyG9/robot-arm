@@ -10,7 +10,7 @@ from arm_interfaces.srv import RobotParameters
 from arm_interfaces.msg import JointTargets
 from arm_interfaces.msg import JointStates
 
-from kinematics import forward_kinematics
+from kinematics.forward_kinematics import forward_kinematics
 
 import time
 import curses
@@ -149,10 +149,10 @@ class KeyboardTeleopNode(Node):
         # future.add_done_callback(self.fk_response_callback)
         
         # Using Exposed Kinematics Functions Directly
-        frames = forward_kinematics(self.configurations,
-                                    [self.current_states['base'], self.current_states['shoulder'], self.current_states['elbow']])
+        angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
+        frames = forward_kinematics(angles, self.parameters)
         pos = np.reshape(frames[5][:3,3], (3))
-        self.current_coordinates = [float(pos[0]), float(pos[1]), float(pos[2])]
+        self.current_coordinates = [100*float(pos[0]), 100*float(pos[1]), 100*float(pos[2])]
         pass
 
     def fk_response_callback(self, future):
