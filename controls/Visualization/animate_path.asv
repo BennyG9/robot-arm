@@ -1,4 +1,4 @@
-function animate_path(mode, path, robot, dt)
+function animate_path(mode, path, dt, robot)
     arguments
         mode (1,1) string {mustBeMember(mode, ["coords", "angles"])}
         path (3,:) double

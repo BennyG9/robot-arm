@@ -3,7 +3,8 @@
 
     "metadata": {
         "angles": "deg",
-        "lengths": "m"
+        "lengths": "m",
+        "angular_velocity": "rev/min"
     },
 
     "links": {
@@ -21,21 +22,27 @@
             "max_angle": 80.0,
             "min_angle": -90.0,
 
-            "l": 0.0
+            "l": 0.0,
+
+            "max_speed": 20.0
         },
 
         "shoulder": {
             "max_angle": 78.0,
             "min_angle": -90.0,
 
-            "l": 0.0
+            "l": 0.0,
+
+            "max_speed": 27.6
         },
 
         "elbow": {
             "max_angle": 119.0,
-            "min_angle": -100.0,
+            "min_angle": -150.0,
 
-            "l": 0.04
+            "l": 0.04,
+
+            "max_speed": 12.0
         }
     }
 }
