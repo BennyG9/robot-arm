@@ -4,7 +4,7 @@ function animate_path(mode, path, robot, dt)
         path (3,:) double
         
         robot (1,1) struct
-        dt (1,1) double = 0.01
+        dt (1,:) double = 0.01
     end
 
     trace = [];

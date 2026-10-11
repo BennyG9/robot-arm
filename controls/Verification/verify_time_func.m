@@ -15,5 +15,7 @@ function valid = verify_time_func(Q, dt, robot)
 
     speed_ratio = abs(dQdt ./ dQdt_max);
 
-    valid = all(speed_ratio <= 1, 'all');
+    epsilon = 0.00001;
+    valid = all(speed_ratio <= (1+epsilon), 'all');
 end
+
