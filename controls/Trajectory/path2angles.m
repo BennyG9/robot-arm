@@ -70,7 +70,8 @@ function Q = path2angles(path, robot)
                 Q(:,k,last_nonzero_index:i) = [
                     linspace(last_nonzero_angles(1), current_angles(1), (i+1-last_nonzero_index)); 
                     linspace(last_nonzero_angles(2), current_angles(2), (i+1-last_nonzero_index));
-                    linspace(last_nonzero_angles(3), current_angles(3), (i+1-last_nonzero_index))];
+                    linspace(last_nonzero_angles(3), current_angles(3), (i+1-last_nonzero_index))
+                ];
             end
 
             % disp(last_nonzero_angles(:));
