@@ -11,13 +11,16 @@
 
         base_joint_min="${base_joint_min}"
         base_joint_max="${base_joint_max}"
+        base_joint_max_speed="${base_joint_max_speed}"
         
         shoulder_joint_min="${shoulder_joint_min}"
         shoulder_joint_max="${shoulder_joint_max}"
+        shoulder_joint_max_speed="${shoulder_joint_max_speed}"
 
         elbow_joint_min="${elbow_joint_min}"
         elbow_joint_max="${elbow_joint_max}"
         elbow_joint_offset="${elbow_joint_offset}"
+        elbow_joint_max_speed="${elbow_joint_max_speed}"
     />
 
     <link name = "gnd_base_link">

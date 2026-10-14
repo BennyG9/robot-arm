@@ -33,7 +33,8 @@ with open(path, "w") as xacro:
         # write joint data
         xacro.write("\t<xacro:property name=\"" + joint_name + "_min\" value=\"" + str(math.radians(joint_data["min_angle"])) + "\"/>\n")
         xacro.write("\t<xacro:property name=\"" + joint_name + "_max\" value=\"" + str(math.radians(joint_data["max_angle"])) + "\"/>\n")
-        xacro.write("\t<xacro:property name=\"" + joint_name + "_offset\" value=\"" + str(joint_data["l"]) + "\"/>\n\n")
+        xacro.write("\t<xacro:property name=\"" + joint_name + "_offset\" value=\"" + str(joint_data["l"]) + "\"/>\n")
+        xacro.write("\t<xacro:property name=\"" + joint_name + "_max_speed\" value=\"" + str(joint_data["max_speed"] * (2*math.pi/60)) + "\"/>\n\n")
         pass
 
     # end
