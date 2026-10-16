@@ -2,6 +2,7 @@ import numpy as np
 
 def linear_path(pos1, pos2, res):
 
+    # (int)resolution number of steps per unit norm
     n = int(res * np.linalg.norm(np.array(pos1)-np.array(pos2)))
 
     path = np.array(
