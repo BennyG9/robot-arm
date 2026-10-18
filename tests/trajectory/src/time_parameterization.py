@@ -25,7 +25,7 @@ def min_path_time_func(Q, robot):
 
 # verify that time parameterization constant/function results in trajectory within speed interval 
 def verify_time_func(Q, dt, robot):
-    dT = np.ones((1, Q.shape[1]))
+    dT = np.ones((1, Q.shape[1]-1))
     if(np.isscalar(dt)):
         dT = dt * dT
     else:

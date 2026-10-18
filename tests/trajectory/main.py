@@ -46,9 +46,9 @@ if(path_index == None):
     raise Exception("No Path Index Found...")
 path_angles = Q[:][path_index][:]
 
-time_param_func = min_path_time_func(path_angles, robot)
+time_param_func = min_path_time_const(path_angles, robot)
 time_param_validity = verify_time_func(path_angles, time_param_func, robot)
-time_param_len = len(time_param_func)
+time_param_len = 0
 
 trajectory_length = path_angles.shape[1]
 
