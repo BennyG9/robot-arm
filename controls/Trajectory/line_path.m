@@ -1,5 +1,6 @@
 function path = line_path(pos1, pos2, res)
     n = int32(res * norm(pos1-pos2));
+    disp(n);
     path = [
         linspace(pos1(1), pos2(1), n);
         linspace(pos1(2), pos2(2), n);

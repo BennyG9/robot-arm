@@ -63,12 +63,12 @@ class Trajectory_Node(Node):
                 # choose path corresponding to given starting angles
                 path_index = None
                 for i in range(4):
-                    if(np.allclose(Q[:][i][:], starting_angles)):
+                    if(np.allclose(Q[i, :, 0], starting_angles)):
                         path_index = i
                         break
                 if(path_index == None): 
                     self.get_logger().error("Unable to generate llinear trajectory")
-                    return response
+                    raise Exception("No Path Index Found...")
                 path_angles = Q[:][path_index][:]
 
                 # get time dependence
@@ -76,9 +76,9 @@ class Trajectory_Node(Node):
 
                 # stuff into response
                 trajectory_length = path_angles.shape[1]
-                response.trajectory_legnth = trajectory_length
-                response.angles = np.reshape(path_angles, (trajectory_length))
-                response.time_param_func = time_param_func
+                response.trajectory.length = trajectory_length
+                response.trajectory.angles = np.reshape(path_angles, (3*trajectory_length))
+                response.trajectory.time_parameterization_function = time_param_func
                 
                 return response
                 

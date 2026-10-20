@@ -26,8 +26,11 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     "srv/InverseKinematics.srv"
     "srv/ValidateAngles.srv"
     "srv/RobotParameters.srv"
+    "srv/GetTrajectory.srv"
     "msg/JointStates.msg"
     "msg/JointTargets.msg"
+    "msg/JointTrajectory.msg"
+    "action/FollowTrajectory.action"
 )
 
 ament_export_dependencies(rosidl_default_runtime)

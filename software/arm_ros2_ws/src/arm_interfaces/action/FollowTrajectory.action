@@ -1,0 +1,6 @@
+msg/JointTrajectory trajectory
+---
+bool success
+---
+float64 progress
+float64[] current_target_angles

@@ -5,6 +5,4 @@ float64 pos2
 float64 radius
 int64 resolution 200
 ---
-int64 trajectory_length
-float64[] time_param_func
-float64[] angles
+msg/JointTrajectory trajectory
