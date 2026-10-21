@@ -135,90 +135,90 @@ class STM32Bridge(Node):
         pass
 
     # Start trajectory action
-    def trajectory_goal_callback(self, goal_request):
+    # def trajectory_goal_callback(self, goal_request):
 
-        #TODO: add conditions for rejecting trajectory 
+    #     #TODO: add conditions for rejecting trajectory 
 
-        return GoalResponse.ACCEPT
+    #     return GoalResponse.ACCEPT
 
-    # Cancel trajectory action
-    def trajectory_cancel_callback(self, goal_handle):
-        return CancelResponse.ACCEPT
+    # # Cancel trajectory action
+    # def trajectory_cancel_callback(self, goal_handle):
+    #     return CancelResponse.ACCEPT
 
     # Start trajectory action
-    def trajectory_execute_callback(self, goal_handle):
-        #Set trajectory action flags
-        #self.active_trajectory.active_action = True
-        self.active_trajectory.last_timestamp = -1
+    # def trajectory_execute_callback(self, goal_handle):
+    #     #Set trajectory action flags
+    #     #self.active_trajectory.active_action = True
+    #     self.active_trajectory.last_timestamp = -1
 
-        #Hand over active goal_handle object for timer callback 
-        #self.active_trajectory.goal_handle = goal_handle
-        #self.active_trajectory.result = FollowTrajectory.Result()
-        #self.active_trajectory.feedback = FollowTrajectory.Feedback()
+    #     #Hand over active goal_handle object for timer callback 
+    #     #self.active_trajectory.goal_handle = goal_handle
+    #     #self.active_trajectory.result = FollowTrajectory.Result()
+    #     #self.active_trajectory.feedback = FollowTrajectory.Feedback()
 
-        #Stuff with important variables 
-        #self.active_trajectory
-        #self.active_trajectory.time_parameterization_function = goal_handle.request.trajectory.time_parameterization_function
-        #self.active_trajectory.length = goal_handle.request.trajectory.length
-        #self.active_trajectory.angles = np.rad2deg(np.reshape(goal_handle.request.trajectory.angles, (3,self.active_trajectory.length)))
-        pass
+    #     #Stuff with important variables 
+    #     #self.active_trajectory
+    #     #self.active_trajectory.time_parameterization_function = goal_handle.request.trajectory.time_parameterization_function
+    #     #self.active_trajectory.length = goal_handle.request.trajectory.length
+    #     #self.active_trajectory.angles = np.rad2deg(np.reshape(goal_handle.request.trajectory.angles, (3,self.active_trajectory.length)))
+    #     pass
 
-    def trajectory_timer_callback(self):
-        # NOTE: trajectory indexed by index+1, time_param indexed by index+0
+    # def trajectory_timer_callback(self):
+    #     # NOTE: trajectory indexed by index+1, time_param indexed by index+0
 
-        # check if trajectory is done & return upon sucessfult completion
-        if(self.active_trajectory.index == self.active_trajectory.length-1):
-            self.active_trajectory.goal_handle.succeed()
-            self.active_trajectory.result.sucess = True
-            return self.active_trajectory.result
+    #     # check if trajectory is done & return upon sucessfult completion
+    #     if(self.active_trajectory.index == self.active_trajectory.length-1):
+    #         self.active_trajectory.goal_handle.succeed()
+    #         self.active_trajectory.result.sucess = True
+    #         return self.active_trajectory.result
 
-        # cancel request, auto-accept 
-        if(self.active_trajectory.goal_handle.is_cancel_requested):
-            self.active_trajectory.goal_handle.canceled()
-            self.active_trajectory.result.success = False
-            return self.active_trajectory.result
+    #     # cancel request, auto-accept 
+    #     # if(self.active_trajectory.goal_handle.is_cancel_requested):
+    #     #     self.active_trajectory.goal_handle.canceled()
+    #     #     self.active_trajectory.result.success = False
+    #     #     return self.active_trajectory.result
 
-        # first point in trajectory
-        if(self.active_trajectory.last_timestamp == -1):
+    #     # first point in trajectory
+    #     if(self.active_trajectory.last_timestamp == -1):
 
-            # send angles 
-            current_angles = self.active_trajectory.angles[:, self.active_trajectory.index+1]
-            self.protocol.write_packet("SET_POSITION", current_angles[0], current_angles[1], current_angles[2])
+    #         # send angles 
+    #         current_angles = self.active_trajectory.angles[:, self.active_trajectory.index+1]
+    #         self.protocol.write_packet("SET_POSITION", current_angles[0], current_angles[1], current_angles[2])
 
-            # set time
-            self.active_trajectory.last_timestamp = time.monotonic()
+    #         # set time
+    #         self.active_trajectory.last_timestamp = time.monotonic()
 
-            # action feedback
-            self.active_trajectory.feedback.progress = (self.active_trajectory.index+1) / self.active_trajectory.length
-            self.active_trajectory.current_target_angles = current_angles
-            self.active_trajectory.goal_handle.publish_feedback() 
+    #         # action feedback
+    #         self.active_trajectory.feedback.progress = (self.active_trajectory.index+1) / self.active_trajectory.length
+    #         self.active_trajectory.current_target_angles = current_angles
+    #         self.active_trajectory.goal_handle.publish_feedback() 
 
-        # rest of trajectory
-        else:
+    #     # rest of trajectory
+    #     else:
 
-            # timing data
-            current_time = time.monotonic()
-            time_interval = current_time - self.active_trajectory.last_timestamp
+    #         # # timing data
+    #         # current_time = time.monotonic()
+    #         # time_interval = current_time - self.active_trajectory.last_timestamp
 
-            # immediately break if interval is less than current time parameters
-            if(time_interval < self.active_trajectory.time_parameterization_function[self.active_trajectory.index]):
-                return
+    #         # # immediately break if interval is less than current time parameters
+    #         # if(time_interval < self.active_trajectory.time_parameterization_function[self.active_trajectory.index]):
+    #         #     return
 
-            # send angles
-            current_angles = self.active_trajectory.angles[:, self.active_trajectory.index+1]
-            self.protocol.write_packet("SET_POSITION", current_angles[0], current_angles[1], current_angles[2])
+    #         # # send angles
+    #         # current_angles = self.active_trajectory.angles[:, self.active_trajectory.index+1]
+    #         # self.protocol.write_packet("SET_POSITION", current_angles[0], current_angles[1], current_angles[2])
 
-            # iterate for next time step
-            self.active_trajectory.last_timestamp = time.monotonic()
-            self.active_trajectory.index += 1
+    #         # # iterate for next time step
+    #         # self.active_trajectory.last_timestamp = time.monotonic()
+    #         # self.active_trajectory.index += 1
 
-            # action feedback
-            self.active_trajectory.feedback.progress = (self.active_trajectory.index+1) / self.active_trajectory.length
-            self.active_trajectory.current_target_angles = current_angles 
-            self.active_trajectory.goal_handle.publish_feedback() 
-            pass
+    #         # # action feedback
+    #         # self.active_trajectory.feedback.progress = (self.active_trajectory.index+1) / self.active_trajectory.length
+    #         # self.active_trajectory.feedback.current_target_angles = current_angles 
+    #         # self.active_trajectory.goal_handle.publish_feedback() 
+    #         pass
 
-        pass
+        # pass
 
     
 
