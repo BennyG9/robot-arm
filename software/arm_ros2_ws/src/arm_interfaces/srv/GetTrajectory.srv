@@ -1,7 +1,7 @@
 string trajectory_type
 float64[] starting_angles
-float64 pos1
-float64 pos2
+float64[] pos1
+float64[] pos2
 float64 radius
 int64 resolution 200
 ---

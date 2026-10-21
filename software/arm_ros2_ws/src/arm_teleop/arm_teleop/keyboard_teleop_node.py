@@ -1,14 +1,18 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.action import ActionClient 
 
 from arm_interfaces.srv import Calibrate
 from arm_interfaces.srv import Home
 from arm_interfaces.srv import InverseKinematics
 from arm_interfaces.srv import ForwardKinematics 
 from arm_interfaces.srv import RobotParameters
+from arm_interfaces.srv import GetTrajectory
 
 from arm_interfaces.msg import JointTargets
 from arm_interfaces.msg import JointStates
+
+from arm_interfaces.action import FollowTrajectory
 
 from kinematics.forward_kinematics import forward_kinematics
 
@@ -21,12 +25,17 @@ class KeyboardTeleopNode(Node):
     def __init__(self):
         super().__init__('keyboard_teleop_node')
 
-        #Services
+        #Calibrate service 
         self.calibrate_client = self.create_client(Calibrate, "calibrate")
+
+        #Homing service 
         self.home_client = self.create_client(Home, "home")
+
+        #Forward Kinematics 
         self.fk_client = self.create_client(ForwardKinematics, "fk")
         self.current_coordinates = [0.0,0.0,0.0]
 
+        #Inverse Kinematics 
         self.ik_client = self.create_client(InverseKinematics, "ik")
         self.ik_test = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
@@ -36,6 +45,14 @@ class KeyboardTeleopNode(Node):
         #Joint State subscriber
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
         self.current_states = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
+
+        #Trajectory Service + Action
+        self.traj_client = self.create_client(GetTrajectory, 'get_trajectory')
+        self._trajectory_client = ActionClient(
+            self,
+            FollowTrajectory,
+            'follow_trajectory'
+        )
 
         #Keyboard Control Variables
         self.selected_joint = None
@@ -187,6 +204,25 @@ class KeyboardTeleopNode(Node):
         self.ik_test["base"] = best_config[0]
         self.ik_test["shoulder"] = best_config[1]
         self.ik_test["elbow"] = best_config[2]
+        pass
+
+    def linear_trajectory(self, pos2):
+        current_angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
+        request = GetTrajectory.request()
+        request.trajectory_type = "linear"
+        request.starting_angles = np.radians(current_angles)
+        request.pos1 = np.reshape(forward_kinematics(current_angles, self.parameters, (6,4,4)))[5][:3,3]
+        request.pos2 = pos2
+        request.radius = 0.0
+        request.resolution = 200
+
+        future = self.traj_client.call_async(request)
+        future.add_done_callback(self.linear_trajectory_callback)
+        pass
+
+    def linear_trajectory_callback(self, future):
+        trajectory = future.result().trajectory 
+
         pass
 
     def TEST(self):
