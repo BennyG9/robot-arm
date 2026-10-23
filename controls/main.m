@@ -230,11 +230,16 @@ robot = load_robot();
 %% Time Parameterization 
 
 %%% Set Linear Path
-%param_fig1 = create_robot_figure();
+param_fig1 = create_robot_figure();
+% q1 = deg2rad([
+%     -70;
+%     70;
+%     -100;
+% ]);
 q1 = deg2rad([
-    -70;
-    70;
-    -100;
+    0;
+    0;
+    0;
 ]);
 q2 = deg2rad([
     45;
@@ -249,11 +254,11 @@ Q1 = path2angles(R1, robot);
 dt = min_path_time_func(Q1(:,1,:), robot);
 valid_dt = verify_time_func(Q1(:,1,:), dt, robot);
 
-disp(Q1(:,1,:));
-disp(dt);
+%disp(Q1(:,1,:));
+%disp(dt);
 %disp(valid_dt);
 %plot_robot(T1);
-%animate_path("angles", Q1(:,1,:), robot, dt);
+animate_path("angles", Q1(:,1,:), robot, dt);
 
 %%% Random Linear Path
 % param_fig2 = create_robot_figure();

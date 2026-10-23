@@ -182,6 +182,11 @@ class KeyboardTeleopNode(Node):
         self.current_coordinates = [float(coordinates[0]), float(coordinates[1]), float(coordinates[2])]
         pass
 
+    def get_end_coordinates(self, angles):
+        angles = np.array(angles)
+        frames = np.reshape(forward_kinematics(angles, self.parameters), (6,4,4))
+        return frames[5][:3,3]
+
 
     def get_ik_result(self):
         #cc = "   ".join(str(item) for item in self.current_coordinates)
@@ -218,7 +223,7 @@ class KeyboardTeleopNode(Node):
         request = GetTrajectory.request()
         request.trajectory_type = "linear"
         request.starting_angles = np.radians(current_angles)
-        request.pos1 = np.reshape(forward_kinematics(current_angles, self.parameters, (6,4,4)))[5][:3,3]
+        request.pos1 = self.get_end_coordinates(current_angles)
         request.pos2 = pos2
         request.radius = 0.0
         request.resolution = 200
@@ -287,7 +292,11 @@ class KeyboardTeleopNode(Node):
         pass
 
     def TEST(self):
+        end_angles = [45.0, 30.0, -60.0]
 
+        end_pos = self.get_end_coordinates(end_angles)
+
+        self.linear_trajectory(end_pos)
         pass
 
     def draw(self, stdscr):

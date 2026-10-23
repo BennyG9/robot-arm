@@ -95,7 +95,7 @@ class TrajectoryExecutorNode(Node):
         current_angles = self.trajectory.angles[:, self.index]
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
-        self.joint_pub.publish(msg)
+        #*********self.joint_pub.publish(msg)
 
         self.active = True
         pass
@@ -146,7 +146,7 @@ class TrajectoryExecutorNode(Node):
         current_angles = self.trajectory.angles[:, self.index+1]
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
-        self.joint_pub.publish(msg)
+        #*********self.joint_pub.publish(msg)
 
         # iterate for next time step
         self.last_timestamp = time.monotonic()
