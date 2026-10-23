@@ -123,6 +123,10 @@ class TrajectoryExecutorNode(Node):
     # run execution code at fixed rate
     def timer_callback(self):
 
+        # check for active flag 
+        if(not self.active):
+            return
+
         # check for cancel request
         if(self.goal_handle.is_cancel_requested):
             self.goal_handle.canceled()

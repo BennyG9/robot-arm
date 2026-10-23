@@ -53,6 +53,9 @@ class KeyboardTeleopNode(Node):
             FollowTrajectory,
             'follow_trajectory'
         )
+        self.trajectory_active = False
+        self.trajectory_status = ""
+        self.trajectory_progress = 0.
 
         #Keyboard Control Variables
         self.selected_joint = None
@@ -107,12 +110,12 @@ class KeyboardTeleopNode(Node):
         elif(k == ord('3')):
             self.selected_joint = "elbow"
 
-        elif(self.selected_joint != None and k == ord('w')):
+        elif((not self.trajectory_active) and self.selected_joint != None and k == ord('w')):
             self.current_targets[self.selected_joint] += self.increment
             if(self.current_targets[self.selected_joint] > self.joint_ranges[self.selected_joint]["max"]):
                 self.current_targets[self.selected_joint] = self.joint_ranges[self.selected_joint]["max"]
             self.send_targets()
-        elif(self.selected_joint != None and k == ord('s')):
+        elif((not self.trajectory_active) and self.selected_joint != None and k == ord('s')):
             self.current_targets[self.selected_joint] -= self.increment
             if(self.current_targets[self.selected_joint] < self.joint_ranges[self.selected_joint]["min"]):
                 self.current_targets[self.selected_joint] = self.joint_ranges[self.selected_joint]["min"]
@@ -207,6 +210,10 @@ class KeyboardTeleopNode(Node):
         pass
 
     def linear_trajectory(self, pos2):
+        self.trajectory_active = True
+        self.trajectory_status = "Requesting Trajectory Data"
+        self.trajectory_progress = 0.
+
         current_angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
         request = GetTrajectory.request()
         request.trajectory_type = "linear"
@@ -223,6 +230,60 @@ class KeyboardTeleopNode(Node):
     def linear_trajectory_callback(self, future):
         trajectory = future.result().trajectory 
 
+        self.trajectory_status = "Requesting ROS Action"
+
+        goal = FollowTrajectory.Goal()
+
+        self._trajectory_client.wait_for_server()
+
+        send_goal_future = self._trajectory_client.send_goal_async(goal, feedback_callback=self.trajectory_feedback_callback)
+        send_goal_future.add_done_callback(self.trajectory_response_callback)
+        pass
+
+    def trajectory_response_callback(self, future):
+        goal_handle = future.result()
+
+        if(not goal_handle.accepted):
+            self.trajectory_status = "ROS Action NOT Accepted"
+            self.get_logger().warning("Trajectory Not Accepted...")
+            return
+
+        self.trajectory_status = "ROS Action Accepted"
+        self.get_logger().info("Trajectory Accepted")
+
+        result_future = goal_handle.get_result_async()
+        self.trajectory_status = "Executing Trajectory"
+
+        result_future.add_done_callback(self.trajectory_result_callback)
+        pass
+
+    def trajectory_feedback_callback(self, feedback_msg):
+        feedback = feedback_msg.feedback
+
+        # update current targets 
+        self.current_targets["base"] = feedback.current_target_angles[0]
+        self.current_targets["shoulder"] = feedback.current_target_angles[1]
+        self.current_targets["elbow"] = feedback.current_target_angles[2]
+
+        # update progress tracker
+        self.trajectory_progress = feedback.progress * 100
+        pass
+
+    def trajectory_result_callback(self, future):
+        self.trajectory_status = "Trajectory Done"
+
+        wrapped_result = future.result()
+        result = wrapped_result.result
+
+        if(wrapped_result.status == 4 and result.success):
+            self.get_logger().info("Trajectory Completed Successfully")
+
+        else:
+            self.get_logger().warning("Trajectory Quit")
+
+        self.trajectory_active = False
+        self.trajectory_progress = 0.0
+        self.trajectory_status = ""
         pass
 
     def TEST(self):
@@ -261,6 +322,10 @@ class KeyboardTeleopNode(Node):
         # ik test
         #stdscr.addstr(23, 0, f"({self.ik_test['base']:7.2f}, {self.ik_test['shoulder']:7.2f}, {self.ik_test['elbow']:7.2f})")
 
+        # trajectory, only if active
+        if(self.trajectory_active):
+            stdscr.addstr(23, 0, f"Trajectory Status: {self.trajectory_progress:7.2f}%, {self.trajectory_status}")
+
         stdscr.refresh()
         pass
 
@@ -274,7 +339,7 @@ class KeyboardTeleopNode(Node):
             rclpy.spin_once(self, timeout_sec=0.001)
             key = stdscr.getch()
             if(key != -1):
-            	if(not self.handle_key(key)): break
+                if(not self.handle_key(key)): break
             self.draw(stdscr)
             time.sleep(0.05)
     pass
