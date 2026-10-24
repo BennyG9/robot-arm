@@ -90,12 +90,17 @@ class TrajectoryExecutorNode(Node):
         self.trajectory.time_parameterization_function = trajectory_data.time_parameterization_function
         self.trajectory.length = trajectory_data.length
         self.index = 0
+        
+        self.get_logger().info(f"{trajectory_data.length}")
+        self.get_logger().info(f"{list(trajectory_data.angles)}")
 
         # Publish first point in trajectory 
         current_angles = self.trajectory.angles[:, self.index]
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
         #*********self.joint_pub.publish(msg)
+        
+        self.get_logger().info("First Point Executed")
 
         self.active = True
         pass
@@ -166,3 +171,24 @@ class TrajectoryExecutorNode(Node):
         pass
 
     pass
+
+
+
+
+def main():
+    rclpy.init()
+    node = TrajectoryExecutorNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+

@@ -46,14 +46,14 @@ class Trajectory_Node(Node):
         #request. {trajectory_type, starting_angles, pos1, pos2, radius, resolution}
         #response. {trajectory_length, time_param_func, angles}
 
-        response.trajectory_length = 0
-        response.time_param_func = []
-        response.angles = []
+        response.trajectory.length = 0
+        response.trajectory.time_parameterization_function = []
+        response.trajectory.angles = []
         
-        match(request.trajectory_type):
+        if(True):
 
             # linear trajectory between 2 cartersian coordinates, starting angles given
-            case "linear":
+            if(request.trajectory_type == "linear"):
                 starting_angles = np.array(request.starting_angles)
 
                 # generate path
@@ -77,14 +77,14 @@ class Trajectory_Node(Node):
                 # stuff into response
                 trajectory_length = path_angles.shape[1]
                 response.trajectory.length = trajectory_length
-                response.trajectory.angles = np.reshape(path_angles, (3*trajectory_length))
+                response.trajectory.angles = (np.reshape(path_angles, (3*trajectory_length)).astype(float)).tolist()
                 response.trajectory.time_parameterization_function = time_param_func
                 
                 return response
                 
 
             # catch-all, trajectory type given does not exist
-            case _:
+            else:
                 self.get_logger.error("No trajectory type: " + request.type)
                 return response
         

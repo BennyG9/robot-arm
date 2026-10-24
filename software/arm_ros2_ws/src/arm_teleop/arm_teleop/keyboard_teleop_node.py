@@ -185,7 +185,7 @@ class KeyboardTeleopNode(Node):
     def get_end_coordinates(self, angles):
         angles = np.array(angles)
         frames = np.reshape(forward_kinematics(angles, self.parameters), (6,4,4))
-        return frames[5][:3,3]
+        return (frames[5][:3,3].astype(float)).tolist()
 
 
     def get_ik_result(self):
@@ -220,9 +220,9 @@ class KeyboardTeleopNode(Node):
         self.trajectory_progress = 0.
 
         current_angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
-        request = GetTrajectory.request()
+        request = GetTrajectory.Request()
         request.trajectory_type = "linear"
-        request.starting_angles = np.radians(current_angles)
+        request.starting_angles = (np.radians(current_angles).astype(float)).tolist()
         request.pos1 = self.get_end_coordinates(current_angles)
         request.pos2 = pos2
         request.radius = 0.0
@@ -238,6 +238,7 @@ class KeyboardTeleopNode(Node):
         self.trajectory_status = "Requesting ROS Action"
 
         goal = FollowTrajectory.Goal()
+        goal.trajectory = trajectory
 
         self._trajectory_client.wait_for_server()
 

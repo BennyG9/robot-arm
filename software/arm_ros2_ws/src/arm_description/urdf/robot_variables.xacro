@@ -9,13 +9,16 @@
 	<xacro:property name="base_joint_min" value="-1.5707963267948966"/>
 	<xacro:property name="base_joint_max" value="1.3962634015954636"/>
 	<xacro:property name="base_joint_offset" value="0.0"/>
+	<xacro:property name="base_joint_max_speed" value="2.0943951023931953"/>
 
 	<xacro:property name="shoulder_joint_min" value="-1.5707963267948966"/>
 	<xacro:property name="shoulder_joint_max" value="1.361356816555577"/>
 	<xacro:property name="shoulder_joint_offset" value="0.0"/>
+	<xacro:property name="shoulder_joint_max_speed" value="2.8902652413026098"/>
 
 	<xacro:property name="elbow_joint_min" value="-2.6179938779914944"/>
 	<xacro:property name="elbow_joint_max" value="2.076941809873252"/>
 	<xacro:property name="elbow_joint_offset" value="0.04"/>
+	<xacro:property name="elbow_joint_max_speed" value="1.2566370614359172"/>
 
 </robot>

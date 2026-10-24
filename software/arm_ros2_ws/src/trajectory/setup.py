@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'trajectory_executor = trajectory.trajectory_executor_node:main',
+            'trajectory_node = trajectory.trajectory_node:main'
         ],
     },
 )

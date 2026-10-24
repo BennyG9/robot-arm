@@ -32,9 +32,17 @@ def generate_launch_description():
             os.path.join(get_package_share_directory("arm_bringup"), "launch", "robot_model.launch.py")
         )
     )
+    
+    # trajectory generation and execution
+    trajectory = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory("arm_bringup"), "launch", "trajectory.launch.py")
+        )
+    )
 
     return LaunchDescription([
         teleop_node,
         hardware,
         robot_model,
+        trajectory,
     ])

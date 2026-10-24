@@ -17,7 +17,7 @@ def path_to_angles(path, robot):
 
         # unable to calculate valid angles
         if(not valid):
-            all_angles[:3, :4, path_index] = np.zeros((4,3))
+            all_angles[:4, :3, path_index] = np.zeros((4,3))
             continue
 
         # first point in path
