@@ -91,11 +91,11 @@ class TrajectoryExecutorNode(Node):
         self.trajectory.length = trajectory_data.length
         self.index = 0
         
-        self.get_logger().info(f"{trajectory_data.length}")
-        self.get_logger().info(f"{list(trajectory_data.angles)}")
+        #self.get_logger().info(f"{trajectory_data.length}")
+        #self.get_logger().info(f"{list(trajectory_data.angles)}")
 
         # Publish first point in trajectory 
-        current_angles = self.trajectory.angles[:, self.index]
+        current_angles = (self.trajectory.angles[:, self.index].astype(float)).tolist()
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
         #*********self.joint_pub.publish(msg)
@@ -148,7 +148,7 @@ class TrajectoryExecutorNode(Node):
             return
 
         # publish new target angles 
-        current_angles = self.trajectory.angles[:, self.index+1]
+        current_angles = (self.trajectory.angles[:, self.index+1].astype(float)).tolist()
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
         #*********self.joint_pub.publish(msg)
@@ -166,7 +166,7 @@ class TrajectoryExecutorNode(Node):
 
         # action feedback 
         self.feedback.progress = (self.index + 1) / self.trajectory.length
-        self.feedback.current_target_angles = current_angles 
+        self.feedback.current_target_angles = current_angles
         self.goal_handle.publish_feedback()
         pass
 
