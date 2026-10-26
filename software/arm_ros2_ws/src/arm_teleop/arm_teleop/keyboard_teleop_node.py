@@ -97,10 +97,10 @@ class KeyboardTeleopNode(Node):
 
     def handle_key(self, k):
 
-        if(k == ord('c')):
+        if((not self.trajectory_active) and k == ord('c')):
             self.calibrate()
 
-        elif(k == ord('h')):
+        elif(not self.trajectory_active) and k == ord('h')):
             self.home()
 
         elif(k == ord('1')):
@@ -128,7 +128,7 @@ class KeyboardTeleopNode(Node):
             self.increment -= 1.0
             if(self.increment < 1.0): self.increment = 1.0 
 
-        elif(k == ord('t')):
+        elif((not self.trajectory_active) and k == ord('t')):
             self.TEST()
 
         elif(k == ord('q')):
