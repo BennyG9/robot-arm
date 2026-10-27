@@ -239,7 +239,7 @@ class KeyboardTeleopNode(Node):
 
     def linear_trajectory_callback(self, future):
         trajectory = future.result().trajectory 
-        trajectory.time_parameterization_function = [dt + 0.02 for dt in trajectory.time_parameterization_function]
+        trajectory.time_parameterization_function = [dt + 0.03 for dt in trajectory.time_parameterization_function]
 
         self.trajectory_status = "Requesting ROS Action"
 
