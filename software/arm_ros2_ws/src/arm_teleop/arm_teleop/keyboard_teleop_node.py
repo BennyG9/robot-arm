@@ -76,6 +76,8 @@ class KeyboardTeleopNode(Node):
             self.get_logger().error("Failed to retreive robot parameters")
         for i in range(len(parameter_data.names)):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
+            
+        self.get_logger().info(f"{self.parameters}")
 
         self.get_logger().info("Keyboard Teleop Initiated")
         pass
@@ -100,7 +102,7 @@ class KeyboardTeleopNode(Node):
         if((not self.trajectory_active) and k == ord('c')):
             self.calibrate()
 
-        elif(not self.trajectory_active) and k == ord('h')):
+        elif((not self.trajectory_active) and k == ord('h')):
             self.home()
 
         elif(k == ord('1')):

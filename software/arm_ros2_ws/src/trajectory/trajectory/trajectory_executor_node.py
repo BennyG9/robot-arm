@@ -59,7 +59,8 @@ class TrajectoryExecutorNode(Node):
         done = await self.completion_future
 
         # save return result and reset
-        result = self.result.success
+        result = FollowTrajectory.Result()
+        result = self.result
         self.end_trajectory()
 
         return result
@@ -167,7 +168,7 @@ class TrajectoryExecutorNode(Node):
         # action feedback 
         self.feedback.progress = (self.index + 1) / self.trajectory.length
         self.feedback.current_target_angles = current_angles
-        self.goal_handle.publish_feedback()
+        self.goal_handle.publish_feedback(self.feedback)
         pass
 
     pass

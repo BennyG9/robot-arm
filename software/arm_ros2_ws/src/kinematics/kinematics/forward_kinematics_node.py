@@ -32,6 +32,8 @@ class FKNode(Node):
             self.get_logger().error("Failed to retreive robot parameters")
         for i in range(len(parameter_data.names)):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
+            
+        self.get_logger().info(f"{self.parameters}")
 
         self.get_logger().info("Forward Kinematics Initiated")
         pass
