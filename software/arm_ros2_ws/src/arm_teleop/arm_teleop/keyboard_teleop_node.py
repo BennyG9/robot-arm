@@ -46,17 +46,6 @@ class KeyboardTeleopNode(Node):
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
         self.current_states = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
-        #Trajectory Service + Action
-        self.traj_client = self.create_client(GetTrajectory, 'get_trajectory')
-        self._trajectory_client = ActionClient(
-            self,
-            FollowTrajectory,
-            'follow_trajectory'
-        )
-        self.trajectory_active = False
-        self.trajectory_status = ""
-        self.trajectory_progress = 0.
-
         #Keyboard Control Variables
         self.selected_joint = None
         self.current_targets = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
@@ -78,6 +67,17 @@ class KeyboardTeleopNode(Node):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
             
         self.get_logger().info(f"{self.parameters}")
+
+        #Trajectory Service + Action
+        self.traj_client = self.create_client(GetTrajectory, 'get_trajectory')
+        self._trajectory_client = ActionClient(
+            self,
+            FollowTrajectory,
+            'follow_trajectory'
+        )
+        self.trajectory_active = False
+        self.trajectory_status = ""
+        self.trajectory_progress = 0.
 
         self.get_logger().info("Keyboard Teleop Initiated")
         pass
