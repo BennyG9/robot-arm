@@ -42,9 +42,7 @@ class KeyboardTeleopNode(Node):
         #Joint Targets publisher
         self.joint_pub = self.create_publisher(JointTargets, "joint_targets", 10)
 
-        #Joint State subscriber
-        self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
-        self.current_states = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
+        
 
         #Keyboard Control Variables
         self.selected_joint = None
@@ -78,6 +76,11 @@ class KeyboardTeleopNode(Node):
         self.trajectory_active = False
         self.trajectory_status = ""
         self.trajectory_progress = 0.
+        
+        
+        #Joint State subscriber
+        self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
+        self.current_states = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
 
         self.get_logger().info("Keyboard Teleop Initiated")
         pass
@@ -236,6 +239,7 @@ class KeyboardTeleopNode(Node):
 
     def linear_trajectory_callback(self, future):
         trajectory = future.result().trajectory 
+        trajectory.time_parameterization_function = [dt + 0.02 for dt in trajectory.time_parameterization_function]
 
         self.trajectory_status = "Requesting ROS Action"
 

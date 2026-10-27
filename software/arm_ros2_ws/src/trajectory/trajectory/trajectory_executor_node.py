@@ -99,7 +99,7 @@ class TrajectoryExecutorNode(Node):
         current_angles = (self.trajectory.angles[:, self.index].astype(float)).tolist()
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
-        #*********self.joint_pub.publish(msg)
+        self.joint_pub.publish(msg)
         
         self.get_logger().info("First Point Executed")
 
@@ -152,11 +152,16 @@ class TrajectoryExecutorNode(Node):
         current_angles = (self.trajectory.angles[:, self.index+1].astype(float)).tolist()
         msg = JointTargets()
         msg.base, msg.shoulder, msg.elbow = current_angles[0], current_angles[1], current_angles[2]
-        #*********self.joint_pub.publish(msg)
+        self.joint_pub.publish(msg)
 
         # iterate for next time step
         self.last_timestamp = time.monotonic()
         self.index += 1
+        
+        # action feedback 
+        self.feedback.progress = (self.index + 1) / self.trajectory.length
+        self.feedback.current_target_angles = current_angles
+        self.goal_handle.publish_feedback(self.feedback)
 
         # check for end of trajectory
         if(self.index+1 == self.trajectory.length):
@@ -165,10 +170,6 @@ class TrajectoryExecutorNode(Node):
             self.completion_future.set_result(True)
             return
 
-        # action feedback 
-        self.feedback.progress = (self.index + 1) / self.trajectory.length
-        self.feedback.current_target_angles = current_angles
-        self.goal_handle.publish_feedback(self.feedback)
         pass
 
     pass
