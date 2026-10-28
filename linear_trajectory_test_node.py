@@ -11,10 +11,12 @@ from arm_interfaces.msg import JointStates
 
 from arm_interfaces.action import FollowTrajectory 
 
+import time
+
 
 # TODO:
-#       initial calibrate and home
-#       random start? 
+#       /initial calibrate and home/
+#       random start? no
 #       loop state machine
 #       is stable signal
 #       randomized trajectory request 
@@ -24,6 +26,8 @@ from arm_interfaces.action import FollowTrajectory
 
 
 class LinearTrajectoryTest(Node):
+
+    stability_time_constant = 3.
 
     def __init__(self):
         super.__init__("linear_trajectory_test_node")
@@ -59,6 +63,12 @@ class LinearTrajectoryTest(Node):
 
         #Joint state subscriber 
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
+        self.current_angles = [0., 0., 0.]
+        self.last_update = None
+        self.stable = True
+
+        # timer
+        self.timer = self.create_timer(0.01, self.timer_callback)
 
         self.get_logger().info("Linear Trajectory Test Starting...")
 
@@ -74,12 +84,26 @@ class LinearTrajectoryTest(Node):
         self.calibrate_client.call_async(cal_request)
 
         # home
-        home_request = Home.Request()
+        home_request = Home.Request()                        #test whether delay needs to be added
         self.home_clinet.call_async(home_request)
 
         pass
 
     def joint_states_callback(self, msg):
+        #save angles 
+        self.current_angles = [msg.base, msg.shoulder, msg.elbow]
+
+        #log update time for stability determination 
+        self.stable = False
+        self.last_update = time.monotonic()
+        pass
+
+    def timer_callback(self):
+
+        if(time.monotonic() - self.last_update > self.stability_time_constant):
+            self.stable = True
+            pass
+
         pass
 
 
