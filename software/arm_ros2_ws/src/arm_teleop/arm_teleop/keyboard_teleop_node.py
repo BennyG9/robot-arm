@@ -42,8 +42,6 @@ class KeyboardTeleopNode(Node):
         #Joint Targets publisher
         self.joint_pub = self.create_publisher(JointTargets, "joint_targets", 10)
 
-        
-
         #Keyboard Control Variables
         self.selected_joint = None
         self.current_targets = {"base":0.0, "shoulder":0.0, "elbow": 0.0}
@@ -64,7 +62,6 @@ class KeyboardTeleopNode(Node):
         for i in range(len(parameter_data.names)):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
             
-        self.get_logger().info(f"{self.parameters}")
 
         #Trajectory Service + Action
         self.traj_client = self.create_client(GetTrajectory, 'get_trajectory')
