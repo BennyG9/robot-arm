@@ -68,6 +68,10 @@ class TrajectoryExecutorNode(Node):
 
     def goal_callback(self, goal_handle):
         # ADD CONDITIONS FOR REJECTING ACTION REQUEST
+
+        # reject if currently executing trajectory 
+        if(self.active): return GoalResponse.REJECT
+
         return GoalResponse.ACCEPT
 
 

@@ -14,7 +14,7 @@ from arm_interfaces.action import FollowTrajectory
 from kinematics.forward_kinematics import forward_kinematics 
 
 import time
-
+import curses
 import numpy as np
 rng = np.random.default_rng()
 
@@ -71,7 +71,12 @@ class LinearTrajectoryTest(Node):
         self.last_zero_update = None
         self.stable = True
 
-        # timer
+        #Test Variables 
+        self.max_tests = 10
+        self.num_tests = 1
+        self.testing_active = False
+
+        #Main Loop
         self.timer = self.create_timer(0.01, self.timer_callback)
 
         self.get_logger().info("Linear Trajectory Test Starting...")
@@ -129,6 +134,11 @@ class LinearTrajectoryTest(Node):
         #set to stable if last zero was long enough ago 
         elif(time.monotonic() - self.last_zero_update > self.stability_time_constant):
             self.stable = True
+
+        #Testing State Machine 
+        if(self.testing_active):
+            
+            pass
         pass
 
 
@@ -225,6 +235,48 @@ class LinearTrajectoryTest(Node):
         ]
         return angles 
 
+
+    # handles keyboard input
+    def handle_key(self, key):
+
+        # run test trajectories 
+        if((not self.running_tests) and key == ord('t')):
+            self.testing_active = True
+
+        # change number of test trajectories 
+        elif(key == ord(']')):
+            if(self.num_tests < self.max_tests):
+                self.num_tests += 1
+        elif(key == ord('[')):
+            if(self.num_tests > 1):
+                self.num_tests -= 1
+
+        pass
+
+    # draws terminal GUI
+    def draw(self, stdscr):
+        stdscr.clear()
+
+        stdscr.addstr(0, 0, "======== Linear Trajectory Test ========")
+
+        pass
+
+    # looped function that handles keyboard input data and draws GUI
+    def run(self, stdscr):
+        curses.curs_set(0)
+        curses.noecho()
+        curses.cbreak()
+        stdscr.nodelay(True)
+        stdscr.keypad(True)
+        while(rclpy.ok()):
+            rclpy.spin_once(self, timeout_sec=0.001)
+            key = stdscr.getch()
+            if(key != -1):
+                if(not self.handle_key(key)): break
+            self.draw(stdscr)
+            time.sleep(0.05)
+        pass
+
 pass
 
 
@@ -232,7 +284,7 @@ pass
 def main():
     rclpy.init()
     node = LinearTrajectoryTest()
-    rclpy.spin(node)
+    curses.wrapper(node.run)
     node.destroy_node()
     rclpy.shutdown()
 
