@@ -190,17 +190,17 @@ robot = load_robot();
 % animate_path("angles", Q(:,1,:), robot);
 
 %%% Random Sequence of Linear Paths 
-% path_fig2 = create_robot_figure();
-% num_points = 5;
-% T1 = forward_kinematics(random_angles(robot), robot);
-% for i = 1:num_points
-%     T2 = forward_kinematics(random_angles(robot), robot);
-%     R = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
-%     Q = path2angles(R, robot);
-%     animate_path("angles", Q(:,1,:), robot);
-%     T1 = T2;
-%     pause(0.5);
-% end
+path_fig2 = create_robot_figure();
+num_points = 5;
+T1 = forward_kinematics(random_angles(robot), robot);
+for i = 1:num_points
+    T2 = forward_kinematics(random_angles(robot), robot);
+    R = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
+    Q = path2angles(R, robot);
+    animate_path("angles", Q(:,1,:), robot);
+    T1 = T2;
+    pause(0.5);
+end
 
 %%% Linear Path Boomerang
 % path_fig3 = create_robot_figure();
@@ -230,35 +230,35 @@ robot = load_robot();
 %% Time Parameterization 
 
 %%% Set Linear Path
-param_fig1 = create_robot_figure();
+% param_fig1 = create_robot_figure();
+% % q1 = deg2rad([
+% %     -70;
+% %     70;
+% %     -100;
+% % ]);
 % q1 = deg2rad([
-%     -70;
-%     70;
-%     -100;
+%     0;
+%     0;
+%     0;
 % ]);
-q1 = deg2rad([
-    0;
-    0;
-    0;
-]);
-q2 = deg2rad([
-    45;
-    30;
-    -60;
-]);
-disp(q1);
-T1 = forward_kinematics(q1, robot);
-T2 = forward_kinematics(q2, robot);
-R1 = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
-Q1 = path2angles(R1, robot);
-dt = min_path_time_func(Q1(:,1,:), robot);
-valid_dt = verify_time_func(Q1(:,1,:), dt, robot);
-
-%disp(Q1(:,1,:));
-%disp(dt);
-%disp(valid_dt);
-%plot_robot(T1);
-animate_path("angles", Q1(:,1,:), robot, dt);
+% q2 = deg2rad([
+%     45;
+%     30;
+%     -60;
+% ]);
+% disp(q1);
+% T1 = forward_kinematics(q1, robot);
+% T2 = forward_kinematics(q2, robot);
+% R1 = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
+% Q1 = path2angles(R1, robot);
+% dt = min_path_time_func(Q1(:,1,:), robot);
+% valid_dt = verify_time_func(Q1(:,1,:), dt, robot);
+% 
+% %disp(Q1(:,1,:));
+% %disp(dt);
+% %disp(valid_dt);
+% %plot_robot(T1);
+% animate_path("angles", Q1(:,1,:), robot, dt);
 
 %%% Random Linear Path
 % param_fig2 = create_robot_figure();

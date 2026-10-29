@@ -216,11 +216,14 @@ class KeyboardTeleopNode(Node):
         self.ik_test["elbow"] = best_config[2]
         pass
 
+    #start request + execution chain for linear trajectory 
     def linear_trajectory(self, pos2):
+        #trajectory flag and tracking data init
         self.trajectory_active = True
         self.trajectory_status = "Requesting Trajectory Data"
         self.trajectory_progress = 0.
 
+        #stuff trajectory data request 
         current_angles = [self.current_states["base"], self.current_states["shoulder"], self.current_states["elbow"]]
         request = GetTrajectory.Request()
         request.trajectory_type = "linear"
@@ -230,42 +233,48 @@ class KeyboardTeleopNode(Node):
         request.radius = 0.0
         request.resolution = 200
 
+        #call new function when data received 
         future = self.traj_client.call_async(request)
         future.add_done_callback(self.linear_trajectory_callback)
         pass
 
+    # trajectory data received 
     def linear_trajectory_callback(self, future):
+        #get trajectory data from future
         trajectory = future.result().trajectory 
         trajectory.time_parameterization_function = [dt + 0.03 for dt in trajectory.time_parameterization_function]
 
         self.trajectory_status = "Requesting ROS Action"
 
+        #init action goal
         goal = FollowTrajectory.Goal()
         goal.trajectory = trajectory
 
+        #send goal and pass callbacks 
         self._trajectory_client.wait_for_server()
-
         send_goal_future = self._trajectory_client.send_goal_async(goal, feedback_callback=self.trajectory_feedback_callback)
         send_goal_future.add_done_callback(self.trajectory_response_callback)
         pass
 
+    # sees whether action server accepted or rejected trajectory
     def trajectory_response_callback(self, future):
         goal_handle = future.result()
 
+        #log result
         if(not goal_handle.accepted):
             self.trajectory_status = "ROS Action NOT Accepted"
             self.get_logger().warning("Trajectory Not Accepted...")
             return
-
         self.trajectory_status = "ROS Action Accepted"
         self.get_logger().info("Trajectory Accepted")
 
+        # start action and call function on completion 
         result_future = goal_handle.get_result_async()
         self.trajectory_status = "Executing Trajectory"
-
         result_future.add_done_callback(self.trajectory_result_callback)
         pass
 
+    #handles action feedback messages 
     def trajectory_feedback_callback(self, feedback_msg):
         feedback = feedback_msg.feedback
 
@@ -278,18 +287,21 @@ class KeyboardTeleopNode(Node):
         self.trajectory_progress = feedback.progress * 100
         pass
 
+    # action done callback 
     def trajectory_result_callback(self, future):
         self.trajectory_status = "Trajectory Done"
 
         wrapped_result = future.result()
         result = wrapped_result.result
 
+        #log result 
         if(wrapped_result.status == 4 and result.success):
             self.get_logger().info("Trajectory Completed Successfully")
 
         else:
             self.get_logger().warning("Trajectory Quit")
 
+        #set trajectory metadata back
         self.trajectory_active = False
         self.trajectory_progress = 0.0
         self.trajectory_status = ""
