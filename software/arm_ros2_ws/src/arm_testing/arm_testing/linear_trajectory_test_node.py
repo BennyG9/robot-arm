@@ -20,8 +20,8 @@ rng = np.random.default_rng()
 
 
 # TODO:
-#       loop state machine
 #       joint state logger
+#       /loop state machine/
 #       /is stable signal/
 #       /randomized trajectory request/ 
 #       /actively executing flag/ 
@@ -63,7 +63,7 @@ class LinearTrajectoryTest(Node):
             FollowTrajectory,
             'follow_trajectory'
         )
-        self.trajectory_active = False        
+        self.trajectory_active = False
 
         #Joint state subscriber 
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
@@ -73,7 +73,9 @@ class LinearTrajectoryTest(Node):
 
         #Test Variables 
         self.max_tests = 10
+        self.max_increment = 5
         self.num_tests = 1
+        self.tests_left = 0
         self.testing_active = False
 
         #Main Loop
@@ -88,12 +90,20 @@ class LinearTrajectoryTest(Node):
     #initialize variables and setup robot
     def startup(self):
         # calibrate
-        cal_request = Calibrate.Request()
-        self.calibrate_client.call_async(cal_request)
+        self.calibrate 
 
         # home
-        home_request = Home.Request()                        #test whether delay needs to be added
-        self.home_clinet.call_async(home_request)
+        self.home()                        #test whether delay needs to be added
+        pass
+
+    def home(self):
+        request = Home.Request()
+        self.home_client.call_async(request)
+        pass
+
+    def calibrate(self):
+        request = Calibrate.Reqeust()
+        self.calibrate.call_async(request)
         pass
 
 
@@ -137,12 +147,20 @@ class LinearTrajectoryTest(Node):
 
         #Testing State Machine 
         if(self.testing_active):
-            
+            #if robot is in a stable state 
+            if(self.stable):
+                #still tests left to do 
+                if(self.tests_left > 0):
+                    self.random_trajectory()
+                    self.tests_left -= 1
+                #tests are done
+                else:
+                    self.testing_active = False
+            #if robot is not in a stable state 
+            else:
+                pass #wait 
             pass
         pass
-
-
-
 
     #start request + execution chain for trajectory with randomized end point 
     def random_trajectory(self):
@@ -240,16 +258,25 @@ class LinearTrajectoryTest(Node):
     def handle_key(self, key):
 
         # run test trajectories 
-        if((not self.running_tests) and key == ord('t')):
+        if(key == ord('t')):
+            self.tests_left += self.num_tests
+            if(self.tests_left > self.max_tests):
+                self.tests_left = self.max_tests
             self.testing_active = True
 
         # change number of test trajectories 
         elif(key == ord(']')):
-            if(self.num_tests < self.max_tests):
+            if(self.num_tests < self.max_increment):
                 self.num_tests += 1
         elif(key == ord('[')):
             if(self.num_tests > 1):
                 self.num_tests -= 1
+
+        #homing and calibration
+        elif((not self.testing_active) and key == ord('c')):
+            self.calibrate()
+        elif((not self.testing_active) and key == ord('h')):
+            self.home()
 
         pass
 
@@ -258,6 +285,10 @@ class LinearTrajectoryTest(Node):
         stdscr.clear()
 
         stdscr.addstr(0, 0, "======== Linear Trajectory Test ========")
+        stdscr.addstr(1, 0, f"Test Increment:   {self.num_tests}")
+        stdscr.addstr(2, 0, f"Active Testing:   {self.testing_active}")
+        stdscr.addstr(3, 0, f"Tests Left:       {self.tests_left}")
+        stdscr.addstr(4, 0, f"Stable:           {self.stable}")
 
         pass
 
