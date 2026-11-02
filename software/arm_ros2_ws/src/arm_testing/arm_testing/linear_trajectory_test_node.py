@@ -34,7 +34,7 @@ class LinearTrajectoryTest(Node):
     stability_time_constant = 3.
 
     def __init__(self):
-        super.__init__("linear_trajectory_test_node")
+        super().__init__("linear_trajectory_test_node")
 
         #Get Robot Parameters 
         self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
@@ -54,7 +54,7 @@ class LinearTrajectoryTest(Node):
         self.calibrate_client = self.create_client(Calibrate, "calibrate")
 
         #Homing
-        self.home_clinet = self.create_client(Home, "home")
+        self.home_client = self.create_client(Home, "home")
 
         #Trajectory Generation + Execution
         self.traj_client = self.create_client(GetTrajectory, "get_trajectory")

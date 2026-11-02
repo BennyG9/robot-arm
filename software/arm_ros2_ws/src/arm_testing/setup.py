@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "linear_trajectory_test_node = arm_testing.linear_trajectory_test_node:main",
         ],
     },
 )
