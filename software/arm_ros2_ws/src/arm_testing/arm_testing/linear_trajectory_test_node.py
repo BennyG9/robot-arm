@@ -21,7 +21,7 @@ rng = np.random.default_rng()
 
 class LinearTrajectoryTest(Node):
 
-    stability_time_constant = 3.
+    stability_time_constant = 1.
 
     def __init__(self):
         super().__init__("linear_trajectory_test_node")
@@ -71,7 +71,7 @@ class LinearTrajectoryTest(Node):
         #Main Loop
         self.timer = self.create_timer(0.01, self.timer_callback)
 
-        self.get_logger().info("Linear Trajectory Test Starting...")
+        self.get_logger().info("Linear Trajectory Test Initiated")
 
         self.startup()
         pass
@@ -80,7 +80,7 @@ class LinearTrajectoryTest(Node):
     #initialize variables and setup robot
     def startup(self):
         # calibrate
-        self.calibrate 
+        self.calibrate() 
 
         # home
         self.home()                        #test whether delay needs to be added
@@ -92,8 +92,8 @@ class LinearTrajectoryTest(Node):
         pass
 
     def calibrate(self):
-        request = Calibrate.Reqeust()
-        self.calibrate.call_async(request)
+        request = Calibrate.Request()
+        self.calibrate_client.call_async(request)
         pass
 
 
@@ -103,7 +103,7 @@ class LinearTrajectoryTest(Node):
         new_angles = [msg.base, msg.shoulder, msg.elbow]
 
         #angle gradient 
-        DQ = new_angles - self.current_angles
+        DQ = np.array(new_angles) - np.array(self.current_angles)
 
         #set last_zero_update flag to current time if angles NOT changing
         if(not any(DQ)):                                                             #might need to allow for floating point errors, tiny fluctuations?
@@ -233,15 +233,15 @@ class LinearTrajectoryTest(Node):
     def random_angles(self):
         angles = [
             #phi on [base_min, base_max]
-            rng.uniform(self.parameters.base_joint_min, self.parameters.base_joint_max),
+            rng.uniform(self.parameters["base_joint_min"], self.parameters["base_joint_max"]),
 
             #theta1 on [0, shoulder_max]
-            rng.uniform(0., self.parameters.shoulder_joint_max),
+            rng.uniform(0., self.parameters["shoulder_joint_max"]),
 
             #theta2 on [elbow_min, 0]
-            rng.uniform(self.parameters.elbow_joint_min, 0.)
+            rng.uniform(self.parameters["elbow_joint_min"], 0.)
         ]
-        return angles 
+        return np.degrees(angles)
 
 
     # handles keyboard input
@@ -268,7 +268,7 @@ class LinearTrajectoryTest(Node):
         elif((not self.testing_active) and key == ord('h')):
             self.home()
 
-        pass
+        return True
 
     # draws terminal GUI
     def draw(self, stdscr):
@@ -280,6 +280,7 @@ class LinearTrajectoryTest(Node):
         stdscr.addstr(3, 0, f"Tests Left:       {self.tests_left}")
         stdscr.addstr(4, 0, f"Stable:           {self.stable}")
 
+        stdscr.refresh()
         pass
 
     # looped function that handles keyboard input data and draws GUI
