@@ -19,16 +19,6 @@ import numpy as np
 rng = np.random.default_rng()
 
 
-# TODO:
-#       joint state logger
-#       /loop state machine/
-#       /is stable signal/
-#       /randomized trajectory request/ 
-#       /actively executing flag/ 
-#       /initial calibrate and home/
-
-
-
 class LinearTrajectoryTest(Node):
 
     stability_time_constant = 3.
