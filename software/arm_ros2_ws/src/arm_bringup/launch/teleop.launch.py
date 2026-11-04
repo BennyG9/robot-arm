@@ -14,35 +14,43 @@ import os
 
 def generate_launch_description():
 
-    teleop_node = ExecuteProcess(
-    	cmd=["gnome-terminal", "--", "ros2", "run", "arm_teleop", "keyboard_teleop_node"],
-    	output="screen",
+
+    teleop_node = Node(
+        package="arm_teleop",
+        executable="keyboard_teleop_node",
+        name="keyboard_teleop_node",
+        outpu="screen"
     )
 
-    # STM32 interface
-    hardware = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory("arm_bringup"), "launch", "hardware.launch.py")
-        )
-    )
+    # teleop_node = ExecuteProcess(
+    # 	cmd=["gnome-terminal", "--", "ros2", "run", "arm_teleop", "keyboard_teleop_node"],
+    # 	output="screen",
+    # )
 
-    # description + parameters + validation + kinematics 
-    robot_model = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory("arm_bringup"), "launch", "robot_model.launch.py")
-        )
-    )
+    # # STM32 interface
+    # hardware = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(get_package_share_directory("arm_bringup"), "launch", "hardware.launch.py")
+    #     )
+    # )
+
+    # # description + parameters + validation + kinematics 
+    # robot_model = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(get_package_share_directory("arm_bringup"), "launch", "robot_model.launch.py")
+    #     )
+    # )
     
-    # trajectory generation and execution
-    trajectory = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory("arm_bringup"), "launch", "trajectory.launch.py")
-        )
-    )
+    # # trajectory generation and execution
+    # trajectory = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(get_package_share_directory("arm_bringup"), "launch", "trajectory.launch.py")
+    #     )
+    # )
 
     return LaunchDescription([
         teleop_node,
-        hardware,
-        robot_model,
-        trajectory,
+        # hardware,
+        # robot_model,
+        # trajectory,
     ])

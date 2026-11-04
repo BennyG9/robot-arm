@@ -3,13 +3,14 @@ from rclpy.node import Node
 
 from arm_interfaces.msg import JointStates 
 from arm_interfaces.srv import RobotParameters 
+from arm_interfaces.srv import StartLogger
 
 from kinematics.forward_kinematics import forward_kinematics 
 
 import time
 import numpy as np
 
-# service call gives trajectory data, sets logging flag 
+# /service call gives trajectory data, sets logging flag/
 # waits for trajectory to start, keep certain number of starting angles logged 
 # logs trajectory while unstable 
 # stop logging when stable & @ end of trajectory 
@@ -18,6 +19,7 @@ import numpy as np
 class TrajectoryLoggerNode(Node):
 
     stability_time_constant = 3.
+    max_backlog = 10
 
     def __init__(self):
         super().__init__('trajectory_logger_node')
@@ -36,13 +38,22 @@ class TrajectoryLoggerNode(Node):
         for i in range(len(parameter_data.names)):
             self.parameters[parameter_data.names[i]] = float(parameter_data.parameters[i])
 
+        #Logger Service
+        self.logger_srv = self.create_service(
+            StartLogger,
+            "start_logger",
+            self.start_logger_callback
+        )
+        self.logging_flag = False
+        self.current_log = []
+
         #Joint State Subscriber 
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
         self.current_angles[0., 0., 0.]
         self.last_zero_update = None 
 
         #Main Loop
-        self.timer = self.create_timer(0.01, self.timer_callback)
+        self.timer = self.create_timer(0.001, self.timer_callback)
         self.stable = True
 
         self.get_logger().info("Trajectory Logger Initiated")
@@ -80,6 +91,21 @@ class TrajectoryLoggerNode(Node):
         elif(time.monotonic() - self.last_zero_update > self.stability_time_constant):
             self.stable = True 
         pass
+
+
+    #service callback to initiate logger
+    def start_logger_callback(self, request, response):
+        #reject if already logging 
+        if(self.logging_flag):
+            response.success = False
+        else:
+            response.success = True
+
+        #init log
+        self.current_log = []
+        self.logging_flag = True
+
+        return response 
 
 
 

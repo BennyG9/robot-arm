@@ -26,6 +26,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
     "srv/InverseKinematics.srv"
     "srv/ValidateAngles.srv"
     "srv/RobotParameters.srv"
+    "srv/StartLogger.srv"
     "srv/GetTrajectory.srv"
     "msg/JointStates.msg"
     "msg/JointTargets.msg"
