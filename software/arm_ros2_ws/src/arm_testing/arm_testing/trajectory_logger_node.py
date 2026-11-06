@@ -11,15 +11,15 @@ import time
 import numpy as np
 
 # /service call gives trajectory data, sets logging flag/
-# waits for trajectory to start, keep certain number of starting angles logged 
-# logs trajectory while unstable 
-# stop logging when stable & @ end of trajectory 
+# /waits for trajectory to start, keep certain number of starting angles logged/ 
+# /logs trajectory while unstable/ 
+# /stop logging when stable & @ end of trajectory/ 
 # save data to some file 
 
 class TrajectoryLoggerNode(Node):
 
     stability_time_constant = 3.
-    max_backlog = 10
+    max_backlog = 15
 
     def __init__(self):
         super().__init__('trajectory_logger_node')
@@ -81,15 +81,31 @@ class TrajectoryLoggerNode(Node):
 
         #save angles 
         self.current_angles = new_angles
+
+
+        #update log 
+        if(self.logging_flag):
+            if(len(self.current_log) < self.max_backlog or not self.stable):
+                self.current_log.append(self.current_angles)
+            else:
+                for i in range(len(self.current_log)-1):
+                    self.current_log[i] = self.current_log[i+1]
+                self.current_log[len(self.current_log)-1] = self.current_angles 
         pass
 
 
     def timer_callback(self):
+        previous_stability = self.stable
+
         #set stability flag
         if(self.last_zero_update == None):
             self.stable = False 
         elif(time.monotonic() - self.last_zero_update > self.stability_time_constant):
             self.stable = True 
+
+        #update logging flag on falling edge of stable signal, end of trajectory 
+        if(self.stable and (not previous_stability) and self.logging_flag):
+            self.logging_flag = False
         pass
 
 
