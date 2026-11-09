@@ -45,9 +45,10 @@ def path_to_angles(path, robot):
                     all_angles[i, :3, path_index] = q[:]
                 pass
 
-            last_valid_angles[:][:] = angles
-
             pass
+
+        last_valid_angles[:][:] = angles
+
         pass
 
     Q = all_angles
@@ -56,7 +57,7 @@ def path_to_angles(path, robot):
     for k in range(4):
 
         last_nonzero_angles = np.zeros(3)
-        last_nonzero_index = 0
+        last_nonzero_index = None
         invalid_angles = 0
 
         for i in range(Q.shape[2]):
@@ -72,13 +73,13 @@ def path_to_angles(path, robot):
                 invalid_angles += 1
                 Q[k, :, i] = clamp_angles(qki, robot)
 
-            if(last_nonzero_index != 0 and last_nonzero_index != i-1):
+            if((last_nonzero_index is not None) and last_nonzero_index != i-1):
                 current_angles = Q[k, :, i]
-                Q[k, :, last_nonzero_index:i] = np.array[
-                    np.linspace(last_valid_angles[0], current_angles[0], (i-last_nonzero_index), endpoint=False),
-                    np.linspace(last_valid_angles[0], current_angles[0], (i-last_nonzero_index), endpoint=False),
-                    np.linspace(last_valid_angles[0], current_angles[0], (i-last_nonzero_index), endpoint=False)
-                ]
+                Q[k, :, last_nonzero_index:i] = np.array([
+                    np.linspace(last_nonzero_angles[0], current_angles[0], (i-last_nonzero_index), endpoint=False),
+                    np.linspace(last_nonzero_angles[1], current_angles[1], (i-last_nonzero_index), endpoint=False),
+                    np.linspace(last_nonzero_angles[2], current_angles[2], (i-last_nonzero_index), endpoint=False)
+                ])
                 pass
 
             
@@ -93,7 +94,7 @@ def path_to_angles(path, robot):
 # clamp angles to within robot hardware allowable range
 def clamp_angles(q, robot):
     joints = ["base", "shoulder", "elbow"]
-    angles = q
+    angles = q.copy()
     for i in range(len(joints)):
         if(q[i] < robot[joints[i] + "_joint_min"]):
             angles[i] = robot[joints[i] + "_joint_min"]

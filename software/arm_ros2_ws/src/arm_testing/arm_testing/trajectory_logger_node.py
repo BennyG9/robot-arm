@@ -12,12 +12,13 @@ import time
 import numpy as np
 from pathlib import Path 
 import csv
+import json
 
 # /service call gives trajectory data, sets logging flag/
 # /waits for trajectory to start, keep certain number of starting angles logged/ 
 # /logs trajectory while unstable/ 
 # /stop logging when stable & @ end of trajectory/ 
-# save data to some file 
+# /save data to some file/ 
 
 class TrajectoryLoggerNode(Node):
 
@@ -93,10 +94,9 @@ class TrajectoryLoggerNode(Node):
         #save angles 
         self.current_angles = new_angles
 
-
         #update log 
         if(self.logging_flag):
-            data = self.current_angles + [time_stamp]
+            data = self.current_angles + [time_stamp - self.start_time]
             if(len(self.current_log) < self.max_backlog or not self.stable):
                 self.current_log.append(data)
             else:
@@ -156,8 +156,26 @@ class TrajectoryLoggerNode(Node):
 
     #saves data
     def log_trajectory(self):
+        #get and update testing metadata
+        metadata = None
+        metadata_filepath = self.DATA_DIR / "metadata.json"
+        with open(metadata_filepath, "r+", encoding="utf-8") as metadata_file:
+            metadata = json.load(metadata_file)
+
+            #increment log counter
+            metadata["logged_tests"] = metadata["logged_tests"] + 1
+
+            #save back to json file
+            metadata_file.seek(0)
+            json.dump(metadata, metadata_file, indent=4)
+            metadata_file.truncate()
+
+        #test directory path
+        TEST_DIRECTORY = self.DATA_DIR / ("trajectory" + str(metadata["logged_tests"]))
+
         #save trajectory data
-        with open("planned.csv", "w", newline="") as planned_csv:
+        planned_filepath = TEST_DIRECTORY / "planned.csv"
+        with open(planned_filepath, "w", newline="") as planned_csv:
             writer = csv.writer(planned_csv)
             writer.writerow([
                 "base_deg",
@@ -169,7 +187,8 @@ class TrajectoryLoggerNode(Node):
             writer.writerows(trajectory_data)
 
         #save logged robot joint angles 
-        with open("executed.csv", "w", newline="") as executed_csv:
+        executed_filepath = TEST_DIRECTORY / "executed.csv"
+        with open(executed_filepath, "w", newline="") as executed_csv:
             writer = csv.writer(executed_csv)
             writer.writerow([
                 "base_deg",
