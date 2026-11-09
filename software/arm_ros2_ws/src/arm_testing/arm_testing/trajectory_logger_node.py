@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from ament_index_python.packages import get_package_prefix
 
 from arm_interfaces.msg import JointStates 
 from arm_interfaces.srv import RobotParameters 
@@ -9,6 +10,8 @@ from kinematics.forward_kinematics import forward_kinematics
 
 import time
 import numpy as np
+from pathlib import Path 
+import csv
 
 # /service call gives trajectory data, sets logging flag/
 # /waits for trajectory to start, keep certain number of starting angles logged/ 
@@ -23,6 +26,11 @@ class TrajectoryLoggerNode(Node):
 
     def __init__(self):
         super().__init__('trajectory_logger_node')
+
+        #Directory Path for Trajectory Data
+        WORKSPACE_ROOT = self.get_workspace_root()
+        self.DATA_DIR = WORKSPACE_ROOT / 'data' / 'trajectory_tests'
+        self.DATA_DIR.mkdir(parents=True, exist_ok=True)
 
         #Get Robot Parameters 
         self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
@@ -46,6 +54,8 @@ class TrajectoryLoggerNode(Node):
         )
         self.logging_flag = False
         self.current_log = []
+        self.planned_trajectory = None
+        self.start_time = None
 
         #Joint State Subscriber 
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
@@ -63,6 +73,7 @@ class TrajectoryLoggerNode(Node):
     def joint_states_callback(self, msg):
         #save angles 
         new_angles = [msg.base, msg.shoulder, msg.elbow]
+        time_stamp = time.monotonic()
 
         #angle gradient 
         DQ = new_angles - self.current_angles
@@ -85,12 +96,13 @@ class TrajectoryLoggerNode(Node):
 
         #update log 
         if(self.logging_flag):
+            data = self.current_angles + [time_stamp]
             if(len(self.current_log) < self.max_backlog or not self.stable):
-                self.current_log.append(self.current_angles)
+                self.current_log.append(data)
             else:
                 for i in range(len(self.current_log)-1):
                     self.current_log[i] = self.current_log[i+1]
-                self.current_log[len(self.current_log)-1] = self.current_angles 
+                self.current_log[len(self.current_log)-1] = data 
         pass
 
 
@@ -106,6 +118,14 @@ class TrajectoryLoggerNode(Node):
         #update logging flag on falling edge of stable signal, end of trajectory 
         if(self.stable and (not previous_stability) and self.logging_flag):
             self.logging_flag = False
+
+            #actually log data at end of trajectory 
+            self.log_trajectory()
+
+            #clean up 
+            self.current_log = []
+            self.planned_trajectory = None
+            self.start_time = None
         pass
 
 
@@ -120,14 +140,58 @@ class TrajectoryLoggerNode(Node):
         #init log
         self.current_log = []
         self.logging_flag = True
+        self.start_time = time.monotonic()
 
+        #save planned trajectory 
+        if(request.trajectory.length != 0):
+            self.planned_trajectory = type("Trajectory", (), {
+                "length": request.trajectory.length,
+                "time_parameterizatiion_function": request.trajectory.time_parameterization_function,
+                "angles": np.rad2deg(np.reshape(request.trajectory.angles, (3, request.trajectory.length)))
+            })
+        else:
+            self.planned_trajectory = None
         return response 
+
+
+    #saves data
+    def log_trajectory(self):
+        #save trajectory data
+        with open("planned.csv", "w", newline="") as planned_csv:
+            writer = csv.writer(planned_csv)
+            writer.writerow([
+                "base_deg",
+                "shoulder_deg",
+                "elbow_deg",
+                "dt"
+            ])
+            trajectory_data = np.column_stack((self.planned_trajectory.angles, self.planned_trajectory.time_parameterization_function.append(0.)))
+            writer.writerows(trajectory_data)
+
+        #save logged robot joint angles 
+        with open("executed.csv", "w", newline="") as executed_csv:
+            writer = csv.writer(executed_csv)
+            writer.writerow([
+                "base_deg",
+                "shoulder_deg",
+                "elbow_deg",
+                "time_stamp"
+            ])
+            writer.writerows(self.current_log)
+        pass
 
 
 
     def get_end_coordinates(self, angles):
         frames = np.reshape(forward_kinematics(np.array(angles), self.parameters), (6,4,4))
         return (frames[5][:3,3].astype(float)).tolist()
+
+    def get_workspace_root(self):
+        package_prefix = path(get_package_prefix('arm_testing'))
+        for path in package_prefix.parents:
+            if (path / 'src').is_dir() and (path / 'install').is_dir():
+                return path
+        raise RuntimeError("Could not locate ROS workspace root dir")
 
     pass
 
