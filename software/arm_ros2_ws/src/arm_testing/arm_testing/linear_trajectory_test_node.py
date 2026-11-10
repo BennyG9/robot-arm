@@ -6,6 +6,7 @@ from arm_interfaces.srv import RobotParameters
 from arm_interfaces.srv import Calibrate 
 from arm_interfaces.srv import Home
 from arm_interfaces.srv import GetTrajectory
+from arm_interfaces.srv import StartLogger
 
 from arm_interfaces.msg import JointStates 
 
@@ -45,6 +46,9 @@ class LinearTrajectoryTest(Node):
 
         #Homing
         self.home_client = self.create_client(Home, "home")
+
+        #Trajectory Logging
+        self.logging_client = self.create_client(StartLogger, "start_logger")
 
         #Trajectory Generation + Execution
         self.traj_client = self.create_client(GetTrajectory, "get_trajectory")
@@ -94,6 +98,12 @@ class LinearTrajectoryTest(Node):
     def calibrate(self):
         request = Calibrate.Request()
         self.calibrate_client.call_async(request)
+        pass
+
+    def start_logger(self, trajectory):
+        request = StartLogger.Request()
+        request.trajectory = trajectory
+        self.logging_client.call_async(request)
         pass
 
 
@@ -176,6 +186,9 @@ class LinearTrajectoryTest(Node):
         #get trajectory data from future
         trajectory = future.result().trajectory
         trajectory.time_parameterization_function = [dt + 0.03 for dt in trajectory.time_parameterization_function]
+
+        #start logger node
+        self.start_logger(trajectory)
 
         #initialize action goal
         goal = FollowTrajectory.Goal()

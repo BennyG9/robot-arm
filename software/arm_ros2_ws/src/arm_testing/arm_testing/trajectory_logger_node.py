@@ -60,7 +60,7 @@ class TrajectoryLoggerNode(Node):
 
         #Joint State Subscriber 
         self.joint_sub = self.create_subscription(JointStates, "joint_states", self.joint_states_callback, 10)
-        self.current_angles[0., 0., 0.]
+        self.current_angles = [0., 0., 0.]
         self.last_zero_update = None 
 
         #Main Loop
@@ -77,7 +77,7 @@ class TrajectoryLoggerNode(Node):
         time_stamp = time.monotonic()
 
         #angle gradient 
-        DQ = new_angles - self.current_angles
+        DQ = np.array(new_angles) - np.array(self.current_angles)
 
         #set last_zero_update flag to current time if angles NOT changing
         if(not any(DQ)):                                                          #might need to allow for floating point errors, tiny fluctuations?
@@ -146,7 +146,7 @@ class TrajectoryLoggerNode(Node):
         if(request.trajectory.length != 0):
             self.planned_trajectory = type("Trajectory", (), {
                 "length": request.trajectory.length,
-                "time_parameterizatiion_function": request.trajectory.time_parameterization_function,
+                "time_parameterization_function": request.trajectory.time_parameterization_function,
                 "angles": np.rad2deg(np.reshape(request.trajectory.angles, (3, request.trajectory.length)))
             })
         else:
@@ -172,6 +172,7 @@ class TrajectoryLoggerNode(Node):
 
         #test directory path
         TEST_DIRECTORY = self.DATA_DIR / ("trajectory" + str(metadata["logged_tests"]))
+        TEST_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
         #save trajectory data
         planned_filepath = TEST_DIRECTORY / "planned.csv"
@@ -183,7 +184,8 @@ class TrajectoryLoggerNode(Node):
                 "elbow_deg",
                 "dt"
             ])
-            trajectory_data = np.column_stack((self.planned_trajectory.angles, self.planned_trajectory.time_parameterization_function.append(0.)))
+            self.planned_trajectory.time_parameterization_function.append(0.)
+            trajectory_data = np.column_stack((np.array(self.planned_trajectory.angles).T, self.planned_trajectory.time_parameterization_function))
             writer.writerows(trajectory_data)
 
         #save logged robot joint angles 
@@ -206,7 +208,7 @@ class TrajectoryLoggerNode(Node):
         return (frames[5][:3,3].astype(float)).tolist()
 
     def get_workspace_root(self):
-        package_prefix = path(get_package_prefix('arm_testing'))
+        package_prefix = Path(get_package_prefix('arm_testing'))
         for path in package_prefix.parents:
             if (path / 'src').is_dir() and (path / 'install').is_dir():
                 return path
