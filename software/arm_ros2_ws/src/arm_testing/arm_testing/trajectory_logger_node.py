@@ -13,12 +13,10 @@ import numpy as np
 from pathlib import Path 
 import csv
 import json
+import copy
 
-# /service call gives trajectory data, sets logging flag/
-# /waits for trajectory to start, keep certain number of starting angles logged/ 
-# /logs trajectory while unstable/ 
-# /stop logging when stable & @ end of trajectory/ 
-# /save data to some file/ 
+from concurrent.futures import ThreadPoolExecutor
+
 
 class TrajectoryLoggerNode(Node):
 
@@ -32,6 +30,9 @@ class TrajectoryLoggerNode(Node):
         WORKSPACE_ROOT = self.get_workspace_root()
         self.DATA_DIR = WORKSPACE_ROOT / 'data' / 'trajectory_tests'
         self.DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+        #Background Thread Executor 
+        self.save_thread = ThreadPoolExecutor(max_workers=1)
 
         #Get Robot Parameters 
         self.parameters_client = self.create_client(RobotParameters, "robot_parameters")
@@ -80,7 +81,7 @@ class TrajectoryLoggerNode(Node):
         DQ = np.array(new_angles) - np.array(self.current_angles)
 
         #set last_zero_update flag to current time if angles NOT changing
-        if(not any(DQ)):                                                          #might need to allow for floating point errors, tiny fluctuations?
+        if(not any(DQ)):                                           #might need to allow for floating point errors, tiny fluctuations?
 
             #only update if they were changing on last update
             if(self.last_zero_update == None):
@@ -119,8 +120,11 @@ class TrajectoryLoggerNode(Node):
         if(self.stable and (not previous_stability) and self.logging_flag):
             self.logging_flag = False
 
-            #actually log data at end of trajectory 
-            self.log_trajectory()
+            #send data to background thread for logging
+            traj = copy.deepcopy(self.planned_trajectory)
+            log = copy.deepcopy(self.current_log)
+            future = self.save_thread.submit(self.log_trajectory, traj, log)
+            future.add_done_callback(self.log_trajectory_callback)
 
             #clean up 
             self.current_log = []
@@ -134,6 +138,7 @@ class TrajectoryLoggerNode(Node):
         #reject if already logging 
         if(self.logging_flag):
             response.success = False
+            return response
         else:
             response.success = True
 
@@ -155,7 +160,7 @@ class TrajectoryLoggerNode(Node):
 
 
     #saves data
-    def log_trajectory(self):
+    def log_trajectory(self, traj, log):
         #get and update testing metadata
         metadata = None
         metadata_filepath = self.DATA_DIR / "metadata.json"
@@ -175,18 +180,20 @@ class TrajectoryLoggerNode(Node):
         TEST_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
         #save trajectory data
-        planned_filepath = TEST_DIRECTORY / "planned.csv"
-        with open(planned_filepath, "w", newline="") as planned_csv:
-            writer = csv.writer(planned_csv)
-            writer.writerow([
-                "base_deg",
-                "shoulder_deg",
-                "elbow_deg",
-                "dt"
-            ])
-            self.planned_trajectory.time_parameterization_function.append(0.)
-            trajectory_data = np.column_stack((np.array(self.planned_trajectory.angles).T, self.planned_trajectory.time_parameterization_function))
-            writer.writerows(trajectory_data)
+        if(traj is not None):
+            planned_filepath = TEST_DIRECTORY / "planned.csv"
+            with open(planned_filepath, "w", newline="") as planned_csv:
+                writer = csv.writer(planned_csv)
+                writer.writerow([
+                    "base_deg",
+                    "shoulder_deg",
+                    "elbow_deg",
+                    "dt"
+                ])
+                traj.time_parameterization_function.append(0.)
+                trajectory_data = np.column_stack((np.array(traj.angles).T, traj.time_parameterization_function))
+                writer.writerows(trajectory_data)
+            pass
 
         #save logged robot joint angles 
         executed_filepath = TEST_DIRECTORY / "executed.csv"
@@ -198,7 +205,15 @@ class TrajectoryLoggerNode(Node):
                 "elbow_deg",
                 "time_stamp"
             ])
-            writer.writerows(self.current_log)
+            writer.writerows(log)
+        pass
+
+    def log_trajectory_callback(self, future):
+        try: 
+            future.result()
+            self.get_logger().info("Successfully Saved Trajectory Data")
+        except Exception as e:
+            self.get_logger().error(f"Failed to Save Trajectory: {e}")
         pass
 
 
@@ -223,6 +238,7 @@ def main():
     rclpy.init()
     node = TrajectoryLoggerNode()
     rclpy.spin(node)
+    node.save_thread.shutdown(wait=True)
     node.destroy_node()
     rclpy.shutdown()
 
