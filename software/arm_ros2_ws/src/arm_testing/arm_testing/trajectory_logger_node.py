@@ -20,7 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 class TrajectoryLoggerNode(Node):
 
-    stability_time_constant = 3.
+    stability_time_constant = 1.
     max_backlog = 15
 
     def __init__(self):
@@ -137,9 +137,11 @@ class TrajectoryLoggerNode(Node):
     def start_logger_callback(self, request, response):
         #reject if already logging 
         if(self.logging_flag):
+            self.get_logger().warn("Log Request Rejected")
             response.success = False
             return response
         else:
+            self.get_logger().info("Log Request Accepted")
             response.success = True
 
         #init log

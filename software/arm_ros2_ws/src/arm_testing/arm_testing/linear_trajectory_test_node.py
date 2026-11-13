@@ -22,7 +22,7 @@ rng = np.random.default_rng()
 
 class LinearTrajectoryTest(Node):
 
-    stability_time_constant = 1.
+    stability_time_constant = 2.
 
     def __init__(self):
         super().__init__("linear_trajectory_test_node")
