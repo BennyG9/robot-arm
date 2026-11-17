@@ -190,17 +190,17 @@ robot = load_robot();
 % animate_path("angles", Q(:,1,:), robot);
 
 %%% Random Sequence of Linear Paths 
-path_fig2 = create_robot_figure();
-num_points = 5;
-T1 = forward_kinematics(random_angles(robot), robot);
-for i = 1:num_points
-    T2 = forward_kinematics(random_angles(robot), robot);
-    R = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
-    Q = path2angles(R, robot);
-    animate_path("angles", Q(:,1,:), robot);
-    T1 = T2;
-    pause(0.5);
-end
+% path_fig2 = create_robot_figure();
+% num_points = 5;
+% T1 = forward_kinematics(random_angles(robot), robot);
+% for i = 1:num_points
+%     T2 = forward_kinematics(random_angles(robot), robot);
+%     R = line_path(T1(1:3,4,6), T2(1:3,4,6), 200);
+%     Q = path2angles(R, robot);
+%     animate_path("angles", Q(:,1,:), robot);
+%     T1 = T2;
+%     pause(0.5);
+% end
 
 %%% Linear Path Boomerang
 % path_fig3 = create_robot_figure();
@@ -275,6 +275,20 @@ end
 % animate_path("angles", Q(:,1,:), robot, dt);
 
 
+%% Data Analytics 
 
+%%% Single Test
+data_dir_path = "../software/arm_ros2_ws/data/trajectory_tests/";
+
+test_i = 1;
+
+[planned_data, planned_time_param, executed_data, executed_timestamps] = get_trajectory_data(data_dir_path, test_i);
+
+planned_fig = create_robot_figure();
+planned_timestamps = param2stamps(planned_time_param);
+plot_trajectory(planned_data, planned_timestamps, robot);
+
+executed_fig = create_robot_figure();
+plot_trajectory(executed_data, executed_timestamps, robot);
 
 

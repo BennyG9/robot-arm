@@ -1,10 +1,17 @@
-function plot_robot(T)
+function plot_robot(T, cl)
+
+    arguments
+       T double
+       cl logical = true;
+    end
 
     X = reshape(T(1,4,:), 1, []);
     Y = reshape(T(2,4,:), 1, []);
     Z = reshape(T(3,4,:), 1, []);
 
-    cla;
+    if(cl)
+        cla;
+    end
     hold on;
     plot3(X,Y,Z, '-o', 'LineWidth', 3);
 
