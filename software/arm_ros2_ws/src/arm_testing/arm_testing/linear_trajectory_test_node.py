@@ -174,7 +174,7 @@ class LinearTrajectoryTest(Node):
         request.pos1 = self.get_end_coordinates(self.current_angles)
         request.pos2 = self.get_end_coordinates(self.random_angles())
         request.radius = 0.
-        request.resolution = 200
+        request.resolution = 500
 
         #call new function when data received 
         future = self.traj_client.call_async(request)
