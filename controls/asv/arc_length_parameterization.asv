@@ -1,0 +1,17 @@
+function param = arc_length_parameterization(points)
+
+    arc_length = zeros(size(points, 2));
+
+    for path_index = 2:size(points, 2)
+
+        %compute linear distance between current point and last point
+        dX = norm(points(:,path_index) - points(:,path_index-1));
+
+        %accumulate arc length in list
+        arc_length(path_index) = arc_length()
+
+    end
+
+
+    param = [];
+end

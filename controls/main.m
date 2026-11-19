@@ -291,4 +291,5 @@ plot_trajectory(planned_data, planned_timestamps, robot);
 executed_fig = create_robot_figure();
 plot_trajectory(executed_data, executed_timestamps, robot);
 
-
+planned_al_param = arc_length_parameterization(planned_data);
+executed_al_param = arc_length_parameterization(executed_data);
