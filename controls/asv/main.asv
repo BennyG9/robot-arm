@@ -277,8 +277,22 @@ robot = load_robot();
 
 %% Data Analytics 
 
+%%% Single Test
 data_dir_path = "../software/arm_ros2_ws/data/trajectory_tests/";
 
 test_i = 1;
 
 [planned_data, planned_time_param, executed_data, executed_timestamps] = get_trajectory_data(data_dir_path, test_i);
+
+planned_fig = create_robot_figure();
+planned_timestamps = param2stamps(planned_time_param);
+plot_trajectory(planned_data, planned_timestamps, robot);
+
+executed_fig = create_robot_figure();
+plot_trajectory(executed_data, executed_timestamps, robot);
+
+planned_al_param_joint = arc_length_parameterization(planned_data);
+executed_al_param_joint = arc_length_parameterization(executed_data);
+
+planned_al_param_cart
+executed_al_param_cart

@@ -291,8 +291,12 @@ plot_trajectory(planned_data, planned_timestamps, robot);
 executed_fig = create_robot_figure();
 plot_trajectory(executed_data, executed_timestamps, robot);
 
+planned_data_cart = angles2path(planned_data, robot);
+executed_data_cart = angles2path(executed_data, robot);
+
 planned_al_param_joint = arc_length_parameterization(planned_data);
 executed_al_param_joint = arc_length_parameterization(executed_data);
 
-planned_al_param_cart = arc_length_parameterization();
-executed_al_param_cart = arc_length_parameterization();
+planned_al_param_cart = arc_length_parameterization(planned_data_cart);
+executed_al_param_cart = arc_length_parameterization(executed_data_cart);
+

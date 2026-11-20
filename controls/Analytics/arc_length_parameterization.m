@@ -1,4 +1,4 @@
-function param = arc_length_parameterization(points)
+function [param, arc_length] = arc_length_parameterization(points)
 
     arc_length_acc = zeros(1, size(points, 2));
 
