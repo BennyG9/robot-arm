@@ -7,12 +7,42 @@ function errors = vector_errors_alp(path1, param1, path2, param2)
         path2 = path_temp;
     end
 
-    %path indices 
-    index_p1 = 1;
+    %init errors list to size of path with more samples 
+    errors = zeros(size(path1));
+
+    %path2 index
     index_p2 = 1;
 
+    %iterate over entirety of path1
     for index_p1 = 1:size(path1, 2)
 
-        
+        %get current point on path1
+        path1_point = path1(:, index_p1);
+
+        %get 2 closest points on path2 (1 each side)
+        path1_param = param1(index_p1);
+        while(true)
+            %get parameters 
+            path2_param1 = param2(index_p2);
+            path2_param2 = param2(index_p2+1);
+
+            %stop when the path1 param is between the 2 path2 params
+            if(path1_param >= path2_param1 && path1_param <= path2_param2)
+                break;
+
+            %else iterate path2's index 
+            else
+                index_p2 = index_p2 + 1; 
+            end
+        end
+
+        %linearly interpolate point on path2
+        ds = 
+        path2_interpoalted_point = path2(:, index_p2) + ;
+
+        %compute and store VECTOR errors
+        error = path1_point - path2_interpoalted_point;
+        errors(:, index_p1) = error(:);
+    end
     
 end
