@@ -307,5 +307,32 @@ cartesian_vec_errors = vector_errors_alp(executed_data_cart, executed_param_cart
 angular_norm_errors = norm_errors_alp(executed_data, executed_param_joint, planned_data, planned_param_joint);
 cartesian_norm_errors = norm_errors_alp(executed_data_cart, executed_param_cart, planned_data_cart, planned_param_cart);
 
-disp(rad2deg(angular_vec_errors));
+%disp(rad2deg(angular_vec_errors));
 %disp(cartesian_norm_errors);
+
+%disp(rad2deg(row_MEAN(angular_vec_errors)));
+%disp(row_MEAN(cartesian_norm_errors));
+
+%disp(rad2deg(row_MAE(angular_vec_errors)));
+%disp(row_MAE(cartesian_norm_errors));
+
+%disp(rad2deg(row_STD(angular_vec_errors)));
+%disp(row_STD(cartesian_norm_errors));
+
+%disp(rad2deg(row_MIN(angular_vec_errors)));
+%disp(row_MIN(cartesian_norm_errors));
+
+%disp(rad2deg(row_MAX(angular_vec_errors)));
+%disp(row_MAX(cartesian_norm_errors));
+
+%disp(rad2deg(row_PERCENTILE(angular_vec_errors, 95)));
+%disp(row_PERCENTILE(cartesian_norm_errors, 95));
+
+%disp(rad2deg(row_IQR(angular_vec_errors)));
+%disp(row_IQR(cartesian_norm_errors));
+
+
+
+
+
+
